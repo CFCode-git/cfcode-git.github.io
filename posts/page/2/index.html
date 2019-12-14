@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>呆尬猴的博客 </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="呆尬猴的博客" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="呆尬猴的博客" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://chow1027.xyz/posts/" />
+
+<meta property="og:updated_time" content="2019-12-03T18:45:06+08:00" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content="">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      呆尬猴的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="link black dim">
+        css知识总结
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等&hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式
+div.style.background =&quot;red&quot; div.style.display = &quot;none&quot; div.classList.add('xxx') --直接给元素添加一个&quot;xxx&quot;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点   JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成 (比如更改背景色，则布局不需要改变) JS/CSS &gt; 样式 &gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers
+css动画的两种做法  利用transition+transform+hover animation  transform transform的四个常用功能：
+1. 位移translate
+2. 缩放scale
+3. 旋转rotate
+4. 倾斜skew
+注意：inline元素不支持transform，要先变成block.
+transition transition:属性名 时长 过渡方式 延迟；
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/css%E5%B8%83%E5%B1%80/" class="link black dim">
+        css布局
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      float布局、flex布局、grid布局。
+布局分类 固定宽度布局：主要有960/1000/1024px;
+不固定宽度布局：靠文档流原理布局。(主要用于手机页面);
+响应式布局(混合布局)：既适应pc上的固定布局，也适应手机上的不固定布局。
+布局思路 float布局 步骤
+1. 给子元素加上float:left | right;
+2. 给父元素加上.clearfix
+经验
+1. 一般会预留一些空间或者最后一个元素width不写死。
+2. 不需要做响应式，因为手机页面没有IE，而float布局是专门为IE设计的。
+3. IE6/7存在双倍margin的bug，解决办法是
+* 针对IE6/7对margin减半
+* 再加一个display:inline-block;
+4. 用&rdquo;outline&rdquo;代替&rdquo;border&rdquo;,可以使得边框不占据内部的空间(outline不在border-box的width计算范围内)
+.float { float:left; margin-left:10px; /*一般浏览器会执行这一句,忽略下一句。*/ _margin-left:5px; /*IE6/7认得这一句，因此会先执行上一句，然后执行这一句重设margin，注意下划线_*/ }  代码示例
+&lt;!--html--&gt; &lt;header class = &quot;clearfix&quot;&gt; &lt;div class= &quot;float&quot;&gt;balabala&lt;/div&gt; &lt;/header&gt;  /*css*/ .clearfix:after { /*&quot;:&quot;或&quot;::&quot;都行，但IE8及以下只认得&quot;:&quot;*/ content:&quot;&quot;; display:block; clear:both; }  /*小技巧：如果发现图片下面有多余的东西，可以用这句话让图片居中。*/ vertical-align:top |middle; /*让块级元素居中*/ margin:0 auto; /*下面这句更好，因为没有覆盖元素本身的上下外边距*/ margin-left:auto; margin-right:auto;  flex布局 container&ndash;容器(父元素) item&ndash;项目(容器内的子块；子元素)
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/css%E5%9F%BA%E7%A1%80/" class="link black dim">
+        CSS基础
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      CSS &ndash;层叠样式表 CSS(Cascading Style Sheets)是层叠样式表，所谓层叠有三层含义：
+ 样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。网页地址
+CSS语法 CSS语法主要有两种：
+/*第一种*/ 选择器 { 属性名:属性值; /*注释*/ }  注：
+1. 要使用英文符号； 2. 要区分大小写； 3. 没有&rdquo;//&ldquo;注释； 4. 最后的&rdquo;;&ldquo;虽然可以省略，但不要省略； 5. 浏览器会忽略错误，但不会报错。
+/*第二种*/ /*声明字符编码*/ @charset = &quot;UTF-8&quot;; /*导入CSS文件*/ @import url(2.css); /*媒体查询*/ @media(min-width:100px)and(max-width:200px){ 语法一 }  注:
+1. charset必须放在第一行。 2. 前两个的@语法必须加&rdquo;;&ldquo;。 3. charset是字符集的意思，但语句本身声明的是字符编码。
+CSS查资料  Google搜索:MDN + 技术名词； Google搜索:CSS tricks + 技术名词； Google搜索:张鑫旭 + 技术名词； 最权威资料：Google搜索:CSS spec(可以查看css2.1中文版)  CSS的调试  使用W3C验证器。在线验证器 使用VScode/Webstorm看字体颜色。 使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖/忽略。) border调试法  border调试法 当怀疑某个元素出现问题：
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/css%E7%9B%92%E6%A8%A1%E5%9E%8B/" class="link black dim">
+        CSS盒模型
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      什么是css盒模型？ 根据css 2.1 中文版文档的描述:
+CSS盒模型描述了一个为文档树中的元素生成的并根据视觉格式化模型进行布局的矩形框。
+我们可以理解为css中每一个元素都是一个盒子，拥有四个区域，分别是：内容区(content)、内边距(padding)、边框(border)和外边距(margin)。 css盒模型分两种：border-box 和 content-box。
+他们的区别在于content-box的宽度只包含content内容区，border-box的宽度包含到border，它包括content内容区、padding内边距、border边框。
+返回CSS基础
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/html%E5%AE%9E%E8%B7%B5/" class="link black dim">
+        Html实践
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      选题 &ndash;我最喜欢的动漫《某科学的超电磁炮》 以动漫《某科学的超电磁炮》为主题制作一个简易介绍网页，html裸奔。
+收集内容 资料来源：
+维基百科
+萌娘百科
+ToC &ndash;Table of Content 为网页添加页内导航（锚点）
+实现手段：为每一个标题添加id，通过a标签的href指向这个id。
+&lt;nav&gt; &lt;ol&gt; &lt;li&gt;&lt;a href =&quot;#introduce&quot;&gt;作品介绍&lt;/a&gt;&lt;/li&gt; &lt;/ol&gt; &lt;/nav&gt; &lt;h2 id =&quot;introduce&quot;&gt;作品介绍&lt;/h2&gt;  添加外部资源 添加图片，注意：
+ 设置图片大小统一，不要让图片变形
+width/height二选一设置相同的值。
+ 图片比例不对的要进行裁剪
+ 图片体积过大要进行压缩，一般不超过300kb
+ 添加图片预览
+通过a标签超链接到原图，target设置为&rdquo;_blank&rdquo;。
+  兼容手机  meta:vp
+&lt;!--meta:vp--&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;  设置图片最大宽度为100%
+img { max-width:100%; }   手机调试  通过chrome控制台
+ wifi调试
+  让手机和电脑处于同一wifi，手机直接用ip和端口访问页面。 注：
+如果手机和电脑不在同一wifi，可以用映射端口，在chrome设置 &gt; more tools &gt; remote devices &gt; Port forwarding 中设置。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="link black dim">
+        《HTML常用标签》
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      a 标签 &lt;!-- html --&gt; &lt;a href=&quot;//google.com&quot; target=&quot;_blank&quot; download rel=&quot;noopener&quot;&gt; &lt;/a&gt;  作用 跳转到外部页面
+跳转到内部锚点
+跳转到电话/邮箱
+属性 href
+href 属性指定 a 标签要跳转到的新页面，他的取值可以是:
+网址
+ https://google.com http://google.com //google.com  可以是 https 也可以是 http，当采用无协议传输方式时，浏览器会自动采取 http 或 https。
+路径
+ a/b/c /a/b/c  当 href 指向某个路径时，a 标签实际访问的是 http 服务的根目录&rdquo;/&ldquo;（也就是这个网站相关文件的根目录）。
+用&rdquo;/&ldquo;开头的即表示根目录，此时用的是绝对路径。
+&rdquo;./&ldquo;的意思是在当前 html 所在的目录中找，这是一种相对路径。
+伪协议
+ javascript:代码; mailto:邮箱 tel:手机号  javascript:代码; 是 JS 的伪协议写法，用户点击 a 标签就执行该 JS 代码。
+ID
+&rdquo;#xxx&rdquo;
+href 可以指向某个 ID，用户点击 a 标签页面就会跳转到该拥有该 ID 的标签所在的位置。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/" class="link black dim">
+        Html入门笔记1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      什么是 HTML?它是谁发明的? 答：HTML 是超文本标记语言（Hypertext Markup Language）,在 1990 年由李爵士（Tim Berners-Lee）发明。
+HTML 起手式 起手式唯一招式：&rdquo;!+tab&rdquo;
+&lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot; /&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt; &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt;&lt;/body&gt; &lt;/html&gt;  注：
+ !要用英文输入法。 lang=&quot;en&quot;,language 为英文，建议改成&rdquo;zh-CN&rdquo;。 charset=&quot;UTF-8&quot;，支持各国字符的编码，不要改！ &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;防止页面缩放，适应手机屏幕。 &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;告诉浏览器采用最新的 ie 内核解析本页面。  HTML 章节标签 HTML 章节标签包括：
+ h1 ~ h6,表示标题 1 ~ 标题 6 section,表示章节 article,表示文章 p,表示段落 header,表示页面的页眉（一般是页面的标题） main,表示页面的主要内容（页面主体部分） footer,表示页面的页脚（一般是版权声明、作者等） aside,表示旁支内容（与页面主体无关的部分,比如导航 条等） div,用于划分内容块  HTML 全局属性 全局属性是所有标签都有的属性。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="link black dim">
+        如何用hugo搭建个人博客
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      如何用 hugo 搭建个人博客 以下是简略步骤：
+ hugo 下载&amp;安装 建立新网站 添加主题 开始第一篇文章 启动 hugo 服务器 自定义主题 建立静态页面 将博客放到网上  从第一步到第五步已经完成个人博客的搭建，第六步到第八步锦上添花。
+1、hugo 下载&amp;安装（windows）  下载 hugo_xxxxx_Windows-64bit.zip； 解压，将 hugo.exe 放到软件目录中； 将 hugo.exe 的存放路径添加到系统高级配置的环境变量中； 运行hugo version检查 hugo.exe 是否安装成功。  hugo 下载地址
+2、建立新网站  hugo new site quickstart
+ 注：quickstart 为你的博客仓库名。
+3、添加主题 git init --创建一个git本地仓库 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke --添加默认主题ananke echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml --将默认主题添加到网站配置文件中  4、开始第一篇文章 hugo new posts/my-first-post.md 注意：&rdquo;my-first-post&rdquo;为你的第一篇博客的名字。 在编辑器中编写内容：
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://chow1027.xyz/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="link black dim">
+        开博大吉
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      大家好 我的博客开通了，希望我也能写出好文章给大家看。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/posts/page/2/">2</a></li>
+    
+    
+    <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/posts/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 呆尬猴的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

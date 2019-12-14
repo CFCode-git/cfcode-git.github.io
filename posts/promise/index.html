@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | Promise</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Promise" />
+<meta property="og:description" content="Promise 的用途 Promise可以处理有两个结果（成功和失败）的异步任务，同时解决回调中的三个问题： 规范回调的名字和顺序 规避回调地狱，使代码可读性更强 很方便地捕获错误
+ 如何创建一个new Promise?
+// 直接用Promise构造函数创建一个Promise对象 let promise1 = new Promise((resolve,reject)=&gt;{}) // 也可以在回调的异步函数的第一行加上下面这句代码 return new Promise((resolve,reject)=&gt;{...})  如何使用Promise.prototype.then
+  .then()接受两个参数供Promise调用，第一个参数是成功回调要执行的函数，第二个是失败回调要执行的函数。 .then(success,fail)
+下面是例子：
+var p1 = new Promise((resolve, reject) =&gt; { resolve(&#39;成功！&#39;); // or // reject(new Error(&quot;出错了！&quot;)); }); p1.then(value =&gt; { console.log(value); // 成功！ }, reason =&gt; { console.error(reason); // 出错了！ });   如何使用Promise.all  传入一个可迭代对象，比如数组。
+以数组为例， 当数组中的所有Promise都会执行成功回调时（都执行resolve）， Promise.all()会等待所有的Promise都执行完毕，再以数组的形式返回他们的结果。 如果数组中某一项不是Promise值，这些值会被忽略，但仍然会放在返回的数组中。
+var p1 = Promise." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/promise/" />
+<meta property="article:published_time" content="2019-12-08T12:26:39+08:00" />
+<meta property="article:modified_time" content="2019-12-08T12:26:39+08:00" />
+<meta itemprop="name" content="Promise">
+<meta itemprop="description" content="Promise 的用途 Promise可以处理有两个结果（成功和失败）的异步任务，同时解决回调中的三个问题： 规范回调的名字和顺序 规避回调地狱，使代码可读性更强 很方便地捕获错误
+ 如何创建一个new Promise?
+// 直接用Promise构造函数创建一个Promise对象 let promise1 = new Promise((resolve,reject)=&gt;{}) // 也可以在回调的异步函数的第一行加上下面这句代码 return new Promise((resolve,reject)=&gt;{...})  如何使用Promise.prototype.then
+  .then()接受两个参数供Promise调用，第一个参数是成功回调要执行的函数，第二个是失败回调要执行的函数。 .then(success,fail)
+下面是例子：
+var p1 = new Promise((resolve, reject) =&gt; { resolve(&#39;成功！&#39;); // or // reject(new Error(&quot;出错了！&quot;)); }); p1.then(value =&gt; { console.log(value); // 成功！ }, reason =&gt; { console.error(reason); // 出错了！ });   如何使用Promise.all  传入一个可迭代对象，比如数组。
+以数组为例， 当数组中的所有Promise都会执行成功回调时（都执行resolve）， Promise.all()会等待所有的Promise都执行完毕，再以数组的形式返回他们的结果。 如果数组中某一项不是Promise值，这些值会被忽略，但仍然会放在返回的数组中。
+var p1 = Promise.">
+
+
+<meta itemprop="datePublished" content="2019-12-08T12:26:39&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-08T12:26:39&#43;08:00" />
+<meta itemprop="wordCount" content="217">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Promise"/>
+<meta name="twitter:description" content="Promise 的用途 Promise可以处理有两个结果（成功和失败）的异步任务，同时解决回调中的三个问题： 规范回调的名字和顺序 规避回调地狱，使代码可读性更强 很方便地捕获错误
+ 如何创建一个new Promise?
+// 直接用Promise构造函数创建一个Promise对象 let promise1 = new Promise((resolve,reject)=&gt;{}) // 也可以在回调的异步函数的第一行加上下面这句代码 return new Promise((resolve,reject)=&gt;{...})  如何使用Promise.prototype.then
+  .then()接受两个参数供Promise调用，第一个参数是成功回调要执行的函数，第二个是失败回调要执行的函数。 .then(success,fail)
+下面是例子：
+var p1 = new Promise((resolve, reject) =&gt; { resolve(&#39;成功！&#39;); // or // reject(new Error(&quot;出错了！&quot;)); }); p1.then(value =&gt; { console.log(value); // 成功！ }, reason =&gt; { console.error(reason); // 出错了！ });   如何使用Promise.all  传入一个可迭代对象，比如数组。
+以数组为例， 当数组中的所有Promise都会执行成功回调时（都执行resolve）， Promise.all()会等待所有的Promise都执行完毕，再以数组的形式返回他们的结果。 如果数组中某一项不是Promise值，这些值会被忽略，但仍然会放在返回的数组中。
+var p1 = Promise."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Promise</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-12-08T12:26:39&#43;08:00">December 8, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><ol>
+<li>Promise 的用途
+Promise可以处理有两个结果（成功和失败）的异步任务，同时解决回调中的三个问题：</li>
+<li>规范回调的名字和顺序</li>
+<li>规避回调地狱，使代码可读性更强</li>
+
+<li><p>很方便地捕获错误</p></li>
+
+<li><p>如何创建一个new Promise?</p>
+
+<pre><code>// 直接用Promise构造函数创建一个Promise对象
+let promise1 = new Promise((resolve,reject)=&gt;{})
+
+// 也可以在回调的异步函数的第一行加上下面这句代码
+return new Promise((resolve,reject)=&gt;{...})
+</code></pre></li>
+
+<li><p>如何使用Promise.prototype.then</p></li>
+</ol>
+
+<p>.then()接受两个参数供Promise调用，第一个参数是成功回调要执行的函数，第二个是失败回调要执行的函数。
+.then(success,fail)</p>
+
+<p>下面是例子：</p>
+
+<pre><code>var p1 = new Promise((resolve, reject) =&gt; {
+  resolve('成功！');
+  // or
+  // reject(new Error(&quot;出错了！&quot;));
+});
+
+p1.then(value =&gt; {
+  console.log(value); // 成功！
+}, reason =&gt; {
+  console.error(reason); // 出错了！
+});
+</code></pre>
+
+<ol>
+<li>如何使用Promise.all</li>
+</ol>
+
+<p>传入一个可迭代对象，比如数组。</p>
+
+<p>以数组为例，
+当数组中的所有Promise都会执行成功回调时（都执行resolve），
+Promise.all()会等待所有的Promise都执行完毕，再以数组的形式返回他们的结果。
+如果数组中某一项不是Promise值，这些值会被忽略，但仍然会放在返回的数组中。</p>
+
+<pre><code>var p1 = Promise.resolve(3);
+var p2 = 1337;
+var p3 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 100, 'foo');
+}); 
+
+Promise.all([p1, p2, p3]).then(values =&gt; { 
+  console.log(values); // [3, 1337, &quot;foo&quot;] 
+});
+</code></pre>
+
+<p>需要注意的是，Promise.all在任意一个传入的Promise失败时返回失败。
+比如在数组中存在一个Promise执行了失败回调（执行reject），那么Promise.all会立即停止执行，而且只返回执行失败的结果，比如：</p>
+
+<pre><code>var p1 = new Promise((resolve, reject) =&gt; { 
+  setTimeout(resolve, 1000, 'one'); 
+}); 
+var p2 = new Promise((resolve, reject) =&gt; { 
+  setTimeout(resolve, 2000, 'two'); 
+});
+var p3 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 3000, 'three');
+});
+var p4 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 4000, 'four');
+});
+var p5 = new Promise((resolve, reject) =&gt; {
+  reject('reject');
+});
+
+Promise.all([p1, p2, p3, p4, p5]).then(values =&gt; { 
+  console.log(values);
+}, reason =&gt; {
+  console.log(reason)
+});
+
+// 返回结果：From console:
+//&quot;reject&quot;
+</code></pre>
+
+<ol>
+<li>如何使用Promise.rece</li>
+</ol>
+
+<p>传入一个可迭代对象。</p>
+
+<p>同时执行可迭代对象中的Promise对象，只要可迭代对象中的一个Promise对象执行完成，就采用第一个执行完成的Promise结果（不管该Promise执行的是成功回调还是失败回调）</p>
+
+<p>用下面的例子理解：
+传入两个Promise对象组成的数组，输出第一个执行完毕的Promise的结果。</p>
+
+<pre><code>// 声明变量promise1，用构造函数Promise构造一个Promise对象并赋值给promise1，该对象在500毫秒后调用resolve函数。
+let promise1 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 500, 'one');
+});
+
+// 声明变量promise2，用构造函数Promise构造一个Promise对象并赋值给promise2，该对象在100毫秒后调用resolve函数。
+let promise2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, 'two');
+});
+
+// 传入两个对象异步执行，他们都成功，resolve会调用then后面的成功函数。而promise2先出结果，因此输出promise2的结果。
+Promise.race([promise1, promise2]).then(function(value) {
+  console.log(value);
+  // Both resolve, but promise2 is faster
+});
+// expected output: &quot;two&quot;
+</code></pre>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

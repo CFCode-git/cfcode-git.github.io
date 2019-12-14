@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>呆尬猴的博客  | JS函数的执行时机</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="JS函数的执行时机" />
+<meta property="og:description" content="版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源
+&mdash;以下文档部分转载自知乎文章《从一道面试题-计时器函数谈闭包》，作者：胡桃夹子
+文章地址：https://zhuanlan.zhihu.com/p/80117819
+/*********************/ let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } /*********************/  上述代码会打印出6个6。
+为什么不是0、1、2、3、4、5？
+原因是
+setTimeout是一个计时器，设置时间为0秒。（计时0秒，相当于是马上要执行）
+setTimeout是从队列结束的时候开始计时的，如果前面的进程没有结束，那么要等到前面的进程结束后才开始计时。在这里的任务队列就是它自己所在的循环。
+意思是，执行完当前的代码之后立即执行计时器中的代码。而上面的&rdquo;当前代码&rdquo;就是指for循环。
+在for循环执行完毕后，此时的i值等于6，才轮到setTimeout异步执行箭头函数。
+6个setTimeout打印出当前的i值，执行结果就是打印6个6。
+为了更好的理解，这里可以想象一个小场景。
+ for循环想让setTimeout打印点东西，他说：boss给了我个任务，这个i是我第一次执行的结果，你打印给boss看看呗。(此时i=0)
+setTimeout说：好的。然后他在便利贴上写道：打印i给老板看，放在了一边。（这里的i没有写明具体值）
+for循环执行完第二遍又来根setTimeout说：这个i是我第二次执行的结果，你打印给boss看看呗。(此时i=1)
+setTimeout又说：好的。然后他又在便利贴上写道：打印i给老板看，放在了第一张便利贴的下面。（这里的i没有写明具体值）
+同样的情形发生了六次，在第六次的时候，for循环说：这个i是我的最终成果了，你打印一下。（i=6）
+for循环的工作结束了，想起之前for循环安排的工作都没干，于是它找回之前的便利贴，一张一张执行。
+每一张都写着&rdquo;打印i&rdquo;,于是setTimeout直接把i打印了6遍给boss。
+ 怎样才能让上述代码打印出0、1、2、3、4、5？
+ 利用闭包，用函数参数来保存i的值。
+let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ !function(i){ setTimeout(()=&gt;{ console.log(i) },0) }(i) }   上述代码中，for循环每一次循环，都会把i的值作为参数传给循环内的立即执行函数，再由立即执行函数把i的值传给setTimeout执行。
+setTimeout与立即执行函数构成了闭包。
+setTimeout每一次得到的参数来自立即执行函数。而立即执行函数每一次接受的i值不同，因此传给setTimeout的i值不同。
+同样也是6个setTimeout，但setTimeout打印的i值来自立即执行函数，因此打印出0、1、2、3、4、5。
+ 对应上面的小场景。
+这里相当于是在for循环和setTimeout之间安插了一位记录员function。
+for循环每一次执行的版本（i的具体值）都会给function记录下来。
+当setTimeout要执行的时候，会从function（而不是for循环）手中得到i的值。
+ 上面的代码还可以写成：
+/*****************************/ let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<meta property="article:published_time" content="2019-11-18T15:18:59+08:00" />
+<meta property="article:modified_time" content="2019-11-18T15:18:59+08:00" />
+<meta itemprop="name" content="JS函数的执行时机">
+<meta itemprop="description" content="版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源
+&mdash;以下文档部分转载自知乎文章《从一道面试题-计时器函数谈闭包》，作者：胡桃夹子
+文章地址：https://zhuanlan.zhihu.com/p/80117819
+/*********************/ let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } /*********************/  上述代码会打印出6个6。
+为什么不是0、1、2、3、4、5？
+原因是
+setTimeout是一个计时器，设置时间为0秒。（计时0秒，相当于是马上要执行）
+setTimeout是从队列结束的时候开始计时的，如果前面的进程没有结束，那么要等到前面的进程结束后才开始计时。在这里的任务队列就是它自己所在的循环。
+意思是，执行完当前的代码之后立即执行计时器中的代码。而上面的&rdquo;当前代码&rdquo;就是指for循环。
+在for循环执行完毕后，此时的i值等于6，才轮到setTimeout异步执行箭头函数。
+6个setTimeout打印出当前的i值，执行结果就是打印6个6。
+为了更好的理解，这里可以想象一个小场景。
+ for循环想让setTimeout打印点东西，他说：boss给了我个任务，这个i是我第一次执行的结果，你打印给boss看看呗。(此时i=0)
+setTimeout说：好的。然后他在便利贴上写道：打印i给老板看，放在了一边。（这里的i没有写明具体值）
+for循环执行完第二遍又来根setTimeout说：这个i是我第二次执行的结果，你打印给boss看看呗。(此时i=1)
+setTimeout又说：好的。然后他又在便利贴上写道：打印i给老板看，放在了第一张便利贴的下面。（这里的i没有写明具体值）
+同样的情形发生了六次，在第六次的时候，for循环说：这个i是我的最终成果了，你打印一下。（i=6）
+for循环的工作结束了，想起之前for循环安排的工作都没干，于是它找回之前的便利贴，一张一张执行。
+每一张都写着&rdquo;打印i&rdquo;,于是setTimeout直接把i打印了6遍给boss。
+ 怎样才能让上述代码打印出0、1、2、3、4、5？
+ 利用闭包，用函数参数来保存i的值。
+let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ !function(i){ setTimeout(()=&gt;{ console.log(i) },0) }(i) }   上述代码中，for循环每一次循环，都会把i的值作为参数传给循环内的立即执行函数，再由立即执行函数把i的值传给setTimeout执行。
+setTimeout与立即执行函数构成了闭包。
+setTimeout每一次得到的参数来自立即执行函数。而立即执行函数每一次接受的i值不同，因此传给setTimeout的i值不同。
+同样也是6个setTimeout，但setTimeout打印的i值来自立即执行函数，因此打印出0、1、2、3、4、5。
+ 对应上面的小场景。
+这里相当于是在for循环和setTimeout之间安插了一位记录员function。
+for循环每一次执行的版本（i的具体值）都会给function记录下来。
+当setTimeout要执行的时候，会从function（而不是for循环）手中得到i的值。
+ 上面的代码还可以写成：
+/*****************************/ let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(!">
+
+
+<meta itemprop="datePublished" content="2019-11-18T15:18:59&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-18T15:18:59&#43;08:00" />
+<meta itemprop="wordCount" content="113">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS函数的执行时机"/>
+<meta name="twitter:description" content="版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源
+&mdash;以下文档部分转载自知乎文章《从一道面试题-计时器函数谈闭包》，作者：胡桃夹子
+文章地址：https://zhuanlan.zhihu.com/p/80117819
+/*********************/ let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } /*********************/  上述代码会打印出6个6。
+为什么不是0、1、2、3、4、5？
+原因是
+setTimeout是一个计时器，设置时间为0秒。（计时0秒，相当于是马上要执行）
+setTimeout是从队列结束的时候开始计时的，如果前面的进程没有结束，那么要等到前面的进程结束后才开始计时。在这里的任务队列就是它自己所在的循环。
+意思是，执行完当前的代码之后立即执行计时器中的代码。而上面的&rdquo;当前代码&rdquo;就是指for循环。
+在for循环执行完毕后，此时的i值等于6，才轮到setTimeout异步执行箭头函数。
+6个setTimeout打印出当前的i值，执行结果就是打印6个6。
+为了更好的理解，这里可以想象一个小场景。
+ for循环想让setTimeout打印点东西，他说：boss给了我个任务，这个i是我第一次执行的结果，你打印给boss看看呗。(此时i=0)
+setTimeout说：好的。然后他在便利贴上写道：打印i给老板看，放在了一边。（这里的i没有写明具体值）
+for循环执行完第二遍又来根setTimeout说：这个i是我第二次执行的结果，你打印给boss看看呗。(此时i=1)
+setTimeout又说：好的。然后他又在便利贴上写道：打印i给老板看，放在了第一张便利贴的下面。（这里的i没有写明具体值）
+同样的情形发生了六次，在第六次的时候，for循环说：这个i是我的最终成果了，你打印一下。（i=6）
+for循环的工作结束了，想起之前for循环安排的工作都没干，于是它找回之前的便利贴，一张一张执行。
+每一张都写着&rdquo;打印i&rdquo;,于是setTimeout直接把i打印了6遍给boss。
+ 怎样才能让上述代码打印出0、1、2、3、4、5？
+ 利用闭包，用函数参数来保存i的值。
+let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ !function(i){ setTimeout(()=&gt;{ console.log(i) },0) }(i) }   上述代码中，for循环每一次循环，都会把i的值作为参数传给循环内的立即执行函数，再由立即执行函数把i的值传给setTimeout执行。
+setTimeout与立即执行函数构成了闭包。
+setTimeout每一次得到的参数来自立即执行函数。而立即执行函数每一次接受的i值不同，因此传给setTimeout的i值不同。
+同样也是6个setTimeout，但setTimeout打印的i值来自立即执行函数，因此打印出0、1、2、3、4、5。
+ 对应上面的小场景。
+这里相当于是在for循环和setTimeout之间安插了一位记录员function。
+for循环每一次执行的版本（i的具体值）都会给function记录下来。
+当setTimeout要执行的时候，会从function（而不是for循环）手中得到i的值。
+ 上面的代码还可以写成：
+/*****************************/ let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(!"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      呆尬猴的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">JS函数的执行时机</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-18T15:18:59&#43;08:00">November 18, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong><em>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源</em></strong></p>
+
+<p><strong><em>&mdash;以下文档部分转载自知乎文章《从一道面试题-计时器函数谈闭包》，作者：胡桃夹子</em></strong></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/80117819">文章地址：https://zhuanlan.zhihu.com/p/80117819</a></p>
+
+<hr />
+
+<pre><code class="language-JavaScript">/*********************/
+let i = 0
+for(i = 0; i&lt;6; i++){
+  setTimeout(()=&gt;{
+    console.log(i)
+  },0)
+}
+/*********************/
+</code></pre>
+
+<p>上述代码会打印出6个6。</p>
+
+<p>为什么不是0、1、2、3、4、5？</p>
+
+<p><strong>原因是</strong></p>
+
+<p>setTimeout是一个计时器，设置时间为0秒。（计时0秒，相当于是马上要执行）</p>
+
+<p>setTimeout是从队列结束的时候开始计时的，如果前面的进程没有结束，那么要等到前面的进程结束后才开始计时。在这里的任务队列就是它自己所在的循环。</p>
+
+<p>意思是，执行完当前的代码之后立即执行计时器中的代码。而上面的&rdquo;当前代码&rdquo;就是指for循环。</p>
+
+<p>在for循环执行完毕后，此时的i值等于6，才轮到setTimeout异步执行箭头函数。</p>
+
+<p>6个setTimeout打印出当前的i值，执行结果就是打印6个6。</p>
+
+<p><strong>为了更好的理解，这里可以想象一个小场景。</strong></p>
+
+<blockquote>
+<p>for循环想让setTimeout打印点东西，他说：boss给了我个任务，这个i是我第一次执行的结果，你打印给boss看看呗。(此时i=0)</p>
+
+<p>setTimeout说：好的。然后他在便利贴上写道：打印i给老板看，放在了一边。（这里的i没有写明具体值）</p>
+
+<p>for循环执行完第二遍又来根setTimeout说：这个i是我第二次执行的结果，你打印给boss看看呗。(此时i=1)</p>
+
+<p>setTimeout又说：好的。然后他又在便利贴上写道：打印i给老板看，放在了第一张便利贴的下面。（这里的i没有写明具体值）</p>
+
+<p>同样的情形发生了六次，在第六次的时候，for循环说：这个i是我的最终成果了，你打印一下。（i=6）</p>
+
+<p>for循环的工作结束了，想起之前for循环安排的工作都没干，于是它找回之前的便利贴，一张一张执行。</p>
+
+<p>每一张都写着&rdquo;打印i&rdquo;,于是setTimeout直接把i打印了6遍给boss。</p>
+</blockquote>
+
+<p><strong>怎样才能让上述代码打印出0、1、2、3、4、5？</strong></p>
+
+<ol>
+<li><p>利用闭包，用函数参数来保存i的值。</p>
+
+<pre><code class="language-JavaScript">let i = 0
+for(i = 0; i&lt;6; i++){
+!function(i){
+    setTimeout(()=&gt;{
+        console.log(i)
+    },0)
+}(i)
+}
+</code></pre></li>
+</ol>
+
+<p>上述代码中，for循环每一次循环，都会把i的值作为参数传给循环内的立即执行函数，再由立即执行函数把i的值传给setTimeout执行。</p>
+
+<p>setTimeout与立即执行函数构成了闭包。</p>
+
+<p>setTimeout每一次得到的参数来自立即执行函数。而立即执行函数每一次接受的i值不同，因此传给setTimeout的i值不同。</p>
+
+<p>同样也是6个setTimeout，但setTimeout打印的i值来自立即执行函数，因此打印出0、1、2、3、4、5。</p>
+
+<blockquote>
+<p>对应上面的小场景。</p>
+
+<p>这里相当于是在for循环和setTimeout之间安插了一位记录员function。</p>
+
+<p>for循环每一次执行的版本（i的具体值）都会给function记录下来。</p>
+
+<p>当setTimeout要执行的时候，会从function（而不是for循环）手中得到i的值。</p>
+</blockquote>
+
+<p>上面的代码还可以写成：</p>
+
+<pre><code class="language-JavaScript">/*****************************/
+let i = 0
+for(i = 0; i&lt;6; i++){
+    setTimeout(!function(i){
+            console.log(i)
+  }(i),0)
+}
+/*****************************/
+let i = 0
+for(i = 0; i&lt;6; i++){
+    let a = function(v){
+        console.log(v)
+    }
+    setTimeout(a(i),0)
+}
+/*****************************/
+</code></pre>
+
+<ol>
+<li><p>ES6的let块级作用域</p>
+
+<pre><code class="language-JavaScript">/*上面代码只要把 let = 1 写在for循环中就可以实现0~5的打印*/
+for(let i = 0; i&lt;6; i++){
+setTimeout(()=&gt;{
+console.log(i)
+},0)
+}
+</code></pre></li>
+</ol>
+
+<p>for循环头部的let声明会有个特殊的行为，这个行为指出变量在循环过程中不止被声明一次，每次迭代都会被声明。</p>
+
+<p>随后的每个迭代都会使用上一个迭代结束时的值来初始化这个变量。</p>
+
+<p>for循环头部的let不仅将i绑定到for循环的块中，事实上他将其重新绑定到了循环的每一个迭代中，确保使用上一个循环迭代结束时的值重新进行赋值。</p>
+
+<hr />
+
+<p><strong>除了上述两种方法，还有的一些*其他的方法*以及对*闭包*的理解，之后待理解吸收后，再更新博客</strong></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 呆尬猴的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

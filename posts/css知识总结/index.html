@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>呆尬猴的博客  | css知识总结</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="css知识总结" />
+<meta property="og:description" content="css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等&hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式
+div.style.background =&quot;red&quot; div.style.display = &quot;none&quot; div.classList.add(&#39;xxx&#39;) --直接给元素添加一个&quot;xxx&quot;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点   JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成 (比如更改背景色，则布局不需要改变) JS/CSS &gt; 样式 &gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers
+css动画的两种做法  利用transition&#43;transform&#43;hover animation  transform transform的四个常用功能：
+1. 位移translate
+2. 缩放scale
+3. 旋转rotate
+4. 倾斜skew
+注意：inline元素不支持transform，要先变成block.
+transition transition:属性名 时长 过渡方式 延迟；" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" />
+<meta property="article:published_time" content="2019-11-10T09:50:38+08:00" />
+<meta property="article:modified_time" content="2019-11-10T09:50:38+08:00" />
+<meta itemprop="name" content="css知识总结">
+<meta itemprop="description" content="css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等&hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式
+div.style.background =&quot;red&quot; div.style.display = &quot;none&quot; div.classList.add(&#39;xxx&#39;) --直接给元素添加一个&quot;xxx&quot;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点   JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成 (比如更改背景色，则布局不需要改变) JS/CSS &gt; 样式 &gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers
+css动画的两种做法  利用transition&#43;transform&#43;hover animation  transform transform的四个常用功能：
+1. 位移translate
+2. 缩放scale
+3. 旋转rotate
+4. 倾斜skew
+注意：inline元素不支持transform，要先变成block.
+transition transition:属性名 时长 过渡方式 延迟；">
+
+
+<meta itemprop="datePublished" content="2019-11-10T09:50:38&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-10T09:50:38&#43;08:00" />
+<meta itemprop="wordCount" content="235">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="css知识总结"/>
+<meta name="twitter:description" content="css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等&hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式
+div.style.background =&quot;red&quot; div.style.display = &quot;none&quot; div.classList.add(&#39;xxx&#39;) --直接给元素添加一个&quot;xxx&quot;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点   JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成 (比如更改背景色，则布局不需要改变) JS/CSS &gt; 样式 &gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers
+css动画的两种做法  利用transition&#43;transform&#43;hover animation  transform transform的四个常用功能：
+1. 位移translate
+2. 缩放scale
+3. 旋转rotate
+4. 倾斜skew
+注意：inline元素不支持transform，要先变成block.
+transition transition:属性名 时长 过渡方式 延迟；"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      呆尬猴的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">css知识总结</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-10T09:50:38&#43;08:00">November 10, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="css动画">css动画</h1>
+
+<h2 id="浏览器渲染原理">浏览器渲染原理</h2>
+
+<ol>
+<li>根据HTML构建HTML树（DOM）</li>
+<li>根据CSS构建CSS树（CSSOM）</li>
+<li>将两棵树合并成一棵渲染树（render tree）</li>
+<li>Layout布局(文档流、盒模型、计算元素的大小和位置)</li>
+<li>Paint绘制（边框颜色、字体颜色等&hellip;）</li>
+<li>Composite合成（根据层叠关系展示画面）</li>
+</ol>
+
+<h2 id="三种更新方式">三种更新方式</h2>
+
+<p>在实际操作中我们一般采用JS更新样式</p>
+
+<pre><code class="language-JavaScript">div.style.background =&quot;red&quot; 
+div.style.display = &quot;none&quot; 
+div.classList.add('xxx') --直接给元素添加一个&quot;xxx&quot;的类更好，该元素会拥有该类的所有属性
+div.remove() --直接删掉节点
+</code></pre>
+
+<ul>
+<li>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。)</li>
+<li>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成 (比如更改背景色，则布局不需要改变)</li>
+<li>JS/CSS &gt; 样式 &gt; 合成 (比如只改了transform)</li>
+</ul>
+
+<p><strong>查询哪个属性触发哪个流程：</strong>
+<a href="https://csstriggers.com/">CSS Triggers</a></p>
+
+<h2 id="css动画的两种做法">css动画的两种做法</h2>
+
+<ul>
+<li>利用transition+transform+hover</li>
+<li>animation</li>
+</ul>
+
+<h3 id="transform">transform</h3>
+
+<p>transform的四个常用功能：<br />
+1. 位移translate<br />
+2. 缩放scale<br />
+3. 旋转rotate<br />
+4. 倾斜skew<br />
+<strong>注意：inline元素不支持transform，要先变成block.</strong></p>
+
+<h3 id="transition">transition</h3>
+
+<p>transition:属性名 时长 过渡方式 延迟；<br />
+1. 可以用逗号分隔两个不同的属性；<br />
+2. 可以用all表示所有属性；<br />
+3. 过渡方式：linear | ease | ease-in | ease-out | ease-in-out | &hellip;</p>
+
+<h3 id="如何过渡两次-如何添加中间点">如何过渡两次？如何添加中间点？</h3>
+
+<ol>
+<li>使用两次transform，用setTimeout监听transitioned事件。</li>
+<li>使用animation</li>
+</ol>
+
+<h3 id="animation语法">animation语法</h3>
+
+<p>animation：时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充方式 | 是否暂停 | 动画名</p>
+
+<p>时长：1s或1000ms；<br />
+过渡方式：参考transition的过渡方式（ linear | ease&hellip; ）；<br />
+次数：3 或 2.3 或 <strong>infinite（无限）</strong><br />
+方向：alternate（交替） | alternate-reverse | reverse<br />
+填充方式：forwards（令动画停在最后一帧）| backwards | both | none<br />
+是否暂停：paused | running</p>
+
+<pre><code class="language-javascript">stop.onclick =()=&gt;{
+    demo.style.animationPlayState=&quot;paused&quot;  ---为动画加上暂停按钮
+}
+</code></pre>
+
+<h3 id="animation使用步骤">animation使用步骤</h3>
+
+<ol>
+<li><p>声明关键帧</p>
+
+<pre><code class="language-css">/*css*/
+@keyframes xxx{             ---xxx是动画名
+0%{transform:none;}     ---这是一个关键帧：0%表示初始状态
+50%{transform:...}
+100{transform:...}      ---一共有三个关键帧。
+}
+</code></pre></li>
+
+<li><p>添加动画</p>
+
+<pre><code class="language-css">/*css*/
+#demo.start{
+animation:xxx 1s;            ---给demo的start属性添加动画。
+}
+</code></pre>
+
+<pre><code class="language-javascript">button.onclick =()=&gt;{
+demo.classList.add('start')  ---点击按钮，则给demo添加一个start属性。
+}
+</code></pre></li>
+</ol>
+
+<h1 id="css定位">css定位</h1>
+
+<h2 id="回顾-css盒模型">回顾：css盒模型</h2>
+
+<p><a href="../css盒模型">css盒模型</a></p>
+
+<h2 id="position">position</h2>
+
+<ul>
+<li>static(默认值)<br /></li>
+<li>relative(相对定位，升起来，但不脱离文档流)<br /></li>
+<li>absolute(绝对定位,定位基准是离他最近的祖先元素中的非static元素)<br /></li>
+<li>fixed(固定定位，定位基准是视口viewport)<br /></li>
+<li>sticky(粘滞定位)<br /></li>
+</ul>
+
+<h3 id="position-relative">position:relative</h3>
+
+<p>相对于自己定位，元素原来的位置不会消失。可用来做位移，或是做absolute元素的祖先元素。<br />
+注意：<br />
+1. 可以配合Z-index使用。<br />
+2. 不要写Z-index:9999，要管理Z-index。</p>
+
+<h3 id="position-absolute">position:absolute</h3>
+
+<p>相对于祖先元素中的离他最近的定位元素定位。(定位元素就是position取值不是默认值static的元素)，可用做鼠标提示、对话框的关闭按钮。<br />
+注意：<br />
+1. 某些浏览器上不写top/left会位置错乱。<br />
+2. 善用left：100%。<br />
+3. 善用left：50%，加负margin。</p>
+
+<h3 id="position-fixed">position:fixed</h3>
+
+<p>相对视口定位，常用于广告、&rdquo;回到顶部&rdquo;按钮。<br />
+注意：<br />
+1. 手机上尽量不要使用这个属性，会引发很多问题。</p>
+
+<h2 id="重要概念-层叠上下文">重要概念：层叠上下文</h2>
+
+<p>定位元素：position取值为非static的元素就是的定位元素，定位元素会跑到所有元素的外面。</p>
+
+<p>层叠上下文：默认的层叠上下文是html，可以在层叠上下文中创建层叠上下文。<br />
+层叠上下文中的Z-index与外界无关，只用处于同一层叠上下文Z-index才能比较。（想象在html中创建许多小的&rdquo;html&rdquo;）</p>
+
+<p><strong>层叠上下文中定位元素的Z-index可以无限大、无限小，但他永远被层叠上下文包着。</strong></p>
+
+<h3 id="哪些不正交的属性可以创建层叠上下文">哪些不正交的属性可以创建层叠上下文？</h3>
+
+<p>MDN文档中有具体描述，优先记住以下常用的属性。<br />
+1. 根元素<br />
+2. Z-index值不为auto的绝对/相对定位<br />
+3. opacity不为1的元素<br />
+4. transform属性不为none的元素<br />
+5. position：fixed<br />
+6. Z-index的值不为&rdquo;auto&rdquo;的flex项目，即父元素display:flex | inline-flex</p>
+
+<h1 id="css基础">css基础</h1>
+
+<h2 id="回忆">回忆：</h2>
+
+<p>css的版本(css2.1、css3.0)</p>
+
+<p>css语法(选择器、at语法)</p>
+
+<p>如何调试(border调试法)</p>
+
+<p>文档流(流动方向 宽度 高度 inline-block block inline元素的特点)</p>
+
+<p>脱离文档流(float和position的两个属性值)</p>
+
+<p>溢出(overflow)</p>
+
+<p>盒模型(border-box和content-box)</p>
+
+<p>margin合并(如何阻止合并?)</p>
+
+<p>基本单位</p>
+
+<p><a href="../css基础.md">回顾：css基础</a></p>
+
+<h1 id="css布局">css布局</h1>
+
+<h2 id="回忆-1">回忆：</h2>
+
+<p>布局思路(流程图)</p>
+
+<p>float布局(两个步骤：子元素float和父元素clearfix)</p>
+
+<p>flex布局(container和item)</p>
+
+<p>grid布局(container和item，<strong>超牛x的属性：grid-template-areas</strong>)</p>
+
+<p><a href="../css布局.md">回顾：css布局</a></p>
+
+<p>来这里复习一下：<br />
+<a href="https://flexboxfroggy.com/#zh-cn">青蛙游戏&ndash;flex :)</a><br />
+<a href="https://cssgridgarden.com/#zh-cn">天天种菜&ndash;grid :)</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 呆尬猴的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

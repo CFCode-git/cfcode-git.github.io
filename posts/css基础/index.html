@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>呆尬猴的博客  | CSS基础</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="CSS基础" />
+<meta property="og:description" content="CSS &ndash;层叠样式表 CSS(Cascading Style Sheets)是层叠样式表，所谓层叠有三层含义：
+ 样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。网页地址
+CSS语法 CSS语法主要有两种：
+/*第一种*/ 选择器 { 属性名:属性值; /*注释*/ }  注：
+1. 要使用英文符号； 2. 要区分大小写； 3. 没有&rdquo;//&ldquo;注释； 4. 最后的&rdquo;;&ldquo;虽然可以省略，但不要省略； 5. 浏览器会忽略错误，但不会报错。
+/*第二种*/ /*声明字符编码*/ @charset = &quot;UTF-8&quot;; /*导入CSS文件*/ @import url(2.css); /*媒体查询*/ @media(min-width:100px)and(max-width:200px){ 语法一 }  注:
+1. charset必须放在第一行。 2. 前两个的@语法必须加&rdquo;;&ldquo;。 3. charset是字符集的意思，但语句本身声明的是字符编码。
+CSS查资料  Google搜索:MDN &#43; 技术名词； Google搜索:CSS tricks &#43; 技术名词； Google搜索:张鑫旭 &#43; 技术名词； 最权威资料：Google搜索:CSS spec(可以查看css2.1中文版)  CSS的调试  使用W3C验证器。在线验证器 使用VScode/Webstorm看字体颜色。 使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖/忽略。) border调试法  border调试法 当怀疑某个元素出现问题：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/css%E5%9F%BA%E7%A1%80/" />
+<meta property="article:published_time" content="2019-11-05T20:03:57+08:00" />
+<meta property="article:modified_time" content="2019-11-05T20:03:57+08:00" />
+<meta itemprop="name" content="CSS基础">
+<meta itemprop="description" content="CSS &ndash;层叠样式表 CSS(Cascading Style Sheets)是层叠样式表，所谓层叠有三层含义：
+ 样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。网页地址
+CSS语法 CSS语法主要有两种：
+/*第一种*/ 选择器 { 属性名:属性值; /*注释*/ }  注：
+1. 要使用英文符号； 2. 要区分大小写； 3. 没有&rdquo;//&ldquo;注释； 4. 最后的&rdquo;;&ldquo;虽然可以省略，但不要省略； 5. 浏览器会忽略错误，但不会报错。
+/*第二种*/ /*声明字符编码*/ @charset = &quot;UTF-8&quot;; /*导入CSS文件*/ @import url(2.css); /*媒体查询*/ @media(min-width:100px)and(max-width:200px){ 语法一 }  注:
+1. charset必须放在第一行。 2. 前两个的@语法必须加&rdquo;;&ldquo;。 3. charset是字符集的意思，但语句本身声明的是字符编码。
+CSS查资料  Google搜索:MDN &#43; 技术名词； Google搜索:CSS tricks &#43; 技术名词； Google搜索:张鑫旭 &#43; 技术名词； 最权威资料：Google搜索:CSS spec(可以查看css2.1中文版)  CSS的调试  使用W3C验证器。在线验证器 使用VScode/Webstorm看字体颜色。 使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖/忽略。) border调试法  border调试法 当怀疑某个元素出现问题：">
+
+
+<meta itemprop="datePublished" content="2019-11-05T20:03:57&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-05T20:03:57&#43;08:00" />
+<meta itemprop="wordCount" content="115">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CSS基础"/>
+<meta name="twitter:description" content="CSS &ndash;层叠样式表 CSS(Cascading Style Sheets)是层叠样式表，所谓层叠有三层含义：
+ 样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。网页地址
+CSS语法 CSS语法主要有两种：
+/*第一种*/ 选择器 { 属性名:属性值; /*注释*/ }  注：
+1. 要使用英文符号； 2. 要区分大小写； 3. 没有&rdquo;//&ldquo;注释； 4. 最后的&rdquo;;&ldquo;虽然可以省略，但不要省略； 5. 浏览器会忽略错误，但不会报错。
+/*第二种*/ /*声明字符编码*/ @charset = &quot;UTF-8&quot;; /*导入CSS文件*/ @import url(2.css); /*媒体查询*/ @media(min-width:100px)and(max-width:200px){ 语法一 }  注:
+1. charset必须放在第一行。 2. 前两个的@语法必须加&rdquo;;&ldquo;。 3. charset是字符集的意思，但语句本身声明的是字符编码。
+CSS查资料  Google搜索:MDN &#43; 技术名词； Google搜索:CSS tricks &#43; 技术名词； Google搜索:张鑫旭 &#43; 技术名词； 最权威资料：Google搜索:CSS spec(可以查看css2.1中文版)  CSS的调试  使用W3C验证器。在线验证器 使用VScode/Webstorm看字体颜色。 使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖/忽略。) border调试法  border调试法 当怀疑某个元素出现问题："/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      呆尬猴的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">CSS基础</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-05T20:03:57&#43;08:00">November 5, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="css-层叠样式表">CSS &ndash;层叠样式表</h1>
+
+<p>CSS(<em>Cascading Style Sheets</em>)是层叠样式表，所谓层叠有三层含义：</p>
+
+<ol>
+<li>样式层叠：可多次对同一选择器进行声明。</li>
+<li>选择层叠：可用不同选择器对同一元素进行声明。</li>
+<li>文件层叠：可用多个文件层叠。</li>
+</ol>
+
+<p>CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。<a href="https://caniuse.com/">网页地址</a></p>
+
+<h1 id="css语法">CSS语法</h1>
+
+<p>CSS语法主要有两种：</p>
+
+<pre><code class="language-CSS">/*第一种*/
+选择器 {
+    属性名:属性值;
+    /*注释*/
+}
+</code></pre>
+
+<p>注：<br />
+1. 要使用英文符号；
+2. 要区分大小写；
+3. 没有&rdquo;//&ldquo;注释；
+4. 最后的&rdquo;;&ldquo;虽然可以省略，但不要省略；
+5. 浏览器会忽略错误，但不会报错。</p>
+
+<pre><code class="language-CSS">/*第二种*/
+/*声明字符编码*/
+@charset = &quot;UTF-8&quot;; 
+
+/*导入CSS文件*/
+@import url(2.css); 
+
+/*媒体查询*/
+@media(min-width:100px)and(max-width:200px){
+    语法一
+}  
+</code></pre>
+
+<p>注:<br />
+1. charset必须放在第一行。
+2. 前两个的@语法必须加&rdquo;;&ldquo;。
+3. charset是字符集的意思，但语句本身声明的是字符编码。</p>
+
+<h1 id="css查资料">CSS查资料</h1>
+
+<ol>
+<li>Google搜索:MDN + 技术名词；</li>
+<li>Google搜索:CSS tricks + 技术名词；</li>
+<li>Google搜索:张鑫旭 + 技术名词；</li>
+<li><strong>最权威资料：Google搜索:CSS spec</strong>(<em>可以查看css2.1中文版</em>)</li>
+</ol>
+
+<h1 id="css的调试">CSS的调试</h1>
+
+<ol>
+<li>使用W3C验证器。<a href="https://jigsaw.w3.org/css-validator/">在线验证器</a></li>
+<li>使用VScode/Webstorm看字体颜色。</li>
+<li>使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖/忽略。)</li>
+<li><em>border调试法</em></li>
+</ol>
+
+<h1 id="border调试法">border调试法</h1>
+
+<p>当怀疑某个元素出现问题：</p>
+
+<ol>
+<li>给这个元素逐行加border。</li>
+<li>border没出现：border前面的语法错误，或者选择器错误。</li>
+<li>border出现，证明前面的选择器或语法没有问题。观察border是否符合预期。</li>
+</ol>
+
+<h1 id="如何练习css">如何练习CSS？</h1>
+
+<ul>
+<li>PSD</li>
+</ul>
+
+<p>Freepik中搜索PSD Web。<a href="https://www.freepik.com/search?query=web&amp;type=psd">网页地址</a></p>
+
+<ul>
+<li><p>效果图
+参考dribbble.com中的页面模仿。<a href="https://dribbble.com/">网页地址</a></p></li>
+
+<li><p>模仿常去的商业网站</p></li>
+</ul>
+
+<h1 id="文档流">文档流</h1>
+
+<p>首先，在新的CSS规范中不存在内联元素和块级元素的区别，所有元素都可以是内联元素或者块级元素，这取决于display的取值。</p>
+
+<h2 id="文档的流动方向">文档的流动方向</h2>
+
+<p>inline元素从左到右，到最右边才换行，<strong>在最右边有可能折断跨两行；</strong><br />
+block元素从上到下，每一个都独占一行；<br />
+inline-block元素也是从左到右，<strong>但不会跨两行。</strong></p>
+
+<h2 id="宽度">宽度</h2>
+
+<p>inline元素宽度为内部inline元素的和，不能用width指定宽度；<br />
+block元素默认 <em>自动</em> 计算宽度，可以用width指定；(要多宽有多宽)<br />
+inline元素结合前两者的特点，可用width指定。(要多窄有多窄)
+<strong>注意的点：</strong>block的默认宽度是auto，并不是100%，且任何时候都不要设置width为100%。</p>
+
+<h2 id="高度">高度</h2>
+
+<p>inline元素的高度由line-height <em>间接</em> 决定，跟height无关；<br />
+block元素的高度由<strong>内部文档流元素</strong>决定，可以设置height；<br />
+inline-block与block类似，可以设置height。</p>
+
+<h2 id="溢出">溢出</h2>
+
+<p>当内容区的高度或宽度大于元素(容器)设定的高度或宽度时，内容会溢出。<br />
+处理手段：设置overflow属性<br />
+auto &ndash;自动
+scroll &ndash;永远显示滚动条
+hidden &ndash;隐藏溢出的内容<br />
+visible &ndash;显示溢出的部分</p>
+
+<p>overflow可以分为overflow-x和overflow-y。</p>
+
+<h2 id="脱离文档流">脱离文档流</h2>
+
+<p>当设置css为如下属性时，元素将脱离文档流。</p>
+
+<pre><code class="language-CSS">float:left/right/center
+
+position:absolute/fixed
+</code></pre>
+
+<h1 id="盒模型">盒模型</h1>
+
+<p>查看:<br />
+<a href="../css盒模型">css盒模型</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 呆尬猴的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

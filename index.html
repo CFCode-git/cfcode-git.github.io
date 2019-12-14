@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>呆尬猴的博客 </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="呆尬猴的博客" />
+      <link href="/index.xml" rel="feed" type="application/rss+xml" title="呆尬猴的博客" />
+      
+    
+    
+    <meta property="og:title" content="呆尬猴的博客" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://chow1027.xyz/" />
+
+<meta property="og:updated_time" content="2019-12-03T18:45:06+08:00" />
+<meta itemprop="name" content="呆尬猴的博客">
+<meta itemprop="description" content="">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="呆尬猴的博客"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      呆尬猴的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          呆尬猴的博客
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+    
+  </article>
+  
+  
+  
+  
+  
+  
+  
+    
+    
+
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+       
+          <h1 class="flex-none">
+            Recent Posts
+          </h1>
+        
+
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://chow1027.xyz/posts/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="color-inherit dim link">
+            Axios使用手册
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          参考文献：
+axios中文网
+axios英文原文
+GET 请求 /*为给定 ID 的 User 创建请求*/ axios.get('/user?ID = 12345') .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); }) /*可以通过对象传递 User 的 ID*/ axios.get('/user',{ params:{ ID:12345 } }) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); })  POST 请求 /*执行post请求*/ axios.post('user',{ firstName:'Fred', lastName:'Flintstone' }) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); })  执行多个并发请求 function getUserAccount(){ return axios.get('/user/12345'); } function getUserPermissions(){ return axios.get('/user/12345/permissions'); } axios.all([getUserAccount(),getUserPermissions()]) .then(axios.spread(function(acct,perms){ // 两个请求现在都执行完成 }));  创建请求 /*发送POST请求*/ axios({ method:'post', url:'/user/12345', data:{ firstName:'Fred', lastName:'Flintstone' } }); /*获取远端照片*/ axios({ method:'get', url:'http://bit.
+        </div>
+          <a href="http://chow1027.xyz/posts/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://chow1027.xyz/posts/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/" class="color-inherit dim link">
+            JQuery中的函数
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源
+&mdash;参考资料来源：
+jQuery设计思想&mdash;阮一峰
+jQuery中文文档
+jQuery(选择器)用于获取对应的元素，但是它不返回对应的元素，
+他返回一个对象，这个对象可以操作对应的元素。
+jQuery获取页面元素 利用构造函数jQuery()（或者它的别称$），传入一个css选择器作为参数。
+/*选取整个文档对象*/ $(document) /*选取id为xxx的网页元素*/ $('#xxx') /*选取class为xxxx的div元素*/ $('div.xxxx') /*选取name属性为first的input元素*/ $('input[name=first]')  也可以传入jQuery特有的选择器
+/*选择网页第一个a元素*/ $('a:first') /*选择表格的奇数行*/ $('tr:odd') /*选择表单中的input元素*/ $('#myForm :input') /*选择可见的div元素*/ $('div:visible') /*选择所有的div元素，除了前三个*/ $('div:gt(2)') /*选择处于动画状态的div元素*/ $('div:animated')  链式操作 jQuery中的链式操作是通过jQuery对象调用jQuery函数，再次返回经过函数处理的jQuery对象实现的。
+比如：
+$('div').find('h3').eq(2).html('Hello');  $('div')返回一个对象，对象可以操作页面中的所有div；
+.find('h3')返回一个对象,对象操作上述div对象中的所有h3元素；
+.eq(2)返回一个对象，对象只操作上述h3元素的第三个；
+.html('Hello')返回一个对象，该对象是将上述h3元素的内容更改为hello后的结果。
+可以通过.end()回退一步。
+可以通过链式操作对jQuery选择的元素进行更进一步的精确选择
+// 选择包含p元素的div元素 $('div').has('p'); // 选择class不等于myclass的div元素 $('div').not('.myclass'); // 选择class等于myclass的div元素 $('div').filter('.myclass'); // 选择第一个div元素 $('div').first(); // 选择第六个div元素 $('div').eq(5); // 选择div元素后面的第一个p元素 $('div').next('p') // 选择div元素的父元素 $('div').parent() // 选择离div最近的form父元素 $('div').closest('form') // 选择div所有子元素 $('div').
+        </div>
+          <a href="http://chow1027.xyz/posts/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://chow1027.xyz/posts/for-in%E4%B8%8Efor-of/" class="color-inherit dim link">
+            For In与for Of
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源
+参考文章
+(for&hellip;in&hellip;与for&hellip;of&hellip;区别)[https://juejin.im/post/5b567b5a5188251ac0630bda]
+for in更适合用来遍历对象，不要使用for in 遍历数组。
+使用for in 遍历数组会产生以下问题：
+1. JavaScript中的数组是用对象模拟出来的，数组的索引值也就是对象中的key，是字符串类型的数字。不能直接进行几何运算。
+2. 使用for in遍历数组会遍历数组所有可枚举属性，包括原型。
+3. 遍历的顺序可能不是按照数组实际的内部顺序。
+for of 只是遍历数组中的元素，不包括数组的原型属性和索引。
+for of遍历的是数组中的元素值，for in遍历的是索引。
+        </div>
+          <a href="http://chow1027.xyz/posts/for-in%E4%B8%8Efor-of/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://chow1027.xyz/posts/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/" class="link black dim">
+              Let和const在for循环中的运用
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://chow1027.xyz/posts/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/" class="link black dim">
+              谈谈浏览器解析html时的阻塞问题
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://chow1027.xyz/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="link black dim">
+              JS函数的执行时机
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://chow1027.xyz/posts/js%E5%AF%B9%E8%B1%A1/" class="link black dim">
+              JS对象
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="http://chow1027.xyz/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
+        
+        </section>
+      
+
+      </div>
+  
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 呆尬猴的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

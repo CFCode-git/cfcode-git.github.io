@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | 排序</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="排序" />
+<meta property="og:description" content="数组排序
+给出正整数数组 array = [2,1,5,3,8,4,9,5] 请写出一个函数 sort，使得 sort(array) 得到从小到大排好序的数组 [1,2,3,4,5,5,8,9] 新的数组可以是在 array 自身上改的，也可以是完全新开辟的内存。
+不得使用 JS 内置的 sort API
+// 快速排序 function quicksort(array){ if(array.length &lt; 2){ return array } let pivotIndex = Math.floor(array.length/2) let pivotNum = array.splice(pivotIndex,1)[0] let left = [] let right = [] for(i=0; i&lt;array.length; i&#43;&#43;){ if(array[i]&lt;=pivotNum){ left.push(array[i]) }else{ right.push(array[i]) } } return quicksort(left).concat([pivotNum],quicksort(right)) }  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/%E6%8E%92%E5%BA%8F/" />
+<meta property="article:published_time" content="2019-12-08T15:14:02+08:00" />
+<meta property="article:modified_time" content="2019-12-08T15:14:02+08:00" />
+<meta itemprop="name" content="排序">
+<meta itemprop="description" content="数组排序
+给出正整数数组 array = [2,1,5,3,8,4,9,5] 请写出一个函数 sort，使得 sort(array) 得到从小到大排好序的数组 [1,2,3,4,5,5,8,9] 新的数组可以是在 array 自身上改的，也可以是完全新开辟的内存。
+不得使用 JS 内置的 sort API
+// 快速排序 function quicksort(array){ if(array.length &lt; 2){ return array } let pivotIndex = Math.floor(array.length/2) let pivotNum = array.splice(pivotIndex,1)[0] let left = [] let right = [] for(i=0; i&lt;array.length; i&#43;&#43;){ if(array[i]&lt;=pivotNum){ left.push(array[i]) }else{ right.push(array[i]) } } return quicksort(left).concat([pivotNum],quicksort(right)) }  ">
+
+
+<meta itemprop="datePublished" content="2019-12-08T15:14:02&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-08T15:14:02&#43;08:00" />
+<meta itemprop="wordCount" content="56">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="排序"/>
+<meta name="twitter:description" content="数组排序
+给出正整数数组 array = [2,1,5,3,8,4,9,5] 请写出一个函数 sort，使得 sort(array) 得到从小到大排好序的数组 [1,2,3,4,5,5,8,9] 新的数组可以是在 array 自身上改的，也可以是完全新开辟的内存。
+不得使用 JS 内置的 sort API
+// 快速排序 function quicksort(array){ if(array.length &lt; 2){ return array } let pivotIndex = Math.floor(array.length/2) let pivotNum = array.splice(pivotIndex,1)[0] let left = [] let right = [] for(i=0; i&lt;array.length; i&#43;&#43;){ if(array[i]&lt;=pivotNum){ left.push(array[i]) }else{ right.push(array[i]) } } return quicksort(left).concat([pivotNum],quicksort(right)) }  "/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">排序</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-12-08T15:14:02&#43;08:00">December 8, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>数组排序</p>
+
+<p>给出正整数数组 array = [2,1,5,3,8,4,9,5]
+请写出一个函数 sort，使得 sort(array) 得到从小到大排好序的数组 [1,2,3,4,5,5,8,9]
+新的数组可以是在 array 自身上改的，也可以是完全新开辟的内存。</p>
+
+<p>不得使用 JS 内置的 sort API</p>
+
+<pre><code>// 快速排序
+function quicksort(array){
+    if(array.length &lt; 2){
+        return array
+    }
+    let pivotIndex = Math.floor(array.length/2)
+    let pivotNum = array.splice(pivotIndex,1)[0]
+    let left = []
+    let right = []
+    for(i=0; i&lt;array.length; i++){
+        if(array[i]&lt;=pivotNum){
+            left.push(array[i])
+        }else{
+            right.push(array[i])
+        }
+    }
+    return quicksort(left).concat([pivotNum],quicksort(right))
+}
+</code></pre>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

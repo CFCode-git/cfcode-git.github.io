@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | JS的继承</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="JS的继承" />
+<meta property="og:description" content="你如何理解 JS 的继承？
+答出基于原型的继承给 5 分 答出基于 class 的继承给 5 分 提示：用代码来回答
+JS中的继承是基于原型链实现的，我们用下列代码来说明
+let arr = new Array(1,2,3) // arr: [1,2,3] arr.push(4) // arr: [1,2,3,4]  上述代码通过构造函数Array，创建了一个数组对象的实例arr，然后用push()方法在数组的末尾添加了&rsquo;4&rsquo;。 我们没有为arr实例添加push()方法，那么arr的push()方法是从哪来的？ 答案是通过原型链，从Array.prototype继承的。 让我们打印实例arr，结果如下
+(3) [1,2,3,4] 0: 1 1: 2 2: 3 3: 4 length: 3 __proto__: Array(0)  当我们用构造函数创建一个对象时，对象会自动生成一个隐藏属性proto,它指向构造这个对象的构造函数的prototype。 构造函数的prototype属性存放着一个对象的地址，这个对象里面会存放一些共有属性，我们把这个对象就叫做原型。 所有用这个构造函数构造的对象，就会拥有这个原型中的共有属性，我们可以认为这个对象它继承了它的构造函数的prototype。 比如上述代码，当我们要使用arr的push()方法，JS引擎会首先在arr对象中找push()方法，没找到，JS引擎就会沿着原型链，在Array.prototype中找找有没有继承到push()方法，找到了就调用。 总结就是JS中的继承基于原型链，一个对象的proto指向的内容，就是该对象继承的内容。我们可以通过更改一个对象的proto来更改这个对象要继承的共有属性。
+也可以用Object.create创建原型链 比如:
+let common = {country:&#39;China&#39;,haircolor:&#39;black&#39;} let person = Object.create(common) // person对象 以 common 为原型  上述代码创建了一个person对象，以common为原型，person拥有common的所有属性和方法。
+关于Class继承，是ES6中的语法糖，其本质还是原型链。
+首先我们定义一个类
+class Person{ constructor(skin,language){ this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/js%E7%9A%84%E7%BB%A7%E6%89%BF/" />
+<meta property="article:published_time" content="2019-12-08T15:21:44+08:00" />
+<meta property="article:modified_time" content="2019-12-08T15:21:44+08:00" />
+<meta itemprop="name" content="JS的继承">
+<meta itemprop="description" content="你如何理解 JS 的继承？
+答出基于原型的继承给 5 分 答出基于 class 的继承给 5 分 提示：用代码来回答
+JS中的继承是基于原型链实现的，我们用下列代码来说明
+let arr = new Array(1,2,3) // arr: [1,2,3] arr.push(4) // arr: [1,2,3,4]  上述代码通过构造函数Array，创建了一个数组对象的实例arr，然后用push()方法在数组的末尾添加了&rsquo;4&rsquo;。 我们没有为arr实例添加push()方法，那么arr的push()方法是从哪来的？ 答案是通过原型链，从Array.prototype继承的。 让我们打印实例arr，结果如下
+(3) [1,2,3,4] 0: 1 1: 2 2: 3 3: 4 length: 3 __proto__: Array(0)  当我们用构造函数创建一个对象时，对象会自动生成一个隐藏属性proto,它指向构造这个对象的构造函数的prototype。 构造函数的prototype属性存放着一个对象的地址，这个对象里面会存放一些共有属性，我们把这个对象就叫做原型。 所有用这个构造函数构造的对象，就会拥有这个原型中的共有属性，我们可以认为这个对象它继承了它的构造函数的prototype。 比如上述代码，当我们要使用arr的push()方法，JS引擎会首先在arr对象中找push()方法，没找到，JS引擎就会沿着原型链，在Array.prototype中找找有没有继承到push()方法，找到了就调用。 总结就是JS中的继承基于原型链，一个对象的proto指向的内容，就是该对象继承的内容。我们可以通过更改一个对象的proto来更改这个对象要继承的共有属性。
+也可以用Object.create创建原型链 比如:
+let common = {country:&#39;China&#39;,haircolor:&#39;black&#39;} let person = Object.create(common) // person对象 以 common 为原型  上述代码创建了一个person对象，以common为原型，person拥有common的所有属性和方法。
+关于Class继承，是ES6中的语法糖，其本质还是原型链。
+首先我们定义一个类
+class Person{ constructor(skin,language){ this.">
+
+
+<meta itemprop="datePublished" content="2019-12-08T15:21:44&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-08T15:21:44&#43;08:00" />
+<meta itemprop="wordCount" content="136">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS的继承"/>
+<meta name="twitter:description" content="你如何理解 JS 的继承？
+答出基于原型的继承给 5 分 答出基于 class 的继承给 5 分 提示：用代码来回答
+JS中的继承是基于原型链实现的，我们用下列代码来说明
+let arr = new Array(1,2,3) // arr: [1,2,3] arr.push(4) // arr: [1,2,3,4]  上述代码通过构造函数Array，创建了一个数组对象的实例arr，然后用push()方法在数组的末尾添加了&rsquo;4&rsquo;。 我们没有为arr实例添加push()方法，那么arr的push()方法是从哪来的？ 答案是通过原型链，从Array.prototype继承的。 让我们打印实例arr，结果如下
+(3) [1,2,3,4] 0: 1 1: 2 2: 3 3: 4 length: 3 __proto__: Array(0)  当我们用构造函数创建一个对象时，对象会自动生成一个隐藏属性proto,它指向构造这个对象的构造函数的prototype。 构造函数的prototype属性存放着一个对象的地址，这个对象里面会存放一些共有属性，我们把这个对象就叫做原型。 所有用这个构造函数构造的对象，就会拥有这个原型中的共有属性，我们可以认为这个对象它继承了它的构造函数的prototype。 比如上述代码，当我们要使用arr的push()方法，JS引擎会首先在arr对象中找push()方法，没找到，JS引擎就会沿着原型链，在Array.prototype中找找有没有继承到push()方法，找到了就调用。 总结就是JS中的继承基于原型链，一个对象的proto指向的内容，就是该对象继承的内容。我们可以通过更改一个对象的proto来更改这个对象要继承的共有属性。
+也可以用Object.create创建原型链 比如:
+let common = {country:&#39;China&#39;,haircolor:&#39;black&#39;} let person = Object.create(common) // person对象 以 common 为原型  上述代码创建了一个person对象，以common为原型，person拥有common的所有属性和方法。
+关于Class继承，是ES6中的语法糖，其本质还是原型链。
+首先我们定义一个类
+class Person{ constructor(skin,language){ this."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">JS的继承</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-12-08T15:21:44&#43;08:00">December 8, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>你如何理解 JS 的继承？</p>
+
+<p>答出基于原型的继承给 5 分
+答出基于 class 的继承给 5 分
+提示：用代码来回答</p>
+
+<p>JS中的继承是基于原型链实现的，我们用下列代码来说明</p>
+
+<pre><code>let arr = new Array(1,2,3)
+// arr: [1,2,3]
+arr.push(4)
+// arr: [1,2,3,4]
+</code></pre>
+
+<p>上述代码通过构造函数Array，创建了一个数组对象的实例arr，然后用push()方法在数组的末尾添加了&rsquo;4&rsquo;。
+我们没有为arr实例添加push()方法，那么arr的push()方法是从哪来的？
+答案是通过原型链，从Array.prototype继承的。
+让我们打印实例arr，结果如下</p>
+
+<pre><code>(3) [1,2,3,4]
+    0: 1
+    1: 2
+    2: 3
+    3: 4
+    length: 3
+    __proto__: Array(0)
+</code></pre>
+
+<p>当我们用构造函数创建一个对象时，对象会自动生成一个隐藏属性<strong>proto</strong>,它指向构造这个对象的构造函数的prototype。
+构造函数的prototype属性存放着一个对象的地址，这个对象里面会存放一些共有属性，我们把这个对象就叫做原型。
+所有用这个构造函数构造的对象，就会拥有这个原型中的共有属性，我们可以认为这个对象它继承了它的构造函数的prototype。
+比如上述代码，当我们要使用arr的push()方法，JS引擎会首先在arr对象中找push()方法，没找到，JS引擎就会沿着原型链，在Array.prototype中找找有没有继承到push()方法，找到了就调用。
+总结就是JS中的继承基于原型链，一个对象的<strong>proto</strong>指向的内容，就是该对象继承的内容。我们可以通过更改一个对象的<strong>proto</strong>来更改这个对象要继承的共有属性。</p>
+
+<p>也可以用Object.create创建原型链
+比如:</p>
+
+<pre><code>let common = {country:'China',haircolor:'black'}
+let person = Object.create(common)
+// person对象 以 common 为原型
+</code></pre>
+
+<p>上述代码创建了一个person对象，以common为原型，person拥有common的所有属性和方法。</p>
+
+<p>关于Class继承，是ES6中的语法糖，其本质还是原型链。</p>
+
+<p>首先我们定义一个类</p>
+
+<pre><code>class Person{
+    constructor(skin,language){
+        this.skin = skin
+        this.language = language
+    }
+    say(){
+        console.log('hi')
+    }
+}
+</code></pre>
+
+<p>上面的类就有了skin和language属性，以及say()方法。</p>
+
+<p>class用extends继承</p>
+
+<p>(1)当继承的子类没有constructor时</p>
+
+<pre><code>class American extends Person{
+    aboutMe(){
+        console.log(this.skin + &quot; &quot; + this.language)
+    }
+}
+</code></pre>
+
+<p>American继承Person，当American没有定义constructor，就会默认添加一个，并在constructor中调用super函数，相当于调用Person的构造函数。
+调用super是为了获得父类的this，调用后this指向子类。</p>
+
+<p>(2)当继承的子类有constructor时</p>
+
+<pre><code>class Chinese extends Person{
+    constructor(skin,language,position){
+        super(skin,language)
+        this.position = position
+    }
+    aboutMe(){
+        console.log(this.skin + &quot; &quot; + this.language + &quot; &quot; + this.position )
+    }
+}
+</code></pre>
+
+<p>必须要调用super方法，否则new实例时会报错。
+因为子类没有自己的this对象，而是继承父类的this对象，如果不调用super函数，子类就得不到this对象。
+super()作为父类的构造函数，只能出现在子类的constructor中，super指向父类的原型对象，可以调用父类的属性和方法。
+子类的<strong>proto</strong>属性，表示构造函数的继承，总是指向父类；
+子类prototype属性的<strong>proto</strong>属性，表示方法的继承，总是指向父类的prototype。</p>
+
+<p>class实现的继承与原型继承的异同：
+相同点：本质上class实现的继承依赖原型链。
+不同点：
+1. class继承中子类的构造函数的原型链指向父类的构造函数，原型继承则是构造函数的复制，没有原型链指向。
+2. 关于子类实例的构建，class继承中是基于父类的实例，而原型继承不是。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

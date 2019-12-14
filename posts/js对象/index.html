@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>呆尬猴的博客  | JS对象</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="JS对象" />
+<meta property="og:description" content="JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，
+以及原型是什么？
+唯一的复杂类型——Object //常用写法： let obj = {&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;,} //正规写法 let obj = new Object({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;}) //匿名对象 console.log({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;})  注意：
+1. 键名是字符串，可以包含任何字符；
+2. &ldquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！）
+3. 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。
+4. 对象中的键值对又称为这个对象的属性。
+let obj={ 1e2:&#39;一百&#39; } /*******结果是********/ obj = {&#39;100&#39;:&#39;一百&#39;}  如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。
+提问：字符串是一个常量，我能不能用变量的值作为Object的键呢？ 答案是肯定的。
+怎么做？
+用&rsquo;[]&lsquo;将变量名包裹起来
+let a = &#39;xxx&#39; var obj = { [a] = &#39;hello&#39; } /*******结果是********/ obj = {&#39;xxx&#39;:&#39;hello&#39;}  同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。
+Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&lsquo;xxx&rsquo;] ——删除obj对象的xxx属性
+注意区分属性值为 undefined 和 不含属性名" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/js%E5%AF%B9%E8%B1%A1/" />
+<meta property="article:published_time" content="2019-11-16T14:41:49+08:00" />
+<meta property="article:modified_time" content="2019-11-16T14:41:49+08:00" />
+<meta itemprop="name" content="JS对象">
+<meta itemprop="description" content="JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，
+以及原型是什么？
+唯一的复杂类型——Object //常用写法： let obj = {&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;,} //正规写法 let obj = new Object({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;}) //匿名对象 console.log({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;})  注意：
+1. 键名是字符串，可以包含任何字符；
+2. &ldquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！）
+3. 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。
+4. 对象中的键值对又称为这个对象的属性。
+let obj={ 1e2:&#39;一百&#39; } /*******结果是********/ obj = {&#39;100&#39;:&#39;一百&#39;}  如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。
+提问：字符串是一个常量，我能不能用变量的值作为Object的键呢？ 答案是肯定的。
+怎么做？
+用&rsquo;[]&lsquo;将变量名包裹起来
+let a = &#39;xxx&#39; var obj = { [a] = &#39;hello&#39; } /*******结果是********/ obj = {&#39;xxx&#39;:&#39;hello&#39;}  同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。
+Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&lsquo;xxx&rsquo;] ——删除obj对象的xxx属性
+注意区分属性值为 undefined 和 不含属性名">
+
+
+<meta itemprop="datePublished" content="2019-11-16T14:41:49&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-16T14:41:49&#43;08:00" />
+<meta itemprop="wordCount" content="183">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS对象"/>
+<meta name="twitter:description" content="JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，
+以及原型是什么？
+唯一的复杂类型——Object //常用写法： let obj = {&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;,} //正规写法 let obj = new Object({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;}) //匿名对象 console.log({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;})  注意：
+1. 键名是字符串，可以包含任何字符；
+2. &ldquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！）
+3. 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。
+4. 对象中的键值对又称为这个对象的属性。
+let obj={ 1e2:&#39;一百&#39; } /*******结果是********/ obj = {&#39;100&#39;:&#39;一百&#39;}  如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。
+提问：字符串是一个常量，我能不能用变量的值作为Object的键呢？ 答案是肯定的。
+怎么做？
+用&rsquo;[]&lsquo;将变量名包裹起来
+let a = &#39;xxx&#39; var obj = { [a] = &#39;hello&#39; } /*******结果是********/ obj = {&#39;xxx&#39;:&#39;hello&#39;}  同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。
+Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&lsquo;xxx&rsquo;] ——删除obj对象的xxx属性
+注意区分属性值为 undefined 和 不含属性名"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      呆尬猴的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">JS对象</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-16T14:41:49&#43;08:00">November 16, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，</p>
+
+<p>以及原型是什么？</p>
+
+<h1 id="唯一的复杂类型-object">唯一的复杂类型——Object</h1>
+
+<pre><code class="language-JavaScript">//常用写法：
+let obj = {'name':'xxx','age':'xxx',}
+//正规写法
+let obj = new Object({'name':'xxx','age':'xxx'})
+//匿名对象
+console.log({'name':'xxx','age':'xxx'})
+</code></pre>
+
+<p><strong>注意：</strong><br />
+1. 键名是字符串，可以包含任何字符；<br />
+2. &ldquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！）<br />
+3. 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。<br />
+4. <strong>对象中的键值对又称为这个对象的属性。</strong></p>
+
+<pre><code class="language-JavaScript">let obj={
+    1e2:'一百'
+}
+/*******结果是********/
+obj = {'100':'一百'}
+</code></pre>
+
+<p><strong>如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。</strong></p>
+
+<h2 id="提问-字符串是一个常量-我能不能用变量的值作为object的键呢">提问：字符串是一个常量，我能不能用变量的值作为Object的键呢？</h2>
+
+<p>答案是肯定的。<br />
+怎么做？</p>
+
+<p>用&rsquo;[]&lsquo;将变量名包裹起来</p>
+
+<pre><code class="language-JavaScript">let a = 'xxx'
+var obj = {
+    [a] = 'hello'
+}
+/*******结果是********/
+obj = {'xxx':'hello'}
+</code></pre>
+
+<p><strong>同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。</strong></p>
+
+<h1 id="object中的增删查改">Object中的增删查改</h1>
+
+<h2 id="删除属性">删除属性</h2>
+
+<p>delete obj.xxx 或 delete obj[&lsquo;xxx&rsquo;]  ——删除obj对象的xxx属性</p>
+
+<p><strong>注意区分属性值为 undefined 和 不含属性名</strong></p>
+
+<p>比如</p>
+
+<pre><code class="language-JavaScript">obj.xxx = undefined
+obj.xxx = null
+</code></pre>
+
+<p>上面的操作只是把obj对象中的xxx属性的属性值设置为null或undefined（相当于删除属性值）。</p>
+
+<p><strong>但是！</strong>，xxx属性还保留着，只是这个属性没有值，或者说它的值为null（或undefined）。</p>
+
+<h2 id="查看属性">查看属性</h2>
+
+<ol>
+<li><p>查看自身所有属性</p>
+
+<pre><code class="language-JavaScript">//查看对象中所有的键
+Object.keys(obj)
+//查看对象中所有的值
+Object.values(obj)
+//查看对象中所有的键值对
+obj   
+Object.entries(obj) /*以数组的形式展示*/
+</code></pre></li>
+
+<li><p>查看自身属性和共有属性</p>
+
+<pre><code class="language-JavaScript">//打印出obj对象的所有属性
+console.dir(obj)
+</code></pre></li>
+</ol>
+
+<p>上面是最佳方法，也可以用obj.<strong>proto</strong>逐个输出，不推荐。</p>
+
+<ol>
+<li><p>判断对象中是否含有某属性</p>
+
+<pre><code class="language-JavaScript">//判断对象中是否含有某个属性
+'xxx' in obj /*返回true表示含有，false表示没有*/
+//判断某个属性是不是自身属性
+obj.hasOwnProperty('toString') /*返回true表示非共有，false表示这是共有属性*/
+</code></pre></li>
+
+<li><p>查看具体某个属性</p>
+
+<pre><code class="language-JavaScript">obj.key | obj['key'] /*['key']中的''不能省略，省略后key表示的是变量。变量key的具体值是不确定的*/
+</code></pre></li>
+</ol>
+
+<h2 id="修改-增加属性">修改 || 增加属性</h2>
+
+<p>如果对象中没有该属性则增加该属性，否则就修改该属性。</p>
+
+<pre><code class="language-JavaScript">//直接赋值
+let obj = {'name':'hi'}
+obj.name = 'hi'
+obj['name'] = 'hi'
+//批量赋值
+Object.assign(obj,{'age':'18','gender':'man'})
+</code></pre>
+
+<h1 id="共有属性和原型">共有属性和原型</h1>
+
+<ol>
+<li>每个对象都有原型。<br /></li>
+<li>对象的原型本身也是对象。<br /></li>
+<li><code>obj={}</code>的原型是Object中的prototype属性，它是所有对象的原型，是所有原型的根，包含所有对象的共有属性。这个原型（prototype）本身的也有原型（<code>__proto__</code>），<code>__proto__</code>的值为null。</li>
+</ol>
+
+<p><strong>怎么理解原型？</strong></p>
+
+<p>可以把原型看作是一个存储JavaScript各种函数功能的仓库，里面的共有属性就是函数，对象类似于某品牌的批发店，所有该品牌的批发店（对象）就是从这个仓库（原型）共享货源（属性）。</p>
+
+<h2 id="修改共有属性">修改共有属性</h2>
+
+<p>一般无法通过自身修改或增加共有属性，比如：</p>
+
+<pre><code class="language-JavaScript">var obj = {}
+obj.toString = 'xxx'
+</code></pre>
+
+<p>上面的代码不会修改obj原型的toString属性，而会在obj的底下新增一个名为toString的自身属性。<strong>并且之后再也无法访问原型中的toString属性。</strong></p>
+
+<p><strong>并且我们不推荐修改原型中的共有属性，因为这样会影响到整个代码，如果偏要修改：</strong></p>
+
+<pre><code class="language-JavaScript">obj.__proto__.toString = 'xxx'
+Object.prototype.toString = 'xxx'
+</code></pre>
+
+<p>修改共有属性会破坏JavaScript的环境，这也正表明了JavaScript的脆弱性。</p>
+
+<h2 id="修改原型">修改原型</h2>
+
+<p>相比于修改共有属性，我们更推荐<strong>修改原型</strong>。</p>
+
+<p>比如：</p>
+
+<pre><code class="language-JavaScript">/*将obj对象的原型设置为空。*/
+obj.__proto__ = null
+</code></pre>
+
+<p>比如：
+<img src="/images/原型链.png" alt="修改原型" /></p>
+
+<blockquote>
+<p>原型链是个啥？<br />
+承接上面的比喻，原型是一个仓库，共有属性是货品，对象是批发店和连锁超市，连锁超市从批发店得到货品，批发店的货品来自仓库，从仓库到批发店再到连锁超市就构成了供应链（原型链）。</p>
+</blockquote>
+
+<p><strong>推荐用Object.create修改原型</strong></p>
+
+<pre><code class="language-JavaScript">var common = {'country':'China','haircolor':'black'}
+var person = Object.create(common)
+</code></pre>
+
+<p>上述代码的意思是，以common为person的原型。运行后，common中的内容会成为person的隐藏属性，出现在<code>__proto__</code>中。</p>
+
+<p>如果要给person添加属性，有两种方法：</p>
+
+<pre><code class="language-JavaScript">/*第一种方法*/
+var person = Object.create(common,{
+    'name':{value:'Jack'}
+})
+/*第二种方法*/
+var person = Object.create(common)
+person.name = 'Jack'
+Object.assign(person,{...:...,...:...}) /*配合assign添加属性*/
+</code></pre>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 呆尬猴的博客
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

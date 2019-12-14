@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | DOM事件相关</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="DOM事件相关" />
+<meta property="og:description" content="什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）
+所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div &gt; ul &gt; li &gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。
+举例说明：
+&lt;ul id = &#39;list&#39;&gt; &lt;li&gt;item 1&lt;/li&gt; &lt;li&gt;item 2&lt;/li&gt; &lt;li&gt;item 3&lt;/li&gt; &lt;li&gt;item 4&lt;/li&gt; &lt;/ul&gt;  实现一个功能：点击li，弹出&rsquo;1234&rsquo; 如果不用事件委托，我们需要把点击后弹出&rsquo;1234&rsquo;这个事件委托给每一个li
+window.onload = () =&gt; { let ul1 = document.querySelector(&#39;#list&#39;) let lis = ul1.getElementsByTagName(&#39;li&#39;) for(let i=0; i&lt;lis.length; i&#43;&#43;){ lis[i].onclick = () =&gt; { alert(&#39;1234&#39;) } } }  如果用事件委托，我们只需把事件委托给ul即可
+window.onload = () =&gt; { let ul1 = document.querySelector(&#39;#list&#39;) ul1.onclick = () =&gt; { alert(&#39;1234&#39;) } }  当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/dom%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3/" />
+<meta property="article:published_time" content="2019-12-08T19:43:20+08:00" />
+<meta property="article:modified_time" content="2019-12-08T19:43:20+08:00" />
+<meta itemprop="name" content="DOM事件相关">
+<meta itemprop="description" content="什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）
+所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div &gt; ul &gt; li &gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。
+举例说明：
+&lt;ul id = &#39;list&#39;&gt; &lt;li&gt;item 1&lt;/li&gt; &lt;li&gt;item 2&lt;/li&gt; &lt;li&gt;item 3&lt;/li&gt; &lt;li&gt;item 4&lt;/li&gt; &lt;/ul&gt;  实现一个功能：点击li，弹出&rsquo;1234&rsquo; 如果不用事件委托，我们需要把点击后弹出&rsquo;1234&rsquo;这个事件委托给每一个li
+window.onload = () =&gt; { let ul1 = document.querySelector(&#39;#list&#39;) let lis = ul1.getElementsByTagName(&#39;li&#39;) for(let i=0; i&lt;lis.length; i&#43;&#43;){ lis[i].onclick = () =&gt; { alert(&#39;1234&#39;) } } }  如果用事件委托，我们只需把事件委托给ul即可
+window.onload = () =&gt; { let ul1 = document.querySelector(&#39;#list&#39;) ul1.onclick = () =&gt; { alert(&#39;1234&#39;) } }  当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。">
+
+
+<meta itemprop="datePublished" content="2019-12-08T19:43:20&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-08T19:43:20&#43;08:00" />
+<meta itemprop="wordCount" content="121">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DOM事件相关"/>
+<meta name="twitter:description" content="什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）
+所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div &gt; ul &gt; li &gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。
+举例说明：
+&lt;ul id = &#39;list&#39;&gt; &lt;li&gt;item 1&lt;/li&gt; &lt;li&gt;item 2&lt;/li&gt; &lt;li&gt;item 3&lt;/li&gt; &lt;li&gt;item 4&lt;/li&gt; &lt;/ul&gt;  实现一个功能：点击li，弹出&rsquo;1234&rsquo; 如果不用事件委托，我们需要把点击后弹出&rsquo;1234&rsquo;这个事件委托给每一个li
+window.onload = () =&gt; { let ul1 = document.querySelector(&#39;#list&#39;) let lis = ul1.getElementsByTagName(&#39;li&#39;) for(let i=0; i&lt;lis.length; i&#43;&#43;){ lis[i].onclick = () =&gt; { alert(&#39;1234&#39;) } } }  如果用事件委托，我们只需把事件委托给ul即可
+window.onload = () =&gt; { let ul1 = document.querySelector(&#39;#list&#39;) ul1.onclick = () =&gt; { alert(&#39;1234&#39;) } }  当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">DOM事件相关</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-12-08T19:43:20&#43;08:00">December 8, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>什么是事件委托？
+事件委托的原理是事件冒泡。
+js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。
+捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。
+目标阶段：在目标节点上触发。
+冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）</p>
+
+<p>所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。
+比如有这么个结构：div &gt; ul &gt; li &gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。</p>
+
+<p>举例说明：</p>
+
+<pre><code>&lt;ul id = 'list'&gt;
+    &lt;li&gt;item 1&lt;/li&gt;
+    &lt;li&gt;item 2&lt;/li&gt;
+    &lt;li&gt;item 3&lt;/li&gt;
+    &lt;li&gt;item 4&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>实现一个功能：点击li，弹出&rsquo;1234&rsquo;
+如果不用事件委托，我们需要把点击后弹出&rsquo;1234&rsquo;这个事件委托给每一个li</p>
+
+<pre><code>window.onload = () =&gt; {
+    let ul1 = document.querySelector('#list')
+    let lis =  ul1.getElementsByTagName('li')
+    for(let i=0; i&lt;lis.length; i++){
+        lis[i].onclick = () =&gt; {
+            alert('1234')
+        }
+    }
+}
+</code></pre>
+
+<p>如果用事件委托，我们只需把事件委托给ul即可</p>
+
+<pre><code>window.onload = () =&gt; {
+    let ul1 = document.querySelector('#list')
+    ul1.onclick = () =&gt; {
+        alert('1234')
+    }
+}
+</code></pre>
+
+<p>当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。</p>
+
+<p>怎么阻止默认动作？
+用<code>e.preventDefault()</code>，兼容IE用<code>e.returnValue = false</code></p>
+
+<pre><code>function stopDefault(e){
+    let e = e || window.event;
+    if(e &amp;&amp; e.preventDefault){
+        e.preventDefault();
+    }else{
+        e.returnValue = false;
+    }
+    return false;
+}
+</code></pre>
+
+<p>怎么阻止事件冒泡？
+用<code>e.stopPropagation()</code>,兼容IE则需要使用<code>e.cancelBubble = true</code></p>
+
+<pre><code>function stopPropagation(e){
+    let e = e || window.event;
+    if(e &amp;&amp; e.stopPropagation){
+        e.stopPropagation();
+    }else{
+        e.cancelBubble = true;
+    }
+}
+</code></pre>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

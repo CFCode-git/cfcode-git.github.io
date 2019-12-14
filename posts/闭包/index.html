@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site  | 闭包</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="闭包" />
+<meta property="og:description" content="我从来不理解 JavaScript 闭包，直到有人这样向我解释它&hellip;
+[理解 JavaScript 中的闭包(https://juejin.im/post/5c3893bc6fb9a049d37f530f)
+什么是闭包？闭包的优缺点？
+js中闭包的理解、用途场景、优缺点及解决办法
+一些概念
+执行上下文
+调用上下文
+定义时上下文，运行时上下文
+什么是闭包？闭包的用途是什么？闭包的缺点是什么？
+理解闭包是什么， 我们先理解JavaScript的链式作用域： 在函数定义的时候就创建了链式作用域 它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回undefined 由于链式作用域的机制，会导致： 一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。 而当一个函数访问了函数外部的变量时，我们称 这个函数和变量构成了闭包。
+function father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); // 100  执行上述代码，首先会调用father函数，调用的结果是返回一个children函数 的定义 给变量child。 执行变量child中的children函数的定义（也就是children函数{}包裹的代码块），执行过程中要打印a，children函数中没有a的定义，因此会沿着链式作用域向上级寻找，打印了father函数下的a。
+换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给child的除了children的函数定义以外，还携带了children在被创建时的环境（也就是let a = 100）。
+闭包的用途： 1. 避免了全局变量的污染
+同样是上述代码，我们在函数外面声明一个同名的全局变量a。
+let a = 200; function father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); // 100  执行child()的结果依然是100，也就是father函数内的变量a不会受到外部的影响。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chow1027.xyz/posts/%E9%97%AD%E5%8C%85/" />
+<meta property="article:published_time" content="2019-12-04T22:04:18+08:00" />
+<meta property="article:modified_time" content="2019-12-04T22:04:18+08:00" />
+<meta itemprop="name" content="闭包">
+<meta itemprop="description" content="我从来不理解 JavaScript 闭包，直到有人这样向我解释它&hellip;
+[理解 JavaScript 中的闭包(https://juejin.im/post/5c3893bc6fb9a049d37f530f)
+什么是闭包？闭包的优缺点？
+js中闭包的理解、用途场景、优缺点及解决办法
+一些概念
+执行上下文
+调用上下文
+定义时上下文，运行时上下文
+什么是闭包？闭包的用途是什么？闭包的缺点是什么？
+理解闭包是什么， 我们先理解JavaScript的链式作用域： 在函数定义的时候就创建了链式作用域 它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回undefined 由于链式作用域的机制，会导致： 一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。 而当一个函数访问了函数外部的变量时，我们称 这个函数和变量构成了闭包。
+function father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); // 100  执行上述代码，首先会调用father函数，调用的结果是返回一个children函数 的定义 给变量child。 执行变量child中的children函数的定义（也就是children函数{}包裹的代码块），执行过程中要打印a，children函数中没有a的定义，因此会沿着链式作用域向上级寻找，打印了father函数下的a。
+换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给child的除了children的函数定义以外，还携带了children在被创建时的环境（也就是let a = 100）。
+闭包的用途： 1. 避免了全局变量的污染
+同样是上述代码，我们在函数外面声明一个同名的全局变量a。
+let a = 200; function father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); // 100  执行child()的结果依然是100，也就是father函数内的变量a不会受到外部的影响。">
+
+
+<meta itemprop="datePublished" content="2019-12-04T22:04:18&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-04T22:04:18&#43;08:00" />
+<meta itemprop="wordCount" content="83">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="闭包"/>
+<meta name="twitter:description" content="我从来不理解 JavaScript 闭包，直到有人这样向我解释它&hellip;
+[理解 JavaScript 中的闭包(https://juejin.im/post/5c3893bc6fb9a049d37f530f)
+什么是闭包？闭包的优缺点？
+js中闭包的理解、用途场景、优缺点及解决办法
+一些概念
+执行上下文
+调用上下文
+定义时上下文，运行时上下文
+什么是闭包？闭包的用途是什么？闭包的缺点是什么？
+理解闭包是什么， 我们先理解JavaScript的链式作用域： 在函数定义的时候就创建了链式作用域 它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回undefined 由于链式作用域的机制，会导致： 一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。 而当一个函数访问了函数外部的变量时，我们称 这个函数和变量构成了闭包。
+function father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); // 100  执行上述代码，首先会调用father函数，调用的结果是返回一个children函数 的定义 给变量child。 执行变量child中的children函数的定义（也就是children函数{}包裹的代码块），执行过程中要打印a，children函数中没有a的定义，因此会沿着链式作用域向上级寻找，打印了father函数下的a。
+换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给child的除了children的函数定义以外，还携带了children在被创建时的环境（也就是let a = 100）。
+闭包的用途： 1. 避免了全局变量的污染
+同样是上述代码，我们在函数外面声明一个同名的全局变量a。
+let a = 200; function father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); // 100  执行child()的结果依然是100，也就是father函数内的变量a不会受到外部的影响。"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://chow1027.xyz" class="f3 fw2 hover-white no-underline white-90 dib">
+      My New Hugo Site
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">闭包</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-12-04T22:04:18&#43;08:00">December 4, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><a href="https://blog.fundebug.com/2019/02/12/understand-javascript-closure/">我从来不理解 JavaScript 闭包，直到有人这样向我解释它&hellip;</a><br />
+[理解 JavaScript 中的闭包(<a href="https://juejin.im/post/5c3893bc6fb9a049d37f530f">https://juejin.im/post/5c3893bc6fb9a049d37f530f</a>)<br />
+<a href="https://www.cnblogs.com/cxying93/p/6103375.html">什么是闭包？闭包的优缺点？</a><br />
+<a href="https://www.jianshu.com/p/8376170fb228">js中闭包的理解、用途场景、优缺点及解决办法</a></p>
+
+<p><strong>一些概念</strong><br />
+执行上下文<br />
+调用上下文<br />
+定义时上下文，运行时上下文</p>
+
+<p>什么是闭包？闭包的用途是什么？闭包的缺点是什么？</p>
+
+<p>理解闭包是什么，
+我们先理解JavaScript的链式作用域：
+在函数定义的时候就创建了链式作用域
+它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回undefined
+由于链式作用域的机制，会导致：
+一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。
+而当一个函数访问了函数外部的变量时，我们称
+这个函数和变量构成了闭包。</p>
+
+<pre><code>function father(){
+	let a = 100;
+	function children(){
+		console.log(a);
+	}
+	return children;
+}
+
+let child = father();
+child();  // 100
+</code></pre>
+
+<p>执行上述代码，首先会调用father函数，调用的结果是返回一个children函数 的定义 给变量child。
+执行变量child中的children函数的定义（也就是children函数{}包裹的代码块），执行过程中要打印a，children函数中没有a的定义，因此会沿着链式作用域向上级寻找，打印了father函数下的a。</p>
+
+<p>换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给child的除了children的函数定义以外，还携带了children在被创建时的环境（也就是let a = 100）。</p>
+
+<p>闭包的用途：
+1. 避免了全局变量的污染</p>
+
+<p>同样是上述代码，我们在函数外面声明一个同名的全局变量a。</p>
+
+<pre><code>let a = 200; 
+function father(){
+	let a = 100;
+	function children(){
+		console.log(a);
+	}
+	return children;
+}
+
+let child = father();
+child();  // 100
+</code></pre>
+
+<p>执行child()的结果依然是100，也就是father函数内的变量a不会受到外部的影响。</p>
+
+<ol>
+<li>使局部变量始终保存在内存中，不会被垃圾回收机制所删除。</li>
+</ol>
+
+<p>以上述代码为例，father中的a会一直存在。原因是father是children的父函数，而children被赋给了一个全局变量child，这会导致children函数的定义会一直存储在内存中，而children的存在依赖于father函数中的a，因此a必须一直存在。</p>
+
+<p>闭包的缺点：
+1.由于闭包中的变量常驻内存，增加了内存的使用量，因此如果滥用闭包，对内存消耗很大，可能会造成网页的性能问题，在IE中可能会导致内存泄露。解决办法是，在退出函数之前把不使用的局部变量全部删除。
+2.闭包会在父元素的外部，改变父元素内部变量的值；如果把父元素当作对象使用，把闭包当作它的公用方法，把内部变量当作它的私有属性，那么不要随意改变父元素内部变量的值。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://chow1027.xyz" >
+    &copy; 2019 My New Hugo Site
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
