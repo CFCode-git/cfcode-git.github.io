@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/" />
+  <link rel="next" href="https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           《HTML常用标签》 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="《HTML常用标签》 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "《HTML常用标签》",
+    "headline" : "《HTML常用标签》",
+    "description" : "a 标签 \x26lt;!-- html --\x26gt; \x26lt;a href=\x26quot;\/\/google.com\x26quot; target=\x26quot;_blank\x26quot; download rel=\x26quot;noopener\x26quot;\x26gt; \x26lt;\/a\x26gt;  作用 跳转到外部页面\n跳转到内部锚点\n跳转到电话\/邮箱\n属性 href\nhref 属性指定 a 标签要跳转到的新页面，他的取值可以是:\n网址\n https:\/\/google.com http:\/\/google.com \/\/google.com  可以是 https 也可以是 http，当采用无协议传输方式时，浏览器会自动采取 http 或 https。\n路径\n a\/b\/c \/a\/b\/c  当 href 指向某个路径时，a 标签实际访问的是 http 服务的根目录\x26rdquo;\/\x26ldquo;（也就是这个网站相关文件的根目录）。\n用\x26rdquo;\/\x26ldquo;开头的即表示根目录，此时用的是绝对路径。\n\x26rdquo;.\/\x26ldquo;的意思是在当前 html 所在的目录中找，这是一种相对路径。\n伪协议\n javascript:代码; mailto:邮箱 tel:手机号  javascript:代码; 是 JS 的伪协议写法，用户点击 a 标签就执行该 JS 代码。\nID\n\x26rdquo;#xxx\x26rdquo;\nhref 可以指向某个 ID，用户点击 a 标签页面就会跳转到该拥有该 ID 的标签所在的位置。",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-01 21:04:35 \x2b0800 CST",
+    "dateModified" : "2019-11-01 21:04:35 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE\/",
+    "wordCount" : "338",
+    "keywords" : [  "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">《HTML常用标签》</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-01 itemprop="datePublished">November 1, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="a-标签">a 标签</h1>
+
+<pre><code class="language-html">&lt;!-- html --&gt;
+&lt;a href=&quot;//google.com&quot; target=&quot;_blank&quot; download rel=&quot;noopener&quot;&gt; &lt;/a&gt;
+</code></pre>
+
+<h2 id="作用">作用</h2>
+
+<p>跳转到<strong>外部页面</strong><br />
+跳转到<strong>内部锚点</strong><br />
+跳转到<strong>电话/邮箱</strong></p>
+
+<h2 id="属性">属性</h2>
+
+<p><strong>href</strong></p>
+
+<p>href 属性指定 a 标签要跳转到的新页面，他的取值可以是:</p>
+
+<p><em>网址</em></p>
+
+<ol>
+<li><a href="https://google.com" rel="nofollow noreferrer" target="_blank">https://google.com</a></li>
+<li><a href="http://google.com" rel="nofollow noreferrer" target="_blank">http://google.com</a></li>
+<li>//google.com</li>
+</ol>
+
+<p>可以是 https 也可以是 http，当采用无协议传输方式时，浏览器会自动采取 http 或 https。</p>
+
+<p><em>路径</em></p>
+
+<ol>
+<li>a/b/c</li>
+<li>/a/b/c</li>
+</ol>
+
+<p>当 href 指向某个路径时，a 标签实际访问的是 http 服务的根目录&rdquo;/&ldquo;（也就是这个网站相关文件的根目录）。</p>
+
+<p>用&rdquo;/&ldquo;开头的即表示根目录，此时用的是绝对路径。</p>
+
+<p>&rdquo;./&ldquo;的意思是在当前 html 所在的目录中找，这是一种相对路径。</p>
+
+<p><em>伪协议</em></p>
+
+<ol>
+<li>javascript:代码;</li>
+<li>mailto:邮箱</li>
+<li>tel:手机号</li>
+</ol>
+
+<p><code>javascript:代码;</code>
+是 JS 的伪协议写法，用户点击 a 标签就执行该 JS 代码。</p>
+
+<p><em>ID</em></p>
+
+<p>&rdquo;#xxx&rdquo;</p>
+
+<p>href 可以指向某个 ID，用户点击 a 标签页面就会跳转到该拥有该 ID 的标签所在的位置。</p>
+
+<p><strong>target</strong></p>
+
+<p>target 属性指定 a 标签的新页面在浏览器中的打开位置，他的取值有:</p>
+
+<p><em>内置属性值</em></p>
+
+<ol>
+<li>_blank</li>
+<li>_top</li>
+<li>_parent</li>
+<li>_self（默认值）</li>
+</ol>
+
+<p>_blank 指导新页面在浏览器的新标签页中打开；<br />
+_top 指导新页面在最顶层的页面打开；<br />
+_parent 指导新页面在上一层的父级页面打开；<br />
+_self 指导新页面在当前页面打开。</p>
+
+<p><em>自定义属性值</em></p>
+
+<p>设置 target 属性为 iframe 的 name 属性，则新页面将在 iframe 中打开。<br />
+设置多个 a 标签的 target 指向同一个值，可以让这些新页面都在同一个标签页中打开。</p>
+
+<p><strong>download</strong></p>
+
+<p>该属性的作用是下载 a 标签指向的那个页面。<em>但很多浏览器不支持。</em></p>
+
+<p><strong>rel=noopener</strong></p>
+
+<h1 id="img-标签">img 标签</h1>
+
+<pre><code class="language-html">&lt;!-- html --&gt;
+&lt;img src=&quot;1.html&quot; alt=&quot;这是一个错误的地址&quot; width=&quot;100&quot; /&gt;
+</code></pre>
+
+<h2 id="作用-1">作用</h2>
+
+<p>发出 get 请求，展示一张图片。</p>
+
+<h2 id="img-标签属性">img 标签属性</h2>
+
+<p><strong>src</strong></p>
+
+<p>必要属性，指定图片的绝对地址或相对地址。</p>
+
+<p><strong>alt</strong></p>
+
+<p>alt 中的内容会在图片加载失败时显示。</p>
+
+<p><strong>height/width</strong></p>
+
+<p>分别指定图片的宽和高，最好二选一进行设置，否则图片会变形。</p>
+
+<h2 id="事件">事件</h2>
+
+<p><strong>onload &amp; onerror</strong></p>
+
+<p>onload 在图片加载成功时触发，onerror 在图片加载失败时触发。</p>
+
+<h2 id="响应式图片">响应式图片</h2>
+
+<p>使图片适应屏幕尺寸/手机页面。</p>
+
+<pre><code class="language-css">/*css*/
+img {
+  max-width: 100%;
+}
+</code></pre>
+
+<h1 id="table-标签">table 标签</h1>
+
+<pre><code class="language-html">&lt;!-- html --&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</code></pre>
+
+<h2 id="语义化标签">语义化标签</h2>
+
+<p><strong>thead</strong></p>
+
+<p>代表表格的头部，通常放表格的标题、各项指标。</p>
+
+<p><strong>tbody</strong></p>
+
+<p>代表表格的数据。</p>
+
+<p><strong>tfoot</strong></p>
+
+<p>代表表格的尾部，通常用于汇总数据。</p>
+
+<p><em>语义化标签的顺序可以随意，浏览器会自动将 thead 放在表格的最上方，tfoot 放在表格的最下方。</em></p>
+
+<h2 id="一般标签">一般标签</h2>
+
+<p><strong>tr</strong></p>
+
+<p>table row,代表表格中的一行。</p>
+
+<p><strong>th</strong></p>
+
+<p>table head,代表表头。</p>
+
+<p><strong>td</strong></p>
+
+<p>table data，代表表格中显示的数据。</p>
+
+<h2 id="table-相关样式">table 相关样式</h2>
+
+<pre><code class="language-css">/* css */
+table {
+  table-layout: auto;
+  table-collapse: collapse;
+  table-spacing: 0;
+}
+</code></pre>
+
+<p><strong>table-layout</strong></p>
+
+<p>auto &ndash; (默认)根据表格中的内容自动调整表格宽度。<br />
+fixed &ndash; 固定宽度，使表格等宽。</p>
+
+<p><strong>border-collapse</strong></p>
+
+<p>collapse:使表格中的边框合并。</p>
+
+<p><strong>border-spacing</strong></p>
+
+<p>0:表示单元格间没有空隙。</p>
+
+<h2 id="table-合并单元格">table 合并单元格</h2>
+
+<p><strong>colspan &amp; rowspan</strong></p>
+
+<pre><code class="language-html">&lt;!--  html --&gt;
+&lt;tr&gt;
+  &lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;
+  &lt;td rowspan=&quot;2&quot;&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+
+<p>colspan 合并列，rowspan 合并行。</p>
+
+<h1 id="iframe-标签">iframe 标签</h1>
+
+<h1 id="form-标签">form 标签</h1>
+
+<h1 id="input-标签">input 标签</h1>
+
+<p><strong>作用</strong><br />
+让用户输入内容</p>
+
+<p><strong>属性</strong></p>
+
+<p><em>类型</em><br />
+button &ndash;按钮<br />
+checkbox &ndash;多选框<br />
+email &ndash;邮件<br />
+file &ndash;上传文件<br />
+hidden &ndash;隐藏<br />
+number &ndash;数字<br />
+password &ndash;密码框<br />
+radio &ndash;单选框<br />
+search &ndash;搜索框<br />
+submit &ndash;提交按钮<br />
+tel &ndash;电话号码<br />
+text &ndash;单行文本框（默认值）<br />
+color &ndash;选择颜色<br />
+&hellip;&hellip;.</p>
+
+<p>关于 checkbox 和 radio，需要进行分组，同一组的 input 标签 name 属性一致。</p>
+
+<p><em>事件</em></p>
+
+<p>onfocus &ndash;当标签获取焦点时触发<br />
+onchange &ndash;当标签中的内容发生变化时触发<br />
+onblus &ndash;当标签失去焦点时触发</p>
+
+<p><em>验证器</em></p>
+
+<ul>
+<li><em><b>注意事项</b></em>
+
+<ol>
+<li>一般不监听 input 的 click 事件。</li>
+<li>form 里面的 input 要有 name。</li>
+<li>form 标签中要放一个 type = submit 才能触发 submit，表单才能提交。</li>
+</ol></li>
+</ul>
+
+<h1 id="其他输入标签">其他输入标签</h1>
+
+<h2 id="select-option-选择框">select + option &ndash;选择框</h2>
+
+<pre><code class="language-html">&lt;!-- html --&gt;
+&lt;select&gt;
+  &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+<p>value 是实际传递的值，标签之间的内容是给用户看的值。</p>
+
+<h2 id="textarea-多行文本框">textarea &ndash;多行文本框</h2>
+
+<pre><code class="language-html">&lt;!-- html --&gt;
+&lt;textarea style=&quot;resize:none;&quot;&gt;&lt;/textarea&gt;
+</code></pre>
+
+<p><code>style = &quot;resize:none;&quot;</code>是固定多行文本框的尺寸。</p>
+
+<h2 id="label">label</h2>
+
+<p>未完待续&hellip;</p>
+
+<p><em><strong>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源</strong></em></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/>https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/" class="prev" rel="prev" title="Html入门笔记1"><i class="iconfont icon-left"></i>&nbsp;Html入门笔记1</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/" class="next" rel="next" title="Html实践">Html实践&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

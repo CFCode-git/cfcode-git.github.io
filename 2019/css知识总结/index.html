@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/" />
+  <link rel="next" href="https://chow1027.xyz/2019/%E6%B5%85%E6%9E%90url/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           css知识总结 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="css知识总结 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "css知识总结",
+    "headline" : "css知识总结",
+    "description" : "css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等\x26hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式\ndiv.style.background =\x26quot;red\x26quot; div.style.display = \x26quot;none\x26quot; div.classList.add(\x27xxx\x27) --直接给元素添加一个\x26quot;xxx\x26quot;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点   JS\/CSS \x26gt; 样式 \x26gt; 布局 \x26gt; 绘制 \x26gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS\/CSS \x26gt; 样式 \x26gt; 绘制 \x26gt; 合成 (比如更改背景色，则布局不需要改变) JS\/CSS \x26gt; 样式 \x26gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers\ncss动画的两种做法  利用transition\x2btransform\x2bhover animation  transform transform的四个常用功能：\n1. 位移translate\n2. 缩放scale\n3. 旋转rotate\n4. 倾斜skew\n注意：inline元素不支持transform，要先变成block.\ntransition transition:属性名 时长 过渡方式 延迟；",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-10 09:50:38 \x2b0800 CST",
+    "dateModified" : "2019-11-10 09:50:38 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93\/",
+    "wordCount" : "235",
+    "keywords" : [  "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">css知识总结</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-10 itemprop="datePublished">November 10, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="css动画">css动画</h1>
+
+<h2 id="浏览器渲染原理">浏览器渲染原理</h2>
+
+<ol>
+<li>根据HTML构建HTML树（DOM）</li>
+<li>根据CSS构建CSS树（CSSOM）</li>
+<li>将两棵树合并成一棵渲染树（render tree）</li>
+<li>Layout布局(文档流、盒模型、计算元素的大小和位置)</li>
+<li>Paint绘制（边框颜色、字体颜色等&hellip;）</li>
+<li>Composite合成（根据层叠关系展示画面）</li>
+</ol>
+
+<h2 id="三种更新方式">三种更新方式</h2>
+
+<p>在实际操作中我们一般采用JS更新样式</p>
+
+<pre><code class="language-JavaScript">div.style.background =&quot;red&quot; 
+div.style.display = &quot;none&quot; 
+div.classList.add('xxx') --直接给元素添加一个&quot;xxx&quot;的类更好，该元素会拥有该类的所有属性
+div.remove() --直接删掉节点
+</code></pre>
+
+<ul>
+<li>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。)</li>
+<li>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成 (比如更改背景色，则布局不需要改变)</li>
+<li>JS/CSS &gt; 样式 &gt; 合成 (比如只改了transform)</li>
+</ul>
+
+<p><strong>查询哪个属性触发哪个流程：</strong>
+<a href="https://csstriggers.com/" rel="nofollow noreferrer" target="_blank">CSS Triggers</a></p>
+
+<h2 id="css动画的两种做法">css动画的两种做法</h2>
+
+<ul>
+<li>利用transition+transform+hover</li>
+<li>animation</li>
+</ul>
+
+<h3 id="transform">transform</h3>
+
+<p>transform的四个常用功能：<br />
+1. 位移translate<br />
+2. 缩放scale<br />
+3. 旋转rotate<br />
+4. 倾斜skew<br />
+<strong>注意：inline元素不支持transform，要先变成block.</strong></p>
+
+<h3 id="transition">transition</h3>
+
+<p>transition:属性名 时长 过渡方式 延迟；<br />
+1. 可以用逗号分隔两个不同的属性；<br />
+2. 可以用all表示所有属性；<br />
+3. 过渡方式：linear | ease | ease-in | ease-out | ease-in-out | &hellip;</p>
+
+<h3 id="如何过渡两次-如何添加中间点">如何过渡两次？如何添加中间点？</h3>
+
+<ol>
+<li>使用两次transform，用setTimeout监听transitioned事件。</li>
+<li>使用animation</li>
+</ol>
+
+<h3 id="animation语法">animation语法</h3>
+
+<p>animation：时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充方式 | 是否暂停 | 动画名</p>
+
+<p>时长：1s或1000ms；<br />
+过渡方式：参考transition的过渡方式（ linear | ease&hellip; ）；<br />
+次数：3 或 2.3 或 <strong>infinite（无限）</strong><br />
+方向：alternate（交替） | alternate-reverse | reverse<br />
+填充方式：forwards（令动画停在最后一帧）| backwards | both | none<br />
+是否暂停：paused | running</p>
+
+<pre><code class="language-javascript">stop.onclick =()=&gt;{
+    demo.style.animationPlayState=&quot;paused&quot;  ---为动画加上暂停按钮
+}
+</code></pre>
+
+<h3 id="animation使用步骤">animation使用步骤</h3>
+
+<ol>
+<li><p>声明关键帧</p>
+
+<pre><code class="language-css">/*css*/
+@keyframes xxx{             ---xxx是动画名
+0%{transform:none;}     ---这是一个关键帧：0%表示初始状态
+50%{transform:...}
+100{transform:...}      ---一共有三个关键帧。
+}
+</code></pre></li>
+
+<li><p>添加动画</p>
+
+<pre><code class="language-css">/*css*/
+#demo.start{
+animation:xxx 1s;            ---给demo的start属性添加动画。
+}
+</code></pre>
+
+<pre><code class="language-javascript">button.onclick =()=&gt;{
+demo.classList.add('start')  ---点击按钮，则给demo添加一个start属性。
+}
+</code></pre></li>
+</ol>
+
+<h1 id="css定位">css定位</h1>
+
+<h2 id="回顾-css盒模型">回顾：css盒模型</h2>
+
+<p><a href="../css盒模型">css盒模型</a></p>
+
+<h2 id="position">position</h2>
+
+<ul>
+<li>static(默认值)<br /></li>
+<li>relative(相对定位，升起来，但不脱离文档流)<br /></li>
+<li>absolute(绝对定位,定位基准是离他最近的祖先元素中的非static元素)<br /></li>
+<li>fixed(固定定位，定位基准是视口viewport)<br /></li>
+<li>sticky(粘滞定位)<br /></li>
+</ul>
+
+<h3 id="position-relative">position:relative</h3>
+
+<p>相对于自己定位，元素原来的位置不会消失。可用来做位移，或是做absolute元素的祖先元素。<br />
+注意：<br />
+1. 可以配合Z-index使用。<br />
+2. 不要写Z-index:9999，要管理Z-index。</p>
+
+<h3 id="position-absolute">position:absolute</h3>
+
+<p>相对于祖先元素中的离他最近的定位元素定位。(定位元素就是position取值不是默认值static的元素)，可用做鼠标提示、对话框的关闭按钮。<br />
+注意：<br />
+1. 某些浏览器上不写top/left会位置错乱。<br />
+2. 善用left：100%。<br />
+3. 善用left：50%，加负margin。</p>
+
+<h3 id="position-fixed">position:fixed</h3>
+
+<p>相对视口定位，常用于广告、&rdquo;回到顶部&rdquo;按钮。<br />
+注意：<br />
+1. 手机上尽量不要使用这个属性，会引发很多问题。</p>
+
+<h2 id="重要概念-层叠上下文">重要概念：层叠上下文</h2>
+
+<p>定位元素：position取值为非static的元素就是的定位元素，定位元素会跑到所有元素的外面。</p>
+
+<p>层叠上下文：默认的层叠上下文是html，可以在层叠上下文中创建层叠上下文。<br />
+层叠上下文中的Z-index与外界无关，只用处于同一层叠上下文Z-index才能比较。（想象在html中创建许多小的&rdquo;html&rdquo;）</p>
+
+<p><strong>层叠上下文中定位元素的Z-index可以无限大、无限小，但他永远被层叠上下文包着。</strong></p>
+
+<h3 id="哪些不正交的属性可以创建层叠上下文">哪些不正交的属性可以创建层叠上下文？</h3>
+
+<p>MDN文档中有具体描述，优先记住以下常用的属性。<br />
+1. 根元素<br />
+2. Z-index值不为auto的绝对/相对定位<br />
+3. opacity不为1的元素<br />
+4. transform属性不为none的元素<br />
+5. position：fixed<br />
+6. Z-index的值不为&rdquo;auto&rdquo;的flex项目，即父元素display:flex | inline-flex</p>
+
+<h1 id="css基础">css基础</h1>
+
+<h2 id="回忆">回忆：</h2>
+
+<p>css的版本(css2.1、css3.0)</p>
+
+<p>css语法(选择器、at语法)</p>
+
+<p>如何调试(border调试法)</p>
+
+<p>文档流(流动方向 宽度 高度 inline-block block inline元素的特点)</p>
+
+<p>脱离文档流(float和position的两个属性值)</p>
+
+<p>溢出(overflow)</p>
+
+<p>盒模型(border-box和content-box)</p>
+
+<p>margin合并(如何阻止合并?)</p>
+
+<p>基本单位</p>
+
+<p><a href="../css基础.md">回顾：css基础</a></p>
+
+<h1 id="css布局">css布局</h1>
+
+<h2 id="回忆-1">回忆：</h2>
+
+<p>布局思路(流程图)</p>
+
+<p>float布局(两个步骤：子元素float和父元素clearfix)</p>
+
+<p>flex布局(container和item)</p>
+
+<p>grid布局(container和item，<strong>超牛x的属性：grid-template-areas</strong>)</p>
+
+<p><a href="../css布局.md">回顾：css布局</a></p>
+
+<p>来这里复习一下：<br />
+<a href="https://flexboxfroggy.com/#zh-cn" rel="nofollow noreferrer" target="_blank">青蛙游戏&ndash;flex :)</a><br />
+<a href="https://cssgridgarden.com/#zh-cn" rel="nofollow noreferrer" target="_blank">天天种菜&ndash;grid :)</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/>https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/" class="prev" rel="prev" title="css布局"><i class="iconfont icon-left"></i>&nbsp;css布局</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/%E6%B5%85%E6%9E%90url/" class="next" rel="next" title="浅析URL">浅析URL&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

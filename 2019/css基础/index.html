@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/css%E7%9B%92%E6%A8%A1%E5%9E%8B/" />
+  <link rel="next" href="https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           CSS基础 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="CSS基础 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "CSS基础",
+    "headline" : "CSS基础",
+    "description" : "CSS \x26ndash;层叠样式表 CSS(Cascading Style Sheets)是层叠样式表，所谓层叠有三层含义：\n 样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。网页地址\nCSS语法 CSS语法主要有两种：\n\/*第一种*\/ 选择器 { 属性名:属性值; \/*注释*\/ }  注：\n1. 要使用英文符号； 2. 要区分大小写； 3. 没有\x26rdquo;\/\/\x26ldquo;注释； 4. 最后的\x26rdquo;;\x26ldquo;虽然可以省略，但不要省略； 5. 浏览器会忽略错误，但不会报错。\n\/*第二种*\/ \/*声明字符编码*\/ @charset = \x26quot;UTF-8\x26quot;; \/*导入CSS文件*\/ @import url(2.css); \/*媒体查询*\/ @media(min-width:100px)and(max-width:200px){ 语法一 }  注:\n1. charset必须放在第一行。 2. 前两个的@语法必须加\x26rdquo;;\x26ldquo;。 3. charset是字符集的意思，但语句本身声明的是字符编码。\nCSS查资料  Google搜索:MDN \x2b 技术名词； Google搜索:CSS tricks \x2b 技术名词； Google搜索:张鑫旭 \x2b 技术名词； 最权威资料：Google搜索:CSS spec(可以查看css2.1中文版)  CSS的调试  使用W3C验证器。在线验证器 使用VScode\/Webstorm看字体颜色。 使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖\/忽略。) border调试法  border调试法 当怀疑某个元素出现问题：",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-05 20:03:57 \x2b0800 CST",
+    "dateModified" : "2019-11-05 20:03:57 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/css%E5%9F%BA%E7%A1%80\/",
+    "wordCount" : "115",
+    "keywords" : [  "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CSS基础</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-05 itemprop="datePublished">November 5, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="css-层叠样式表">CSS &ndash;层叠样式表</h1>
+
+<p>CSS(<em>Cascading Style Sheets</em>)是层叠样式表，所谓层叠有三层含义：</p>
+
+<ol>
+<li>样式层叠：可多次对同一选择器进行声明。</li>
+<li>选择层叠：可用不同选择器对同一元素进行声明。</li>
+<li>文件层叠：可用多个文件层叠。</li>
+</ol>
+
+<p>CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。<a href="https://caniuse.com/" rel="nofollow noreferrer" target="_blank">网页地址</a></p>
+
+<h1 id="css语法">CSS语法</h1>
+
+<p>CSS语法主要有两种：</p>
+
+<pre><code class="language-CSS">/*第一种*/
+选择器 {
+    属性名:属性值;
+    /*注释*/
+}
+</code></pre>
+
+<p>注：<br />
+1. 要使用英文符号；
+2. 要区分大小写；
+3. 没有&rdquo;//&ldquo;注释；
+4. 最后的&rdquo;;&ldquo;虽然可以省略，但不要省略；
+5. 浏览器会忽略错误，但不会报错。</p>
+
+<pre><code class="language-CSS">/*第二种*/
+/*声明字符编码*/
+@charset = &quot;UTF-8&quot;; 
+
+/*导入CSS文件*/
+@import url(2.css); 
+
+/*媒体查询*/
+@media(min-width:100px)and(max-width:200px){
+    语法一
+}  
+</code></pre>
+
+<p>注:<br />
+1. charset必须放在第一行。
+2. 前两个的@语法必须加&rdquo;;&ldquo;。
+3. charset是字符集的意思，但语句本身声明的是字符编码。</p>
+
+<h1 id="css查资料">CSS查资料</h1>
+
+<ol>
+<li>Google搜索:MDN + 技术名词；</li>
+<li>Google搜索:CSS tricks + 技术名词；</li>
+<li>Google搜索:张鑫旭 + 技术名词；</li>
+<li><strong>最权威资料：Google搜索:CSS spec</strong>(<em>可以查看css2.1中文版</em>)</li>
+</ol>
+
+<h1 id="css的调试">CSS的调试</h1>
+
+<ol>
+<li>使用W3C验证器。<a href="https://jigsaw.w3.org/css-validator/" rel="nofollow noreferrer" target="_blank">在线验证器</a></li>
+<li>使用VScode/Webstorm看字体颜色。</li>
+<li>使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖/忽略。)</li>
+<li><em>border调试法</em></li>
+</ol>
+
+<h1 id="border调试法">border调试法</h1>
+
+<p>当怀疑某个元素出现问题：</p>
+
+<ol>
+<li>给这个元素逐行加border。</li>
+<li>border没出现：border前面的语法错误，或者选择器错误。</li>
+<li>border出现，证明前面的选择器或语法没有问题。观察border是否符合预期。</li>
+</ol>
+
+<h1 id="如何练习css">如何练习CSS？</h1>
+
+<ul>
+<li>PSD</li>
+</ul>
+
+<p>Freepik中搜索PSD Web。<a href="https://www.freepik.com/search?query=web&amp;type=psd" rel="nofollow noreferrer" target="_blank">网页地址</a></p>
+
+<ul>
+<li><p>效果图
+参考dribbble.com中的页面模仿。<a href="https://dribbble.com/" rel="nofollow noreferrer" target="_blank">网页地址</a></p></li>
+
+<li><p>模仿常去的商业网站</p></li>
+</ul>
+
+<h1 id="文档流">文档流</h1>
+
+<p>首先，在新的CSS规范中不存在内联元素和块级元素的区别，所有元素都可以是内联元素或者块级元素，这取决于display的取值。</p>
+
+<h2 id="文档的流动方向">文档的流动方向</h2>
+
+<p>inline元素从左到右，到最右边才换行，<strong>在最右边有可能折断跨两行；</strong><br />
+block元素从上到下，每一个都独占一行；<br />
+inline-block元素也是从左到右，<strong>但不会跨两行。</strong></p>
+
+<h2 id="宽度">宽度</h2>
+
+<p>inline元素宽度为内部inline元素的和，不能用width指定宽度；<br />
+block元素默认 <em>自动</em> 计算宽度，可以用width指定；(要多宽有多宽)<br />
+inline元素结合前两者的特点，可用width指定。(要多窄有多窄)
+<strong>注意的点：</strong>block的默认宽度是auto，并不是100%，且任何时候都不要设置width为100%。</p>
+
+<h2 id="高度">高度</h2>
+
+<p>inline元素的高度由line-height <em>间接</em> 决定，跟height无关；<br />
+block元素的高度由<strong>内部文档流元素</strong>决定，可以设置height；<br />
+inline-block与block类似，可以设置height。</p>
+
+<h2 id="溢出">溢出</h2>
+
+<p>当内容区的高度或宽度大于元素(容器)设定的高度或宽度时，内容会溢出。<br />
+处理手段：设置overflow属性<br />
+auto &ndash;自动
+scroll &ndash;永远显示滚动条
+hidden &ndash;隐藏溢出的内容<br />
+visible &ndash;显示溢出的部分</p>
+
+<p>overflow可以分为overflow-x和overflow-y。</p>
+
+<h2 id="脱离文档流">脱离文档流</h2>
+
+<p>当设置css为如下属性时，元素将脱离文档流。</p>
+
+<pre><code class="language-CSS">float:left/right/center
+
+position:absolute/fixed
+</code></pre>
+
+<h1 id="盒模型">盒模型</h1>
+
+<p>查看:<br />
+<a href="../css盒模型">css盒模型</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/>https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/css%E7%9B%92%E6%A8%A1%E5%9E%8B/" class="prev" rel="prev" title="CSS盒模型"><i class="iconfont icon-left"></i>&nbsp;CSS盒模型</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/" class="next" rel="next" title="css布局">css布局&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

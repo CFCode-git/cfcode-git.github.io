@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/" />
+  <link rel="next" href="https://chow1027.xyz/2019/for-in%E4%B8%8Efor-of/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Let和const在for循环中的运用 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="Let和const在for循环中的运用 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "Let和const在for循环中的运用",
+    "headline" : "Let和const在for循环中的运用",
+    "description" : "版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源\n参考资料来源：\n(let const缓存for循环的中间变量)[https:\/\/juejin.im\/post\/5c6bb8566fb9a049f154c363]\n(let 和 const 在for 循环中的使用)[https:\/\/www.cnblogs.com\/SamWeb\/p\/10659352.html]\n问题的根源起源于手写jQuery的过程中用到的代码：\nfind(selector) { let array = [] for (let i = 0; i \x26lt; elements.length; i\x2b\x2b) { const elements2 = Array.from(elements[i].querySelectorAll(selector)) array = array.concat(elements2) } array.oldApi = this return jQuery(array) }  const关键字定义的变量不能被重新赋值，那它为什么可以出现在for循环中？\nlet 当我们在for循环中使用let时，每一次的迭代都会重新声明一次变量。比如for(let i = 0; i \x26lt; 10; i\x2b\x2b)\ni变量被声明了10次，每一次赋的值为上一次迭代完成时的值，这样的话，循环体内获取到的i，每次也都是全新的变量i，而不是像使用var声明时得到的是全局变量，并且每一次迭代完成后，i变量就消失了。\n除了常规for循环，for-in和for-of同理。每一次迭代都是重新声明一个新的迭代对象，而不是给原来的迭代对象赋新值。\nlet arr = [1, 2, 3]; for (let key in arr) { console.log(key) } \/\/ 0 1 2 for(let key of arr){ console.",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-27 06:12:07 \x2b0800 CST",
+    "dateModified" : "2019-11-27 06:12:07 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8\/",
+    "wordCount" : "123",
+    "keywords" : [  "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Let和const在for循环中的运用</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-27 itemprop="datePublished">November 27, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p><strong><em>版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源</em></strong></p>
+
+<p><strong><em>参考资料来源：</em></strong></p>
+
+<p>(let const缓存for循环的中间变量)[<a href="https://juejin.im/post/5c6bb8566fb9a049f154c363" rel="nofollow noreferrer" target="_blank">https://juejin.im/post/5c6bb8566fb9a049f154c363</a>]</p>
+
+<p>(let 和 const 在for 循环中的使用)[<a href="https://www.cnblogs.com/SamWeb/p/10659352.html" rel="nofollow noreferrer" target="_blank">https://www.cnblogs.com/SamWeb/p/10659352.html</a>]</p>
+
+<p>问题的根源起源于手写jQuery的过程中用到的代码：</p>
+
+<pre><code class="language-JavaScript">find(selector) {
+        let array = []
+        for (let i = 0; i &lt; elements.length; i++) {
+            const elements2 = Array.from(elements[i].querySelectorAll(selector))
+            array = array.concat(elements2)
+        }
+        array.oldApi = this
+        return jQuery(array)
+    }
+</code></pre>
+
+<p>const关键字定义的变量不能被重新赋值，那它为什么可以出现在for循环中？</p>
+
+<hr />
+
+<h1 id="let">let</h1>
+
+<p>当我们在for循环中使用let时，每一次的迭代都会重新声明一次变量。比如<code>for(let i = 0; i &lt; 10; i++)</code></p>
+
+<p>i变量被声明了10次，<strong>每一次赋的值为上一次迭代完成时的值</strong>，这样的话，循环体内获取到的i，每次也都是全新的变量i，而不是像使用var声明时得到的是全局变量，并且每一次迭代完成后，i变量就消失了。</p>
+
+<p>除了常规for循环，for-in和for-of同理。每一次迭代都是重新声明一个新的迭代对象，而不是给原来的迭代对象赋新值。</p>
+
+<pre><code class="language-JavaScript">let arr = [1, 2, 3];
+for (let key in arr) {
+    console.log(key)
+} // 0 1 2
+
+for(let key of arr){
+    console.log(key)
+} // 1 2 3
+
+// for in 遍历数组的索引（键名）；for of 遍历数组元素值
+</code></pre>
+
+<p>for of 与for in 的区别</p>
+
+<h1 id="const">const</h1>
+
+<p>如果把上述代码中的let改成const，即：</p>
+
+<pre><code class="language-javascript">for(const i = 0; i &lt; 10; i++)
+
+for(const key in arr)
+
+for(const key of arr)
+</code></pre>
+
+<p>可以发现，第一种常规for循环报错，而其他两种正常进行。</p>
+
+<p>为什么？</p>
+
+<p>看常规for循环的第一次迭代，const声明了一个变量i,在第一次迭代的最后尝试进行i++，因此报错。</p>
+
+<p>而for-of和for-in没有问题，同let一样，每一次迭代都会声明一个全新的key，所有的赋值都是对一个全新的key <strong>(变量)</strong> 赋值，因此不会报错。</p>
+
+<p>那么回答第一个问题，为什么for循环中可以用</p>
+
+<p><code>const elements2 = Array.from(elements[i].querySelectorAll(selector))</code></p>
+
+<p>因为每一次循环都是重新声明一个elements2变量对他进行赋值，const elements2 的作用域在for循环内，只要在<strong>for循环内不进行二次赋值</strong>，那就是可以的。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/>https://chow1027.xyz/2019/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/" class="prev" rel="prev" title="谈谈浏览器解析html时的阻塞问题"><i class="iconfont icon-left"></i>&nbsp;谈谈浏览器解析html时的阻塞问题</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/for-in%E4%B8%8Efor-of/" class="next" rel="next" title="For In与for Of">For In与for Of&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

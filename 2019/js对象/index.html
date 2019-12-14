@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+  <link rel="next" href="https://chow1027.xyz/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/js%E5%AF%B9%E8%B1%A1/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           JS对象 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="JS对象 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "JS对象",
+    "headline" : "JS对象",
+    "description" : "JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，\n以及原型是什么？\n唯一的复杂类型——Object \/\/常用写法： let obj = {\x27name\x27:\x27xxx\x27,\x27age\x27:\x27xxx\x27,} \/\/正规写法 let obj = new Object({\x27name\x27:\x27xxx\x27,\x27age\x27:\x27xxx\x27}) \/\/匿名对象 console.log({\x27name\x27:\x27xxx\x27,\x27age\x27:\x27xxx\x27})  注意：\n1. 键名是字符串，可以包含任何字符；\n2. \x26ldquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！）\n3. 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。\n4. 对象中的键值对又称为这个对象的属性。\nlet obj={ 1e2:\x27一百\x27 } \/*******结果是********\/ obj = {\x27100\x27:\x27一百\x27}  如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。\n提问：字符串是一个常量，我能不能用变量的值作为Object的键呢？ 答案是肯定的。\n怎么做？\n用\x26rsquo;[]\x26lsquo;将变量名包裹起来\nlet a = \x27xxx\x27 var obj = { [a] = \x27hello\x27 } \/*******结果是********\/ obj = {\x27xxx\x27:\x27hello\x27}  同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。\nObject中的增删查改 删除属性 delete obj.xxx 或 delete obj[\x26lsquo;xxx\x26rsquo;] ——删除obj对象的xxx属性\n注意区分属性值为 undefined 和 不含属性名",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-16 14:41:49 \x2b0800 CST",
+    "dateModified" : "2019-11-16 14:41:49 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/js%E5%AF%B9%E8%B1%A1\/",
+    "wordCount" : "183",
+    "keywords" : [  "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JS对象</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-16 itemprop="datePublished">November 16, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，</p>
+
+<p>以及原型是什么？</p>
+
+<h1 id="唯一的复杂类型-object">唯一的复杂类型——Object</h1>
+
+<pre><code class="language-JavaScript">//常用写法：
+let obj = {'name':'xxx','age':'xxx',}
+//正规写法
+let obj = new Object({'name':'xxx','age':'xxx'})
+//匿名对象
+console.log({'name':'xxx','age':'xxx'})
+</code></pre>
+
+<p><strong>注意：</strong><br />
+1. 键名是字符串，可以包含任何字符；<br />
+2. &ldquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！）<br />
+3. 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。<br />
+4. <strong>对象中的键值对又称为这个对象的属性。</strong></p>
+
+<pre><code class="language-JavaScript">let obj={
+    1e2:'一百'
+}
+/*******结果是********/
+obj = {'100':'一百'}
+</code></pre>
+
+<p><strong>如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。</strong></p>
+
+<h2 id="提问-字符串是一个常量-我能不能用变量的值作为object的键呢">提问：字符串是一个常量，我能不能用变量的值作为Object的键呢？</h2>
+
+<p>答案是肯定的。<br />
+怎么做？</p>
+
+<p>用&rsquo;[]&lsquo;将变量名包裹起来</p>
+
+<pre><code class="language-JavaScript">let a = 'xxx'
+var obj = {
+    [a] = 'hello'
+}
+/*******结果是********/
+obj = {'xxx':'hello'}
+</code></pre>
+
+<p><strong>同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。</strong></p>
+
+<h1 id="object中的增删查改">Object中的增删查改</h1>
+
+<h2 id="删除属性">删除属性</h2>
+
+<p>delete obj.xxx 或 delete obj[&lsquo;xxx&rsquo;]  ——删除obj对象的xxx属性</p>
+
+<p><strong>注意区分属性值为 undefined 和 不含属性名</strong></p>
+
+<p>比如</p>
+
+<pre><code class="language-JavaScript">obj.xxx = undefined
+obj.xxx = null
+</code></pre>
+
+<p>上面的操作只是把obj对象中的xxx属性的属性值设置为null或undefined（相当于删除属性值）。</p>
+
+<p><strong>但是！</strong>，xxx属性还保留着，只是这个属性没有值，或者说它的值为null（或undefined）。</p>
+
+<h2 id="查看属性">查看属性</h2>
+
+<ol>
+<li><p>查看自身所有属性</p>
+
+<pre><code class="language-JavaScript">//查看对象中所有的键
+Object.keys(obj)
+//查看对象中所有的值
+Object.values(obj)
+//查看对象中所有的键值对
+obj   
+Object.entries(obj) /*以数组的形式展示*/
+</code></pre></li>
+
+<li><p>查看自身属性和共有属性</p>
+
+<pre><code class="language-JavaScript">//打印出obj对象的所有属性
+console.dir(obj)
+</code></pre></li>
+</ol>
+
+<p>上面是最佳方法，也可以用obj.<strong>proto</strong>逐个输出，不推荐。</p>
+
+<ol>
+<li><p>判断对象中是否含有某属性</p>
+
+<pre><code class="language-JavaScript">//判断对象中是否含有某个属性
+'xxx' in obj /*返回true表示含有，false表示没有*/
+//判断某个属性是不是自身属性
+obj.hasOwnProperty('toString') /*返回true表示非共有，false表示这是共有属性*/
+</code></pre></li>
+
+<li><p>查看具体某个属性</p>
+
+<pre><code class="language-JavaScript">obj.key | obj['key'] /*['key']中的''不能省略，省略后key表示的是变量。变量key的具体值是不确定的*/
+</code></pre></li>
+</ol>
+
+<h2 id="修改-增加属性">修改 || 增加属性</h2>
+
+<p>如果对象中没有该属性则增加该属性，否则就修改该属性。</p>
+
+<pre><code class="language-JavaScript">//直接赋值
+let obj = {'name':'hi'}
+obj.name = 'hi'
+obj['name'] = 'hi'
+//批量赋值
+Object.assign(obj,{'age':'18','gender':'man'})
+</code></pre>
+
+<h1 id="共有属性和原型">共有属性和原型</h1>
+
+<ol>
+<li>每个对象都有原型。<br /></li>
+<li>对象的原型本身也是对象。<br /></li>
+<li><code>obj={}</code>的原型是Object中的prototype属性，它是所有对象的原型，是所有原型的根，包含所有对象的共有属性。这个原型（prototype）本身的也有原型（<code>__proto__</code>），<code>__proto__</code>的值为null。</li>
+</ol>
+
+<p><strong>怎么理解原型？</strong></p>
+
+<p>可以把原型看作是一个存储JavaScript各种函数功能的仓库，里面的共有属性就是函数，对象类似于某品牌的批发店，所有该品牌的批发店（对象）就是从这个仓库（原型）共享货源（属性）。</p>
+
+<h2 id="修改共有属性">修改共有属性</h2>
+
+<p>一般无法通过自身修改或增加共有属性，比如：</p>
+
+<pre><code class="language-JavaScript">var obj = {}
+obj.toString = 'xxx'
+</code></pre>
+
+<p>上面的代码不会修改obj原型的toString属性，而会在obj的底下新增一个名为toString的自身属性。<strong>并且之后再也无法访问原型中的toString属性。</strong></p>
+
+<p><strong>并且我们不推荐修改原型中的共有属性，因为这样会影响到整个代码，如果偏要修改：</strong></p>
+
+<pre><code class="language-JavaScript">obj.__proto__.toString = 'xxx'
+Object.prototype.toString = 'xxx'
+</code></pre>
+
+<p>修改共有属性会破坏JavaScript的环境，这也正表明了JavaScript的脆弱性。</p>
+
+<h2 id="修改原型">修改原型</h2>
+
+<p>相比于修改共有属性，我们更推荐<strong>修改原型</strong>。</p>
+
+<p>比如：</p>
+
+<pre><code class="language-JavaScript">/*将obj对象的原型设置为空。*/
+obj.__proto__ = null
+</code></pre>
+
+<p>比如：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/原型链.png" alt="修改原型" class="lazyload"><figcaption class="image-caption">修改原型</figcaption></figure></p>
+
+<blockquote>
+<p>原型链是个啥？<br />
+承接上面的比喻，原型是一个仓库，共有属性是货品，对象是批发店和连锁超市，连锁超市从批发店得到货品，批发店的货品来自仓库，从仓库到批发店再到连锁超市就构成了供应链（原型链）。</p>
+</blockquote>
+
+<p><strong>推荐用Object.create修改原型</strong></p>
+
+<pre><code class="language-JavaScript">var common = {'country':'China','haircolor':'black'}
+var person = Object.create(common)
+</code></pre>
+
+<p>上述代码的意思是，以common为person的原型。运行后，common中的内容会成为person的隐藏属性，出现在<code>__proto__</code>中。</p>
+
+<p>如果要给person添加属性，有两种方法：</p>
+
+<pre><code class="language-JavaScript">/*第一种方法*/
+var person = Object.create(common,{
+    'name':{value:'Jack'}
+})
+/*第二种方法*/
+var person = Object.create(common)
+person.name = 'Jack'
+Object.assign(person,{...:...,...:...}) /*配合assign添加属性*/
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/js%E5%AF%B9%E8%B1%A1/>https://chow1027.xyz/2019/js%E5%AF%B9%E8%B1%A1/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="prev" rel="prev" title="JS基本语法"><i class="iconfont icon-left"></i>&nbsp;JS基本语法</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="next" rel="next" title="JS函数的执行时机">JS函数的执行时机&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

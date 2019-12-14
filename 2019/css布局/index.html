@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/" />
+  <link rel="next" href="https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           css布局 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="css布局 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "css布局",
+    "headline" : "css布局",
+    "description" : "float布局、flex布局、grid布局。\n布局分类 固定宽度布局：主要有960\/1000\/1024px;\n不固定宽度布局：靠文档流原理布局。(主要用于手机页面);\n响应式布局(混合布局)：既适应pc上的固定布局，也适应手机上的不固定布局。\n布局思路 float布局 步骤\n1. 给子元素加上float:left | right;\n2. 给父元素加上.clearfix\n经验\n1. 一般会预留一些空间或者最后一个元素width不写死。\n2. 不需要做响应式，因为手机页面没有IE，而float布局是专门为IE设计的。\n3. IE6\/7存在双倍margin的bug，解决办法是\n* 针对IE6\/7对margin减半\n* 再加一个display:inline-block;\n4. 用\x26rdquo;outline\x26rdquo;代替\x26rdquo;border\x26rdquo;,可以使得边框不占据内部的空间(outline不在border-box的width计算范围内)\n.float { float:left; margin-left:10px; \/*一般浏览器会执行这一句,忽略下一句。*\/ _margin-left:5px; \/*IE6\/7认得这一句，因此会先执行上一句，然后执行这一句重设margin，注意下划线_*\/ }  代码示例\n\x26lt;!--html--\x26gt; \x26lt;header class = \x26quot;clearfix\x26quot;\x26gt; \x26lt;div class= \x26quot;float\x26quot;\x26gt;balabala\x26lt;\/div\x26gt; \x26lt;\/header\x26gt;  \/*css*\/ .clearfix:after { \/*\x26quot;:\x26quot;或\x26quot;::\x26quot;都行，但IE8及以下只认得\x26quot;:\x26quot;*\/ content:\x26quot;\x26quot;; display:block; clear:both; }  \/*小技巧：如果发现图片下面有多余的东西，可以用这句话让图片居中。*\/ vertical-align:top |middle; \/*让块级元素居中*\/ margin:0 auto; \/*下面这句更好，因为没有覆盖元素本身的上下外边距*\/ margin-left:auto; margin-right:auto;  flex布局 container\x26ndash;容器(父元素) item\x26ndash;项目(容器内的子块；子元素)",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-08 06:36:14 \x2b0800 CST",
+    "dateModified" : "2019-11-08 06:36:14 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/css%E5%B8%83%E5%B1%80\/",
+    "wordCount" : "300",
+    "keywords" : [  "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">css布局</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-11-08 itemprop="datePublished">November 8, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>float布局、flex布局、grid布局。</p>
+
+<h1 id="布局分类">布局分类</h1>
+
+<p>固定宽度布局：主要有960/1000/1024px;<br />
+不固定宽度布局：靠文档流原理布局。(主要用于手机页面);<br />
+响应式布局(混合布局)：既适应pc上的固定布局，也适应手机上的不固定布局。</p>
+
+<h1 id="布局思路">布局思路</h1>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/css布局思路.png" alt="css布局思路图" class="lazyload"><figcaption class="image-caption">css布局思路图</figcaption></figure></p>
+
+<h1 id="float布局">float布局</h1>
+
+<p><strong>步骤</strong><br />
+1. 给子元素加上<code>float:left | right;</code><br />
+2. 给父元素加上<code>.clearfix</code></p>
+
+<p><strong>经验</strong><br />
+1. 一般会预留一些空间或者最后一个元素width不写死。<br />
+2. 不需要做响应式，因为手机页面没有IE，而float布局是专门为IE设计的。<br />
+3. IE6/7存在双倍margin的bug，解决办法是<br />
+   * 针对IE6/7对margin减半<br />
+   * 再加一个<code>display:inline-block;</code><br />
+4. 用&rdquo;outline&rdquo;代替&rdquo;border&rdquo;,可以使得边框不占据内部的空间(outline不在border-box的width计算范围内)</p>
+
+<pre><code class="language-css">.float {
+    float:left;
+    margin-left:10px; /*一般浏览器会执行这一句,忽略下一句。*/
+    _margin-left:5px; /*IE6/7认得这一句，因此会先执行上一句，然后执行这一句重设margin，注意下划线_*/
+}
+</code></pre>
+
+<p><strong>代码示例</strong></p>
+
+<pre><code class="language-html">&lt;!--html--&gt;
+&lt;header class = &quot;clearfix&quot;&gt;
+    &lt;div class= &quot;float&quot;&gt;balabala&lt;/div&gt;
+&lt;/header&gt;
+</code></pre>
+
+<pre><code class="language-css">/*css*/
+.clearfix:after {  /*&quot;:&quot;或&quot;::&quot;都行，但IE8及以下只认得&quot;:&quot;*/
+    content:&quot;&quot;;
+    display:block;
+    clear:both;
+}
+</code></pre>
+
+<pre><code class="language-css">/*小技巧：如果发现图片下面有多余的东西，可以用这句话让图片居中。*/
+vertical-align:top |middle;
+
+/*让块级元素居中*/
+margin:0 auto;
+/*下面这句更好，因为没有覆盖元素本身的上下外边距*/
+margin-left:auto;
+margin-right:auto;
+</code></pre>
+
+<h1 id="flex布局">flex布局</h1>
+
+<p>container&ndash;容器(父元素) item&ndash;项目(容器内的子块；子元素)</p>
+
+<p><strong>class = &ldquo;container&rdquo; 样式</strong></p>
+
+<pre><code class="language-css">/*设置flex布局*/
+.container {
+    display:flex | inline-flex;
+}
+
+/*item流动方向-主轴*/
+.container {
+    flex-direction:row | row-reverse | column | column-reverse;
+}
+
+/*折行，默认nowrap，如果不设置，所有元素都会挤在同一行。*/
+.container {
+    flex-wrap:nowrap | wrap | wrap-reverse;
+}
+
+/*主轴对齐方式 缩写：jc*/
+.container {
+    justify-content:flex-start | flex-end | center | space-between | space-around | space-evenly;
+}
+
+/*次轴对齐方式 缩写：ai*/
+.container {
+    align-items:flex-start | flex-end | center | stretch | baseline;
+}
+
+/*多行内容(比较少用)*/
+.container {
+    align-content:flex-start | flex-end | center | stretch | space-between | space-around;
+}
+</code></pre>
+
+<p><strong>class = &ldquo;item&rdquo;</strong><br />
+1. 用order值排序，由小到大排列；<br />
+2. 用flex-grow控制&rdquo;长胖&rdquo;，设置的值越大，得到的多余空间越多。<br />
+3. 用flex-shrink控制&rdquo;变瘦&rdquo;，设置的值越大，在空间不够时压缩得越大。(默认是1，一般设置为0防止压缩)<br />
+4. flex-basis控制宽度<br />
+5. 缩写flex-grow flex-shrink flex-basis 为 flex。<br />
+6. 通过align-self定制某个item的align-items。</p>
+
+<p><strong>经验</strong><br />
+1. 永远不要把width和height写死。<br />
+2. 用min/max-height和min/max-width。<br />
+3. flex可以基本满足所有需求<br />
+4. flex与margin-xxx:auto配合有意外效果。(往反方向写，比如向左靠就写margin-right:auto;)</p>
+
+<h1 id="负margin">负margin</h1>
+
+<p>采用float和flex写平均布局时常常要用到负margin。</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/images/-margin.jpg" alt="我的理解负margin" class="lazyload"><figcaption class="image-caption">我的理解负margin</figcaption></figure></p>
+
+<h1 id="grid布局">grid布局</h1>
+
+<p>目前grid布局还没有普及。</p>
+
+<p><strong>class = &ldquo;container&rdquo;</strong></p>
+
+<pre><code class="language-css">/*设置grid布局*/
+.container {
+    display:grid | inline-grid;
+}
+
+/*设置行&amp;列*/
+.container {
+    grid-template-columns: 40px 50px auto 40px 50px; /*五列*/
+    grid-template-rows:25% 100px auto; /*三行*/
+    
+    /*可以缩写*/
+    grid-template-columns:240px repeat(4,120px); 
+    /*相当于240px 120px 120px 120px 120px*/
+}
+
+/*可以给线取名但一般不这么做*/
+.container {
+    grid-template-columns: [first]40px [line2]50px [line3]auto [col4-start]40px [five]50px [end]; /*五列*/
+    grid-template-rows:[row1-start]25% [row1-end]100px [third-line]auto [last-line]; /*三行*/
+}
+</code></pre>
+
+<p><strong>class = &ldquo;item&rdquo;</strong></p>
+
+<pre><code class="language-css">/*设置范围*/
+.item {
+    grid-column-start:2;
+    grid-column-end:five; /*从第二根线开始到名为【five】的线结束*/
+    grid-row-start:row1-start;
+    grid-row-end:3; /*从名为【row1-start】的线开始到第三根线结束*/
+}
+</code></pre>
+
+<h2 id="fr-free-space-任意空间">fr &ndash;free space 任意空间</h2>
+
+<pre><code class="language-css">.container {
+    grid-template-columns:1fr 1fr 1fr;
+}
+
+/*也可以固定其中的某个宽度*/
+.container {
+    grid-template-columns:1fr 50px 1fr 1fr;
+}
+</code></pre>
+
+<h2 id="grid-gap-设定中间的空隙">grid-gap 设定中间的空隙</h2>
+
+<p>可以分别设定横向空隙<code>grid-row-gap</code>和纵向空隙<code>gird-column-gap</code>.</p>
+
+<h2 id="超级好用的属性-分区-grid-grid-template-areas">超级好用的属性 &ndash;分区：grid:grid-template-areas</h2>
+
+<pre><code class="language-html">&lt;!--html--&gt;
+&lt;div class = &quot;container&quot;&gt;
+    &lt;header&gt;header&lt;/header&gt;
+    &lt;aside&gt;aside&lt;/aside&gt;
+    &lt;main&gt;main&lt;/main&gt;
+    &lt;div class = &quot;ad&quot;&gt;ad&lt;/div&gt;
+    &lt;footer&gt;footer&lt;/footer&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-css">.container {
+    display:grid;
+    grid-template-areas:
+    &quot;header header header&quot;
+    &quot;aside mian ad&quot;
+    &quot;footer footer footer&quot;; /*如果要空一个，可以设一个随意的值，一般设一个(.),如下*/
+    /*&quot;. footer footer&quot;;*/
+}
+
+header {
+    grid-area:header;
+}
+
+aside {
+    grid-area:aside;
+}
+
+...........
+
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/>https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/" class="prev" rel="prev" title="CSS基础"><i class="iconfont icon-left"></i>&nbsp;CSS基础</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="next" rel="next" title="css知识总结">css知识总结&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

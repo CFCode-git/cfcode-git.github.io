@@ -1,123 +1,514 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <url>
-    <loc>http://chow1027.xyz/about/</loc>
-    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/categories/</loc>
+      
+      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</loc>
-    <lastmod>2019-12-03T18:45:06+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/tags/mvc/</loc>
+      
+      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/</loc>
-    <lastmod>2019-12-03T18:45:06+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/mvc/</loc>
+      
+      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/</loc>
-    <lastmod>2019-12-03T18:45:06+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/posts/</loc>
+      
+      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2019-11-30T18:52:19+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/tags/</loc>
+      
+      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/for-in%E4%B8%8Efor-of/</loc>
-    <lastmod>2019-11-27T06:52:50+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/</loc>
+      
+      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/</loc>
-    <lastmod>2019-11-27T06:12:07+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/categories/%E6%8A%80%E6%9C%AF/</loc>
+      
+      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2019-11-25T13:33:43+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</loc>
+      
+      <lastmod>2019-12-03T18:45:06+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</loc>
-    <lastmod>2019-11-18T15:18:59+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/</loc>
+      
+      <lastmod>2019-11-30T18:52:19+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/js%E5%AF%B9%E8%B1%A1/</loc>
-    <lastmod>2019-11-16T14:41:49+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/for-in%E4%B8%8Efor-of/</loc>
+      
+      <lastmod>2019-11-27T06:52:50+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
-    <lastmod>2019-11-15T06:40:40+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/</loc>
+      
+      <lastmod>2019-11-27T06:12:07+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/javascript%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</loc>
-    <lastmod>2019-11-13T21:30:08+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</loc>
+      
+      <lastmod>2019-11-25T13:33:43+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/%E6%B5%85%E6%9E%90url/</loc>
-    <lastmod>2019-11-11T13:18:15+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</loc>
+      
+      <lastmod>2019-11-18T15:18:59+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2019-11-10T09:50:38+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/js%E5%AF%B9%E8%B1%A1/</loc>
+      
+      <lastmod>2019-11-16T14:41:49+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/css%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2019-11-08T06:36:14+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
+      
+      <lastmod>2019-11-15T06:40:40+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/css%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2019-11-05T20:03:57+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/javascript%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</loc>
+      
+      <lastmod>2019-11-13T21:30:08+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/css%E7%9B%92%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2019-11-05T19:49:48+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/%E6%B5%85%E6%9E%90url/</loc>
+      
+      <lastmod>2019-11-11T13:18:15+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/html%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2019-11-03T13:42:58+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</loc>
+      
+      <lastmod>2019-11-10T09:50:38+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</loc>
-    <lastmod>2019-11-01T21:04:35+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/</loc>
+      
+      <lastmod>2019-11-08T06:36:14+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</loc>
-    <lastmod>2019-10-31T18:16:17+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/</loc>
+      
+      <lastmod>2019-11-05T20:03:57+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2019-10-30T10:13:42+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/css%E7%9B%92%E6%A8%A1%E5%9E%8B/</loc>
+      
+      <lastmod>2019-11-05T19:49:48+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</loc>
-    <lastmod>2019-10-29T22:39:18+08:00</lastmod>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/</loc>
+      
+      <lastmod>2019-11-03T13:42:58+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/categories/</loc>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</loc>
+      
+      <lastmod>2019-11-01T21:04:35+08:00</lastmod>
+      
+      
+      
+      
+    </url>
   
-  <url>
-    <loc>http://chow1027.xyz/tags/</loc>
-  </url>
+    <url>
+      <loc>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</loc>
+      
+      <lastmod>2019-10-31T18:16:17+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2019/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+      
+      <lastmod>2019-10-30T10:13:42+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</loc>
+      
+      <lastmod>2019-10-29T22:39:18+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/posts/news/</loc>
+      
+      <lastmod>2018-08-29T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/categories/releases/</loc>
+      
+      <lastmod>2018-08-29T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.48-relnotes/</loc>
+      
+      <lastmod>2018-08-29T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.47.1-relnotes/</loc>
+      
+      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.47-relnotes/</loc>
+      
+      <lastmod>2018-08-17T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.46-relnotes/</loc>
+      
+      <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.45.1-relnotes/</loc>
+      
+      <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.45-relnotes/</loc>
+      
+      <lastmod>2018-07-22T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.44-relnotes/</loc>
+      
+      <lastmod>2018-07-13T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2018/0.43-relnotes/</loc>
+      
+      <lastmod>2018-07-09T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/categories/blog/</loc>
+      
+      <lastmod>2017-07-24T18:36:00+02:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2017/http2-server-push-in-hugo/</loc>
+      
+      <lastmod>2017-07-24T18:36:00+02:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2014/creating-a-new-theme/</loc>
+      
+      <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/hugo/</loc>
+      
+      <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/categories/others/</loc>
+      
+      <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/theme/</loc>
+      
+      <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2014/goisforlovers/</loc>
+      
+      <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/development/</loc>
+      
+      <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/go/</loc>
+      
+      <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/golang/</loc>
+      
+      <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/templates/</loc>
+      
+      <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/themes/</loc>
+      
+      <lastmod>2014-07-28T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2014/about/</loc>
+      
+      <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2014/hugoisforlovers/</loc>
+      
+      <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/2014/migrate-from-jekyll/</loc>
+      
+      <lastmod>2014-03-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
   
 </urlset>

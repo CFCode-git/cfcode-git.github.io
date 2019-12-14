@@ -2,13 +2,86 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 呆尬猴的博客</title>
-    <link>http://chow1027.xyz/tags/</link>
+    <link>https://chow1027.xyz/tags/</link>
     <description>Recent content in Tags on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hans</language>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 14 Dec 2019 19:08:42 +0800</lastBuildDate>
     
-	<atom:link href="http://chow1027.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chow1027.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MVC</title>
+      <link>https://chow1027.xyz/tags/mvc/</link>
+      <pubDate>Sat, 14 Dec 2019 19:08:42 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/mvc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://chow1027.xyz/tags/hugo/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theme</title>
+      <link>https://chow1027.xyz/tags/theme/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://chow1027.xyz/tags/development/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://chow1027.xyz/tags/go/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://chow1027.xyz/tags/golang/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templates</title>
+      <link>https://chow1027.xyz/tags/templates/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/templates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://chow1027.xyz/tags/themes/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/tags/themes/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

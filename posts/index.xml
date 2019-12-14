@@ -2,21 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 呆尬猴的博客</title>
-    <link>http://chow1027.xyz/posts/</link>
+    <link>https://chow1027.xyz/posts/</link>
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hans</language>
-    <lastBuildDate>Tue, 03 Dec 2019 18:45:06 +0800</lastBuildDate>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 14 Dec 2019 19:08:42 +0800</lastBuildDate>
     
-	<atom:link href="http://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>MVC:拒绝面条式代码</title>
+      <link>https://chow1027.xyz/2019/mvc/</link>
+      <pubDate>Sat, 14 Dec 2019 19:08:42 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/mvc/</guid>
+      <description>设计模式概述 设计模式是我们在进行程序设计的过程中，对普遍存在的问题（或反复出现的情况）提出的一种统一的解决方案。 比如适配器模式、Promise、重载、别名、getter/setter、观察者模式等。
+代码模块化 如果代码中存在一些可以具体实现某些功能的代码块，而这些代码块的功能在其他的地方也可以适用。那么我们可以将这部分代码可以封装成一个函数、一个类，这就是代码的模块化；
+根据操作对象的不同，比如将专门操作DOM对象的代码放在一类，将专门负责页面渲染更新的代码当在一类，这也是代码的模块化。
+就是说，总是会有&amp;rdquo;万金油&amp;rdquo;的代码，是所有项目或块的通用代码，我们将这些具有相同&amp;rdquo;目的&amp;rdquo;的代码整合成一个模块，就可以使代码的整体结构更加清晰；模块之间虽然有联系，但每个模块只需关注自身的执行情况以及传进来的参数即可，不会牵一发而动全身，这也是一种解耦的思想。
+MVC 设计模式 MVC 是设计模式的一种，是我们优化代码结构的一种方案。同时，他也是代码模块化的一种体现。
+它不直接指导具体代码的实现，而是从全局的、宏观的角度，指导各个部分的代码应该怎么“摆”，从而使代码整体结构更加规律、直观。 当需求越是复杂，要实现的功能越复杂的时候，MVC 所带来的好处就越明显。
+MVC 把代码的结构分成三个部分：Model-数据、View-视图、Control-控制器。
+Model 数据 Model 负责代码中的所有与数据相关的部分，比如数据的更新、数据的读取、数据的存储等。 它不依赖于 View 和 Control，也就是说，它并不关心数据会被如何显示，或是被如何处理，它只需要管理好它的数据即可。 以下面的 Model 举例:
+class Model{ constructor(options){ // 接受数据 const keys = [&#39;data&#39;,&#39;update&#39;,&#39;create&#39;,&#39;delete&#39;,&#39;get&#39;] keys.forEach((key)=&amp;gt;{ if(key in options){ this[key]=options[key] } }) } // 各种数据相关的方法 create(){} delete(){} update(){} get(){} }  View 视图 View 负责处理用户界面相关的代码，比如页面的重新渲染。 同样，View 并不关心它渲染的内容，它只要做好它的工作就可以了。 以下面的 代码 举例:
+const view = { init(){} // 页面初始化 template:`&amp;lt;section&amp;gt;&amp;lt;p&amp;gt;hello&amp;lt;/p&amp;gt;&amp;lt;/section&amp;gt;` // 页面要渲染的内容 render(){} // 渲染函数 }  Controller 控制器 Controller负责统筹整个程序的运作，类似中央处理器。 比如对Model的数据进行处理，将处理后的数据通知给 View 更新；处理 View 传达的事件，更新数据后传达给 Model。 以下面的 Controller 举例:</description>
+    </item>
+    
+    <item>
       <title>Axios使用手册</title>
-      <link>http://chow1027.xyz/posts/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</link>
+      <link>https://chow1027.xyz/2019/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</link>
       <pubDate>Tue, 03 Dec 2019 18:45:06 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</guid>
+      <guid>https://chow1027.xyz/2019/axios%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</guid>
       <description>参考文献：
 axios中文网
 axios英文原文
@@ -25,10 +43,10 @@ GET 请求 /*为给定 ID 的 User 创建请求*/ axios.get(&#39;/user?ID = 1234
     
     <item>
       <title>JQuery中的函数</title>
-      <link>http://chow1027.xyz/posts/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/</link>
+      <link>https://chow1027.xyz/2019/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/</link>
       <pubDate>Sat, 30 Nov 2019 18:52:19 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
+      <guid>https://chow1027.xyz/2019/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
       <description>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源
 &amp;mdash;参考资料来源：
 jQuery设计思想&amp;mdash;阮一峰
@@ -50,10 +68,10 @@ $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;);  $(&#39;div&#39
     
     <item>
       <title>For In与for Of</title>
-      <link>http://chow1027.xyz/posts/for-in%E4%B8%8Efor-of/</link>
+      <link>https://chow1027.xyz/2019/for-in%E4%B8%8Efor-of/</link>
       <pubDate>Wed, 27 Nov 2019 06:52:50 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/for-in%E4%B8%8Efor-of/</guid>
+      <guid>https://chow1027.xyz/2019/for-in%E4%B8%8Efor-of/</guid>
       <description>版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源
 参考文章
 (for&amp;hellip;in&amp;hellip;与for&amp;hellip;of&amp;hellip;区别)[https://juejin.im/post/5b567b5a5188251ac0630bda]
@@ -68,10 +86,10 @@ for of遍历的是数组中的元素值，for in遍历的是索引。</descripti
     
     <item>
       <title>Let和const在for循环中的运用</title>
-      <link>http://chow1027.xyz/posts/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/</link>
+      <link>https://chow1027.xyz/2019/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/</link>
       <pubDate>Wed, 27 Nov 2019 06:12:07 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/</guid>
+      <guid>https://chow1027.xyz/2019/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8/</guid>
       <description>版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源
 参考资料来源：
 (let const缓存for循环的中间变量)[https://juejin.im/post/5c6bb8566fb9a049f154c363]
@@ -86,10 +104,10 @@ let arr = [1, 2, 3]; for (let key in arr) { console.log(key) } // 0 1 2 for(let 
     
     <item>
       <title>谈谈浏览器解析html时的阻塞问题</title>
-      <link>http://chow1027.xyz/posts/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</link>
+      <link>https://chow1027.xyz/2019/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 25 Nov 2019 13:33:43 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://chow1027.xyz/2019/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</guid>
       <description>参考文章：
 DOM阻塞总结
 深入浅出浏览器渲染原理
@@ -125,10 +143,10 @@ CSSOM和DOM CSSOM和DOM的构建互不干扰，那么所有的CSS都不影响DOM
     
     <item>
       <title>JS函数的执行时机</title>
-      <link>http://chow1027.xyz/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <link>https://chow1027.xyz/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
       <pubDate>Mon, 18 Nov 2019 15:18:59 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <guid>https://chow1027.xyz/2019/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
       <description>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源
 &amp;mdash;以下文档部分转载自知乎文章《从一道面试题-计时器函数谈闭包》，作者：胡桃夹子
 文章地址：https://zhuanlan.zhihu.com/p/80117819
@@ -164,10 +182,10 @@ for循环每一次执行的版本（i的具体值）都会给function记录下�
     
     <item>
       <title>JS对象</title>
-      <link>http://chow1027.xyz/posts/js%E5%AF%B9%E8%B1%A1/</link>
+      <link>https://chow1027.xyz/2019/js%E5%AF%B9%E8%B1%A1/</link>
       <pubDate>Sat, 16 Nov 2019 14:41:49 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/js%E5%AF%B9%E8%B1%A1/</guid>
+      <guid>https://chow1027.xyz/2019/js%E5%AF%B9%E8%B1%A1/</guid>
       <description>JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，
 以及原型是什么？
 唯一的复杂类型——Object //常用写法： let obj = {&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;,} //正规写法 let obj = new Object({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;}) //匿名对象 console.log({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;})  注意：
@@ -186,10 +204,10 @@ Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&amp;lsquo;x
     
     <item>
       <title>JS基本语法</title>
-      <link>http://chow1027.xyz/posts/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>https://chow1027.xyz/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Fri, 15 Nov 2019 06:40:40 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>https://chow1027.xyz/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>表达式和语句 表达式和语句的 一般 区别  表达式一般有值，语句可能有或没有；
  语句一般会改变环境（声明、赋值等）
  上述区别并不绝对。
@@ -213,10 +231,10 @@ Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&amp;lsquo;x
     
     <item>
       <title>JavaScript的个人简历</title>
-      <link>http://chow1027.xyz/posts/javascript%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</link>
+      <link>https://chow1027.xyz/2019/javascript%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</link>
       <pubDate>Wed, 13 Nov 2019 21:30:08 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/javascript%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</guid>
+      <guid>https://chow1027.xyz/2019/javascript%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</guid>
       <description>Javascript：我怎么来的？ JavaScript诞生于网景公司（_Mosaic Communications_）。
 网景公司希望它们的浏览器能与使用者互动，要达成这一目的，他们需要一种网页脚本语言。
 用什么语言来达成这一目的？要么，用当时现有的语言：python、perl、Scheme等；要么，开发一门新的语言。当时的网景公司分成了两派。
@@ -254,10 +272,10 @@ Javascript：我糟在哪？  不适合开发大型程序
     
     <item>
       <title>浅析URL</title>
-      <link>http://chow1027.xyz/posts/%E6%B5%85%E6%9E%90url/</link>
+      <link>https://chow1027.xyz/2019/%E6%B5%85%E6%9E%90url/</link>
       <pubDate>Mon, 11 Nov 2019 13:18:15 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/%E6%B5%85%E6%9E%90url/</guid>
+      <guid>https://chow1027.xyz/2019/%E6%B5%85%E6%9E%90url/</guid>
       <description>IP ——Internet Protocol 在说URL之前，先了解一下什么是IP。
 IP是互联网协议（网络协议），他的作用是：
 1. 约定如何定位一台设备（手机、电脑、网络摄像头等..）
@@ -304,10 +322,10 @@ www.xiedaimala.com是三级域名（俗称二级域名）</description>
     
     <item>
       <title>css知识总结</title>
-      <link>http://chow1027.xyz/posts/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</link>
+      <link>https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sun, 10 Nov 2019 09:50:38 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</guid>
       <description>css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等&amp;hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式
 div.style.background =&amp;quot;red&amp;quot; div.style.display = &amp;quot;none&amp;quot; div.classList.add(&#39;xxx&#39;) --直接给元素添加一个&amp;quot;xxx&amp;quot;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点   JS/CSS &amp;gt; 样式 &amp;gt; 布局 &amp;gt; 绘制 &amp;gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS/CSS &amp;gt; 样式 &amp;gt; 绘制 &amp;gt; 合成 (比如更改背景色，则布局不需要改变) JS/CSS &amp;gt; 样式 &amp;gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers
 css动画的两种做法  利用transition+transform+hover animation  transform transform的四个常用功能：
@@ -321,10 +339,10 @@ transition transition:属性名 时长 过渡方式 延迟；</description>
     
     <item>
       <title>css布局</title>
-      <link>http://chow1027.xyz/posts/css%E5%B8%83%E5%B1%80/</link>
+      <link>https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/</link>
       <pubDate>Fri, 08 Nov 2019 06:36:14 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/css%E5%B8%83%E5%B1%80/</guid>
+      <guid>https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/</guid>
       <description>float布局、flex布局、grid布局。
 布局分类 固定宽度布局：主要有960/1000/1024px;
 不固定宽度布局：靠文档流原理布局。(主要用于手机页面);
@@ -345,10 +363,10 @@ transition transition:属性名 时长 过渡方式 延迟；</description>
     
     <item>
       <title>CSS基础</title>
-      <link>http://chow1027.xyz/posts/css%E5%9F%BA%E7%A1%80/</link>
+      <link>https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 05 Nov 2019 20:03:57 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/css%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/</guid>
       <description>CSS &amp;ndash;层叠样式表 CSS(Cascading Style Sheets)是层叠样式表，所谓层叠有三层含义：
  样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。网页地址
 CSS语法 CSS语法主要有两种：
@@ -361,10 +379,10 @@ CSS查资料  Google搜索:MDN + 技术名词； Google搜索:CSS tricks + 技�
     
     <item>
       <title>CSS盒模型</title>
-      <link>http://chow1027.xyz/posts/css%E7%9B%92%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://chow1027.xyz/2019/css%E7%9B%92%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Tue, 05 Nov 2019 19:49:48 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/css%E7%9B%92%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://chow1027.xyz/2019/css%E7%9B%92%E6%A8%A1%E5%9E%8B/</guid>
       <description>什么是css盒模型？ 根据css 2.1 中文版文档的描述:
 CSS盒模型描述了一个为文档树中的元素生成的并根据视觉格式化模型进行布局的矩形框。
 我们可以理解为css中每一个元素都是一个盒子，拥有四个区域，分别是：内容区(content)、内边距(padding)、边框(border)和外边距(margin)。 css盒模型分两种：border-box 和 content-box。
@@ -374,10 +392,10 @@ CSS盒模型描述了一个为文档树中的元素生成的并根据视觉格�
     
     <item>
       <title>Html实践</title>
-      <link>http://chow1027.xyz/posts/html%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Sun, 03 Nov 2019 13:42:58 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/html%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/</guid>
       <description>选题 &amp;ndash;我最喜欢的动漫《某科学的超电磁炮》 以动漫《某科学的超电磁炮》为主题制作一个简易介绍网页，html裸奔。
 收集内容 资料来源：
 维基百科
@@ -401,10 +419,10 @@ img { max-width:100%; }   手机调试  通过chrome控制台
     
     <item>
       <title>《HTML常用标签》</title>
-      <link>http://chow1027.xyz/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <link>https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Fri, 01 Nov 2019 21:04:35 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <guid>https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
       <description>a 标签 &amp;lt;!-- html --&amp;gt; &amp;lt;a href=&amp;quot;//google.com&amp;quot; target=&amp;quot;_blank&amp;quot; download rel=&amp;quot;noopener&amp;quot;&amp;gt; &amp;lt;/a&amp;gt;  作用 跳转到外部页面
 跳转到内部锚点
 跳转到电话/邮箱
@@ -425,10 +443,10 @@ href 可以指向某个 ID，用户点击 a 标签页面就会跳转到该拥有
     
     <item>
       <title>Html入门笔记1</title>
-      <link>http://chow1027.xyz/posts/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <link>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Thu, 31 Oct 2019 18:16:17 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
       <description>什么是 HTML?它是谁发明的? 答：HTML 是超文本标记语言（Hypertext Markup Language）,在 1990 年由李爵士（Tim Berners-Lee）发明。
 HTML 起手式 起手式唯一招式：&amp;rdquo;!+tab&amp;rdquo;
 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot; /&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot; /&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;&amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  注：
@@ -438,10 +456,10 @@ HTML 起手式 起手式唯一招式：&amp;rdquo;!+tab&amp;rdquo;
     
     <item>
       <title>如何用hugo搭建个人博客</title>
-      <link>http://chow1027.xyz/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://chow1027.xyz/2019/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Wed, 30 Oct 2019 10:13:42 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://chow1027.xyz/2019/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
       <description>如何用 hugo 搭建个人博客 以下是简略步骤：
  hugo 下载&amp;amp;安装 建立新网站 添加主题 开始第一篇文章 启动 hugo 服务器 自定义主题 建立静态页面 将博客放到网上  从第一步到第五步已经完成个人博客的搭建，第六步到第八步锦上添花。
 1、hugo 下载&amp;amp;安装（windows）  下载 hugo_xxxxx_Windows-64bit.zip； 解压，将 hugo.exe 放到软件目录中； 将 hugo.exe 的存放路径添加到系统高级配置的环境变量中； 运行hugo version检查 hugo.exe 是否安装成功。  hugo 下载地址
@@ -452,11 +470,67 @@ HTML 起手式 起手式唯一招式：&amp;rdquo;!+tab&amp;rdquo;
     
     <item>
       <title>开博大吉</title>
-      <link>http://chow1027.xyz/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
+      <link>https://chow1027.xyz/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
       <pubDate>Tue, 29 Oct 2019 22:39:18 +0800</pubDate>
       
-      <guid>http://chow1027.xyz/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
+      <guid>https://chow1027.xyz/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
       <description>大家好 我的博客开通了，希望我也能写出好文章给大家看。</description>
+    </item>
+    
+    <item>
+      <title>Creating a New Theme</title>
+      <link>https://chow1027.xyz/2014/creating-a-new-theme/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/2014/creating-a-new-theme/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>https://chow1027.xyz/2014/goisforlovers/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/2014/goisforlovers/</guid>
+      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
+This document is a brief primer on using go templates.</description>
+    </item>
+    
+    <item>
+      <title>About Hugo</title>
+      <link>https://chow1027.xyz/2014/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/2014/about/</guid>
+      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
+It makes use of a variety of open source projects including:
+ https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hugo</title>
+      <link>https://chow1027.xyz/2014/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/2014/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at installing hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+    </item>
+    
+    <item>
+      <title>Migrate to Hugo from Jekyll</title>
+      <link>https://chow1027.xyz/2014/migrate-from-jekyll/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://chow1027.xyz/2014/migrate-from-jekyll/</guid>
+      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     
   </channel>
