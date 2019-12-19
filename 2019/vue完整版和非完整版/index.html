@@ -57,7 +57,7 @@
     "datePublished": "2019-12-19 20:51:28 \x2b0800 CST",
     "dateModified" : "2019-12-19 20:51:28 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88\/",
-    "wordCount" : "150",
+    "wordCount" : "157",
     "keywords" : [ "Vue", "呆尬猴的博客"]
 }
 </script>
@@ -272,6 +272,16 @@ new Vue({
 })
 </code></pre>
 
+<h2 id="vue最佳使用姿势">Vue最佳使用姿势</h2>
+
+<p>使用非完整版，配合vue-loader和vue文件使用；</p>
+
+<p>保证用户体验，用户下载的js文件体积更小，但只支持h函数；</p>
+
+<p>保证开发体验，开发者可以直接在vue文件中写HTML标签，而不用写h函数；</p>
+
+<p>让vue-loader帮我们翻译vue文件，转化为h函数。</p>
+
 <h2 id="如何引入">如何引入</h2>
 
 <ul>
@@ -283,12 +293,15 @@ new Vue({
 <li><p><strong>@vue/cli引入</strong></p>
 
 <p>安装 @vue/cli <code>yarn global add @vue/cli</code><br />
-创建项目 <code>vue create 项目路径</code></p>
+创建项目 <code>vue create 项目路径</code><br />
+<strong>注意默认引入的是非完整版</strong></p>
 
 <p><a href="https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create" rel="nofollow noreferrer" target="_blank">步骤详情</a></p></li>
 </ul>
 
 <h2 id="用-codesandbox-io-快速创建-vue-项目">用 codesandbox.io 快速创建 vue 项目</h2>
+
+<p><a href="https://codesandbox.io/s/busy-hertz-vhg4k" rel="nofollow noreferrer" target="_blank">Vue实例预览</a></p>
 
 <ul>
 <li>第一步</li>
