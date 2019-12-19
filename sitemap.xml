@@ -2,7 +2,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://chow1027.xyz/categories/</loc>
+      
+      <lastmod>2019-12-19T20:51:28+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://chow1027.xyz/posts/</loc>
+      
+      <lastmod>2019-12-19T20:51:28+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/</loc>
+      
+      <lastmod>2019-12-19T20:51:28+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://chow1027.xyz/tags/vue/</loc>
       
       <lastmod>2019-12-19T20:51:28+08:00</lastmod>
       
@@ -32,9 +62,9 @@
     </url>
   
     <url>
-      <loc>https://chow1027.xyz/categories/</loc>
+      <loc>https://chow1027.xyz/categories/%E6%8A%80%E6%9C%AF/</loc>
       
-      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
+      <lastmod>2019-12-19T20:51:28+08:00</lastmod>
       
       
       
@@ -53,26 +83,6 @@
   
     <url>
       <loc>https://chow1027.xyz/2019/mvc/</loc>
-      
-      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://chow1027.xyz/tags/</loc>
-      
-      <lastmod>2019-12-14T19:08:42+08:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://chow1027.xyz/categories/%E6%8A%80%E6%9C%AF/</loc>
       
       <lastmod>2019-12-14T19:08:42+08:00</lastmod>
       

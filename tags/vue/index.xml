@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on 呆尬猴的博客</title>
+    <link>https://chow1027.xyz/tags/vue/</link>
+    <description>Recent content in Vue on 呆尬猴的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 Dec 2019 20:51:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://chow1027.xyz/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue完整版和非完整版</title>
+      <link>https://chow1027.xyz/2019/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/</link>
+      <pubDate>Thu, 19 Dec 2019 20:51:28 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/</guid>
+      <description>Vue有两个版本，完整版和非完整版，非完整版也称为运行时版本。 完整版的文件名为：vue.js；非完整版的文件名为vue.runtime.js；这两个文件里面包含了注释。 如果是在生产环境，我们可以使用vue.min.js和vue.runtime.min.js，这是完整版和非完整版去除了注释以及压缩后的版本，相对于原来体积会变小。
+完整版 VS 非完整版 完整版 = 运行时 + 编译器compiler
+由于编译器的存在，完整版比运行时版本体积大40%左右。
+编译器干嘛的？？
+完整版Vue内置了编译器，它可以直接从HTML获取元素，得到视图。
+比如
+new Vue({ el:&#39;#app&#39; })  就可以得到这个HTML中id为app的节点，
+或者通过template
+new Vue({ el:&#39;#app&#39;, template:` &amp;lt;div&amp;gt;{{n}}&amp;lt;/div&amp;gt; `, data:{ n:0 } })  如果使用非完整版，我们要使用JS构建视图，在render函数里面用h创建标签。
+比如：
+new Vue({ el:&#39;#app&#39;, render(h){ return h(&#39;div&#39;,this.n) }, data:{ n:0 } })  h相当于createElement，render函数返回了一个div节点，里面的内容是n。
+如果再复杂一点，比如加一个可以&amp;rdquo;+1&amp;rdquo;的按钮？
+new Vue({ el:&#39;#app&#39;, render(h){ return h(&#39;div&#39;,[this.n,h(&#39;button&#39;,{on:{click:this.add}},&#39;1&#39;)]) }, data:{ n:0 }, methods:{ add(){ this.n += 1 } } })  这看上去就不是很友善了，那我们每次都要用这么麻烦的render吗？</description>
+    </item>
+    
+  </channel>
+</rss>
