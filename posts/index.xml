@@ -6,13 +6,30 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 19 Dec 2019 20:51:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 20:56:13 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Vue完整版和非完整版</title>
+      <title>Vue:数据响应式</title>
+      <link>https://chow1027.xyz/2019/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</link>
+      <pubDate>Fri, 20 Dec 2019 20:56:13 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</guid>
+      <description>前言 先说两个基本的认识 响应式：若某个东西能对外界的变化(刺激)做出反应，那么他就是响应式的。
+比如响应式页面，就是当我们改变窗口的大小时，网页内容会根据窗口的大小做出反应(调整)的页面。 数据响应式： Vue的data是响应式的。比如const vm = new Vue({data:{n:0}})，
+如果修改vm.n(或data.n)，那么页面中的n就会作出响应，渲染为对应的n或者经过一些数据处理后的n。这就是响应式
+Vue2 通过 Object.defineProperty 实现数据响应式。 接下来，理解下面两个ES6语法，有助于本文的阅读。
+1. getter/setter
+现有如下对象
+let obj = { firstName:&#39;张&#39;, lastName:&#39;三&#39;, name(){ return this.firstName + this.lastName } } console.log(obj.name()) // 张三  通过调用obj的name函数就可以得到这个对象的姓名。
+ getter/setter
+let obj = { firstName:&#39;张&#39;, lastName:&#39;三&#39;, get name(){ return this.firstName + this.lastName }, set name(arr){ this.firstName = arr[0] this.lastName = arr.substring(1) } } console.log(obj.name) obj.name = &#39;李四&#39; console.log(obj.name) // 张三 // 李四   使用get方法和set方法，name不再是一个函数，它是一个计算属性，它的值是以函数的形式定义的。</description>
+    </item>
+    
+    <item>
+      <title>Vue:完整版和非完整版</title>
       <link>https://chow1027.xyz/2019/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/</link>
       <pubDate>Thu, 19 Dec 2019 20:51:28 +0800</pubDate>
       

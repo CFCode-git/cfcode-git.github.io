@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://chow1027.xyz/2019/mvc/" />
-  
+  <link rel="next" href="https://chow1027.xyz/2019/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" />
   <link rel="canonical" href="https://chow1027.xyz/2019/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Vue完整版和非完整版 | 呆尬猴的博客
+           Vue:完整版和非完整版 | 呆尬猴的博客
        
   </title>
-  <meta name="title" content="Vue完整版和非完整版 | 呆尬猴的博客">
+  <meta name="title" content="Vue:完整版和非完整版 | 呆尬猴的博客">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,8 +44,8 @@
          "@id": "https:\/\/chow1027.xyz"
     },
     "articleSection" : "posts",
-    "name" : "Vue完整版和非完整版",
-    "headline" : "Vue完整版和非完整版",
+    "name" : "Vue:完整版和非完整版",
+    "headline" : "Vue:完整版和非完整版",
     "description" : "Vue有两个版本，完整版和非完整版，非完整版也称为运行时版本。 完整版的文件名为：vue.js；非完整版的文件名为vue.runtime.js；这两个文件里面包含了注释。 如果是在生产环境，我们可以使用vue.min.js和vue.runtime.min.js，这是完整版和非完整版去除了注释以及压缩后的版本，相对于原来体积会变小。\n完整版 VS 非完整版 完整版 = 运行时 \x2b 编译器compiler\n由于编译器的存在，完整版比运行时版本体积大40%左右。\n编译器干嘛的？？\n完整版Vue内置了编译器，它可以直接从HTML获取元素，得到视图。\n比如\nnew Vue({ el:\x27#app\x27 })  就可以得到这个HTML中id为app的节点，\n或者通过template\nnew Vue({ el:\x27#app\x27, template:` \x26lt;div\x26gt;{{n}}\x26lt;\/div\x26gt; `, data:{ n:0 } })  如果使用非完整版，我们要使用JS构建视图，在render函数里面用h创建标签。\n比如：\nnew Vue({ el:\x27#app\x27, render(h){ return h(\x27div\x27,this.n) }, data:{ n:0 } })  h相当于createElement，render函数返回了一个div节点，里面的内容是n。\n如果再复杂一点，比如加一个可以\x26rdquo;\x2b1\x26rdquo;的按钮？\nnew Vue({ el:\x27#app\x27, render(h){ return h(\x27div\x27,[this.n,h(\x27button\x27,{on:{click:this.add}},\x271\x27)]) }, data:{ n:0 }, methods:{ add(){ this.n \x2b= 1 } } })  这看上去就不是很友善了，那我们每次都要用这么麻烦的render吗？",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
@@ -120,7 +120,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Vue完整版和非完整版</h1>
+        <h1 class="post-title" itemprop="name headline">Vue:完整版和非完整版</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
                 <span class="post-time">
@@ -371,6 +371,8 @@ new Vue({
         
         <a href="https://chow1027.xyz/2019/mvc/" class="prev" rel="prev" title="MVC:拒绝面条式代码"><i class="iconfont icon-left"></i>&nbsp;MVC:拒绝面条式代码</a>
          
+        
+        <a href="https://chow1027.xyz/2019/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="next" rel="next" title="Vue:数据响应式">Vue:数据响应式&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
