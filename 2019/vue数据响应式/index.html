@@ -57,7 +57,7 @@
     "datePublished": "2019-12-20 20:56:13 \x2b0800 CST",
     "dateModified" : "2019-12-20 20:56:13 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F\/",
-    "wordCount" : "383",
+    "wordCount" : "384",
     "keywords" : [ "Vue", "呆尬猴的博客"]
 }
 </script>
@@ -411,7 +411,7 @@ function proxy({data}){
 
 <p>解决方案有两种：<br />
 1. 事先在data中加上新的属性。
-2. 使用Vue的两个API <code>Vue.set(object,key,value)</code> 和 <code>Vue.$set(object,key,value)</code>(效果一样，避免重名用后者)</p>
+2. 使用Vue的两个API <code>Vue.set(object,key,value)</code> 和 <code>this.$set(object,key,value)</code>(效果一样，避免重名用后者,this指的就是Vue实例)</p>
 
 <p>用法：</p>
 
@@ -426,6 +426,7 @@ function proxy({data}){
     methods:{
         setB(){
             Vue.set(this.obj,'b',1)
+            //this.$set(this.obj,'b',1)
         }
     }
 })
