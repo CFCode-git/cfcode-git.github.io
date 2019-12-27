@@ -29,6 +29,26 @@ let obj = { firstName:&#39;张&#39;, lastName:&#39;三&#39;, get name(){ return 
     </item>
     
     <item>
+      <title>如何理解Vue的.Sync修饰符</title>
+      <link>https://chow1027.xyz/2019/sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/</link>
+      <pubDate>Fri, 20 Dec 2019 20:56:13 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
+      <description>有时候我们可能需要对一个prop进行双向绑定，但真正的双向绑定会带来维护上的问题。
+因为子组件可以修改父组件，且在子组件和父组件都没有明显的改动来源。
+因此Vue推荐以update:myPropName的模式触发事件取代双向绑定。
+具体做法就是：首先在子组件中用$emit传递参数。
+&amp;ldquo;update:title&amp;rdquo;是事件名，newTitle是传递给父组件的参数。
+// 子组件 this.$emit(&#39;update:title&#39;,newTitle)  然后在父组件监听&amp;rdquo;update:title&amp;rdquo;事件，根据需要更新父组件上的数据属性。
+// 父组件 &amp;lt;text-document v-bind:title=&amp;quot;doc.title&amp;quot; v-on:update:title=&amp;quot;doc.title=$event&amp;quot;&amp;gt; &amp;lt;/text-document&amp;gt;  上面的模式很常见，于是Vue给这种模式提供给了缩写，就是.sync修饰符。
+// 父组件 &amp;lt;text-document :title.sync=&amp;quot;doc.title&amp;quot;&amp;gt;&amp;lt;/text-document&amp;gt; // 相当于 //&amp;lt;text-document // v-bind:title=&amp;quot;doc.title&amp;quot; // v-on:update:title=&amp;quot;doc.title=$event&amp;quot;&amp;gt; //&amp;lt;/text-document&amp;gt;  当我们需要在子组件上修改props传递的数据时，不能直接修改，而是要通过.sync修饰符，通知父组件修改。
+案例 比如设想一个这样的场景：爸爸给儿子钱，儿子要花钱。
+父亲组件
+首先，爸爸要告诉儿子自己有多少钱（用v-bind:），同时爸爸要儿子在花完钱之后(v-on:&amp;lsquo;儿子花钱事件&amp;rsquo;)，把余额还给自己(用$event)
+&amp;lt;template&amp;gt; &amp;lt;div class=&amp;quot;father&amp;quot;&amp;gt; 我现在有 {{fatherMoney}} &amp;lt;/div&amp;gt; &amp;lt;hr /&amp;gt; &amp;lt;Child :money=&amp;quot;fatherMoney&amp;quot; v-on:update:money=&amp;quot;fatherMoney = $event&amp;quot; /&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import Child from &amp;quot;./Child.vue&amp;quot;; export default{ data(){ return {fatherMoney:10000}; }, components:{Child:Child} }; &amp;lt;/script&amp;gt; &amp;lt;style&amp;gt; .father { border:3px solid red; padding:10px; } &amp;lt;/style&amp;gt;   &amp;lt;Child :money=&amp;quot;fatherMoney&amp;quot; v-on:update:money=&amp;quot;fatherMoney = $event&amp;quot; /&amp;gt;</description>
+    </item>
+    
+    <item>
       <title>Vue:完整版和非完整版</title>
       <link>https://chow1027.xyz/2019/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/</link>
       <pubDate>Thu, 19 Dec 2019 20:51:28 +0800</pubDate>
@@ -110,8 +130,7 @@ $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;);  $(&#39;div&#39
       <pubDate>Wed, 27 Nov 2019 06:52:50 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2019/for-in%E4%B8%8Efor-of/</guid>
-      <description>版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源
-参考文章
+      <description>参考文章
 (for&amp;hellip;in&amp;hellip;与for&amp;hellip;of&amp;hellip;区别)[https://juejin.im/post/5b567b5a5188251ac0630bda]
 for in更适合用来遍历对象，不要使用for in 遍历数组。
 使用for in 遍历数组会产生以下问题：
@@ -359,7 +378,7 @@ www.xiedaimala.com是三级域名（俗称二级域名）</description>
     </item>
     
     <item>
-      <title>css知识总结</title>
+      <title>CSS知识总结</title>
       <link>https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sun, 10 Nov 2019 09:50:38 +0800</pubDate>
       
@@ -376,7 +395,7 @@ transition transition:属性名 时长 过渡方式 延迟；</description>
     </item>
     
     <item>
-      <title>css布局</title>
+      <title>CSS布局</title>
       <link>https://chow1027.xyz/2019/css%E5%B8%83%E5%B1%80/</link>
       <pubDate>Fri, 08 Nov 2019 06:36:14 +0800</pubDate>
       
@@ -480,7 +499,7 @@ href 可以指向某个 ID，用户点击 a 标签页面就会跳转到该拥有
     </item>
     
     <item>
-      <title>Html入门笔记1</title>
+      <title>Html入门笔记</title>
       <link>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Thu, 31 Oct 2019 18:16:17 +0800</pubDate>
       
@@ -526,16 +545,6 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     </item>
     
     <item>
-      <title>(Hu)go Template Primer</title>
-      <link>https://chow1027.xyz/2014/goisforlovers/</link>
-      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://chow1027.xyz/2014/goisforlovers/</guid>
-      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.</description>
-    </item>
-    
-    <item>
       <title>About Hugo</title>
       <link>https://chow1027.xyz/2014/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
@@ -544,20 +553,6 @@ This document is a brief primer on using go templates.</description>
       <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
 It makes use of a variety of open source projects including:
  https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>https://chow1027.xyz/2014/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://chow1027.xyz/2014/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at installing hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
     </item>
     
     <item>

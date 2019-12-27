@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/" />
+  <link rel="next" href="https://chow1027.xyz/2019/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           如何理解Vue的.Sync修饰符 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="如何理解Vue的.Sync修饰符 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "如何理解Vue的.Sync修饰符",
+    "headline" : "如何理解Vue的.Sync修饰符",
+    "description" : "有时候我们可能需要对一个prop进行双向绑定，但真正的双向绑定会带来维护上的问题。\n因为子组件可以修改父组件，且在子组件和父组件都没有明显的改动来源。\n因此Vue推荐以update:myPropName的模式触发事件取代双向绑定。\n具体做法就是：首先在子组件中用$emit传递参数。\n\x26ldquo;update:title\x26rdquo;是事件名，newTitle是传递给父组件的参数。\n\/\/ 子组件 this.$emit(\x27update:title\x27,newTitle)  然后在父组件监听\x26rdquo;update:title\x26rdquo;事件，根据需要更新父组件上的数据属性。\n\/\/ 父组件 \x26lt;text-document v-bind:title=\x26quot;doc.title\x26quot; v-on:update:title=\x26quot;doc.title=$event\x26quot;\x26gt; \x26lt;\/text-document\x26gt;  上面的模式很常见，于是Vue给这种模式提供给了缩写，就是.sync修饰符。\n\/\/ 父组件 \x26lt;text-document :title.sync=\x26quot;doc.title\x26quot;\x26gt;\x26lt;\/text-document\x26gt; \/\/ 相当于 \/\/\x26lt;text-document \/\/ v-bind:title=\x26quot;doc.title\x26quot; \/\/ v-on:update:title=\x26quot;doc.title=$event\x26quot;\x26gt; \/\/\x26lt;\/text-document\x26gt;  当我们需要在子组件上修改props传递的数据时，不能直接修改，而是要通过.sync修饰符，通知父组件修改。\n案例 比如设想一个这样的场景：爸爸给儿子钱，儿子要花钱。\n父亲组件\n首先，爸爸要告诉儿子自己有多少钱（用v-bind:），同时爸爸要儿子在花完钱之后(v-on:\x26lsquo;儿子花钱事件\x26rsquo;)，把余额还给自己(用$event)\n\x26lt;template\x26gt; \x26lt;div class=\x26quot;father\x26quot;\x26gt; 我现在有 {{fatherMoney}} \x26lt;\/div\x26gt; \x26lt;hr \/\x26gt; \x26lt;Child :money=\x26quot;fatherMoney\x26quot; v-on:update:money=\x26quot;fatherMoney = $event\x26quot; \/\x26gt; \x26lt;\/template\x26gt; \x26lt;script\x26gt; import Child from \x26quot;.\/Child.vue\x26quot;; export default{ data(){ return {fatherMoney:10000}; }, components:{Child:Child} }; \x26lt;\/script\x26gt; \x26lt;style\x26gt; .father { border:3px solid red; padding:10px; } \x26lt;\/style\x26gt;   \x26lt;Child :money=\x26quot;fatherMoney\x26quot; v-on:update:money=\x26quot;fatherMoney = $event\x26quot; \/\x26gt;",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-20 20:56:13 \x2b0800 CST",
+    "dateModified" : "2019-12-20 20:56:13 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/sync%E4%BF%AE%E9%A5%B0%E7%AC%A6\/",
+    "wordCount" : "136",
+    "keywords" : [ "Vue", "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/2014/about/" title="About Hugo">About Hugo</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">如何理解Vue的.Sync修饰符</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-20 itemprop="datePublished">December 20, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chow1027.xyz/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>有时候我们可能需要对一个prop进行双向绑定，但真正的双向绑定会带来维护上的问题。</p>
+
+<p>因为子组件可以修改父组件，且在子组件和父组件都没有明显的改动来源。</p>
+
+<p>因此Vue推荐以<code>update:myPropName</code>的模式触发事件取代双向绑定。</p>
+
+<p>具体做法就是：首先在子组件中用$emit传递参数。<br />
+<u>&ldquo;update:title&rdquo;是事件名，newTitle是传递给父组件的参数。</u></p>
+
+<pre><code class="language-JavaScript">// 子组件
+this.$emit('update:title',newTitle)
+</code></pre>
+
+<p>然后在父组件监听&rdquo;update:title&rdquo;事件，根据需要更新父组件上的数据属性。</p>
+
+<pre><code class="language-JavaScript">// 父组件
+&lt;text-document
+    v-bind:title=&quot;doc.title&quot;
+    v-on:update:title=&quot;doc.title=$event&quot;&gt;
+&lt;/text-document&gt;
+</code></pre>
+
+<p>上面的模式很常见，于是Vue给这种模式提供给了缩写，就是.sync修饰符。</p>
+
+<pre><code class="language-JavaScript">// 父组件
+&lt;text-document :title.sync=&quot;doc.title&quot;&gt;&lt;/text-document&gt;
+
+// 相当于
+//&lt;text-document
+//    v-bind:title=&quot;doc.title&quot;
+//    v-on:update:title=&quot;doc.title=$event&quot;&gt;
+//&lt;/text-document&gt;
+</code></pre>
+
+<p>当我们需要在子组件上修改props传递的数据时，不能直接修改，而是要通过.sync修饰符，通知父组件修改。</p>
+
+<h2 id="案例">案例</h2>
+
+<p>比如设想一个这样的场景：爸爸给儿子钱，儿子要花钱。</p>
+
+<p><strong>父亲组件</strong><br />
+首先，爸爸要告诉儿子自己有多少钱（用v-bind:），同时爸爸要儿子在花完钱之后(v-on:&lsquo;儿子花钱事件&rsquo;)，把余额还给自己(用$event)</p>
+
+<pre><code class="language-Vue">&lt;template&gt;
+    &lt;div class=&quot;father&quot;&gt;
+        我现在有 {{fatherMoney}}
+    &lt;/div&gt;
+    &lt;hr /&gt;
+    &lt;Child :money=&quot;fatherMoney&quot; v-on:update:money=&quot;fatherMoney = $event&quot; /&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import Child from &quot;./Child.vue&quot;;
+export default{
+    data(){
+        return {fatherMoney:10000};
+    },
+    components:{Child:Child}
+};
+&lt;/script&gt;
+
+&lt;style&gt;
+.father {
+    border:3px solid red;
+    padding:10px;
+}
+&lt;/style&gt;
+</code></pre>
+
+<ul>
+<li><code>&lt;Child :money=&quot;fatherMoney&quot; v-on:update:money=&quot;fatherMoney = $event&quot; /&gt;</code><br />
+意思是，给Child组件传递一个money，这个money的值就是fatherMoney，然后我要监听Child组件的&rsquo;update:money&rsquo;事件，如果事件触发，我就将Child传回来的值用&rsquo;$event&rsquo;拿到，更新给我的fatherMoney。</li>
+</ul>
+
+<p><strong>儿子组件</strong><br />
+儿子要拿到爸爸的钱(用props)，并在花完钱之后还给爸爸(用$emit)</p>
+
+<pre><code class="language-Vue">&lt;template&gt;
+    &lt;div class=&quot;child&quot;&gt;
+        {{money}}
+        &lt;button @click=&quot;$emit('update:money',money-100&quot;&gt;
+        &lt;span&gt;花钱&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default{
+    props:[&quot;money&quot;]
+};
+&lt;/script&gt;
+
+&lt;style&gt;
+.child{
+    border:3px solid green;
+}
+&lt;/style&gt;
+</code></pre>
+
+<ul>
+<li><code>&lt;button @click=&quot;$emit('update:money',money-100&quot;&gt;</code><br />
+意思就是，儿子在花钱之后(点击花钱按钮)，会触发一个叫&rdquo;update:money&rdquo;的事件（告诉爸爸我花钱了），并且把余额还给爸爸（money-100）</li>
+</ul>
+
+<p>现在这个场景就实现了点击Child组件上的花钱按钮，然后father上面的钱就会同步减少，而Child也知道了father的钱减少。</p>
+
+<p><strong>简写爸爸组件</strong><br />
+现在爸爸的代码的template部分可以用修饰符.sync简写:</p>
+
+<pre><code class="language-Vue">&lt;template&gt;
+    &lt;div class=&quot;father&quot;&gt;
+        我现在有 {{fatherMoney}}
+    &lt;/div&gt;
+    &lt;hr /&gt;
+    &lt;Child :money.sync=&quot;fatherMoney&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h2 id="总结">总结</h2>
+
+<pre><code class="language-Vue">&lt;Child :money.sync=&quot;fatherMoney&quot; /&gt;
+// 等于
+&lt;Child :money=&quot;fatherMoney&quot; v-on:update:money=&quot;fatherMoney = $event&quot; /&gt;
+</code></pre>
+
+<h2 id="其他-vue的三条规则">其他：Vue的三条规则</h2>
+
+<ol>
+<li>组件不能修改props外部数据。<br /></li>
+<li>$emit可以触发事件，并传参。<br /></li>
+<li>$event可以获取$emit传递的参数。</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/>https://chow1027.xyz/2019/sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chow1027.xyz/tags/vue/">
+                    #Vue</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/" class="prev" rel="prev" title="Vue:完整版和非完整版"><i class="iconfont icon-left"></i>&nbsp;Vue:完整版和非完整版</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="next" rel="next" title="Vue:数据响应式">Vue:数据响应式&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

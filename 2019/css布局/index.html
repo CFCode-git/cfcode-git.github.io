@@ -22,10 +22,10 @@
   <title>
        
        
-           css布局 | 呆尬猴的博客
+           CSS布局 | 呆尬猴的博客
        
   </title>
-  <meta name="title" content="css布局 | 呆尬猴的博客">
+  <meta name="title" content="CSS布局 | 呆尬猴的博客">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,8 +44,8 @@
          "@id": "https:\/\/chow1027.xyz"
     },
     "articleSection" : "posts",
-    "name" : "css布局",
-    "headline" : "css布局",
+    "name" : "CSS布局",
+    "headline" : "CSS布局",
     "description" : "float布局、flex布局、grid布局。\n布局分类 固定宽度布局：主要有960\/1000\/1024px;\n不固定宽度布局：靠文档流原理布局。(主要用于手机页面);\n响应式布局(混合布局)：既适应pc上的固定布局，也适应手机上的不固定布局。\n布局思路 float布局 步骤\n1. 给子元素加上float:left | right;\n2. 给父元素加上.clearfix\n经验\n1. 一般会预留一些空间或者最后一个元素width不写死。\n2. 不需要做响应式，因为手机页面没有IE，而float布局是专门为IE设计的。\n3. IE6\/7存在双倍margin的bug，解决办法是\n* 针对IE6\/7对margin减半\n* 再加一个display:inline-block;\n4. 用\x26rdquo;outline\x26rdquo;代替\x26rdquo;border\x26rdquo;,可以使得边框不占据内部的空间(outline不在border-box的width计算范围内)\n.float { float:left; margin-left:10px; \/*一般浏览器会执行这一句,忽略下一句。*\/ _margin-left:5px; \/*IE6\/7认得这一句，因此会先执行上一句，然后执行这一句重设margin，注意下划线_*\/ }  代码示例\n\x26lt;!--html--\x26gt; \x26lt;header class = \x26quot;clearfix\x26quot;\x26gt; \x26lt;div class= \x26quot;float\x26quot;\x26gt;balabala\x26lt;\/div\x26gt; \x26lt;\/header\x26gt;  \/*css*\/ .clearfix:after { \/*\x26quot;:\x26quot;或\x26quot;::\x26quot;都行，但IE8及以下只认得\x26quot;:\x26quot;*\/ content:\x26quot;\x26quot;; display:block; clear:both; }  \/*小技巧：如果发现图片下面有多余的东西，可以用这句话让图片居中。*\/ vertical-align:top |middle; \/*让块级元素居中*\/ margin:0 auto; \/*下面这句更好，因为没有覆盖元素本身的上下外边距*\/ margin-left:auto; margin-right:auto;  flex布局 container\x26ndash;容器(父元素) item\x26ndash;项目(容器内的子块；子元素)",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
@@ -120,7 +120,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">css布局</h1>
+        <h1 class="post-title" itemprop="name headline">CSS布局</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
                 <span class="post-time">
@@ -391,7 +391,7 @@ aside {
         <a href="https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/" class="prev" rel="prev" title="CSS基础"><i class="iconfont icon-left"></i>&nbsp;CSS基础</a>
          
         
-        <a href="https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="next" rel="next" title="css知识总结">css知识总结&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://chow1027.xyz/2019/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="next" rel="next" title="CSS知识总结">CSS知识总结&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
