@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on 呆尬猴的博客</title>
+    <link>https://chow1027.xyz/categories/html/</link>
+    <description>Recent content in HTML on 呆尬猴的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 03 Nov 2019 13:42:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://chow1027.xyz/categories/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTML实践</title>
+      <link>https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Sun, 03 Nov 2019 13:42:58 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/</guid>
+      <description>选题 &amp;ndash;我最喜欢的动漫《某科学的超电磁炮》 以动漫《某科学的超电磁炮》为主题制作一个简易介绍网页，html裸奔。
+收集内容 资料来源：
+维基百科
+萌娘百科
+ToC &amp;ndash;Table of Content 为网页添加页内导航（锚点）
+实现手段：为每一个标题添加id，通过a标签的href指向这个id。
+&amp;lt;nav&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href =&amp;quot;#introduce&amp;quot;&amp;gt;作品介绍&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;h2 id =&amp;quot;introduce&amp;quot;&amp;gt;作品介绍&amp;lt;/h2&amp;gt;  添加外部资源 添加图片，注意：
+ 设置图片大小统一，不要让图片变形
+width/height二选一设置相同的值。
+ 图片比例不对的要进行裁剪
+ 图片体积过大要进行压缩，一般不超过300kb
+ 添加图片预览
+通过a标签超链接到原图，target设置为&amp;rdquo;_blank&amp;rdquo;。
+  兼容手机  meta:vp
+&amp;lt;!--meta:vp--&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&amp;quot;&amp;gt;  设置图片最大宽度为100%
+img { max-width:100%; }   手机调试  通过chrome控制台
+ wifi调试
+  让手机和电脑处于同一wifi，手机直接用ip和端口访问页面。 注：
+如果手机和电脑不在同一wifi，可以用映射端口，在chrome设置 &amp;gt; more tools &amp;gt; remote devices &amp;gt; Port forwarding 中设置。</description>
+    </item>
+    
+    <item>
+      <title>HTML常用标签</title>
+      <link>https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Fri, 01 Nov 2019 21:04:35 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <description>a 标签 &amp;lt;!-- html --&amp;gt; &amp;lt;a href=&amp;quot;//google.com&amp;quot; target=&amp;quot;_blank&amp;quot; download rel=&amp;quot;noopener&amp;quot;&amp;gt; &amp;lt;/a&amp;gt;  作用 跳转到外部页面
+跳转到内部锚点
+跳转到电话/邮箱
+属性 href
+href 属性指定 a 标签要跳转到的新页面，他的取值可以是:
+网址
+ https://google.com http://google.com //google.com  可以是 https 也可以是 http，当采用无协议传输方式时，浏览器会自动采取 http 或 https。
+路径
+ a/b/c /a/b/c  当 href 指向某个路径时，a 标签实际访问的是 http 服务的根目录&amp;rdquo;/&amp;ldquo;（也就是这个网站相关文件的根目录）。
+用&amp;rdquo;/&amp;ldquo;开头的即表示根目录，此时用的是绝对路径。
+&amp;rdquo;./&amp;ldquo;的意思是在当前 html 所在的目录中找，这是一种相对路径。
+伪协议
+ javascript:代码; mailto:邮箱 tel:手机号  javascript:代码; 是 JS 的伪协议写法，用户点击 a 标签就执行该 JS 代码。
+ID
+&amp;rdquo;#xxx&amp;rdquo;
+href 可以指向某个 ID，用户点击 a 标签页面就会跳转到该拥有该 ID 的标签所在的位置。</description>
+    </item>
+    
+    <item>
+      <title>HTML入门笔记</title>
+      <link>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 31 Oct 2019 18:16:17 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>什么是 HTML?它是谁发明的? 答：HTML 是超文本标记语言（Hypertext Markup Language）,在 1990 年由李爵士（Tim Berners-Lee）发明。
+HTML 起手式 起手式唯一招式：&amp;rdquo;!+tab&amp;rdquo;
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot; /&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot; /&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;&amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  注：
+ !要用英文输入法。 lang=&amp;quot;en&amp;quot;,language 为英文，建议改成&amp;rdquo;zh-CN&amp;rdquo;。 charset=&amp;quot;UTF-8&amp;quot;，支持各国字符的编码，不要改！ &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt;防止页面缩放，适应手机屏幕。 &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot;&amp;gt;告诉浏览器采用最新的 ie 内核解析本页面。  HTML 章节标签 HTML 章节标签包括：
+ h1 ~ h6,表示标题 1 ~ 标题 6 section,表示章节 article,表示文章 p,表示段落 header,表示页面的页眉（一般是页面的标题） main,表示页面的主要内容（页面主体部分） footer,表示页面的页脚（一般是版权声明、作者等） aside,表示旁支内容（与页面主体无关的部分,比如导航 条等） div,用于划分内容块  HTML 全局属性 全局属性是所有标签都有的属性。</description>
+    </item>
+    
+  </channel>
+</rss>

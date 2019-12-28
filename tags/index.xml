@@ -6,7 +6,7 @@
     <description>Recent content in Tags on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Dec 2019 20:56:13 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2019 16:08:31 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -30,20 +30,11 @@
     </item>
     
     <item>
-      <title>Hugo</title>
-      <link>https://chow1027.xyz/tags/hugo/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      <title>DOM</title>
+      <link>https://chow1027.xyz/tags/dom/</link>
+      <pubDate>Sun, 08 Dec 2019 19:43:20 +0800</pubDate>
       
-      <guid>https://chow1027.xyz/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Theme</title>
-      <link>https://chow1027.xyz/tags/theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://chow1027.xyz/tags/theme/</guid>
+      <guid>https://chow1027.xyz/tags/dom/</guid>
       <description></description>
     </item>
     

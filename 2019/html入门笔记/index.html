@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2019/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" />
+  <link rel="next" href="https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" />
+  <link rel="canonical" href="https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           HTML入门笔记 | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="HTML入门笔记 | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "HTML入门笔记",
+    "headline" : "HTML入门笔记",
+    "description" : "什么是 HTML?它是谁发明的? 答：HTML 是超文本标记语言（Hypertext Markup Language）,在 1990 年由李爵士（Tim Berners-Lee）发明。\nHTML 起手式 起手式唯一招式：\x26rdquo;!\x2btab\x26rdquo;\n\x26lt;!DOCTYPE html\x26gt; \x26lt;html lang=\x26quot;en\x26quot;\x26gt; \x26lt;head\x26gt; \x26lt;meta charset=\x26quot;UTF-8\x26quot; \/\x26gt; \x26lt;meta name=\x26quot;viewport\x26quot; content=\x26quot;width=device-width, initial-scale=1.0\x26quot; \/\x26gt; \x26lt;meta http-equiv=\x26quot;X-UA-Compatible\x26quot; content=\x26quot;ie=edge\x26quot; \/\x26gt; \x26lt;title\x26gt;Document\x26lt;\/title\x26gt; \x26lt;\/head\x26gt; \x26lt;body\x26gt;\x26lt;\/body\x26gt; \x26lt;\/html\x26gt;  注：\n !要用英文输入法。 lang=\x26quot;en\x26quot;,language 为英文，建议改成\x26rdquo;zh-CN\x26rdquo;。 charset=\x26quot;UTF-8\x26quot;，支持各国字符的编码，不要改！ \x26lt;meta name=\x26quot;viewport\x26quot; content=\x26quot;width=device-width, initial-scale=1.0\x26quot;\x26gt;防止页面缩放，适应手机屏幕。 \x26lt;meta http-equiv=\x26quot;X-UA-Compatible\x26quot; content=\x26quot;ie=edge\x26quot;\x26gt;告诉浏览器采用最新的 ie 内核解析本页面。  HTML 章节标签 HTML 章节标签包括：\n h1 ~ h6,表示标题 1 ~ 标题 6 section,表示章节 article,表示文章 p,表示段落 header,表示页面的页眉（一般是页面的标题） main,表示页面的主要内容（页面主体部分） footer,表示页面的页脚（一般是版权声明、作者等） aside,表示旁支内容（与页面主体无关的部分,比如导航 条等） div,用于划分内容块  HTML 全局属性 全局属性是所有标签都有的属性。",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-31 18:16:17 \x2b0800 CST",
+    "dateModified" : "2019-10-31 18:16:17 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2019\/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0\/",
+    "wordCount" : "184",
+    "keywords" : [ "", "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">HTML入门笔记</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-10-31 itemprop="datePublished">October 31, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chow1027.xyz/categories/html/"> HTML </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="什么是-html-它是谁发明的">什么是 HTML?它是谁发明的?</h2>
+
+<p>答：HTML 是超文本标记语言（Hypertext Markup Language）,在 1990 年由李爵士（Tim Berners-Lee）发明。</p>
+
+<h2 id="html-起手式">HTML 起手式</h2>
+
+<p>起手式唯一招式：&rdquo;!+tab&rdquo;</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>注：</p>
+
+<ol>
+<li>!要用英文输入法。</li>
+<li><code>lang=&quot;en&quot;</code>,language 为英文，建议改成&rdquo;zh-CN&rdquo;。</li>
+<li><code>charset=&quot;UTF-8&quot;</code>，支持各国字符的编码，不要改！</li>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code>防止页面缩放，适应手机屏幕。</li>
+<li><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</code>告诉浏览器采用最新的 ie 内核解析本页面。</li>
+</ol>
+
+<h2 id="html-章节标签">HTML 章节标签</h2>
+
+<p>HTML 章节标签包括：</p>
+
+<ul>
+<li>h1 ~ h6,<em>表示标题 1 ~ 标题 6</em></li>
+<li>section,<em>表示章节</em></li>
+<li>article,<em>表示文章</em></li>
+<li>p,<em>表示段落</em></li>
+<li>header,<em>表示页面的页眉（一般是页面的标题）</em></li>
+<li>main,<em>表示页面的主要内容（页面主体部分）</em></li>
+<li>footer,<em>表示页面的页脚（一般是版权声明、作者等）</em></li>
+<li>aside,<em>表示旁支内容（与页面主体无关的部分,比如导航 条等）</em></li>
+<li>div,<em>用于划分内容块</em></li>
+</ul>
+
+<h2 id="html-全局属性">HTML 全局属性</h2>
+
+<p>全局属性是所有标签都有的属性。</p>
+
+<p>HTML 全局属性有：</p>
+
+<ol>
+<li>class,对标签分类,方便 css 对标签统一设置样式。</li>
+<li>contenteditable,允许用户编辑。</li>
+<li>hidden,隐藏标签内容。</li>
+<li>id,类似 class。</li>
+<li>style,为标签元素设置样式。</li>
+<li>tabindex,指定 tab 键选中的顺序。</li>
+<li>title,当鼠标停留在元素上时,显示 title 的内容。</li>
+</ol>
+
+<p>注：</p>
+
+<ul>
+<li><p><b>class</b></p>
+
+<pre><code>当一个元素有多个class属性时：（比如class = &quot;middle word&quot;）
+[class = &quot;middle&quot;] {} --内容不一致就不匹配
+
+.middle {} --只要是middle就匹配
+</code></pre></li>
+
+<li><p><b>hidden</b></p></li>
+</ul>
+
+<p>用 css 可以恢复显示 display：block；</p>
+
+<ul>
+<li><b>id</b></li>
+</ul>
+
+<p>唯一性不严格，当存在两个相同的 id 时，html 不会报错，css 可以同时设置它们的样式，但 js 无法选中这两个相同的 id。</p>
+
+<ul>
+<li><b>style</b></li>
+</ul>
+
+<p>当 js css style 属性同时存在时，以 js 设置的样式为准，因为 js 可以覆盖 html。</p>
+
+<ul>
+<li><b>tabindex</b></li>
+</ul>
+
+<p>0 表示最后选中，-1 表示不要被选中。</p>
+
+<ul>
+<li><b>title</b></li>
+</ul>
+
+<p>用于溢出省略的内容展现：</p>
+
+<pre><code>white-space:nowrap; --不要换行
+text-overflow:ellipsis; --溢出的时候用省略号
+overflow:hidden; --隐藏溢出的内容
+</code></pre>
+
+<h2 id="html-内容标签">HTML 内容标签</h2>
+
+<p>HTML 内容标签包括：</p>
+
+<ol>
+<li>ol+li &ndash;有序列表，ol 中只能有 li 标签，不能有其他内容</li>
+<li>ul+li &ndash;无序列表，ul 中只能有 li 标签，不能有其他内容</li>
+<li>dl+dt+dd &ndash;定义性列表，dt 表示某个术语，dd 是该术语的性质，dl 是这些属于的集合。</li>
+<li>pre &ndash;html 文本中有多少个空格，输出是就保留多少个空格。</li>
+<li>hr &ndash;分割线</li>
+<li>br &ndash;换行</li>
+<li>a &ndash;超链接</li>
+<li>em &ndash;表示语气上的强调</li>
+<li>strong &ndash;表示内容的重要性</li>
+<li>code &ndash;展示源代码，通常与 pre 标签连用</li>
+<li>quote &ndash;内联式的引用</li>
+<li>blockquote &ndash;块级的引用</li>
+</ol>
+
+<hr />
+
+<p>一些有用的网站：</p>
+
+<p><a href="https://wangdoc.com/html/index.html" rel="nofollow noreferrer" target="_blank">网道 HTML 教程</a></p>
+
+<p><a href="https://xiedaimala.com/tasks/b6c18d7b-d7b4-463f-960b-40d732127133" rel="nofollow noreferrer" target="_blank">jirengu 课程</a></p>
+
+<p><strong><em>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源</em></strong></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chow1027.xyz/tags//">
+                    #</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2019/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="prev" rel="prev" title="如何用hugo搭建个人博客"><i class="iconfont icon-left"></i>&nbsp;如何用hugo搭建个人博客</a>
+         
+        
+        <a href="https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="next" rel="next" title="HTML常用标签">HTML常用标签&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

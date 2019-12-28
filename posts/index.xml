@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Dec 2019 20:56:13 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2019 16:08:31 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>变量声明：let、const、var</title>
+      <link>https://chow1027.xyz/2019/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/</link>
+      <pubDate>Sat, 28 Dec 2019 16:08:31 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/</guid>
+      <description>a = 1 var a = 1 let a = 1 const a = 1  a = 1 var a // a1 全局变量 function fn(){ var a // a2 局部变量 function fn2(){ a = 1 // 如果没有a1 a2，就声明一个全局变量a // 如果没有a1，就用a2 // 如果没有a2.就用a1 // 如果a1 a2都有，就近原则，用a2 } }  如果当前有a，就直接利用这个a，如果当前没有a，就声明一个全局变量a。
+变量提升 function fn(){ // {{a}} if(true){ console.log(a) }else{ // 这里不会执行 var a = 1 console.log(2) } } // undefined  代码没有报错，原因是var会变量提升。它最终会提到{{a}}的位置中去。</description>
+    </item>
     
     <item>
       <title>Vue:数据响应式</title>
@@ -85,6 +95,29 @@ MVC 把代码的结构分成三个部分：Model-数据、View-视图、Control-
 Model 数据 Model 负责代码中的所有与数据相关的部分，比如数据的更新、数据的读取、数据的存储等。 它不依赖于 View 和 Control，也就是说，它并不关心数据会被如何显示，或是被如何处理，它只需要管理好它的数据即可。 以下面的 Model 举例:
 class Model{ constructor(options){ // 接受数据 const keys = [&#39;data&#39;,&#39;update&#39;,&#39;create&#39;,&#39;delete&#39;,&#39;get&#39;] keys.forEach((key)=&amp;gt;{ if(key in options){ this[key]=options[key] } }) } // 各种数据相关的方法 create(){} delete(){} update(){} get(){} }  View 视图 View 负责处理用户界面相关的代码，比如页面的重新渲染。 同样，View 并不关心它渲染的内容，它只要做好它的工作就可以了。 以下面的 代码 举例:
 const view = { init(){} // 页面初始化 template:`&amp;lt;section&amp;gt;&amp;lt;p&amp;gt;hello&amp;lt;/p&amp;gt;&amp;lt;/section&amp;gt;` // 页面要渲染的内容 render(){} // 渲染函数 }  Controller 控制器 Controller负责统筹整个程序的运作，类似中央处理器。 比如对Model的数据进行处理，将处理后的数据通知给 View 更新；处理 View 传达的事件，更新数据后传达给 Model。 以下面的 Controller 举例:</description>
+    </item>
+    
+    <item>
+      <title>DOM事件相关</title>
+      <link>https://chow1027.xyz/2019/dom%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Sun, 08 Dec 2019 19:43:20 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/dom%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3/</guid>
+      <description>什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）
+所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div &amp;gt; ul &amp;gt; li &amp;gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。
+举例说明：
+&amp;lt;ul id = &#39;list&#39;&amp;gt; &amp;lt;li&amp;gt;item 1&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 2&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 3&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 4&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt;  实现一个功能：点击li，弹出&amp;rsquo;1234&amp;rsquo; 如果不用事件委托，我们需要把点击后弹出&amp;rsquo;1234&amp;rsquo;这个事件委托给每一个li
+window.onload = () =&amp;gt; { let ul1 = document.querySelector(&#39;#list&#39;) let lis = ul1.getElementsByTagName(&#39;li&#39;) for(let i=0; i&amp;lt;lis.length; i++){ lis[i].onclick = () =&amp;gt; { alert(&#39;1234&#39;) } } }  如果用事件委托，我们只需把事件委托给ul即可
+window.onload = () =&amp;gt; { let ul1 = document.querySelector(&#39;#list&#39;) ul1.onclick = () =&amp;gt; { alert(&#39;1234&#39;) } }  当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。</description>
+    </item>
+    
+    <item>
+      <title>常用http状态码</title>
+      <link>https://chow1027.xyz/2019/%E5%B8%B8%E7%94%A8http%E7%8A%B6%E6%80%81%E7%A0%81/</link>
+      <pubDate>Thu, 05 Dec 2019 23:48:07 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/%E5%B8%B8%E7%94%A8http%E7%8A%B6%E6%80%81%E7%A0%81/</guid>
+      <description>## 2xx ： 成功 #### 表示成功处理了请求的状态代码。 200 **成功** 服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。 201 **已创建** 请求成功并且服务器创建了新的资源。 202 **已接受** 服务器已接受请求，但尚未处理。 203 **非授权信息** 服务器已成功处理了请求，但返回的信息可能来自另一来源。 204 **无内容** 服务器成功处理了请求，但没有返回任何内容。 205 **重置内容**服务器成功处理了请求，但没有返回任何内容。 206 **部分内容** 服务器成功处理了部分 GET 请求。 ## 3xx ： 重定向 #### 表示要完成请求，需要进一步操作。通常，以下状态代码用来重定向。 300 **多种选择** 针对请求，服务器可执行多种操作。服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。 301 **永久移动** 请求的网页已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。 302 **临时移动** 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。 303 **查看其他位置**请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。 304 **未修改**自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。 305 **使用代理**请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理。 307 **临时重定向** 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。 ## 4xx：请求错误 ### 以下状态代码表示请求可能出错，妨碍了服务器的处理。 400 **错误请求**服务器不理解请求的语法。 401 **未授权**请求要求身份验证。对于需要登录的网页，服务器可能返回此响应。 403 **禁止**服务器拒绝请求。 404 **未找到**服务器找不到请求的网页。 405 **方法禁用**禁用请求中指定的方法。 406 **不接受**无法使用请求的内容特性响应请求的网页。 407 **需要代理授权**此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。 408 **请求超时** 服务器等候请求时发生超时。 409 **冲突** 服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息。 410 **已删除** 如果请求的资源已永久删除，服务器就会返回此响应。 411 **需要有效长度**服务器不接受不含有效内容长度标头字段的请求。 412 **未满足前提条件**服务器未满足请求者在请求中设置的其中一个前提条件。 413 **请求实体过大**服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。 414 **请求的 URI 过长**请求的 URI（通常为网址）过长，服务器无法处理。 415 **不支持的媒体类型**请求的格式不受请求页面的支持。 416 **请求范围不符合要求**如果页面无法提供请求的范围，则服务器会返回此状态代码。 417 **未满足期望值**服务器未满足&amp;quot;期望&amp;quot;请求标头字段的要求。 ## 5xx：服务器错误 ### 以下状态代码表示服务器在尝试处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是请求出错。 500 **服务器内部错误** 服务器遇到错误，无法完成请求。 501 **尚未实施**服务器不具备完成请求的功能。例如，服务器无法识别请求方法时可能会返回此代码。 502 **错误网关**服务器作为网关或代理，从上游服务器收到无效响应。 503 **服务不可用**服务器目前无法使用（由于超载或停机维护）。通常，这只是暂时状态。 504 **网关超时** 服务器作为网关或代理，但是没有及时从上游服务器收到请求。 505 **HTTP 版本不受支持**服务器不支持请求中所用的 HTTP 协议版本。  </description>
     </item>
     
     <item>
@@ -448,7 +481,7 @@ CSS盒模型描述了一个为文档树中的元素生成的并根据视觉格�
     </item>
     
     <item>
-      <title>Html实践</title>
+      <title>HTML实践</title>
       <link>https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Sun, 03 Nov 2019 13:42:58 +0800</pubDate>
       
@@ -475,7 +508,7 @@ img { max-width:100%; }   手机调试  通过chrome控制台
     </item>
     
     <item>
-      <title>《HTML常用标签》</title>
+      <title>HTML常用标签</title>
       <link>https://chow1027.xyz/2019/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
       <pubDate>Fri, 01 Nov 2019 21:04:35 +0800</pubDate>
       
@@ -499,11 +532,11 @@ href 可以指向某个 ID，用户点击 a 标签页面就会跳转到该拥有
     </item>
     
     <item>
-      <title>Html入门笔记</title>
-      <link>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <title>HTML入门笔记</title>
+      <link>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 31 Oct 2019 18:16:17 +0800</pubDate>
       
-      <guid>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://chow1027.xyz/2019/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
       <description>什么是 HTML?它是谁发明的? 答：HTML 是超文本标记语言（Hypertext Markup Language）,在 1990 年由李爵士（Tim Berners-Lee）发明。
 HTML 起手式 起手式唯一招式：&amp;rdquo;!+tab&amp;rdquo;
 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot; /&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot; /&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;&amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  注：
@@ -532,38 +565,6 @@ HTML 起手式 起手式唯一招式：&amp;rdquo;!+tab&amp;rdquo;
       
       <guid>https://chow1027.xyz/2019/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
       <description>大家好 我的博客开通了，希望我也能写出好文章给大家看。</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>https://chow1027.xyz/2014/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://chow1027.xyz/2014/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>About Hugo</title>
-      <link>https://chow1027.xyz/2014/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://chow1027.xyz/2014/about/</guid>
-      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
-It makes use of a variety of open source projects including:
- https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>https://chow1027.xyz/2014/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://chow1027.xyz/2014/migrate-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     
   </channel>
