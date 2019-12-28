@@ -6,19 +6,10 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 28 Dec 2019 12:31:32 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 20:56:13 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>示例</title>
-      <link>https://chow1027.xyz/2019/%E7%A4%BA%E4%BE%8B/</link>
-      <pubDate>Sat, 28 Dec 2019 12:31:32 +0800</pubDate>
-      
-      <guid>https://chow1027.xyz/2019/%E7%A4%BA%E4%BE%8B/</guid>
-      <description>这里是示例</description>
-    </item>
     
     <item>
       <title>Vue:数据响应式</title>
