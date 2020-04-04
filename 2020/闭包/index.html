@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "闭包",
     "headline" : "闭包",
-    "description" : "我从来不理解 JavaScript 闭包，直到有人这样向我解释它\x26hellip;\n[理解 JavaScript 中的闭包(https:\/\/juejin.im\/post\/5c3893bc6fb9a049d37f530f)\n什么是闭包？闭包的优缺点？\njs 中闭包的理解、用途场景、优缺点及解决办法\n一些概念\n执行上下文\n调用上下文\n定义时上下文，运行时上下文\n什么是闭包？闭包的用途是什么？闭包的缺点是什么？\n理解闭包是什么， 我们先理解 JavaScript 的链式作用域： 在函数定义的时候就创建了链式作用域 它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回 undefined 由于链式作用域的机制，会导致： 一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。 而当一个函数访问了函数外部的变量时，我们称 这个函数和变量构成了闭包。\nfunction father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); \/\/ 100 执行上述代码，首先会调用 father 函数，调用的结果是返回一个 children 函数 的定义 给变量 child。 执行变量 child 中的 children 函数的定义（也就是 children 函数{}包裹的代码块），执行过程中要打印 a，children 函数中没有 a 的定义，因此会沿着链式作用域向上级寻找，打印了 father 函数下的 a。\n换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给 child 的除了 children 的函数定义以外，还携带了 children 在被创建时的环境（也就是 let a = 100）。",
+    "description" : "我从来不理解 JavaScript 闭包，直到有人这样向我解释它\x26hellip;\n理解 JavaScript 中的闭包\n什么是闭包？闭包的优缺点？\njs 中闭包的理解、用途场景、优缺点及解决办法\n一些概念 执行上下文\n调用上下文\n定义时上下文，运行时上下文\n什么是闭包？闭包的用途是什么？闭包的缺点是什么？ 理解闭包是什么， 我们先理解 JavaScript 的链式作用域： 在函数定义的时候就创建了链式作用域 它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回 undefined 由于链式作用域的机制，会导致： 一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。 而当一个函数访问了函数外部的变量时，我们称 这个函数和变量构成了闭包。\nfunction father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); \/\/ 100 执行上述代码，首先会调用 father 函数，调用的结果是返回一个 children 函数 的定义 给变量 child。 执行变量 child 中的 children 函数的定义（也就是 children 函数{}包裹的代码块），执行过程中要打印 a，children 函数中没有 a 的定义，因此会沿着链式作用域向上级寻找，打印了 father 函数下的 a。\n换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给 child 的除了 children 的函数定义以外，还携带了 children 在被创建时的环境（也就是 let a = 100）。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -143,14 +143,14 @@
           
 
           <p><a href="https://blog.fundebug.com/2019/02/12/understand-javascript-closure/">我从来不理解 JavaScript 闭包，直到有人这样向我解释它&hellip;</a><br>
-[理解 JavaScript 中的闭包(https://juejin.im/post/5c3893bc6fb9a049d37f530f)<br>
+<a href="https://juejin.im/post/5c3893bc6fb9a049d37f530f">理解 JavaScript 中的闭包</a><br>
 <a href="https://www.cnblogs.com/cxying93/p/6103375.html">什么是闭包？闭包的优缺点？</a><br>
 <a href="https://www.jianshu.com/p/8376170fb228">js 中闭包的理解、用途场景、优缺点及解决办法</a></p>
-<p><strong>一些概念</strong><br>
-执行上下文<br>
+<h2 id="一些概念">一些概念</h2>
+<p>执行上下文<br>
 调用上下文<br>
 定义时上下文，运行时上下文</p>
-<p>什么是闭包？闭包的用途是什么？闭包的缺点是什么？</p>
+<h2 id="什么是闭包闭包的用途是什么闭包的缺点是什么">什么是闭包？闭包的用途是什么？闭包的缺点是什么？</h2>
 <p>理解闭包是什么，
 我们先理解 JavaScript 的链式作用域：
 在函数定义的时候就创建了链式作用域
@@ -172,7 +172,7 @@ child();  // 100
 </code></pre><p>执行上述代码，首先会调用 father 函数，调用的结果是返回一个 children 函数 的定义 给变量 child。
 执行变量 child 中的 children 函数的定义（也就是 children 函数{}包裹的代码块），执行过程中要打印 a，children 函数中没有 a 的定义，因此会沿着链式作用域向上级寻找，打印了 father 函数下的 a。</p>
 <p>换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给 child 的除了 children 的函数定义以外，还携带了 children 在被创建时的环境（也就是 let a = 100）。</p>
-<p>闭包的用途：</p>
+<h2 id="闭包的用途">闭包的用途：</h2>
 <ol>
 <li>避免了全局变量的污染</li>
 </ol>
