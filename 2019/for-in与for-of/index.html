@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "For In与for Of",
     "headline" : "For In与for Of",
-    "description" : "参考文章\n(for\x26hellip;in\x26hellip;与for\x26hellip;of\x26hellip;区别)[https:\/\/juejin.im\/post\/5b567b5a5188251ac0630bda]\nfor in更适合用来遍历对象，不要使用for in 遍历数组。\n使用for in 遍历数组会产生以下问题：\n1. JavaScript中的数组是用对象模拟出来的，数组的索引值也就是对象中的key，是字符串类型的数字。不能直接进行几何运算。\n2. 使用for in遍历数组会遍历数组所有可枚举属性，包括原型。\n3. 遍历的顺序可能不是按照数组实际的内部顺序。\nfor of 只是遍历数组中的元素，不包括数组的原型属性和索引。\nfor of遍历的是数组中的元素值，for in遍历的是索引。",
+    "description" : "参考文章\n(for\x26hellip;in\x26hellip;与for\x26hellip;of\x26hellip;区别)[https:\/\/juejin.im\/post\/5b567b5a5188251ac0630bda]\n for in更适合用来遍历对象，不要使用for in 遍历数组。\n使用for in 遍历数组会产生以下问题：\n JavaScript中的数组是用对象模拟出来的，数组的索引值也就是对象中的key，是字符串类型的数字。不能直接进行几何运算。 使用for in遍历数组会遍历数组所有可枚举属性，包括原型。 遍历的顺序可能不是按照数组实际的内部顺序。  for of 只是遍历数组中的元素，不包括数组的原型属性和索引。\nfor of遍历的是数组中的元素值，for in遍历的是索引。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-27 06:52:50 \x2b0800 CST",
     "dateModified" : "2019-11-27 06:52:50 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/for-in%E4%B8%8Efor-of\/",
-    "wordCount" : "22",
+    "wordCount" : "19",
     "keywords" : [  "呆尬猴的博客"]
 }
 </script>
@@ -143,20 +143,16 @@
           
 
           <p><strong><em>参考文章</em></strong></p>
-
-<p>(for&hellip;in&hellip;与for&hellip;of&hellip;区别)[<a href="https://juejin.im/post/5b567b5a5188251ac0630bda" rel="nofollow noreferrer" target="_blank">https://juejin.im/post/5b567b5a5188251ac0630bda</a>]</p>
-
-<hr />
-
+<p>(for&hellip;in&hellip;与for&hellip;of&hellip;区别)[https://juejin.im/post/5b567b5a5188251ac0630bda]</p>
+<hr>
 <p>for in更适合用来遍历对象，不要使用for in 遍历数组。</p>
-
-<p>使用for in 遍历数组会产生以下问题：<br />
-1. JavaScript中的数组是用对象模拟出来的，数组的索引值也就是对象中的key，是字符串类型的数字。不能直接进行几何运算。<br />
-2. 使用for in遍历数组会遍历数组所有可枚举属性，包括原型。<br />
-3. 遍历的顺序可能不是按照数组实际的内部顺序。</p>
-
+<p>使用for in 遍历数组会产生以下问题：</p>
+<ol>
+<li>JavaScript中的数组是用对象模拟出来的，数组的索引值也就是对象中的key，是字符串类型的数字。不能直接进行几何运算。</li>
+<li>使用for in遍历数组会遍历数组所有可枚举属性，包括原型。</li>
+<li>遍历的顺序可能不是按照数组实际的内部顺序。</li>
+</ol>
 <p>for of 只是遍历数组中的元素，不包括数组的原型属性和索引。</p>
-
 <p>for of遍历的是数组中的元素值，for in遍历的是索引。</p>
 
     </div>

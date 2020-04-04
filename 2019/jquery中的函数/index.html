@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "JQuery中的函数",
     "headline" : "JQuery中的函数",
-    "description" : "版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源\n\x26mdash;参考资料来源：\njQuery设计思想\x26mdash;阮一峰\njQuery中文文档\njQuery(选择器)用于获取对应的元素，但是它不返回对应的元素，\n他返回一个对象，这个对象可以操作对应的元素。\njQuery获取页面元素 利用构造函数jQuery()（或者它的别称$），传入一个css选择器作为参数。\n\/*选取整个文档对象*\/ $(document) \/*选取id为xxx的网页元素*\/ $(\x27#xxx\x27) \/*选取class为xxxx的div元素*\/ $(\x27div.xxxx\x27) \/*选取name属性为first的input元素*\/ $(\x27input[name=first]\x27)  也可以传入jQuery特有的选择器\n\/*选择网页第一个a元素*\/ $(\x27a:first\x27) \/*选择表格的奇数行*\/ $(\x27tr:odd\x27) \/*选择表单中的input元素*\/ $(\x27#myForm :input\x27) \/*选择可见的div元素*\/ $(\x27div:visible\x27) \/*选择所有的div元素，除了前三个*\/ $(\x27div:gt(2)\x27) \/*选择处于动画状态的div元素*\/ $(\x27div:animated\x27)  链式操作 jQuery中的链式操作是通过jQuery对象调用jQuery函数，再次返回经过函数处理的jQuery对象实现的。\n比如：\n$(\x27div\x27).find(\x27h3\x27).eq(2).html(\x27Hello\x27);  $(\x27div\x27)返回一个对象，对象可以操作页面中的所有div；\n.find(\x27h3\x27)返回一个对象,对象操作上述div对象中的所有h3元素；\n.eq(2)返回一个对象，对象只操作上述h3元素的第三个；\n.html(\x27Hello\x27)返回一个对象，该对象是将上述h3元素的内容更改为hello后的结果。\n可以通过.end()回退一步。\n可以通过链式操作对jQuery选择的元素进行更进一步的精确选择\n\/\/ 选择包含p元素的div元素 $(\x27div\x27).has(\x27p\x27); \/\/ 选择class不等于myclass的div元素 $(\x27div\x27).not(\x27.myclass\x27); \/\/ 选择class等于myclass的div元素 $(\x27div\x27).filter(\x27.myclass\x27); \/\/ 选择第一个div元素 $(\x27div\x27).first(); \/\/ 选择第六个div元素 $(\x27div\x27).eq(5); \/\/ 选择div元素后面的第一个p元素 $(\x27div\x27).next(\x27p\x27) \/\/ 选择div元素的父元素 $(\x27div\x27).parent() \/\/ 选择离div最近的form父元素 $(\x27div\x27).closest(\x27form\x27) \/\/ 选择div所有子元素 $(\x27div\x27).",
+    "description" : "版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源\n\x26mdash;参考资料来源：\njQuery设计思想\x26mdash;阮一峰\njQuery中文文档\n jQuery(选择器)用于获取对应的元素，但是它不返回对应的元素，\n他返回一个对象，这个对象可以操作对应的元素。\njQuery获取页面元素 利用构造函数jQuery()（或者它的别称$），传入一个css选择器作为参数。\n\/*选取整个文档对象*\/ $(document) \/*选取id为xxx的网页元素*\/ $(\x27#xxx\x27) \/*选取class为xxxx的div元素*\/ $(\x27div.xxxx\x27) \/*选取name属性为first的input元素*\/ $(\x27input[name=first]\x27) 也可以传入jQuery特有的选择器\n\/*选择网页第一个a元素*\/ $(\x27a:first\x27) \/*选择表格的奇数行*\/ $(\x27tr:odd\x27) \/*选择表单中的input元素*\/ $(\x27#myForm :input\x27) \/*选择可见的div元素*\/ $(\x27div:visible\x27) \/*选择所有的div元素，除了前三个*\/ $(\x27div:gt(2)\x27) \/*选择处于动画状态的div元素*\/ $(\x27div:animated\x27) 链式操作 jQuery中的链式操作是通过jQuery对象调用jQuery函数，再次返回经过函数处理的jQuery对象实现的。\n比如：\n$(\x27div\x27).find(\x27h3\x27).eq(2).html(\x27Hello\x27); $(\x27div\x27)返回一个对象，对象可以操作页面中的所有div； .find(\x27h3\x27)返回一个对象,对象操作上述div对象中的所有h3元素； .eq(2)返回一个对象，对象只操作上述h3元素的第三个； .html(\x27Hello\x27)返回一个对象，该对象是将上述h3元素的内容更改为hello后的结果。\n可以通过.end()回退一步。\n可以通过链式操作对jQuery选择的元素进行更进一步的精确选择\n\/\/ 选择包含p元素的div元素 $(\x27div\x27).has(\x27p\x27); \/\/ 选择class不等于myclass的div元素 $(\x27div\x27).not(\x27.myclass\x27); \/\/ 选择class等于myclass的div元素 $(\x27div\x27).filter(\x27.myclass\x27); \/\/ 选择第一个div元素 $(\x27div\x27).first(); \/\/ 选择第六个div元素 $(\x27div\x27).eq(5); \/\/ 选择div元素后面的第一个p元素 $(\x27div\x27).next(\x27p\x27) \/\/ 选择div元素的父元素 $(\x27div\x27).parent() \/\/ 选择离div最近的form父元素 $(\x27div\x27).closest(\x27form\x27) \/\/ 选择div所有子元素 $(\x27div\x27).children() \/\/ 选择div所有兄弟元素 $(\x27div\x27).",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-30 18:52:19 \x2b0800 CST",
     "dateModified" : "2019-11-30 18:52:19 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/jquery%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0\/",
-    "wordCount" : "141",
+    "wordCount" : "139",
     "keywords" : [  "呆尬猴的博客"]
 }
 </script>
@@ -142,25 +142,15 @@
           
           
 
-          
-
-<p><strong><em>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源</em></strong></p>
-
+          <p><strong><em>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源</em></strong></p>
 <p><strong><em>&mdash;参考资料来源：</em></strong></p>
-
-<p><a href="http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html" rel="nofollow noreferrer" target="_blank">jQuery设计思想&mdash;阮一峰</a></p>
-
-<p><a href="https://www.jquery123.com/" rel="nofollow noreferrer" target="_blank">jQuery中文文档</a></p>
-
-<hr />
-
-<p><code>jQuery(选择器)</code>用于获取对应的元素，但是它不返回对应的元素，<br />
+<p><a href="http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html">jQuery设计思想&mdash;阮一峰</a></p>
+<p><a href="https://www.jquery123.com/">jQuery中文文档</a></p>
+<hr>
+<p><code>jQuery(选择器)</code>用于获取对应的元素，但是它不返回对应的元素，<br>
 他返回一个对象，这个对象可以操作对应的元素。</p>
-
 <h1 id="jquery获取页面元素">jQuery获取页面元素</h1>
-
 <p>利用构造函数jQuery()（或者它的别称$），传入一个css选择器作为参数。</p>
-
 <pre><code>/*选取整个文档对象*/
 $(document) 
 
@@ -172,10 +162,7 @@ $('div.xxxx')
 
 /*选取name属性为first的input元素*/
 $('input[name=first]')
-</code></pre>
-
-<p>也可以传入jQuery特有的选择器</p>
-
+</code></pre><p>也可以传入jQuery特有的选择器</p>
 <pre><code>/*选择网页第一个a元素*/
 $('a:first')
 
@@ -193,26 +180,16 @@ $('div:gt(2)')
 
 /*选择处于动画状态的div元素*/
 $('div:animated')
-</code></pre>
-
-<h1 id="链式操作">链式操作</h1>
-
+</code></pre><h1 id="链式操作">链式操作</h1>
 <p>jQuery中的链式操作是通过jQuery对象调用jQuery函数，再次返回经过函数处理的jQuery对象实现的。</p>
-
 <p>比如：</p>
-
 <pre><code>$('div').find('h3').eq(2).html('Hello');
-</code></pre>
-
-<p><code>$('div')</code>返回一个对象，对象可以操作页面中的所有div；<br />
-<code>.find('h3')</code>返回一个对象,对象操作上述div对象中的所有h3元素；<br />
-<code>.eq(2)</code>返回一个对象，对象只操作上述h3元素的第三个；<br />
+</code></pre><p><code>$('div')</code>返回一个对象，对象可以操作页面中的所有div；  <br>
+<code>.find('h3')</code>返回一个对象,对象操作上述div对象中的所有h3元素； <br>
+<code>.eq(2)</code>返回一个对象，对象只操作上述h3元素的第三个； <br>
 <code>.html('Hello')</code>返回一个对象，该对象是将上述h3元素的内容更改为hello后的结果。</p>
-
 <p><strong>可以通过<code>.end()</code>回退一步。</strong></p>
-
 <p><strong>可以通过链式操作对jQuery选择的元素进行更进一步的精确选择</strong></p>
-
 <pre><code>// 选择包含p元素的div元素
 $('div').has('p');
 
@@ -242,57 +219,39 @@ $('div').children()
 
 // 选择div所有兄弟元素
 $('div').sibling()
-</code></pre>
-
-<h1 id="创建-删除和复制元素">创建、删除和复制元素</h1>
-
+</code></pre><h1 id="创建删除和复制元素">创建、删除和复制元素</h1>
 <p>复制元素用<code>.clone()</code>方法</p>
-
-<p>删除元素用<code>.detach()</code>和<code>.remove()</code><br />
+<p>删除元素用<code>.detach()</code>和<code>.remove()</code><br>
 前者会保留删除元素的事件，以便重新插入文档；后者则不保留</p>
-
 <p>清空元素内容(但不删除元素)用<code>.empty()</code></p>
-
 <p>创建元素直接将新元素节点作为$（jQuery）的参数传入</p>
-
 <pre><code>$('&lt;div&gt;abcdefg&lt;/div&gt;')
 $('&lt;li class = 'new'&gt;new list item&lt;/li&gt;')
 $('ul').append('&lt;li&gt;list item&lt;/li&gt;') // 将li节点插入到ul中
-</code></pre>
-
-<h1 id="移动元素">移动元素</h1>
-
-<p>有两种方法：<br />
-1. 直接移动该元素<br />
-2. 移动其他元素，使得目标元素到达我们想要的位置</p>
-
+</code></pre><h1 id="移动元素">移动元素</h1>
+<p>有两种方法：</p>
+<ol>
+<li>直接移动该元素</li>
+<li>移动其他元素，使得目标元素到达我们想要的位置</li>
+</ol>
 <pre><code>.insertAfter() 和 .after()  // 从现存的元素外部，从后面插入元素
 .insertBefore() 和 .before()  // 从现存的元素外部，从前面插入元素
 .appenTo() 和 .append()  // 从现存的元素内部，从后面插入元素
 .prependTo() 和 .prepend()  // 从现存的元素内部，从前面插入元素
-</code></pre>
-
-<p>现在假设我们要把div元素移动到p元素后面，我们可以：</p>
-
+</code></pre><p>现在假设我们要把div元素移动到p元素后面，我们可以：</p>
 <pre><code>// 把div元素移动到p元素后面
 $('div').insertAfter($('p');)
 
 $('p').after($('div'))
-</code></pre>
-
-<h1 id="修改元素属性">修改元素属性</h1>
-
+</code></pre><h1 id="修改元素属性">修改元素属性</h1>
 <p>jQuery采用<strong>重载</strong>的设计模式，通过传入参数的个数，判断取值与赋值。</p>
-
 <pre><code>.html(?) // 如果有参数就设置元素的html内容，没有参数就去除html的内容
 .text(?) // 取出或设置text内容
 .attr(?) // 取出或设置某个属性的值
 .width(?) // 取出或设置某个元素的宽度
 .height(?) // 取出或设置某个元素的高度
 .val(?) // 取出某个表单的值
-</code></pre>
-
-<p><strong>如果结果集（也就是jQuery对象）里面 包含多个元素，那么赋值的时候会对所有的元素进行赋值；</strong><br />
+</code></pre><p><strong>如果结果集（也就是jQuery对象）里面 包含多个元素，那么赋值的时候会对所有的元素进行赋值；</strong><br>
 <strong>但是取值的时候，只会取出第一个元素的值（.text()例外，它取出所有元素的text内容）</strong></p>
 
     </div>

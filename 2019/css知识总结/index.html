@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "CSS知识总结",
     "headline" : "CSS知识总结",
-    "description" : "css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等\x26hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式\ndiv.style.background =\x26quot;red\x26quot; div.style.display = \x26quot;none\x26quot; div.classList.add(\x27xxx\x27) --直接给元素添加一个\x26quot;xxx\x26quot;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点   JS\/CSS \x26gt; 样式 \x26gt; 布局 \x26gt; 绘制 \x26gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS\/CSS \x26gt; 样式 \x26gt; 绘制 \x26gt; 合成 (比如更改背景色，则布局不需要改变) JS\/CSS \x26gt; 样式 \x26gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers\ncss动画的两种做法  利用transition\x2btransform\x2bhover animation  transform transform的四个常用功能：\n1. 位移translate\n2. 缩放scale\n3. 旋转rotate\n4. 倾斜skew\n注意：inline元素不支持transform，要先变成block.\ntransition transition:属性名 时长 过渡方式 延迟；",
+    "description" : "css动画 浏览器渲染原理  根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一棵渲染树（render tree） Layout布局(文档流、盒模型、计算元素的大小和位置) Paint绘制（边框颜色、字体颜色等\x26hellip;） Composite合成（根据层叠关系展示画面）  三种更新方式 在实际操作中我们一般采用JS更新样式\ndiv.style.background =\x26#34;red\x26#34; div.style.display = \x26#34;none\x26#34; div.classList.add(\x26#39;xxx\x26#39;) --直接给元素添加一个\x26#34;xxx\x26#34;的类更好，该元素会拥有该类的所有属性 div.remove() --直接删掉节点  JS\/CSS \x26gt; 样式 \x26gt; 布局 \x26gt; 绘制 \x26gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。) JS\/CSS \x26gt; 样式 \x26gt; 绘制 \x26gt; 合成 (比如更改背景色，则布局不需要改变) JS\/CSS \x26gt; 样式 \x26gt; 合成 (比如只改了transform)  查询哪个属性触发哪个流程： CSS Triggers\ncss动画的两种做法  利用transition\x2btransform\x2bhover animation  transform transform的四个常用功能：\n 位移translate 缩放scale 旋转rotate 倾斜skew\n注意：inline元素不支持transform，要先变成block.  transition transition:属性名 时长 过渡方式 延迟；",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-10 09:50:38 \x2b0800 CST",
     "dateModified" : "2019-11-10 09:50:38 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93\/",
-    "wordCount" : "235",
+    "wordCount" : "216",
     "keywords" : [ "", "呆尬猴的博客"]
 }
 </script>
@@ -146,12 +146,8 @@
           
           
 
-          
-
-<h1 id="css动画">css动画</h1>
-
+          <h1 id="css动画">css动画</h1>
 <h2 id="浏览器渲染原理">浏览器渲染原理</h2>
-
 <ol>
 <li>根据HTML构建HTML树（DOM）</li>
 <li>根据CSS构建CSS树（CSSOM）</li>
@@ -160,196 +156,145 @@
 <li>Paint绘制（边框颜色、字体颜色等&hellip;）</li>
 <li>Composite合成（根据层叠关系展示画面）</li>
 </ol>
-
 <h2 id="三种更新方式">三种更新方式</h2>
-
 <p>在实际操作中我们一般采用JS更新样式</p>
-
-<pre><code class="language-JavaScript">div.style.background =&quot;red&quot; 
-div.style.display = &quot;none&quot; 
-div.classList.add('xxx') --直接给元素添加一个&quot;xxx&quot;的类更好，该元素会拥有该类的所有属性
-div.remove() --直接删掉节点
-</code></pre>
-
-<ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">background</span> <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span> 
+<span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">display</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span> 
+<span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#39;xxx&#39;</span>) <span style="color:#f92672">--</span><span style="color:#a6e22e">直接给元素添加一个</span><span style="color:#e6db74">&#34;xxx&#34;</span><span style="color:#a6e22e">的类更好</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">该元素会拥有该类的所有属性</span>
+<span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">remove</span>() <span style="color:#f92672">--</span><span style="color:#a6e22e">直接删掉节点</span>
+</code></pre></div><ul>
 <li>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成 (比如div.remove()，导致文档流的其他元素重新布局。)</li>
 <li>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成 (比如更改背景色，则布局不需要改变)</li>
 <li>JS/CSS &gt; 样式 &gt; 合成 (比如只改了transform)</li>
 </ul>
-
 <p><strong>查询哪个属性触发哪个流程：</strong>
-<a href="https://csstriggers.com/" rel="nofollow noreferrer" target="_blank">CSS Triggers</a></p>
-
+<a href="https://csstriggers.com/">CSS Triggers</a></p>
 <h2 id="css动画的两种做法">css动画的两种做法</h2>
-
 <ul>
 <li>利用transition+transform+hover</li>
 <li>animation</li>
 </ul>
-
 <h3 id="transform">transform</h3>
-
-<p>transform的四个常用功能：<br />
-1. 位移translate<br />
-2. 缩放scale<br />
-3. 旋转rotate<br />
-4. 倾斜skew<br />
-<strong>注意：inline元素不支持transform，要先变成block.</strong></p>
-
+<p>transform的四个常用功能：</p>
+<ol>
+<li>位移translate</li>
+<li>缩放scale</li>
+<li>旋转rotate</li>
+<li>倾斜skew<br>
+<strong>注意：inline元素不支持transform，要先变成block.</strong></li>
+</ol>
 <h3 id="transition">transition</h3>
-
-<p>transition:属性名 时长 过渡方式 延迟；<br />
-1. 可以用逗号分隔两个不同的属性；<br />
-2. 可以用all表示所有属性；<br />
-3. 过渡方式：linear | ease | ease-in | ease-out | ease-in-out | &hellip;</p>
-
-<h3 id="如何过渡两次-如何添加中间点">如何过渡两次？如何添加中间点？</h3>
-
+<p>transition:属性名 时长 过渡方式 延迟；</p>
+<ol>
+<li>可以用逗号分隔两个不同的属性；</li>
+<li>可以用all表示所有属性；</li>
+<li>过渡方式：linear | ease | ease-in | ease-out | ease-in-out | &hellip;</li>
+</ol>
+<h3 id="如何过渡两次如何添加中间点">如何过渡两次？如何添加中间点？</h3>
 <ol>
 <li>使用两次transform，用setTimeout监听transitioned事件。</li>
 <li>使用animation</li>
 </ol>
-
 <h3 id="animation语法">animation语法</h3>
-
 <p>animation：时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充方式 | 是否暂停 | 动画名</p>
-
-<p>时长：1s或1000ms；<br />
-过渡方式：参考transition的过渡方式（ linear | ease&hellip; ）；<br />
-次数：3 或 2.3 或 <strong>infinite（无限）</strong><br />
-方向：alternate（交替） | alternate-reverse | reverse<br />
-填充方式：forwards（令动画停在最后一帧）| backwards | both | none<br />
+<p>时长：1s或1000ms；<br>
+过渡方式：参考transition的过渡方式（ linear | ease&hellip; ）； <br>
+次数：3 或 2.3 或 <strong>infinite（无限）</strong><br>
+方向：alternate（交替） | alternate-reverse | reverse<br>
+填充方式：forwards（令动画停在最后一帧）| backwards | both | none<br>
 是否暂停：paused | running</p>
-
-<pre><code class="language-javascript">stop.onclick =()=&gt;{
-    demo.style.animationPlayState=&quot;paused&quot;  ---为动画加上暂停按钮
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">stop</span>.<span style="color:#a6e22e">onclick</span> <span style="color:#f92672">=</span>()=&gt;{
+    <span style="color:#a6e22e">demo</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">animationPlayState</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;paused&#34;</span>  <span style="color:#f92672">---</span><span style="color:#a6e22e">为动画加上暂停按钮</span>
 }
-</code></pre>
-
-<h3 id="animation使用步骤">animation使用步骤</h3>
-
+</code></pre></div><h3 id="animation使用步骤">animation使用步骤</h3>
 <ol>
-<li><p>声明关键帧</p>
-
-<pre><code class="language-css">/*css*/
-@keyframes xxx{             ---xxx是动画名
-0%{transform:none;}     ---这是一个关键帧：0%表示初始状态
-50%{transform:...}
-100{transform:...}      ---一共有三个关键帧。
-}
-</code></pre></li>
-
-<li><p>添加动画</p>
-
-<pre><code class="language-css">/*css*/
-#demo.start{
-animation:xxx 1s;            ---给demo的start属性添加动画。
-}
-</code></pre>
-
-<pre><code class="language-javascript">button.onclick =()=&gt;{
-demo.classList.add('start')  ---点击按钮，则给demo添加一个start属性。
-}
-</code></pre></li>
+<li>声明关键帧</li>
 </ol>
-
-<h1 id="css定位">css定位</h1>
-
-<h2 id="回顾-css盒模型">回顾：css盒模型</h2>
-
-<p><a href="../css盒模型">css盒模型</a></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/*css*/</span>
+@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">xxx</span>{             <span style="color:#f92672">---xxx是动画名</span>
+    <span style="color:#f92672">0</span><span style="color:#f92672">%</span>{<span style="color:#66d9ef">transform</span>:<span style="color:#66d9ef">none</span>;}     <span style="color:#f92672">---这是一个关键帧</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#f92672">0</span><span style="color:#f92672">%</span><span style="color:#f92672">表示初始状态</span>
+    <span style="color:#f92672">50</span><span style="color:#f92672">%</span>{<span style="color:#66d9ef">transform</span>:<span style="color:#f92672">...</span>}
+    <span style="color:#f92672">100</span>{<span style="color:#66d9ef">transform</span>:<span style="color:#f92672">...</span>}      <span style="color:#f92672">---一共有三个关键帧</span><span style="color:#960050;background-color:#1e0010">。</span>
+}
+</code></pre></div><ol start="2">
+<li>添加动画</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/*css*/</span>
+#demo.<span style="color:#a6e22e">start</span>{
+    <span style="color:#66d9ef">animation</span>:xxx <span style="color:#ae81ff">1</span><span style="color:#66d9ef">s</span>;            <span style="color:#960050;background-color:#1e0010">---给demo的start属性添加动画。</span>
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">onclick</span> <span style="color:#f92672">=</span>()=&gt;{
+    <span style="color:#a6e22e">demo</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#39;start&#39;</span>)  <span style="color:#f92672">---</span><span style="color:#a6e22e">点击按钮</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">则给demo添加一个start属性</span><span style="color:#960050;background-color:#1e0010">。</span>
+}
+</code></pre></div><h1 id="css定位">css定位</h1>
+<h2 id="回顾css盒模型">回顾：css盒模型</h2>
+<p><a href="../css%E7%9B%92%E6%A8%A1%E5%9E%8B">css盒模型</a></p>
 <h2 id="position">position</h2>
-
 <ul>
-<li>static(默认值)<br /></li>
-<li>relative(相对定位，升起来，但不脱离文档流)<br /></li>
-<li>absolute(绝对定位,定位基准是离他最近的祖先元素中的非static元素)<br /></li>
-<li>fixed(固定定位，定位基准是视口viewport)<br /></li>
-<li>sticky(粘滞定位)<br /></li>
+<li>static(默认值)</li>
+<li>relative(相对定位，升起来，但不脱离文档流)</li>
+<li>absolute(绝对定位,定位基准是离他最近的祖先元素中的非static元素)</li>
+<li>fixed(固定定位，定位基准是视口viewport)</li>
+<li>sticky(粘滞定位)</li>
 </ul>
-
-<h3 id="position-relative">position:relative</h3>
-
-<p>相对于自己定位，元素原来的位置不会消失。可用来做位移，或是做absolute元素的祖先元素。<br />
-注意：<br />
-1. 可以配合Z-index使用。<br />
-2. 不要写Z-index:9999，要管理Z-index。</p>
-
-<h3 id="position-absolute">position:absolute</h3>
-
-<p>相对于祖先元素中的离他最近的定位元素定位。(定位元素就是position取值不是默认值static的元素)，可用做鼠标提示、对话框的关闭按钮。<br />
-注意：<br />
-1. 某些浏览器上不写top/left会位置错乱。<br />
-2. 善用left：100%。<br />
-3. 善用left：50%，加负margin。</p>
-
-<h3 id="position-fixed">position:fixed</h3>
-
-<p>相对视口定位，常用于广告、&rdquo;回到顶部&rdquo;按钮。<br />
-注意：<br />
-1. 手机上尽量不要使用这个属性，会引发很多问题。</p>
-
-<h2 id="重要概念-层叠上下文">重要概念：层叠上下文</h2>
-
+<h3 id="positionrelative">position:relative</h3>
+<p>相对于自己定位，元素原来的位置不会消失。可用来做位移，或是做absolute元素的祖先元素。 <br>
+注意：</p>
+<ol>
+<li>可以配合Z-index使用。</li>
+<li>不要写Z-index:9999，要管理Z-index。</li>
+</ol>
+<h3 id="positionabsolute">position:absolute</h3>
+<p>相对于祖先元素中的离他最近的定位元素定位。(定位元素就是position取值不是默认值static的元素)，可用做鼠标提示、对话框的关闭按钮。   <br>
+注意：</p>
+<ol>
+<li>某些浏览器上不写top/left会位置错乱。</li>
+<li>善用left：100%。</li>
+<li>善用left：50%，加负margin。</li>
+</ol>
+<h3 id="positionfixed">position:fixed</h3>
+<p>相对视口定位，常用于广告、&ldquo;回到顶部&quot;按钮。<br>
+注意：</p>
+<ol>
+<li>手机上尽量不要使用这个属性，会引发很多问题。</li>
+</ol>
+<h2 id="重要概念层叠上下文">重要概念：层叠上下文</h2>
 <p>定位元素：position取值为非static的元素就是的定位元素，定位元素会跑到所有元素的外面。</p>
-
-<p>层叠上下文：默认的层叠上下文是html，可以在层叠上下文中创建层叠上下文。<br />
-层叠上下文中的Z-index与外界无关，只用处于同一层叠上下文Z-index才能比较。（想象在html中创建许多小的&rdquo;html&rdquo;）</p>
-
+<p>层叠上下文：默认的层叠上下文是html，可以在层叠上下文中创建层叠上下文。<br>
+层叠上下文中的Z-index与外界无关，只用处于同一层叠上下文Z-index才能比较。（想象在html中创建许多小的&quot;html&rdquo;）</p>
 <p><strong>层叠上下文中定位元素的Z-index可以无限大、无限小，但他永远被层叠上下文包着。</strong></p>
-
 <h3 id="哪些不正交的属性可以创建层叠上下文">哪些不正交的属性可以创建层叠上下文？</h3>
-
-<p>MDN文档中有具体描述，优先记住以下常用的属性。<br />
-1. 根元素<br />
-2. Z-index值不为auto的绝对/相对定位<br />
-3. opacity不为1的元素<br />
-4. transform属性不为none的元素<br />
-5. position：fixed<br />
-6. Z-index的值不为&rdquo;auto&rdquo;的flex项目，即父元素display:flex | inline-flex</p>
-
+<p>MDN文档中有具体描述，优先记住以下常用的属性。</p>
+<ol>
+<li>根元素</li>
+<li>Z-index值不为auto的绝对/相对定位</li>
+<li>opacity不为1的元素</li>
+<li>transform属性不为none的元素</li>
+<li>position：fixed</li>
+<li>Z-index的值不为&quot;auto&quot;的flex项目，即父元素display:flex | inline-flex</li>
+</ol>
 <h1 id="css基础">css基础</h1>
-
 <h2 id="回忆">回忆：</h2>
-
 <p>css的版本(css2.1、css3.0)</p>
-
 <p>css语法(选择器、at语法)</p>
-
 <p>如何调试(border调试法)</p>
-
 <p>文档流(流动方向 宽度 高度 inline-block block inline元素的特点)</p>
-
 <p>脱离文档流(float和position的两个属性值)</p>
-
 <p>溢出(overflow)</p>
-
 <p>盒模型(border-box和content-box)</p>
-
 <p>margin合并(如何阻止合并?)</p>
-
 <p>基本单位</p>
-
-<p><a href="../css基础.md">回顾：css基础</a></p>
-
+<p><a href="../css%E5%9F%BA%E7%A1%80.md">回顾：css基础</a></p>
 <h1 id="css布局">css布局</h1>
-
 <h2 id="回忆-1">回忆：</h2>
-
 <p>布局思路(流程图)</p>
-
 <p>float布局(两个步骤：子元素float和父元素clearfix)</p>
-
 <p>flex布局(container和item)</p>
-
 <p>grid布局(container和item，<strong>超牛x的属性：grid-template-areas</strong>)</p>
-
-<p><a href="../css布局.md">回顾：css布局</a></p>
-
-<p>来这里复习一下：<br />
-<a href="https://flexboxfroggy.com/#zh-cn" rel="nofollow noreferrer" target="_blank">青蛙游戏&ndash;flex :)</a><br />
-<a href="https://cssgridgarden.com/#zh-cn" rel="nofollow noreferrer" target="_blank">天天种菜&ndash;grid :)</a></p>
+<p><a href="../css%E5%B8%83%E5%B1%80.md">回顾：css布局</a></p>
+<p>来这里复习一下：<br>
+<a href="https://flexboxfroggy.com/#zh-cn">青蛙游戏&ndash;flex :)</a><br>
+<a href="https://cssgridgarden.com/#zh-cn">天天种菜&ndash;grid :)</a></p>
 
     </div>
 

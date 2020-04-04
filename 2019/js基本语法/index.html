@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "JS基本语法",
     "headline" : "JS基本语法",
-    "description" : "表达式和语句 表达式和语句的 一般 区别  表达式一般有值，语句可能有或没有；\n 语句一般会改变环境（声明、赋值等）\n 上述区别并不绝对。\n  关于值和返回值\n只有函数（表达式）才有返回值的概念。比如：\n 1\x2b2的值是3；\n add(1,2）表达式的值为函数的返回值\n console.log表达式的值为函数本身\n console.log(3)表达式的值为undefined（console.log没有返回值，打印出\x26rdquo;3\x26rdquo;是它的功能）\n  注意事项  JavaScript中区分大小写；\n 大部分空格没有意义；\n 大部分回车没有意义（除了return，return后面不能随便回车，否则JavaScript会自动在return后面补上\x26rdquo;;\x26ldquo;）  标识符 命名规则\n第一个字符后面可以接Unicode字符、\x26rdquo;$\x26ldquo;符号、\x26rdquo;_\x26ldquo;符号和中文，之后的字符除了这些之外，还可以是数字。\n注释 多行注释 \x26ldquo;\/**\/\x26rdquo;\n单行注释 \x26ldquo;\/\/\x26rdquo;\n好的注释：\n\/踩坑注解\/\n\/为什么代码写的这么奇怪，遇到了什么bug\/\n条件语句 if\x26hellip;else\x26hellip; \/************************\/ if(表达式){ 语句1 }eles{ 语句2 } \/************************\/ if(表达式){ 语句1 }eles if{ 语句2 }else{ 语句3 } \/************************\/ function fn(){ if(){ return 表达式 } if(){ return 表达式 } return 表达式 } \/************************\/  注意",
+    "description" : "表达式和语句 表达式和语句的 一般 区别  表达式一般有值，语句可能有或没有； 语句一般会改变环境（声明、赋值等） 上述区别并不绝对。  关于值和返回值\n只有函数（表达式）才有返回值的概念。比如：\n 1\x2b2的值是3； add(1,2）表达式的值为函数的返回值 console.log表达式的值为函数本身 console.log(3)表达式的值为undefined（console.log没有返回值，打印出\x26quot;3\x26quot;是它的功能）  注意事项  JavaScript中区分大小写； 大部分空格没有意义； 大部分回车没有意义（除了return，return后面不能随便回车，否则JavaScript会自动在return后面补上\x26rdquo;;\x26quot;）  标识符 命名规则\n第一个字符后面可以接Unicode字符、\x26ldquo;$\x26quot;符号、\x26quot;_\x26ldquo;符号和中文，之后的字符除了这些之外，还可以是数字。\n注释 多行注释 \x26ldquo;\/**\/\x26rdquo;\n单行注释 \x26ldquo;\/\/\x26rdquo;\n好的注释：\n\/踩坑注解\/\n\/为什么代码写的这么奇怪，遇到了什么bug\/\n条件语句 if\x26hellip;else\x26hellip; \/************************\/ if(表达式){ 语句1 }eles{ 语句2 } \/************************\/ if(表达式){ 语句1 }eles if{ 语句2 }else{ 语句3 } \/************************\/ function fn(){ if(){ return 表达式 } if(){ return 表达式 } return 表达式 } \/************************\/ 注意\n \x26ldquo;{}\x26ldquo;不要省略，省略后if..else..语句只能作用到后面的第一个语句。  其他条件语句  三元表达式  表达式1 ?",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-15 06:40:40 \x2b0800 CST",
     "dateModified" : "2019-11-15 06:40:40 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95\/",
-    "wordCount" : "197",
+    "wordCount" : "196",
     "keywords" : [ "", "呆尬猴的博客"]
 }
 </script>
@@ -146,53 +146,37 @@
           
           
 
-          
-
-<h1 id="表达式和语句">表达式和语句</h1>
-
+          <h1 id="表达式和语句">表达式和语句</h1>
 <h2 id="表达式和语句的-一般-区别">表达式和语句的 <em>一般</em> 区别</h2>
-
 <ol>
-<li>表达式一般有值，语句可能有或没有；<br /></li>
-<li>语句一般会改变环境（声明、赋值等）<br /></li>
-<li>上述区别并不绝对。<br /></li>
+<li>表达式一般有值，语句可能有或没有；</li>
+<li>语句一般会改变环境（声明、赋值等）</li>
+<li>上述区别并不绝对。</li>
 </ol>
-
-<p><strong>关于值和返回值</strong><br />
+<p><strong>关于值和返回值</strong><br>
 只有函数（表达式）才有返回值的概念。比如：</p>
-
 <ol>
-<li><code>1+2</code>的值是3；<br /></li>
-<li><code>add(1,2）</code>表达式的值为函数的返回值<br /></li>
-<li><code>console.log</code>表达式的值为函数本身<br /></li>
-<li><code>console.log(3)</code>表达式的值为undefined（console.log没有返回值，打印出&rdquo;3&rdquo;是它的功能）<br /></li>
+<li><code>1+2</code>的值是3；</li>
+<li><code>add(1,2）</code>表达式的值为函数的返回值</li>
+<li><code>console.log</code>表达式的值为函数本身</li>
+<li><code>console.log(3)</code>表达式的值为undefined（console.log没有返回值，打印出&quot;3&quot;是它的功能）</li>
 </ol>
-
 <h2 id="注意事项">注意事项</h2>
-
 <ol>
-<li>JavaScript中区分大小写；<br /></li>
-<li>大部分空格没有意义；<br /></li>
-<li>大部分回车没有意义（除了return，return后面不能随便回车，否则JavaScript会自动在return后面补上&rdquo;;&ldquo;）</li>
+<li>JavaScript中区分大小写；</li>
+<li>大部分空格没有意义；</li>
+<li>大部分回车没有意义（除了return，return后面不能随便回车，否则JavaScript会自动在return后面补上&rdquo;;&quot;）</li>
 </ol>
-
 <h1 id="标识符">标识符</h1>
-
-<p><strong>命名规则</strong><br />
-第一个字符后面可以接Unicode字符、&rdquo;$&ldquo;符号、&rdquo;_&ldquo;符号和中文，之后的字符除了这些之外，还可以是数字。</p>
-
+<p><strong>命名规则</strong><br>
+第一个字符后面可以接Unicode字符、&ldquo;$&quot;符号、&quot;_&ldquo;符号和中文，之后的字符除了这些之外，还可以是数字。</p>
 <h1 id="注释">注释</h1>
-
 <p>多行注释 &ldquo;/**/&rdquo;</p>
-
 <p>单行注释 &ldquo;//&rdquo;</p>
-
-<p><strong>好的注释：</strong><br />
-/<em>踩坑注解</em>/<br />
+<p><strong>好的注释：</strong><br>
+/<em>踩坑注解</em>/<br>
 /<em>为什么代码写的这么奇怪，遇到了什么bug</em>/</p>
-
-<h1 id="条件语句-if-else">条件语句 if&hellip;else&hellip;</h1>
-
+<h1 id="条件语句-ifelse">条件语句 if&hellip;else&hellip;</h1>
 <pre><code>/************************/
 if(表达式){
     语句1
@@ -218,151 +202,95 @@ function fn(){
     return 表达式
 }
 /************************/
-</code></pre>
-
-<p><strong>注意</strong><br />
-1. &ldquo;{}&ldquo;不要省略，省略后if..else..语句只能作用到后面的第一个语句。</p>
-
+</code></pre><p><strong>注意</strong></p>
+<ol>
+<li>&ldquo;{}&ldquo;不要省略，省略后if..else..语句只能作用到后面的第一个语句。</li>
+</ol>
 <h2 id="其他条件语句">其他条件语句</h2>
-
 <ol>
-<li><p>三元表达式</p>
-
+<li>三元表达式</li>
+</ol>
 <pre><code>表达式1 ? 表达式2 : 表达式3
-</code></pre></li>
+</code></pre><p>如果表达式1为true则执行表达式2，否则执行表达式3。</p>
+<ol start="2">
+<li>switch语句</li>
 </ol>
-
-<p>如果表达式1为true则执行表达式2，否则执行表达式3。</p>
-
-<ol>
-<li><p>switch语句</p>
-
 <pre><code>switch(表达式){
-case 取值1:
-    执行语句
-    break;
-case 取值2:
-    执行语句
-    break;
-default:
-    执行语句
+    case 取值1:
+        执行语句
+        break;
+    case 取值2:
+        执行语句
+        break;
+    default:
+        执行语句
 }
-</code></pre></li>
+</code></pre><p>根据表达式的取值，选择下面的case执行。(<em>break不能省略，否则程序会一直按顺序执行直到出现break才跳出。</em>)</p>
+<ol start="3">
+<li>&amp;&amp;短路逻辑</li>
 </ol>
-
-<p>根据表达式的取值，选择下面的case执行。(<em>break不能省略，否则程序会一直按顺序执行直到出现break才跳出。</em>)</p>
-
-<ol>
-<li><p>&amp;&amp;短路逻辑</p>
-
 <pre><code>A &amp;&amp; B &amp;&amp; C &amp;&amp; D
-</code></pre></li>
-</ol>
-
-<p>A B C D 按顺序依次执行，<strong>但是！</strong>当执行中遇到某一个表达式为false，则就此打住，得到的是这个表达式的值。当全部都为true时，得到的是最后一个表达式D的值。</p>
-
+</code></pre><p>A B C D 按顺序依次执行，**但是！**当执行中遇到某一个表达式为false，则就此打住，得到的是这个表达式的值。当全部都为true时，得到的是最后一个表达式D的值。</p>
 <p>用法示例：</p>
-
 <pre><code>console &amp;&amp; console.log &amp;&amp; console.log(&quot;hi&quot;)
-</code></pre>
-
-<p>IE并没有console，所以IE浏览器不会打印出&rdquo;hi&rdquo;</p>
-
-<ol>
-<li><p>||短路逻辑</p>
-
-<pre><code>A || B || C || D
-</code></pre></li>
+</code></pre><p>IE并没有console，所以IE浏览器不会打印出&quot;hi&rdquo;</p>
+<ol start="4">
+<li>||短路逻辑</li>
 </ol>
-
-<p>A B C D 按顺序依次执行，<strong>但是！</strong>当执行中遇到某一个表达式为true，则就此打住，得到的是这个表达式的值。当全部都为false时，得到的是最后一个表达式D的值。</p>
-
+<pre><code>A || B || C || D
+</code></pre><p>A B C D 按顺序依次执行，**但是！**当执行中遇到某一个表达式为true，则就此打住，得到的是这个表达式的值。当全部都为false时，得到的是最后一个表达式D的值。</p>
 <p>用法示例：</p>
-
 <pre><code>a = a||100
-</code></pre>
-
-<p><strong>用于设定保底值</strong>，上面的语句等价于：</p>
-
+</code></pre><p><strong>用于设定保底值</strong>，上面的语句等价于：</p>
 <pre><code>if(a){
     a=a
 }else{
     a=100
 }
-</code></pre>
-
-<h1 id="循环语句">循环语句</h1>
-
+</code></pre><h1 id="循环语句">循环语句</h1>
 <h2 id="while">while</h2>
-
 <pre><code>while(表达式){
     语句块
 }
-</code></pre>
-
-<p>当表达式成立时执行语句，注意在此之前要对判断的语句进行初始化，而在语句块中要对判断的变量进行增量计算。</p>
-
+</code></pre><p>当表达式成立时执行语句，注意在此之前要对判断的语句进行初始化，而在语句块中要对判断的变量进行增量计算。</p>
 <p><strong>do&hellip;while&hellip;语句和 while 差不多，区别是do&hellip;while&hellip;语句先执行语句块再判断表达式，无论表达式是否成立，语句块都至少执行一遍。</strong></p>
-
 <h1 id="for">for</h1>
-
 <pre><code>for(语句1;表达式2;语句3){
     循环体；
 }
-</code></pre>
-
-<p>先执行语句1（初始化）；<br />
-判断表达式2；<br />
-表达式2为真，执行循环体，再执行语句3；<br />
+</code></pre><p>先执行语句1（初始化）；<br>
+判断表达式2；<br>
+表达式2为真，执行循环体，再执行语句3；<br>
 表达式2为假，退出for语句；</p>
-
 <p>示例：</p>
-
 <pre><code>for(var i = 1; i &lt; 5; i++){
     setTimeout( () =&gt; {
         console.log(i)
     },0)
 }
-</code></pre>
-
-<p>结果会打印5个5.</p>
-
+</code></pre><p>结果会打印5个5.</p>
 <p><strong>为什么？</strong></p>
-
 <p>原因是setTimeout是定时器，过一会儿再打印，所以语句会先执行完for语句，再执行定时器。而当执行完for语句后，i的值就是5。因此会打印出5个5.</p>
-
-<p><strong>如果将 var 换成 let,会改变结果为&rdquo;0 1 2 3 4&rdquo;</strong></p>
-
+<p><strong>如果将 var 换成 let,会改变结果为&quot;0 1 2 3 4&rdquo;</strong></p>
 <h1 id="break-和-continue">break 和 continue</h1>
-
 <p>break用于跳出<strong>整个</strong>循环；continue用于退出<strong>本次</strong>循环。</p>
-
 <h1 id="label语句">label语句</h1>
-
 <pre><code>/*语法*/
 foo: {
     console.log(1);
     break foo;
     console.log('本行不会输出')
 }
-</code></pre>
-
-<p>示例：</p>
-
+</code></pre><p>示例：</p>
 <pre><code>{
     foo:1;
 }
-</code></pre>
-
-<p>上面的语句<strong>不是对象</strong>，上面是一个代码块（block），代码块里是一个label标签foo，标签的值是1。</p>
-
+</code></pre><p>上面的语句<strong>不是对象</strong>，上面是一个代码块（block），代码块里是一个label标签foo，标签的值是1。</p>
 <p>如果要声明为对象：</p>
-
 <pre><code>var obj = {
     foo:1;
 }
 </code></pre>
-
     </div>
 
     <div class="post-copyright">

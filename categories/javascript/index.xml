@@ -17,8 +17,8 @@
       <pubDate>Sat, 28 Dec 2019 16:08:31 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2019/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/</guid>
-      <description>a = 1 var a = 1 let a = 1 const a = 1  a = 1 var a // a1 全局变量 function fn(){ var a // a2 局部变量 function fn2(){ a = 1 // 如果没有a1 a2，就声明一个全局变量a // 如果没有a1，就用a2 // 如果没有a2.就用a1 // 如果a1 a2都有，就近原则，用a2 } }  如果当前有a，就直接利用这个a，如果当前没有a，就声明一个全局变量a。
-变量提升 function fn(){ // {{a}} if(true){ console.log(a) }else{ // 这里不会执行 var a = 1 console.log(2) } } // undefined  代码没有报错，原因是var会变量提升。它最终会提到{{a}}的位置中去。</description>
+      <description>a = 1 var a = 1 let a = 1 const a = 1 a = 1 var a // a1 全局变量 function fn(){ var a // a2 局部变量  function fn2(){ a = 1 // 如果没有a1 a2，就声明一个全局变量a  // 如果没有a1，就用a2  // 如果没有a2.就用a1  // 如果a1 a2都有，就近原则，用a2  } } 如果当前有a，就直接利用这个a，如果当前没有a，就声明一个全局变量a。
+变量提升 function fn(){ // {{a}}  if(true){ console.log(a) }else{ // 这里不会执行  var a = 1 console.log(2) } } // undefined 代码没有报错，原因是var会变量提升。它最终会提到{{a}}的位置中去。</description>
     </item>
     
     <item>
@@ -30,9 +30,9 @@
       <description>什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）
 所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div &amp;gt; ul &amp;gt; li &amp;gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。
 举例说明：
-&amp;lt;ul id = &#39;list&#39;&amp;gt; &amp;lt;li&amp;gt;item 1&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 2&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 3&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 4&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt;  实现一个功能：点击li，弹出&amp;rsquo;1234&amp;rsquo; 如果不用事件委托，我们需要把点击后弹出&amp;rsquo;1234&amp;rsquo;这个事件委托给每一个li
-window.onload = () =&amp;gt; { let ul1 = document.querySelector(&#39;#list&#39;) let lis = ul1.getElementsByTagName(&#39;li&#39;) for(let i=0; i&amp;lt;lis.length; i++){ lis[i].onclick = () =&amp;gt; { alert(&#39;1234&#39;) } } }  如果用事件委托，我们只需把事件委托给ul即可
-window.onload = () =&amp;gt; { let ul1 = document.querySelector(&#39;#list&#39;) ul1.onclick = () =&amp;gt; { alert(&#39;1234&#39;) } }  当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。</description>
+&amp;lt;ul id = &#39;list&#39;&amp;gt; &amp;lt;li&amp;gt;item 1&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 2&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 3&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;item 4&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; 实现一个功能：点击li，弹出&amp;rsquo;1234&amp;rsquo; 如果不用事件委托，我们需要把点击后弹出&amp;rsquo;1234&#39;这个事件委托给每一个li
+window.onload = () =&amp;gt; { let ul1 = document.querySelector(&#39;#list&#39;) let lis = ul1.getElementsByTagName(&#39;li&#39;) for(let i=0; i&amp;lt;lis.length; i++){ lis[i].onclick = () =&amp;gt; { alert(&#39;1234&#39;) } } } 如果用事件委托，我们只需把事件委托给ul即可
+window.onload = () =&amp;gt; { let ul1 = document.querySelector(&#39;#list&#39;) ul1.onclick = () =&amp;gt; { alert(&#39;1234&#39;) } } 当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。</description>
     </item>
     
     <item>
@@ -46,11 +46,11 @@ window.onload = () =&amp;gt; { let ul1 = document.querySelector(&#39;#list&#39;)
 (let const缓存for循环的中间变量)[https://juejin.im/post/5c6bb8566fb9a049f154c363]
 (let 和 const 在for 循环中的使用)[https://www.cnblogs.com/SamWeb/p/10659352.html]
 问题的根源起源于手写jQuery的过程中用到的代码：
-find(selector) { let array = [] for (let i = 0; i &amp;lt; elements.length; i++) { const elements2 = Array.from(elements[i].querySelectorAll(selector)) array = array.concat(elements2) } array.oldApi = this return jQuery(array) }  const关键字定义的变量不能被重新赋值，那它为什么可以出现在for循环中？
-let 当我们在for循环中使用let时，每一次的迭代都会重新声明一次变量。比如for(let i = 0; i &amp;lt; 10; i++)
+find(selector) { let array = [] for (let i = 0; i &amp;lt; elements.length; i++) { const elements2 = Array.from(elements[i].querySelectorAll(selector)) array = array.concat(elements2) } array.oldApi = this return jQuery(array) } const关键字定义的变量不能被重新赋值，那它为什么可以出现在for循环中？
+ let 当我们在for循环中使用let时，每一次的迭代都会重新声明一次变量。比如for(let i = 0; i &amp;lt; 10; i++)
 i变量被声明了10次，每一次赋的值为上一次迭代完成时的值，这样的话，循环体内获取到的i，每次也都是全新的变量i，而不是像使用var声明时得到的是全局变量，并且每一次迭代完成后，i变量就消失了。
 除了常规for循环，for-in和for-of同理。每一次迭代都是重新声明一个新的迭代对象，而不是给原来的迭代对象赋新值。
-let arr = [1, 2, 3]; for (let key in arr) { console.log(key) } // 0 1 2 for(let key of arr){ console.</description>
+let arr = [1, 2, 3]; for (let key in arr) { console.log(key) } // 0 1 2  for(let key of arr){ console.</description>
     </item>
     
     <item>
@@ -62,12 +62,12 @@ let arr = [1, 2, 3]; for (let key in arr) { console.log(key) } // 0 1 2 for(let 
       <description>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源
 &amp;mdash;以下文档部分转载自知乎文章《从一道面试题-计时器函数谈闭包》，作者：胡桃夹子
 文章地址：https://zhuanlan.zhihu.com/p/80117819
-/*********************/ let i = 0 for(i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } /*********************/  上述代码会打印出6个6。
+ /*********************/ let i = 0 for(i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } /*********************/ 上述代码会打印出6个6。
 为什么不是0、1、2、3、4、5？
 原因是
 setTimeout是一个计时器，设置时间为0秒。（计时0秒，相当于是马上要执行）
 setTimeout是从队列结束的时候开始计时的，如果前面的进程没有结束，那么要等到前面的进程结束后才开始计时。在这里的任务队列就是它自己所在的循环。
-意思是，执行完当前的代码之后立即执行计时器中的代码。而上面的&amp;rdquo;当前代码&amp;rdquo;就是指for循环。
+意思是，执行完当前的代码之后立即执行计时器中的代码。而上面的&amp;quot;当前代码&amp;quot;就是指for循环。
 在for循环执行完毕后，此时的i值等于6，才轮到setTimeout异步执行箭头函数。
 6个setTimeout打印出当前的i值，执行结果就是打印6个6。
 为了更好的理解，这里可以想象一个小场景。
@@ -77,10 +77,9 @@ for循环执行完第二遍又来根setTimeout说：这个i是我第二次执行
 setTimeout又说：好的。然后他又在便利贴上写道：打印i给老板看，放在了第一张便利贴的下面。（这里的i没有写明具体值）
 同样的情形发生了六次，在第六次的时候，for循环说：这个i是我的最终成果了，你打印一下。（i=6）
 for循环的工作结束了，想起之前for循环安排的工作都没干，于是它找回之前的便利贴，一张一张执行。
-每一张都写着&amp;rdquo;打印i&amp;rdquo;,于是setTimeout直接把i打印了6遍给boss。
+每一张都写着&amp;quot;打印i&amp;rdquo;,于是setTimeout直接把i打印了6遍给boss。
  怎样才能让上述代码打印出0、1、2、3、4、5？
- 利用闭包，用函数参数来保存i的值。
-let i = 0 for(i = 0; i&amp;lt;6; i++){ !function(i){ setTimeout(()=&amp;gt;{ console.log(i) },0) }(i) }   上述代码中，for循环每一次循环，都会把i的值作为参数传给循环内的立即执行函数，再由立即执行函数把i的值传给setTimeout执行。
+ 利用闭包，用函数参数来保存i的值。  let i = 0 for(i = 0; i&amp;lt;6; i++){ !function(i){ setTimeout(()=&amp;gt;{ console.log(i) },0) }(i) } 上述代码中，for循环每一次循环，都会把i的值作为参数传给循环内的立即执行函数，再由立即执行函数把i的值传给setTimeout执行。
 setTimeout与立即执行函数构成了闭包。
 setTimeout每一次得到的参数来自立即执行函数。而立即执行函数每一次接受的i值不同，因此传给setTimeout的i值不同。
 同样也是6个setTimeout，但setTimeout打印的i值来自立即执行函数，因此打印出0、1、2、3、4、5。
@@ -100,18 +99,16 @@ for循环每一次执行的版本（i的具体值）都会给function记录下�
       <guid>https://chow1027.xyz/2019/js%E5%AF%B9%E8%B1%A1/</guid>
       <description>JavaScript的其中数据类型：四基两空一对象，今天我们来聊一聊对象Object，
 以及原型是什么？
-唯一的复杂类型——Object //常用写法： let obj = {&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;,} //正规写法 let obj = new Object({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;}) //匿名对象 console.log({&#39;name&#39;:&#39;xxx&#39;,&#39;age&#39;:&#39;xxx&#39;})  注意：
-1. 键名是字符串，可以包含任何字符；
-2. &amp;ldquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！）
-3. 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。
-4. 对象中的键值对又称为这个对象的属性。
-let obj={ 1e2:&#39;一百&#39; } /*******结果是********/ obj = {&#39;100&#39;:&#39;一百&#39;}  如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。
+唯一的复杂类型——Object //常用写法： let obj = {&amp;#39;name&amp;#39;:&amp;#39;xxx&amp;#39;,&amp;#39;age&amp;#39;:&amp;#39;xxx&amp;#39;,} //正规写法 let obj = new Object({&amp;#39;name&amp;#39;:&amp;#39;xxx&amp;#39;,&amp;#39;age&amp;#39;:&amp;#39;xxx&amp;#39;}) //匿名对象 console.log({&amp;#39;name&amp;#39;:&amp;#39;xxx&amp;#39;,&amp;#39;age&amp;#39;:&amp;#39;xxx&amp;#39;}) 注意：
+ 键名是字符串，可以包含任何字符； &amp;lsquo;&amp;lsquo;可以省略，但是省略后只能写标识符和数字；（所以为什么要省略它呢？写上！） 对象没有所谓的数字下标，要得到对象中的某个值，只能通过它的键名获取。 对象中的键值对又称为这个对象的属性。  let obj={ 1e2:&amp;#39;一百&amp;#39; } /*******结果是********/ obj = {&amp;#39;100&amp;#39;:&amp;#39;一百&amp;#39;} 如果对象的键是一个表达式，那么JavaScript会将该表达式求值，并将结果转换为字符串。
 提问：字符串是一个常量，我能不能用变量的值作为Object的键呢？ 答案是肯定的。
 怎么做？
 用&amp;rsquo;[]&amp;lsquo;将变量名包裹起来
-let a = &#39;xxx&#39; var obj = { [a] = &#39;hello&#39; } /*******结果是********/ obj = {&#39;xxx&#39;:&#39;hello&#39;}  同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。
+let a = &amp;#39;xxx&amp;#39; var obj = { [a] = &amp;#39;hello&amp;#39; } /*******结果是********/ obj = {&amp;#39;xxx&amp;#39;:&amp;#39;hello&amp;#39;} 同上面表达式的原理类似，JavaScript会先得到变量的值，再转为字符串。
 Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&amp;lsquo;xxx&amp;rsquo;] ——删除obj对象的xxx属性
-注意区分属性值为 undefined 和 不含属性名</description>
+注意区分属性值为 undefined 和 不含属性名
+比如
+obj.xxx = undefined obj.xxx = null 上面的操作只是把obj对象中的xxx属性的属性值设置为null或undefined（相当于删除属性值）。</description>
     </item>
     
     <item>
@@ -120,25 +117,17 @@ Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&amp;lsquo;x
       <pubDate>Fri, 15 Nov 2019 06:40:40 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2019/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
-      <description>表达式和语句 表达式和语句的 一般 区别  表达式一般有值，语句可能有或没有；
- 语句一般会改变环境（声明、赋值等）
- 上述区别并不绝对。
-  关于值和返回值
+      <description>表达式和语句 表达式和语句的 一般 区别  表达式一般有值，语句可能有或没有； 语句一般会改变环境（声明、赋值等） 上述区别并不绝对。  关于值和返回值
 只有函数（表达式）才有返回值的概念。比如：
- 1+2的值是3；
- add(1,2）表达式的值为函数的返回值
- console.log表达式的值为函数本身
- console.log(3)表达式的值为undefined（console.log没有返回值，打印出&amp;rdquo;3&amp;rdquo;是它的功能）
-  注意事项  JavaScript中区分大小写；
- 大部分空格没有意义；
- 大部分回车没有意义（除了return，return后面不能随便回车，否则JavaScript会自动在return后面补上&amp;rdquo;;&amp;ldquo;）  标识符 命名规则
-第一个字符后面可以接Unicode字符、&amp;rdquo;$&amp;ldquo;符号、&amp;rdquo;_&amp;ldquo;符号和中文，之后的字符除了这些之外，还可以是数字。
+ 1+2的值是3； add(1,2）表达式的值为函数的返回值 console.log表达式的值为函数本身 console.log(3)表达式的值为undefined（console.log没有返回值，打印出&amp;quot;3&amp;quot;是它的功能）  注意事项  JavaScript中区分大小写； 大部分空格没有意义； 大部分回车没有意义（除了return，return后面不能随便回车，否则JavaScript会自动在return后面补上&amp;rdquo;;&amp;quot;）  标识符 命名规则
+第一个字符后面可以接Unicode字符、&amp;ldquo;$&amp;quot;符号、&amp;quot;_&amp;ldquo;符号和中文，之后的字符除了这些之外，还可以是数字。
 注释 多行注释 &amp;ldquo;/**/&amp;rdquo;
 单行注释 &amp;ldquo;//&amp;rdquo;
 好的注释：
 /踩坑注解/
 /为什么代码写的这么奇怪，遇到了什么bug/
-条件语句 if&amp;hellip;else&amp;hellip; /************************/ if(表达式){ 语句1 }eles{ 语句2 } /************************/ if(表达式){ 语句1 }eles if{ 语句2 }else{ 语句3 } /************************/ function fn(){ if(){ return 表达式 } if(){ return 表达式 } return 表达式 } /************************/  注意</description>
+条件语句 if&amp;hellip;else&amp;hellip; /************************/ if(表达式){ 语句1 }eles{ 语句2 } /************************/ if(表达式){ 语句1 }eles if{ 语句2 }else{ 语句3 } /************************/ function fn(){ if(){ return 表达式 } if(){ return 表达式 } return 表达式 } /************************/ 注意
+ &amp;ldquo;{}&amp;ldquo;不要省略，省略后if..else..语句只能作用到后面的第一个语句。  其他条件语句  三元表达式  表达式1 ?</description>
     </item>
     
     <item>
@@ -147,27 +136,26 @@ Object中的增删查改 删除属性 delete obj.xxx 或 delete obj[&amp;lsquo;x
       <pubDate>Wed, 13 Nov 2019 21:30:08 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2019/javascript%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</guid>
-      <description>Javascript：我怎么来的？ JavaScript诞生于网景公司（_Mosaic Communications_）。
+      <description>Javascript：我怎么来的？ JavaScript诞生于网景公司（Mosaic Communications）。
 网景公司希望它们的浏览器能与使用者互动，要达成这一目的，他们需要一种网页脚本语言。
 用什么语言来达成这一目的？要么，用当时现有的语言：python、perl、Scheme等；要么，开发一门新的语言。当时的网景公司分成了两派。
-而同年发生了一件大事，Sun公司将Oak语言改名为Java，正式向市场推出，&amp;rdquo;一次编写，到处运行&amp;rdquo;的宣传语，使得Java很有可能成为未来的主宰。
+而同年发生了一件大事，Sun公司将Oak语言改名为Java，正式向市场推出，&amp;ldquo;一次编写，到处运行&amp;quot;的宣传语，使得Java很有可能成为未来的主宰。
 网景公司看到了机会，决定与Sun公司结成联盟。它不仅允许Java程序以applet（小程序）的形式，直接在浏览器中运行；甚至还考虑直接将Java作为脚本语言嵌入网页，只是因为这样会使HTML网页过于复杂，后来才不得不放弃。
-总之，当时的形势就是，网景公司的整个管理层，都是Java语言的信徒，Sun公司完全介入网页脚本语言的决策。因此，Javascript后来就是网景和Sun两家公司一起携手推向市场的，这种语言被命名为&amp;rdquo;Java+script&amp;rdquo;并不是偶然的。
-决定开发一种看上去与Java足够相似，但是比Java简单，使得非专业的网页作者也能很快上手的语言。为了使&amp;rdquo;开发新语言&amp;rdquo;这个提案站稳脚跟，这一种语言必须尽快出现，布兰登当时被指定为这门语言的设计师。
+总之，当时的形势就是，网景公司的整个管理层，都是Java语言的信徒，Sun公司完全介入网页脚本语言的决策。因此，Javascript后来就是网景和Sun两家公司一起携手推向市场的，这种语言被命名为&amp;quot;Java+script&amp;quot;并不是偶然的。
+决定开发一种看上去与Java足够相似，但是比Java简单，使得非专业的网页作者也能很快上手的语言。为了使&amp;quot;开发新语言&amp;quot;这个提案站稳脚跟，这一种语言必须尽快出现，布兰登当时被指定为这门语言的设计师。
 布兰登的主要方向和兴趣是函数式编程，网景公司招聘他的目的，是研究将Scheme语言作为网页脚本语言的可能性。
 而且，布兰登看不起Java。
 1995年5月，布兰登仅花了10天时间就把这个拙劣的语言原型设计出来了。最初命名为Mocha，1995年9月在Netscape Navigator 2.0的Beta版中改名为LiveScript，同年12月，Netscape Navigator 2.0 Beta 3中部署时被重命名为JavaScript。
  布兰登的设计思路：
 （1）借鉴C语言的基本语法；
 （2）借鉴Java语言的数据类型和内存管理；
-（3）借鉴Scheme语言，将函数提升到&amp;rdquo;第一等公民&amp;rdquo;（first class）的地位；
+（3）借鉴Scheme语言，将函数提升到&amp;quot;第一等公民&amp;rdquo;（first class）的地位；
 （4）借鉴Self语言，使用基于原型（prototype）的继承机制。
  Javascript语言实际上是两种语言风格的混合产物&amp;mdash;-（简化的）函数式编程+（简化的）面向对象编程。这是由Brendan Eich（函数式编程）与网景公司（面向对象编程）共同决定的。
 Javascript：我来到这个世界之后 JavaScript在浏览器推出后大受欢迎，微软为了与之对抗，开发了Jscript。Jscript可以认为是微软开发的JavaScript的翻版。两个版本在浏览器端共存意味着语言标准化的缺失。
 网景公司为了取得先机，1996年11月率先向ECMA提交语言标准，1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。
 Javascript：我为什么这么糟 从JavaScript上面的经历来看，我们不难找出原因。
- 设计阶段过于仓促
-  JavaScript的设计师仅仅用了10天就设计出JavaScript，而且设计师只是为了交差，本人并不愿意这样设计。
+ 设计阶段过于仓促  JavaScript的设计师仅仅用了10天就设计出JavaScript，而且设计师只是为了交差，本人并不愿意这样设计。
 其次JavaScript设计的初衷是为了实现一些简单的页面交互，并没有考虑复杂应用的需要。
  没有先例  JavaScript同时结合了函数式编程和面向对象编程的特点，史无前例，直到现在为止，JavaScript仍然是世界上唯一使用prototype继承模型的语言，它并没有设计先例可以参考。
  过早的标准化  JavaScript发展迅速，没有时间优化设计。
@@ -175,11 +163,12 @@ Javascript：我为什么这么糟 从JavaScript上面的经历来看，我们�
 更糟的是，Javascript的规格还没来及调整，就固化了。
 1996年8月，微软公司强势介入，宣布推出自己的脚本语言Jscript；11月，为了压制微软，网景公司决定申请Javascript的国际标准；1997年6月，第一个国际标准ECMA-262正式颁布。
 也就是说，Javascript推出一年半之后，国际标准就问世了。设计缺陷还没有充分暴露就成了标准。相比之下，C语言问世将近20年之后，国际标准才颁布。
-Javascript：我糟在哪？  不适合开发大型程序
- Javascript没有名称空间（namespace），很难模块化； 没有如何将代码分布在多个文件的规范； 允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。  非常小的标准库
-  Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。
- null和undefined  null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。
- 全局变量难以控制  Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</description>
+Javascript：我糟在哪？   不适合开发大型程序
+ Javascript没有名称空间（namespace），很难模块化； 没有如何将代码分布在多个文件的规范； 允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。    非常小的标准库
+Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。
+  null和undefined
+null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。
+  全局变量难以控制</description>
     </item>
     
   </channel>

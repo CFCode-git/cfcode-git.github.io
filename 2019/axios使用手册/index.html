@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Axios使用手册",
     "headline" : "Axios使用手册",
-    "description" : "参考文献：\naxios中文网\naxios英文原文\nGET 请求 \/*为给定 ID 的 User 创建请求*\/ axios.get(\x27\/user?ID = 12345\x27) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); }) \/*可以通过对象传递 User 的 ID*\/ axios.get(\x27\/user\x27,{ params:{ ID:12345 } }) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); })  POST 请求 \/*执行post请求*\/ axios.post(\x27user\x27,{ firstName:\x27Fred\x27, lastName:\x27Flintstone\x27 }) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); })  执行多个并发请求 function getUserAccount(){ return axios.get(\x27\/user\/12345\x27); } function getUserPermissions(){ return axios.get(\x27\/user\/12345\/permissions\x27); } axios.all([getUserAccount(),getUserPermissions()]) .then(axios.spread(function(acct,perms){ \/\/ 两个请求现在都执行完成 }));  创建请求 \/*发送POST请求*\/ axios({ method:\x27post\x27, url:\x27\/user\/12345\x27, data:{ firstName:\x27Fred\x27, lastName:\x27Flintstone\x27 } }); \/*获取远端照片*\/ axios({ method:\x27get\x27, url:\x27http:\/\/bit.",
+    "description" : "参考文献：\naxios中文网\naxios英文原文\nGET 请求 \/*为给定 ID 的 User 创建请求*\/ axios.get(\x26#39;\/user?ID = 12345\x26#39;) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); }) \/*可以通过对象传递 User 的 ID*\/ axios.get(\x26#39;\/user\x26#39;,{ params:{ ID:12345 } }) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); }) POST 请求 \/*执行post请求*\/ axios.post(\x26#39;user\x26#39;,{ firstName:\x26#39;Fred\x26#39;, lastName:\x26#39;Flintstone\x26#39; }) .then(function(response){ console.log(response); }) .catch(function(error){ console.log(error); }) 执行多个并发请求 function getUserAccount(){ return axios.get(\x26#39;\/user\/12345\x26#39;); } function getUserPermissions(){ return axios.get(\x26#39;\/user\/12345\/permissions\x26#39;); } axios.all([getUserAccount(),getUserPermissions()]) .then(axios.spread(function(acct,perms){ \/\/ 两个请求现在都执行完成  })); 创建请求 \/*发送POST请求*\/ axios({ method:\x26#39;post\x26#39;, url:\x26#39;\/user\/12345\x26#39;, data:{ firstName:\x26#39;Fred\x26#39;, lastName:\x26#39;Flintstone\x26#39; } }); \/*获取远端照片*\/ axios({ method:\x26#39;get\x26#39;, url:\x26#39;http:\/\/bit.",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -142,259 +142,221 @@
           
           
 
-          
-
-<p>参考文献：<br />
-<a href="http://www.axios-js.com/zh-cn/docs/" rel="nofollow noreferrer" target="_blank">axios中文网</a><br />
-<a href="https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index" rel="nofollow noreferrer" target="_blank">axios英文原文</a></p>
-
+          <p>参考文献：<br>
+<a href="http://www.axios-js.com/zh-cn/docs/">axios中文网</a><br>
+<a href="https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index">axios英文原文</a></p>
 <h1 id="get-请求">GET 请求</h1>
-
-<pre><code class="language-JavaScript">/*为给定 ID 的 User 创建请求*/
-axios.get('/user?ID = 12345')
-    .then(function(response){
-        console.log(response);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">/*为给定 ID 的 User 创建请求*/</span>
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user?ID = 12345&#39;</span>)
+    .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">response</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>);
     })
-    .catch(function(error){
-        console.log(error);
+    .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">error</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
     })
 
-/*可以通过对象传递 User 的 ID*/
-axios.get('/user',{
-    params:{
-        ID:12345
+<span style="color:#75715e">/*可以通过对象传递 User 的 ID*/</span>
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user&#39;</span>,{
+    <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span>{
+        <span style="color:#a6e22e">ID</span><span style="color:#f92672">:</span><span style="color:#ae81ff">12345</span>
     }
 })
-    .then(function(response){
-        console.log(response);
+    .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">response</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>);
     })
-    .catch(function(error){
-        console.log(error);
+    .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">error</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
     })
-</code></pre>
-
-<h1 id="post-请求">POST 请求</h1>
-
-<pre><code class="language-JavaScript">/*执行post请求*/
-axios.post('user',{
-    firstName:'Fred',
-    lastName:'Flintstone'
+</code></pre></div><h1 id="post-请求">POST 请求</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">/*执行post请求*/</span>
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;user&#39;</span>,{
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;Fred&#39;</span>,
+    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;Flintstone&#39;</span>
 })
-    .then(function(response){
-        console.log(response);
+    .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">response</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>);
     })
-    .catch(function(error){
-        console.log(error);
+    .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">error</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
     })
-</code></pre>
-
-<h1 id="执行多个并发请求">执行多个并发请求</h1>
-
-<pre><code class="language-JavaScript">function getUserAccount(){
-    return axios.get('/user/12345');
+</code></pre></div><h1 id="执行多个并发请求">执行多个并发请求</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getUserAccount</span>(){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/12345&#39;</span>);
 }
 
-function getUserPermissions(){
-    return axios.get('/user/12345/permissions');
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getUserPermissions</span>(){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/12345/permissions&#39;</span>);
 }
 
-axios.all([getUserAccount(),getUserPermissions()])
-    .then(axios.spread(function(acct,perms){
-        // 两个请求现在都执行完成
-    }));
-</code></pre>
-
-<h1 id="创建请求">创建请求</h1>
-
-<pre><code class="language-JavaScript">/*发送POST请求*/
-axios({
-    method:'post',
-    url:'/user/12345',
-    data:{
-        firstName:'Fred',
-        lastName:'Flintstone'
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">all</span>([<span style="color:#a6e22e">getUserAccount</span>(),<span style="color:#a6e22e">getUserPermissions</span>()])
+    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">spread</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">acct</span>,<span style="color:#a6e22e">perms</span>){
+        <span style="color:#75715e">// 两个请求现在都执行完成
+</span><span style="color:#75715e"></span>    }));
+</code></pre></div><h1 id="创建请求">创建请求</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">/*发送POST请求*/</span>
+<span style="color:#a6e22e">axios</span>({
+    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;post&#39;</span>,
+    <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;/user/12345&#39;</span>,
+    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
+        <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;Fred&#39;</span>,
+        <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;Flintstone&#39;</span>
     }
 });
 
 
-/*获取远端照片*/
-axios({
-    method:'get',
-    url:'http://bit.ly/2mTM3nY',
-    responseType:'stream'
+<span style="color:#75715e">/*获取远端照片*/</span>
+<span style="color:#a6e22e">axios</span>({
+    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;get&#39;</span>,
+    <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;http://bit.ly/2mTM3nY&#39;</span>,
+    <span style="color:#a6e22e">responseType</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;stream&#39;</span>
 })
-    .then(function(response){
-        response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+    .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">response</span>){
+        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createWriteStream</span>(<span style="color:#e6db74">&#39;ada_lovelace.jpg&#39;</span>))
     });
 
 
-</code></pre>
-
-<h1 id="创建实例">创建实例</h1>
-
-<pre><code class="language-JavaScript">const instance = axios.create({
-  baseURL: 'https://some-domain.com/api/',
-  timeout: 1000,
-  headers: {'X-Custom-Header': 'foobar'}
+</code></pre></div><h1 id="创建实例">创建实例</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">instance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>({
+  <span style="color:#a6e22e">baseURL</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://some-domain.com/api/&#39;</span>,
+  <span style="color:#a6e22e">timeout</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1000</span>,
+  <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#39;X-Custom-Header&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;foobar&#39;</span>}
 });
-</code></pre>
+</code></pre></div><h1 id="响应">响应</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/12345&#39;</span>)
+  .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">response</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>); <span style="color:#75715e">// 由服务器提供的响应
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span>); <span style="color:#75715e">// 来自服务器响应的HTTP状态码
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">statusText</span>); <span style="color:#75715e">// 来自服务器响应的状态信息
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">headers</span>); <span style="color:#75715e">// 服务器响应的头
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">config</span>); <span style="color:#75715e">// 为请求提供的配置信息
+</span><span style="color:#75715e"></span>  });
+</code></pre></div><h1 id="配置默认值">配置默认值</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">/*全局的 axios 默认值*/</span>
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">defaults</span>.<span style="color:#a6e22e">baseURL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.example.com&#39;</span>;
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">defaults</span>.<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">common</span>[<span style="color:#e6db74">&#39;Authorization&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">AUTH_TOKEN</span>;
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">defaults</span>.<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">post</span>[<span style="color:#e6db74">&#39;Content-Type&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;application/x-www-form-urlencoded&#39;</span>;
 
-<h1 id="响应">响应</h1>
-
-<pre><code class="language-JavaScript">axios.get('/user/12345')
-  .then(function(response) {
-    console.log(response.data); // 由服务器提供的响应
-    console.log(response.status); // 来自服务器响应的HTTP状态码
-    console.log(response.statusText); // 来自服务器响应的状态信息
-    console.log(response.headers); // 服务器响应的头
-    console.log(response.config); // 为请求提供的配置信息
-  });
-</code></pre>
-
-<h1 id="配置默认值">配置默认值</h1>
-
-<pre><code class="language-JavaScript">/*全局的 axios 默认值*/
-axios.defaults.baseURL = 'https://api.example.com';
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
-/*自定义实例默认值*/
-// 创建实例时设置默认值
-const instance = axios.create({
-  baseURL: 'https://api.example.com'
+<span style="color:#75715e">/*自定义实例默认值*/</span>
+<span style="color:#75715e">// 创建实例时设置默认值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">instance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>({
+  <span style="color:#a6e22e">baseURL</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://api.example.com&#39;</span>
 });
 
-// 创建实例后设置默认值。
-instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+<span style="color:#75715e">// 创建实例后设置默认值。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">instance</span>.<span style="color:#a6e22e">defaults</span>.<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">common</span>[<span style="color:#e6db74">&#39;Authorization&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">AUTH_TOKEN</span>;
 
 
-/*配置的优先顺序*/
-// 配置会以一个优先顺序进行合并。这个顺序是：
-// 在 lib/defaults.js 找到的库的默认值，
-// 然后是实例的 defaults 属性，
-// 最后是请求的 config 参数。
+<span style="color:#75715e">/*配置的优先顺序*/</span>
+<span style="color:#75715e">// 配置会以一个优先顺序进行合并。这个顺序是：
+</span><span style="color:#75715e">// 在 lib/defaults.js 找到的库的默认值，
+</span><span style="color:#75715e">// 然后是实例的 defaults 属性，
+</span><span style="color:#75715e">// 最后是请求的 config 参数。
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 使用由库提供的配置的默认值来创建实例
+</span><span style="color:#75715e">// 此时超时配置的默认值是 `0`
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">instance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>();
 
-// 使用由库提供的配置的默认值来创建实例
-// 此时超时配置的默认值是 `0`
-var instance = axios.create();
+<span style="color:#75715e">// 覆写库的超时默认值
+</span><span style="color:#75715e">// 现在，在超时前，所有请求都会等待 2.5 秒
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">instance</span>.<span style="color:#a6e22e">defaults</span>.<span style="color:#a6e22e">timeout</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2500</span>;
 
-// 覆写库的超时默认值
-// 现在，在超时前，所有请求都会等待 2.5 秒
-instance.defaults.timeout = 2500;
-
-// 为已知需要花费很长时间的请求覆写超时设置
-instance.get('/longRequest', {
-  timeout: 5000
+<span style="color:#75715e">// 为已知需要花费很长时间的请求覆写超时设置
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">instance</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/longRequest&#39;</span>, {
+  <span style="color:#a6e22e">timeout</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5000</span>
 });
-</code></pre>
-
-<h1 id="拦截器">拦截器</h1>
-
+</code></pre></div><h1 id="拦截器">拦截器</h1>
 <p>在请求和响应被 then 或 catch 处理前拦截他们。</p>
-
-<pre><code class="language-JavaScript">// 添加请求拦截器
-axios.interceptors.request.use(function (config) {
-    // 在发送请求之前做些什么
-    return config;
-  }, function (error) {
-    // 对请求错误做些什么
-    return Promise.reject(error);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// 添加请求拦截器
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">interceptors</span>.<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">config</span>) {
+    <span style="color:#75715e">// 在发送请求之前做些什么
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
+  }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
+    <span style="color:#75715e">// 对请求错误做些什么
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> Promise.<span style="color:#a6e22e">reject</span>(<span style="color:#a6e22e">error</span>);
   });
 
-// 添加响应拦截器
-axios.interceptors.response.use(function (response) {
-    // 对响应数据做点什么
-    return response;
-  }, function (error) {
-    // 对响应错误做点什么
-    return Promise.reject(error);
+<span style="color:#75715e">// 添加响应拦截器
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">interceptors</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">response</span>) {
+    <span style="color:#75715e">// 对响应数据做点什么
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>;
+  }, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
+    <span style="color:#75715e">// 对响应错误做点什么
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> Promise.<span style="color:#a6e22e">reject</span>(<span style="color:#a6e22e">error</span>);
   });
 
-// 移除拦截器
-const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
-axios.interceptors.request.eject(myInterceptor);
+<span style="color:#75715e">// 移除拦截器
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myInterceptor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">interceptors</span>.<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span> () {<span style="color:#75715e">/*...*/</span>});
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">interceptors</span>.<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">eject</span>(<span style="color:#a6e22e">myInterceptor</span>);
 
-// 为自定义 axios 实例添加拦截器
-const instance = axios.create();
-instance.interceptors.request.use(function () {/*...*/});
-</code></pre>
-
-<h1 id="错误处理">错误处理</h1>
-
-<pre><code class="language-JavaScript">axios.get('/user/12345')
-  .catch(function (error) {
-    if (error.response) {
-      // 已经创建了一个请求，并且服务器返回了一个状态码
-      // 状态码不是 2xx
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    } else if (error.request) {
-      // 创建了一个请求，但是服务器没有返回响应。
-      // `error.request` is an instance of XMLHttpRequest in 
-      // the browser and an instance of http.ClientRequest in node.js
-      console.log(error.request);
-    } else {
-      // 在请求配置过程中发生了某些问题触发了错误
-      console.log('Error', error.message);
+<span style="color:#75715e">// 为自定义 axios 实例添加拦截器
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">instance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>();
+<span style="color:#a6e22e">instance</span>.<span style="color:#a6e22e">interceptors</span>.<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span> () {<span style="color:#75715e">/*...*/</span>});
+</code></pre></div><h1 id="错误处理">错误处理</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/12345&#39;</span>)
+  .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>) {
+      <span style="color:#75715e">// 已经创建了一个请求，并且服务器返回了一个状态码
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// 状态码不是 2xx
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>);
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span>);
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">headers</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">request</span>) {
+      <span style="color:#75715e">// 创建了一个请求，但是服务器没有返回响应。
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// `error.request` is an instance of XMLHttpRequest in 
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// the browser and an instance of http.ClientRequest in node.js
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">request</span>);
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// 在请求配置过程中发生了某些问题触发了错误
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Error&#39;</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
     }
-    console.log(error.config);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">config</span>);
 });
-</code></pre>
-
-<pre><code class="language-JavaScript">// 使用 validateStatus 配置选项自定义 HTTP 状态码的错误范围。
-axios.get('/user/12345', {
-  validateStatus: function (status) {
-    return status &lt; 500; 
-    // Reject only if the status code is greater than or equal to 500
-    // 只有当状态码大于等于 500 的时候才返回错误
-  }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// 使用 validateStatus 配置选项自定义 HTTP 状态码的错误范围。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/12345&#39;</span>, {
+  <span style="color:#a6e22e">validateStatus</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">status</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">status</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">500</span>; 
+    <span style="color:#75715e">// Reject only if the status code is greater than or equal to 500
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 只有当状态码大于等于 500 的时候才返回错误
+</span><span style="color:#75715e"></span>  }
 })
-</code></pre>
-
-<h1 id="取消请求">取消请求</h1>
-
+</code></pre></div><h1 id="取消请求">取消请求</h1>
 <p>使用 cancel token 取消请求</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">/*使用 CancelToken.source 方法创建 cancel token*/</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CancelToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">CancelToken</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">source</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">CancelToken</span>.<span style="color:#a6e22e">source</span>();
 
-<pre><code class="language-JavaScript">/*使用 CancelToken.source 方法创建 cancel token*/
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
-
-axios.get('/user/12345', {
-  cancelToken: source.token
-}).catch(function(thrown) {
-  if (axios.isCancel(thrown)) {
-    console.log('Request canceled', thrown.message);
-  } else {
-     // 处理错误
-  }
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/12345&#39;</span>, {
+  <span style="color:#a6e22e">cancelToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">token</span>
+}).<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">thrown</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">isCancel</span>(<span style="color:#a6e22e">thrown</span>)) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Request canceled&#39;</span>, <span style="color:#a6e22e">thrown</span>.<span style="color:#a6e22e">message</span>);
+  } <span style="color:#66d9ef">else</span> {
+     <span style="color:#75715e">// 处理错误
+</span><span style="color:#75715e"></span>  }
 });
 
-axios.post('/user/12345', {
-  name: 'new name'
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/user/12345&#39;</span>, {
+  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;new name&#39;</span>
 }, {
-  cancelToken: source.token
+  <span style="color:#a6e22e">cancelToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">token</span>
 })
 
-// 取消请求（message 参数是可选的）
-source.cancel('Operation canceled by the user.');
-</code></pre>
+<span style="color:#75715e">// 取消请求（message 参数是可选的）
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">cancel</span>(<span style="color:#e6db74">&#39;Operation canceled by the user.&#39;</span>);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">/*可以通过传递一个 executor 函数到 CancelToken 的构造函数来创建 cancel token：*/</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CancelToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">CancelToken</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">cancel</span>;
 
-<pre><code class="language-JavaScript">/*可以通过传递一个 executor 函数到 CancelToken 的构造函数来创建 cancel token：*/
-const CancelToken = axios.CancelToken;
-let cancel;
-
-axios.get('/user/12345', {
-  cancelToken: new CancelToken(function executor(c) {
-    // executor 函数接收一个 cancel 函数作为参数
-    cancel = c;
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/user/12345&#39;</span>, {
+  <span style="color:#a6e22e">cancelToken</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CancelToken</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">executor</span>(<span style="color:#a6e22e">c</span>) {
+    <span style="color:#75715e">// executor 函数接收一个 cancel 函数作为参数
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">cancel</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>;
   })
 });
 
-// cancel the request
-cancel();
-</code></pre>
-
+<span style="color:#75715e">// cancel the request
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">cancel</span>();
+</code></pre></div>
     </div>
 
     <div class="post-copyright">

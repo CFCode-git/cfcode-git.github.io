@@ -20,13 +20,13 @@
       <description>设计模式概述 设计模式是我们在进行程序设计的过程中，对普遍存在的问题（或反复出现的情况）提出的一种统一的解决方案。 比如适配器模式、Promise、重载、别名、getter/setter、观察者模式等。
 代码模块化 如果代码中存在一些可以具体实现某些功能的代码块，而这些代码块的功能在其他的地方也可以适用。那么我们可以将这部分代码可以封装成一个函数、一个类，这就是代码的模块化；
 根据操作对象的不同，比如将专门操作DOM对象的代码放在一类，将专门负责页面渲染更新的代码当在一类，这也是代码的模块化。
-就是说，总是会有&amp;rdquo;万金油&amp;rdquo;的代码，是所有项目或块的通用代码，我们将这些具有相同&amp;rdquo;目的&amp;rdquo;的代码整合成一个模块，就可以使代码的整体结构更加清晰；模块之间虽然有联系，但每个模块只需关注自身的执行情况以及传进来的参数即可，不会牵一发而动全身，这也是一种解耦的思想。
+就是说，总是会有&amp;quot;万金油&amp;quot;的代码，是所有项目或块的通用代码，我们将这些具有相同&amp;quot;目的&amp;quot;的代码整合成一个模块，就可以使代码的整体结构更加清晰；模块之间虽然有联系，但每个模块只需关注自身的执行情况以及传进来的参数即可，不会牵一发而动全身，这也是一种解耦的思想。
 MVC 设计模式 MVC 是设计模式的一种，是我们优化代码结构的一种方案。同时，他也是代码模块化的一种体现。
 它不直接指导具体代码的实现，而是从全局的、宏观的角度，指导各个部分的代码应该怎么“摆”，从而使代码整体结构更加规律、直观。 当需求越是复杂，要实现的功能越复杂的时候，MVC 所带来的好处就越明显。
 MVC 把代码的结构分成三个部分：Model-数据、View-视图、Control-控制器。
 Model 数据 Model 负责代码中的所有与数据相关的部分，比如数据的更新、数据的读取、数据的存储等。 它不依赖于 View 和 Control，也就是说，它并不关心数据会被如何显示，或是被如何处理，它只需要管理好它的数据即可。 以下面的 Model 举例:
-class Model{ constructor(options){ // 接受数据 const keys = [&#39;data&#39;,&#39;update&#39;,&#39;create&#39;,&#39;delete&#39;,&#39;get&#39;] keys.forEach((key)=&amp;gt;{ if(key in options){ this[key]=options[key] } }) } // 各种数据相关的方法 create(){} delete(){} update(){} get(){} }  View 视图 View 负责处理用户界面相关的代码，比如页面的重新渲染。 同样，View 并不关心它渲染的内容，它只要做好它的工作就可以了。 以下面的 代码 举例:
-const view = { init(){} // 页面初始化 template:`&amp;lt;section&amp;gt;&amp;lt;p&amp;gt;hello&amp;lt;/p&amp;gt;&amp;lt;/section&amp;gt;` // 页面要渲染的内容 render(){} // 渲染函数 }  Controller 控制器 Controller负责统筹整个程序的运作，类似中央处理器。 比如对Model的数据进行处理，将处理后的数据通知给 View 更新；处理 View 传达的事件，更新数据后传达给 Model。 以下面的 Controller 举例:</description>
+class Model{ constructor(options){ // 接受数据  const keys = [&amp;#39;data&amp;#39;,&amp;#39;update&amp;#39;,&amp;#39;create&amp;#39;,&amp;#39;delete&amp;#39;,&amp;#39;get&amp;#39;] keys.forEach((key)=&amp;gt;{ if(key in options){ this[key]=options[key] } }) } // 各种数据相关的方法  create(){} delete(){} update(){} get(){} } View 视图 View 负责处理用户界面相关的代码，比如页面的重新渲染。 同样，View 并不关心它渲染的内容，它只要做好它的工作就可以了。 以下面的 代码 举例:
+const view = { init(){} // 页面初始化  template:`&amp;lt;section&amp;gt;&amp;lt;p&amp;gt;hello&amp;lt;/p&amp;gt;&amp;lt;/section&amp;gt;` // 页面要渲染的内容  render(){} // 渲染函数 } Controller 控制器 Controller负责统筹整个程序的运作，类似中央处理器。 比如对Model的数据进行处理，将处理后的数据通知给 View 更新；处理 View 传达的事件，更新数据后传达给 Model。 以下面的 Controller 举例:</description>
     </item>
     
   </channel>

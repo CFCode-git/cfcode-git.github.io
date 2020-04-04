@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "DOM事件相关",
     "headline" : "DOM事件相关",
-    "description" : "什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）\n所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div \x26gt; ul \x26gt; li \x26gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。\n举例说明：\n\x26lt;ul id = \x27list\x27\x26gt; \x26lt;li\x26gt;item 1\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 2\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 3\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 4\x26lt;\/li\x26gt; \x26lt;\/ul\x26gt;  实现一个功能：点击li，弹出\x26rsquo;1234\x26rsquo; 如果不用事件委托，我们需要把点击后弹出\x26rsquo;1234\x26rsquo;这个事件委托给每一个li\nwindow.onload = () =\x26gt; { let ul1 = document.querySelector(\x27#list\x27) let lis = ul1.getElementsByTagName(\x27li\x27) for(let i=0; i\x26lt;lis.length; i\x2b\x2b){ lis[i].onclick = () =\x26gt; { alert(\x271234\x27) } } }  如果用事件委托，我们只需把事件委托给ul即可\nwindow.onload = () =\x26gt; { let ul1 = document.querySelector(\x27#list\x27) ul1.onclick = () =\x26gt; { alert(\x271234\x27) } }  当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。",
+    "description" : "什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）\n所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div \x26gt; ul \x26gt; li \x26gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。\n举例说明：\n\x26lt;ul id = \x27list\x27\x26gt; \x26lt;li\x26gt;item 1\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 2\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 3\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 4\x26lt;\/li\x26gt; \x26lt;\/ul\x26gt; 实现一个功能：点击li，弹出\x26rsquo;1234\x26rsquo; 如果不用事件委托，我们需要把点击后弹出\x26rsquo;1234\x27这个事件委托给每一个li\nwindow.onload = () =\x26gt; { let ul1 = document.querySelector(\x27#list\x27) let lis = ul1.getElementsByTagName(\x27li\x27) for(let i=0; i\x26lt;lis.length; i\x2b\x2b){ lis[i].onclick = () =\x26gt; { alert(\x271234\x27) } } } 如果用事件委托，我们只需把事件委托给ul即可\nwindow.onload = () =\x26gt; { let ul1 = document.querySelector(\x27#list\x27) ul1.onclick = () =\x26gt; { alert(\x271234\x27) } } 当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -152,23 +152,17 @@ js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。
 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。
 目标阶段：在目标节点上触发。
 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）</p>
-
 <p>所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。
 比如有这么个结构：div &gt; ul &gt; li &gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。</p>
-
 <p>举例说明：</p>
-
 <pre><code>&lt;ul id = 'list'&gt;
     &lt;li&gt;item 1&lt;/li&gt;
     &lt;li&gt;item 2&lt;/li&gt;
     &lt;li&gt;item 3&lt;/li&gt;
     &lt;li&gt;item 4&lt;/li&gt;
 &lt;/ul&gt;
-</code></pre>
-
-<p>实现一个功能：点击li，弹出&rsquo;1234&rsquo;
-如果不用事件委托，我们需要把点击后弹出&rsquo;1234&rsquo;这个事件委托给每一个li</p>
-
+</code></pre><p>实现一个功能：点击li，弹出&rsquo;1234&rsquo;
+如果不用事件委托，我们需要把点击后弹出&rsquo;1234'这个事件委托给每一个li</p>
 <pre><code>window.onload = () =&gt; {
     let ul1 = document.querySelector('#list')
     let lis =  ul1.getElementsByTagName('li')
@@ -178,23 +172,16 @@ js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。
         }
     }
 }
-</code></pre>
-
-<p>如果用事件委托，我们只需把事件委托给ul即可</p>
-
+</code></pre><p>如果用事件委托，我们只需把事件委托给ul即可</p>
 <pre><code>window.onload = () =&gt; {
     let ul1 = document.querySelector('#list')
     ul1.onclick = () =&gt; {
         alert('1234')
     }
 }
-</code></pre>
-
-<p>当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。</p>
-
+</code></pre><p>当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。</p>
 <p>怎么阻止默认动作？
 用<code>e.preventDefault()</code>，兼容IE用<code>e.returnValue = false</code></p>
-
 <pre><code>function stopDefault(e){
     let e = e || window.event;
     if(e &amp;&amp; e.preventDefault){
@@ -204,11 +191,8 @@ js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。
     }
     return false;
 }
-</code></pre>
-
-<p>怎么阻止事件冒泡？
+</code></pre><p>怎么阻止事件冒泡？
 用<code>e.stopPropagation()</code>,兼容IE则需要使用<code>e.cancelBubble = true</code></p>
-
 <pre><code>function stopPropagation(e){
     let e = e || window.event;
     if(e &amp;&amp; e.stopPropagation){
@@ -218,7 +202,6 @@ js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。
     }
 }
 </code></pre>
-
     </div>
 
     <div class="post-copyright">
