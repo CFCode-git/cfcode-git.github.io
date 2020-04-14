@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "浅析URL",
     "headline" : "浅析URL",
-    "description" : "IP ——Internet Protocol 在说URL之前，先了解一下什么是IP。\nIP是互联网协议（网络协议），他的作用是：\n 约定如何定位一台设备（手机、电脑、网络摄像头等..） 约定如何封装数据报文，用以与其他设备交流。\n当我们要发文件、图片给互联网上的一台设备，我们就要知道这台设备的IP地址。  IP分为内网IP和外网IP。\n内网IP由我们的路由器创建，我们的手机、电脑等设备连接到路由器，路由器会给我们的设备分配不同的内网IP。（内网IP的一般格式是192.168.xxx.xxx，一般路由器会给自己分配一个好记的内网IP，比如192.168.1.1）\n有了内网IP。我们的设备之间就可以互相通信了，但要和外界进行交流，我们还需要一个外网IP。\n外网IP是互联网服务提供商LSP（电信、移动等）的路由器给我们的路由器分配的一个IP。LSP可以理解是为一家管理一些特殊路由器的公司。\n外网IP代表了我们在互联网中的地址，但它并固定，如果我们重启路由器，那么可能我们会被重新分配一个外网IP。\n比方说当我们要登陆QQ邮箱时：\n我们的登录信息先是经过了我们自家的路由器，然后经过调制解调器，然后到达LSP，LSP可能会连接到其他LSP路由器，我们的信息会到达QQ邮箱所使用的LSP路由器，最终再次通过调制解调器和路由器到达QQ邮箱的服务器。\n 什么是调制解调器？\n我们建立网络是为了我们自己的目的。所以不同的人会建立不同的网络：你的朋友，你的邻居，每个人都可以拥有自己的计算机网络。在你的房子和世界其它地方之间架设电缆将这些不同的网络连接起来是不可能的，那么你该如何处理这件事呢？其实已经有电缆连接到你的房子了，比如，电线和电话。电话基础设施已经可以把你家连接到世界的任何角落，所以它就是我们需要的线。为了连接电话这种网络我们需要一种基础设备叫做调制解调器（modem），调制解调器可以把网络信息变成电话设施可以处理的信息，反之亦然。\n 资料来源：MDN:互联网是如何工作的？\n如何查看IP？\n通过ipconfig命令\/通过ip138.com查询\/ping命令（下面说）\n端口号 有了IP，我们现在可以定位到互联网上的服务器。\n但是还不够，我们还需要端口号。\n因为一台设备可以提供很多服务，每个服务都对应一个号码，这个号码就是端口号。\n 要提供HTTP服务最好使用80端口； 要提供HTTPS服务最好使用443端口； 要提供FTP服务最好使用21端口 一台机器可以有65535个端口  怎么知道什么时候该用什么端口？\n维基百科搜索\x26quot;TCP 端口\x26rdquo;。快捷入口\n注意端口的使用规则：\n 0-1023号端口是留给系统使用的。 只有拥有管理员权限才能使用这1024个端口。 其他端口可以给普通用户使用。（比如http-server用的8080端口） 一个端口被占用了，就只能用别的端口。  DNS ——Domain Name System 通过IP地址，我们就可以访问QQ邮箱、淘宝、京东，然后就使用里面的服务。\n但是没那么简单。\n因为IP地址是一串数字，它并不是那么容易记忆，于是人类发明了域名，用以直观的代表这个IP地址。\n有了域名，我们现在就可以通过baidu.com访问百度主页，通过taobao.com访问淘宝主页，通过mail.qq.com访问qq邮箱。\n我们人类知道了域名所对应的IP地址，那么计算机是怎么知道的呢？\n答案是通过DNS。\nDNS是域名系统，它类似于一本电话册，里面记录了每一个域名所对应的IP地址，每当我们访问一个域名，浏览器会先到DNS服务器询问这个域名对应的IP地址，然后再跳转到这个IP地址。\n DNS数据库存储在全球每个DNS服务器上，所有这些服务器都源于(refer to)几个被称为“权威名称服务器”或“顶级DNS服务器”。\n 域名 我们知道了域名就是IP地址的别称，它们为互联网上任何可用的网页服务器提供了人类可读的地址。\n域名有分级（以www.xiedaimala.com为例）\n.com是顶级域名；\nxiedaimala.com是二级域名（俗称一级域名）\nwww.xiedaimala.com是三级域名（俗称二级域名）\n他们是父子关系。\n\x26ldquo;xiedaimala.com\x26quot;和\x26quot;www.xiedaimala.com\x26quot;可以不是同一个公司，也可以是。\n比如github.io把子域名xxx.github.io免费给用户使用。\n负载均衡与共享主机\n 负载均衡，一个域名可以对应不同的IP，防止服务器扛不住。 共享主机，一个IP可以对应不同的域名。  通过nslookup命令和ping查询域名对应的IP",
+    "description" : "IP ——Internet Protocol 在说 URL 之前，先了解一下什么是 IP。\nIP 是互联网协议（网络协议），他的作用是：\n 约定如何定位一台设备（手机、电脑、网络摄像头等..） 约定如何封装数据报文，用以与其他设备交流。\n当我们要发文件、图片给互联网上的一台设备，我们就要知道这台设备的 IP 地址。  IP 分为内网 IP 和外网 IP。\n内网 IP 由我们的路由器创建，我们的手机、电脑等设备连接到路由器，路由器会给我们的设备分配不同的内网 IP。（内网 IP 的一般格式是 192.168.xxx.xxx，一般路由器会给自己分配一个好记的内网 IP，比如 192.168.1.1）\n有了内网 IP。我们的设备之间就可以互相通信了，但要和外界进行交流，我们还需要一个外网 IP。\n外网 IP 是互联网服务提供商 LSP（电信、移动等）的路由器给我们的路由器分配的一个 IP。LSP 可以理解是为一家管理一些特殊路由器的公司。\n外网 IP 代表了我们在互联网中的地址，但它并固定，如果我们重启路由器，那么可能我们会被重新分配一个外网 IP。\n比方说当我们要登陆 QQ 邮箱时：\n我们的登录信息先是经过了我们自家的路由器，然后经过调制解调器，然后到达 LSP，LSP 可能会连接到其他 LSP 路由器，我们的信息会到达 QQ 邮箱所使用的 LSP 路由器，最终再次通过调制解调器和路由器到达 QQ 邮箱的服务器。\n 什么是调制解调器？\n我们建立网络是为了我们自己的目的。所以不同的人会建立不同的网络：你的朋友，你的邻居，每个人都可以拥有自己的计算机网络。在你的房子和世界其它地方之间架设电缆将这些不同的网络连接起来是不可能的，那么你该如何处理这件事呢？其实已经有电缆连接到你的房子了，比如，电线和电话。电话基础设施已经可以把你家连接到世界的任何角落，所以它就是我们需要的线。为了连接电话这种网络我们需要一种基础设备叫做调制解调器（modem），调制解调器可以把网络信息变成电话设施可以处理的信息，反之亦然。\n 资料来源：MDN:互联网是如何工作的？\n如何查看 IP？\n通过 ipconfig 命令\/通过 ip138.com 查询\/ping 命令（下面说）",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-11 13:18:15 \x2b0800 CST",
     "dateModified" : "2019-11-11 13:18:15 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/%E6%B5%85%E6%9E%90url\/",
-    "wordCount" : "110",
+    "wordCount" : "257",
     "keywords" : [ "", "呆尬猴的博客"]
 }
 </script>
@@ -146,112 +146,110 @@
           
           
 
-          <h1 id="ip-internet-protocol">IP ——Internet Protocol</h1>
-<p>在说URL之前，先了解一下什么是IP。</p>
-<p><strong>IP是互联网协议（网络协议），他的作用是：</strong></p>
+          <h2 id="ip-internet-protocol">IP ——Internet Protocol</h2>
+<p>在说 URL 之前，先了解一下什么是 IP。</p>
+<p><strong>IP 是互联网协议（网络协议），他的作用是：</strong></p>
 <ol>
 <li>约定如何定位一台设备（手机、电脑、网络摄像头等..）</li>
 <li>约定如何封装数据报文，用以与其他设备交流。<br>
-当我们要发文件、图片给互联网上的一台设备，我们就要知道这台设备的IP地址。</li>
+当我们要发文件、图片给互联网上的一台设备，我们就要知道这台设备的 IP 地址。</li>
 </ol>
-<p><strong>IP分为内网IP和外网IP。</strong></p>
-<p>内网IP由我们的路由器创建，我们的手机、电脑等设备连接到路由器，路由器会给我们的设备分配不同的内网IP。（内网IP的一般格式是192.168.xxx.xxx，一般路由器会给自己分配一个好记的内网IP，比如192.168.1.1）</p>
-<p><strong>有了内网IP。我们的设备之间就可以互相通信了，但要和外界进行交流，我们还需要一个外网IP。</strong></p>
-<p>外网IP是互联网服务提供商LSP（电信、移动等）的路由器给我们的路由器分配的一个IP。LSP可以理解是为一家管理一些特殊路由器的公司。<br>
-外网IP代表了我们在互联网中的地址，但它并固定，如果我们重启路由器，那么可能我们会被重新分配一个外网IP。</p>
-<p>比方说当我们要登陆QQ邮箱时：<br>
-我们的登录信息先是经过了我们自家的路由器，然后经过调制解调器，然后到达LSP，LSP可能会连接到其他LSP路由器，我们的信息会到达QQ邮箱所使用的LSP路由器，最终再次通过调制解调器和路由器到达QQ邮箱的服务器。</p>
+<p><strong>IP 分为内网 IP 和外网 IP。</strong></p>
+<p>内网 IP 由我们的路由器创建，我们的手机、电脑等设备连接到路由器，路由器会给我们的设备分配不同的内网 IP。（内网 IP 的一般格式是 192.168.xxx.xxx，一般路由器会给自己分配一个好记的内网 IP，比如 192.168.1.1）</p>
+<p><strong>有了内网 IP。我们的设备之间就可以互相通信了，但要和外界进行交流，我们还需要一个外网 IP。</strong></p>
+<p>外网 IP 是互联网服务提供商 LSP（电信、移动等）的路由器给我们的路由器分配的一个 IP。LSP 可以理解是为一家管理一些特殊路由器的公司。</p>
+<p>外网 IP 代表了我们在互联网中的地址，但它并固定，如果我们重启路由器，那么可能我们会被重新分配一个外网 IP。</p>
+<p>比方说当我们要登陆 QQ 邮箱时：<br>
+我们的登录信息先是经过了我们自家的路由器，然后经过调制解调器，然后到达 LSP，LSP 可能会连接到其他 LSP 路由器，我们的信息会到达 QQ 邮箱所使用的 LSP 路由器，最终再次通过调制解调器和路由器到达 QQ 邮箱的服务器。</p>
 <blockquote>
 <p>什么是调制解调器？<br>
 我们建立网络是为了我们自己的目的。所以不同的人会建立不同的网络：你的朋友，你的邻居，每个人都可以拥有自己的计算机网络。在你的房子和世界其它地方之间架设电缆将这些不同的网络连接起来是不可能的，那么你该如何处理这件事呢？其实已经有电缆连接到你的房子了，比如，电线和电话。电话基础设施已经可以把你家连接到世界的任何角落，所以它就是我们需要的线。为了连接电话这种网络我们需要一种基础设备叫做调制解调器（modem），调制解调器可以把网络信息变成电话设施可以处理的信息，反之亦然。</p>
 </blockquote>
 <p>资料来源：<a href="https://developer.mozilla.org/zh-CN/docs/learn/How_the_Internet_works">MDN:互联网是如何工作的？</a></p>
-<p><strong>如何查看IP？</strong><br>
-通过ipconfig命令/通过ip138.com查询/ping命令（下面说）</p>
+<p><strong>如何查看 IP？</strong><br>
+通过 ipconfig 命令/通过 ip138.com 查询/ping 命令（下面说）</p>
 <h1 id="端口号">端口号</h1>
-<p>有了IP，我们现在可以定位到互联网上的服务器。</p>
-<p>但是还不够，我们还需要端口号。<br>
-因为一台设备可以提供很多服务，每个服务都对应一个号码，这个号码就是端口号。</p>
+<p>有了 IP，我们现在可以定位到互联网上的服务器。</p>
+<p>但是还不够，我们还需要端口号。</p>
+<p>因为一台设备可以提供很多服务，每个服务都对应一个号码，这个号码就是端口号。</p>
 <ul>
-<li>要提供HTTP服务最好使用80端口；</li>
-<li>要提供HTTPS服务最好使用443端口；</li>
-<li>要提供FTP服务最好使用21端口</li>
-<li><strong>一台机器可以有65535个端口</strong></li>
+<li>要提供 HTTP 服务最好使用 80 端口；</li>
+<li>要提供 HTTPS 服务最好使用 443 端口；</li>
+<li>要提供 FTP 服务最好使用 21 端口</li>
+<li><strong>一台机器可以有 65535 个端口</strong></li>
 </ul>
 <p><strong>怎么知道什么时候该用什么端口？</strong><br>
 维基百科搜索&quot;TCP 端口&rdquo;。<a href="https://zh.wikipedia.org/zh-tw/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8#0%E5%88%B01023%E5%8F%B7%E7%AB%AF%E5%8F%A3">快捷入口</a></p>
 <p><strong>注意端口的使用规则：</strong></p>
 <ol>
-<li>0-1023号端口是留给系统使用的。</li>
-<li>只有拥有管理员权限才能使用这1024个端口。</li>
-<li>其他端口可以给普通用户使用。（比如http-server用的8080端口）</li>
+<li>0-1023 号端口是留给系统使用的。</li>
+<li>只有拥有管理员权限才能使用这 1024 个端口。</li>
+<li>其他端口可以给普通用户使用。（比如 http-server 用的 8080 端口）</li>
 <li>一个端口被占用了，就只能用别的端口。</li>
 </ol>
 <h1 id="dns-domain-name-system">DNS ——Domain Name System</h1>
-<p>通过IP地址，我们就可以访问QQ邮箱、淘宝、京东，然后就使用里面的服务。</p>
-<p>但是没那么简单。<br>
-因为IP地址是一串数字，它并不是那么容易记忆，<strong>于是人类发明了域名，用以直观的代表这个IP地址。</strong></p>
-<p>有了域名，我们现在就可以通过baidu.com访问百度主页，通过taobao.com访问淘宝主页，通过mail.qq.com访问qq邮箱。</p>
-<p>我们人类知道了域名所对应的IP地址，<strong>那么计算机是怎么知道的呢？</strong><br>
-<strong>答案是通过DNS。</strong></p>
-<p><strong>DNS是域名系统，它类似于一本电话册，里面记录了每一个域名所对应的IP地址</strong>，每当我们访问一个域名，浏览器会先到DNS服务器询问这个域名对应的IP地址，然后再跳转到这个IP地址。</p>
+<p>通过 IP 地址，我们就可以访问 QQ 邮箱、淘宝、京东，然后就使用里面的服务。</p>
+<p>但是没那么简单。</p>
+<p>因为 IP 地址是一串数字，它并不是那么容易记忆，<strong>于是人类发明了域名，用以直观的代表这个 IP 地址。</strong></p>
+<p>有了域名，我们现在就可以通过 baidu.com 访问百度主页，通过 taobao.com 访问淘宝主页，通过 mail.qq.com 访问 qq 邮箱。</p>
+<p>我们人类知道了域名所对应的 IP 地址，<strong>那么计算机是怎么知道的呢？</strong><br>
+<strong>答案是通过 DNS。</strong></p>
+<p><strong>DNS 是域名系统，它类似于一本电话册，里面记录了每一个域名所对应的 IP 地址</strong>，每当我们访问一个域名，浏览器会先到 DNS 服务器询问这个域名对应的 IP 地址，然后再跳转到这个 IP 地址。</p>
 <blockquote>
-<p>DNS数据库存储在全球每个DNS服务器上，所有这些服务器都源于(refer to)几个被称为“权威名称服务器”或“顶级DNS服务器”。</p>
+<p>DNS 数据库存储在全球每个 DNS 服务器上，所有这些服务器都源于(refer to)几个被称为“权威名称服务器”或“顶级 DNS 服务器”。</p>
 </blockquote>
 <h1 id="域名">域名</h1>
-<p>我们知道了域名就是IP地址的别称，它们为互联网上任何可用的网页服务器提供了人类可读的地址。</p>
-<p><strong>域名有分级</strong>（以www.xiedaimala.com为例）<br>
-.com是顶级域名；<br>
-xiedaimala.com是二级域名（俗称一级域名）<br>
-<a href="http://www.xiedaimala.com">www.xiedaimala.com</a>是三级域名（俗称二级域名）</p>
+<p>我们知道了域名就是 IP 地址的别称，它们为互联网上任何可用的网页服务器提供了人类可读的地址。</p>
+<p><strong>域名有分级</strong>（以 <a href="http://www.xiedaimala.com">www.xiedaimala.com</a> 为例）<br>
+.com 是顶级域名；<br>
+xiedaimala.com 是二级域名（俗称一级域名）<br>
+<a href="http://www.xiedaimala.com">www.xiedaimala.com</a> 是三级域名（俗称二级域名）</p>
 <p>他们是父子关系。</p>
 <p><strong>&ldquo;xiedaimala.com&quot;和&quot;www.xiedaimala.com&quot;可以不是同一个公司，也可以是。</strong><br>
-比如github.io把子域名xxx.github.io免费给用户使用。</p>
+比如 github.io 把子域名 xxx.github.io 免费给用户使用。</p>
 <p><strong>负载均衡与共享主机</strong></p>
 <ol>
-<li>负载均衡，一个域名可以对应不同的IP，<strong>防止服务器扛不住。</strong></li>
-<li>共享主机，一个IP可以对应不同的域名。</li>
+<li>负载均衡，一个域名可以对应不同的 IP，<strong>防止服务器扛不住。</strong></li>
+<li>共享主机，一个 IP 可以对应不同的域名。</li>
 </ol>
-<p><strong>通过nslookup命令和ping查询域名对应的IP</strong></p>
-<pre><code>nslookup '域名'
+<p><strong>通过 nslookup 命令和 ping 查询域名对应的 IP</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nslookup <span style="color:#e6db74">&#39;域名&#39;</span>
 
 ------
 
-ping '域名'
-</code></pre><h1 id="路径-查询参数-锚点">路径 查询参数 锚点</h1>
-<h2 id="路径">路径</h2>
+ping <span style="color:#e6db74">&#39;域名&#39;</span>
+</code></pre></div><h2 id="路径-查询参数-锚点">路径 查询参数 锚点</h2>
+<h3 id="路径">路径</h3>
 <p><strong>用于请求不同的页面。</strong></p>
 <p>我们把一个网站比喻为一个文件夹，每一个文件夹里面都放着不同的文件，我们要查看文件夹中的某个文件，就需要知道这个文件在文件夹中的路径。</p>
-<p>同样，这里的路径就是告诉浏览器，我要查询这个域名（IP地址）中的某个页面。</p>
-<h2 id="查询参数">查询参数</h2>
+<p>同样，这里的路径就是告诉浏览器，我要查询这个域名（IP 地址）中的某个页面。</p>
+<h3 id="查询参数">查询参数</h3>
 <p><strong>用于请求同一个页面，不同的内容。</strong></p>
 <p>比如我们使用百度引擎搜索，每次百度都会给我们一样的搜索结果页面，但我们要告诉浏览器我要搜索的东西是什么，就需要通过查询参数。</p>
-<h2 id="锚点">锚点</h2>
+<h3 id="锚点">锚点</h3>
 <p><strong>用于定位到同一个内容中的不同位置。</strong></p>
 <p>把互联网比作这个世界上所有图书馆组成的一个网，<br>
-域名就是定位到这个图书馆的位置，（深圳图书馆？还是广州图书馆？） <br>
+域名就是定位到这个图书馆的位置，（深圳图书馆？还是广州图书馆？）<br>
 路径就是定位到图书馆上的第几层，（比如第三层文学类，第四层计算机类等）<br>
 查询参数就是定位到我要看哪一本书，（比如文学类——四大名著——红楼梦）<br>
 <strong>而锚点就是定位到这本书上的具体某一章节。</strong></p>
 <p>我们可以在图书馆的查询系统找到具体某一本书的具体位置，但是找不到这本书的具体章节内容，显然书中的具体内容不会传到这个查询系统。<br>
-那么同样，域名、路径和查询参数可以在Network中看到，但是锚点不会显示在这里，因为锚点不会传给服务器。</p>
+那么同样，域名、路径和查询参数可以在 Network 中看到，但是锚点不会显示在这里，因为锚点不会传给服务器。</p>
 <p><strong>锚点在地址栏显示中文，但实际上不支持中文，它会被自动编码。</strong></p>
-<h1 id="url-uniform-resource-locator">URL ——Uniform Resource Locator</h1>
-<p><strong>URL是统一资源定位符</strong></p>
+<h2 id="url-uniform-resource-locator">URL ——Uniform Resource Locator</h2>
+<p><strong>URL 是统一资源定位符</strong></p>
 <blockquote>
-<p>URL无非就是一个给定的独特资源在Web上的地址。理论上说，每个有效的URL都指向一个独特的资源。这个资源可以是一个HTML页面，一个CSS文档，一幅图像，等等。</p>
+<p>URL 无非就是一个给定的独特资源在 Web 上的地址。理论上说，每个有效的 URL 都指向一个独特的资源。这个资源可以是一个 HTML 页面，一个 CSS 文档，一幅图像，等等。</p>
 </blockquote>
-<p>URL结合了上面的各个部分，它包括：<br>
-<strong>协议</strong>(通常是http:// 或 https://)：表明了浏览器必须使用何种协议。<br>
-<strong>域名</strong>：IP的别称，它表明正在请求哪个Web服务器。<br>
-<strong>端口号</strong>：表示用于访问Web服务器上的资源的技术“门”。如果Web服务器使用HTTP协议的标准端口（HTTP为80，HTTPS为443）来授予其资源的访问权限，则通常会被忽略。否则是强制性的。<br>
-<strong>路径</strong>：表示网络服务器上资源的路径。从域名后面的&rdquo;/&ldquo;开始，单一的&rdquo;/&ldquo;表示根目录。 <br>
-<strong>查询参数</strong>：&quot;?&ldquo;后面的一连串字符就是查询参数，这些参数用&rdquo;&amp;&ldquo;分隔，是用于访问同一个页面上的不同内容。 <br>
+<p>URL 结合了上面的各个部分，它包括：<br>
+<strong>协议</strong>(通常是 http:// 或 https://)：表明了浏览器必须使用何种协议。<br>
+<strong>域名</strong>：IP 的别称，它表明正在请求哪个 Web 服务器。<br>
+<strong>端口号</strong>：表示用于访问 Web 服务器上的资源的技术“门”。如果 Web 服务器使用 HTTP 协议的标准端口（HTTP 为 80，HTTPS 为 443）来授予其资源的访问权限，则通常会被忽略。否则是强制性的。<br>
+<strong>路径</strong>：表示网络服务器上资源的路径。从域名后面的&rdquo;/&ldquo;开始，单一的&rdquo;/&ldquo;表示根目录。<br>
+<strong>查询参数</strong>：&quot;?&ldquo;后面的一连串字符就是查询参数，这些参数用&rdquo;&amp;&ldquo;分隔，是用于访问同一个页面上的不同内容。<br>
 <strong>锚点</strong>：用于定位到同一个内容上的不同位置，类似于书签。</p>
-<h1 id="声明">声明</h1>
-<p><em><strong>版权声明：本文为周啟尧原创文章，著作权归本人和饥人谷所有，转载务必注明来源</strong></em></p>
-<p><em><strong>本文参考了MDN文档内容:</strong></em><br>
-<a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/What_is_a_URL">MDN:什么是URL?</a></p>
+<h2 id="参考">参考</h2>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/What_is_a_URL">MDN:什么是 URL?</a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/What_is_a_web_server">MDN:什么是网络服务器?</a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/learn/How_the_Internet_works">MDN:互联网是怎么工作的?</a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/What_is_a_domain_name">MDN:什么是域名?</a></p>

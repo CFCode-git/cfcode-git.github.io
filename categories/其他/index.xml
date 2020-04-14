@@ -19,8 +19,7 @@
       <guid>https://chow1027.xyz/2020/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/</guid>
       <description>优化原则 工作中，尤其是在一个团队里面我们的代码常常是要写给别人看的，因此如果不是遇到性能瓶颈，我们应该优先考虑代码的易读性。
 而无论我们如何对代码作出优化，逻辑的复杂度始终是不会改变的，如果实现需求本身的逻辑是复杂的，那么代码看起来就应该是复杂的，如果逻辑是简单的，那么代码看起来也应该是简单的。
-变量命名 词性  普通的变量/属性：名词 // 不要使用a b c等没有意义的变量名 let person = { name:&amp;#39;jack&amp;#39;, age:&amp;#39;18&amp;#39; }  布尔类型的变量/属性：形容词/be动词/情态动词/{hasX} // 形容词 dead:false // be动词 canListen:true // 情态动词 - can isTeacher:true // hasXxx hasChildren:true  普通函数/方法：动词 run() drinkTea() eat(fruit){}  回调，钩子函数：用介词开头/动词的现在完成时 // Vue就是一个很好的例子 created(){} beforeMount(){} mounted(){} beforeUpdate(){} updated(){} ...  巧用前缀 // DOM对象 加 el 前缀 // jQuery对象 加 $ 前缀 elDiv1.classList.add(&amp;#39;active&amp;#39;) $div2.addClass(&amp;#39;active&amp;#39;)   一致性  介词一致性
-如果使用了before + after 组合，就不要使用before + 动词现在完成时组合 顺序一致性</description>
+变量命名 词性  普通的变量/属性：名词 // 不要使用a b c等没有意义的变量名 let person = { name: &amp;#34;jack&amp;#34;, age: &amp;#34;18&amp;#34;, };  布尔类型的变量/属性：形容词/be 动词/情态动词/{hasX} // 形容词 dead:false // be动词 canListen:true // 情态动词 - can isTeacher:true // hasXxx hasChildren:true  普通函数/方法：动词 run() drinkTea() eat(fruit){}  回调，钩子函数：用介词开头/动词的现在完成时 // Vue就是一个很好的例子 created(){} beforeMount(){} mounted(){} beforeUpdate(){} updated(){} ...  巧用前缀 // DOM对象 加 el 前缀 // jQuery对象 加 $ 前缀 elDiv1.classList.add(&amp;#34;active&amp;#34;); $div2.addClass(&amp;#34;active&amp;#34;);   一致性  介词一致性</description>
     </item>
     
   </channel>

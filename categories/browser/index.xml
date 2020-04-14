@@ -26,30 +26,15 @@
       <pubDate>Mon, 25 Nov 2019 13:33:43 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2019/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98/</guid>
-      <description>参考文章：
-DOM阻塞总结
+      <description>一些文章 DOM 阻塞总结
 深入浅出浏览器渲染原理
-浏览器是如何解析html的？
+浏览器是如何解析 html 的？
 浏览器阻塞
-浏览器是如何工作的? 当我们在地址栏输入一个合法的URL后，浏览器首先进行域名解析，得到服务器的IP地址，然后浏览器会给服务器发送GET请求，等到服务器响应200后开始下载并解析html。
-页面主要由DOM、CSS、JavaScript等部分构成，其中CSS和JavaScript既能内联也能以脚本的形式引入，此外还有img、iframe等其他资源，所有的这些资源都是通过dom标签的形式嵌入在html页面中，接下来我们分析一下dom的构建过程。
-浏览器的工作流程  构建DOM =&amp;gt; 构建CSSOM =&amp;gt; 构建渲染树(Rendering Tree) =&amp;gt; 布局(也叫回流) =&amp;gt; 绘制
+浏览器是如何工作的? 当我们在地址栏输入一个合法的 URL 后，浏览器首先进行域名解析，得到服务器的 IP 地址，然后浏览器会给服务器发送 GET 请求，等到服务器响应 200 后开始下载并解析 html。
+页面主要由 DOM、CSS、JavaScript 等部分构成，其中 CSS 和 JavaScript 既能内联也能以脚本的形式引入，此外还有 img、iframe 等其他资源，所有的这些资源都是通过 dom 标签的形式嵌入在 html 页面中，接下来我们分析一下 dom 的构建过程。
+浏览器的工作流程  构建 DOM =&amp;gt; 构建 CSSOM =&amp;gt; 构建渲染树(Rendering Tree) =&amp;gt; 布局(也叫回流) =&amp;gt; 绘制
  大体来讲：
- 浏览器会解析三个东西：  HTML/SVG/XHTML，产生DOM Tree。 CSS，产生CSS Rule Tree。 JavaScript，脚本，通过DOM API 和CSSOM API操作DOM和CSSOM。   解析完成后，结合DOM Tree和CSSOM Tree构造Rendering Tree。  Rendering Tree和DOM Tree并不是完全相等的，比如Header和display：none就不会出现在Rendering Tree中。 将CSS Rule添加到Rendering Tree上的节点，然后计算每个元素的位置，这就是布局。   调用操作系统Native GUI的API绘制。  DOM的构建过程 DOM的构建过程是顺序的，渐进式的。从第一行开始，逐行依次解析，并且会将已解析完成的部分显示出来。
-如何判定DOM构建完成？
-我们使用JavaScript操作DOM或者给DOM绑定事件的前提就是DOM树已经构建完成。当DOM树构建完成时，document对象会派发事件DOMContentLoaded来通知DOM树已经构建完成。
-html从第一行开始解析，遇到外联资源(外联CSS、外联JS、image、iframe等)则会请求下载对应的资源。而其中有一部分会影响（阻塞）DOM的构建。
-正常情况下CSSOM和DOM的构建是互不干扰的
-浏览器下载HTML文件，解析HTML从而构建DOM。
-遇到link[rel=stylesheet]时，将其加入下载队列，继续构建DOM。（CSS不会阻塞DOM的构建）
-而JS的加载、解析和执行都会阻塞DOM的构建
-当HTML解析器遇到了JavaScript，那么它会暂停构建DOM，将控制权移交给JavaScript引擎，等JavaScript引擎运行完毕，浏览器再从中断的地方恢复DOM构建。
-接下来具体分析。
-CSSOM和DOM CSSOM和DOM的构建互不干扰，那么所有的CSS都不影响DOM的构建吗？
-不是，这是有前提的。
-前提是这些CSS样式不被JavaScript需要。
-我们知道，JavaScript不只是可以改DOM，它还可以更改样式，也就是它可以更改CSSOM。而不完整的CSSOM是无法使用的，因此如果JavaScript想访问CSSOM并更改它，必须要拿到完整的CSSOM，而JavaScript的加载、解析和执行都会阻塞DOM的构建，这样一来就导致了：
-某一时刻CSSOM和DOM并行下载（解析）着，突然遇到了JavaScript想要运行脚本，那么浏览器只能让JavaScript先等一等，然后优先下载和完成目前为止的CSSOM的构建，再执行JavaScript脚本，然后才继续进行DOM的解析。</description>
+ 浏览器会解析三个东西：  HTML/SVG/XHTML，产生 DOM Tree。 CSS，产生 CSS Rule Tree。 JavaScript，脚本，通过 DOM API 和 CSSOM API 操作 DOM 和 CSSOM。   解析完成后，结合 DOM Tree 和 CSSOM Tree 构造 Rendering Tree。  Rendering Tree 和 DOM Tree 并不是完全相等的，比如 Header 和 display：none 就不会出现在 Rendering Tree 中。 将 CSS Rule 添加到 Rendering Tree 上的节点，然后计算每个元素的位置，这就是布局。   调用操作系统 Native GUI 的 API 绘制。  DOM 的构建过程 DOM 的构建过程是顺序的，渐进式的。从第一行开始，逐行依次解析，并且会将已解析完成的部分显示出来。</description>
     </item>
     
     <item>
@@ -58,45 +43,21 @@ CSSOM和DOM CSSOM和DOM的构建互不干扰，那么所有的CSS都不影响DOM
       <pubDate>Mon, 11 Nov 2019 13:18:15 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2019/%E6%B5%85%E6%9E%90url/</guid>
-      <description>IP ——Internet Protocol 在说URL之前，先了解一下什么是IP。
-IP是互联网协议（网络协议），他的作用是：
+      <description>IP ——Internet Protocol 在说 URL 之前，先了解一下什么是 IP。
+IP 是互联网协议（网络协议），他的作用是：
  约定如何定位一台设备（手机、电脑、网络摄像头等..） 约定如何封装数据报文，用以与其他设备交流。
-当我们要发文件、图片给互联网上的一台设备，我们就要知道这台设备的IP地址。  IP分为内网IP和外网IP。
-内网IP由我们的路由器创建，我们的手机、电脑等设备连接到路由器，路由器会给我们的设备分配不同的内网IP。（内网IP的一般格式是192.168.xxx.xxx，一般路由器会给自己分配一个好记的内网IP，比如192.168.1.1）
-有了内网IP。我们的设备之间就可以互相通信了，但要和外界进行交流，我们还需要一个外网IP。
-外网IP是互联网服务提供商LSP（电信、移动等）的路由器给我们的路由器分配的一个IP。LSP可以理解是为一家管理一些特殊路由器的公司。
-外网IP代表了我们在互联网中的地址，但它并固定，如果我们重启路由器，那么可能我们会被重新分配一个外网IP。
-比方说当我们要登陆QQ邮箱时：
-我们的登录信息先是经过了我们自家的路由器，然后经过调制解调器，然后到达LSP，LSP可能会连接到其他LSP路由器，我们的信息会到达QQ邮箱所使用的LSP路由器，最终再次通过调制解调器和路由器到达QQ邮箱的服务器。
+当我们要发文件、图片给互联网上的一台设备，我们就要知道这台设备的 IP 地址。  IP 分为内网 IP 和外网 IP。
+内网 IP 由我们的路由器创建，我们的手机、电脑等设备连接到路由器，路由器会给我们的设备分配不同的内网 IP。（内网 IP 的一般格式是 192.168.xxx.xxx，一般路由器会给自己分配一个好记的内网 IP，比如 192.168.1.1）
+有了内网 IP。我们的设备之间就可以互相通信了，但要和外界进行交流，我们还需要一个外网 IP。
+外网 IP 是互联网服务提供商 LSP（电信、移动等）的路由器给我们的路由器分配的一个 IP。LSP 可以理解是为一家管理一些特殊路由器的公司。
+外网 IP 代表了我们在互联网中的地址，但它并固定，如果我们重启路由器，那么可能我们会被重新分配一个外网 IP。
+比方说当我们要登陆 QQ 邮箱时：
+我们的登录信息先是经过了我们自家的路由器，然后经过调制解调器，然后到达 LSP，LSP 可能会连接到其他 LSP 路由器，我们的信息会到达 QQ 邮箱所使用的 LSP 路由器，最终再次通过调制解调器和路由器到达 QQ 邮箱的服务器。
  什么是调制解调器？
 我们建立网络是为了我们自己的目的。所以不同的人会建立不同的网络：你的朋友，你的邻居，每个人都可以拥有自己的计算机网络。在你的房子和世界其它地方之间架设电缆将这些不同的网络连接起来是不可能的，那么你该如何处理这件事呢？其实已经有电缆连接到你的房子了，比如，电线和电话。电话基础设施已经可以把你家连接到世界的任何角落，所以它就是我们需要的线。为了连接电话这种网络我们需要一种基础设备叫做调制解调器（modem），调制解调器可以把网络信息变成电话设施可以处理的信息，反之亦然。
  资料来源：MDN:互联网是如何工作的？
-如何查看IP？
-通过ipconfig命令/通过ip138.com查询/ping命令（下面说）
-端口号 有了IP，我们现在可以定位到互联网上的服务器。
-但是还不够，我们还需要端口号。
-因为一台设备可以提供很多服务，每个服务都对应一个号码，这个号码就是端口号。
- 要提供HTTP服务最好使用80端口； 要提供HTTPS服务最好使用443端口； 要提供FTP服务最好使用21端口 一台机器可以有65535个端口  怎么知道什么时候该用什么端口？
-维基百科搜索&amp;quot;TCP 端口&amp;rdquo;。快捷入口
-注意端口的使用规则：
- 0-1023号端口是留给系统使用的。 只有拥有管理员权限才能使用这1024个端口。 其他端口可以给普通用户使用。（比如http-server用的8080端口） 一个端口被占用了，就只能用别的端口。  DNS ——Domain Name System 通过IP地址，我们就可以访问QQ邮箱、淘宝、京东，然后就使用里面的服务。
-但是没那么简单。
-因为IP地址是一串数字，它并不是那么容易记忆，于是人类发明了域名，用以直观的代表这个IP地址。
-有了域名，我们现在就可以通过baidu.com访问百度主页，通过taobao.com访问淘宝主页，通过mail.qq.com访问qq邮箱。
-我们人类知道了域名所对应的IP地址，那么计算机是怎么知道的呢？
-答案是通过DNS。
-DNS是域名系统，它类似于一本电话册，里面记录了每一个域名所对应的IP地址，每当我们访问一个域名，浏览器会先到DNS服务器询问这个域名对应的IP地址，然后再跳转到这个IP地址。
- DNS数据库存储在全球每个DNS服务器上，所有这些服务器都源于(refer to)几个被称为“权威名称服务器”或“顶级DNS服务器”。
- 域名 我们知道了域名就是IP地址的别称，它们为互联网上任何可用的网页服务器提供了人类可读的地址。
-域名有分级（以www.xiedaimala.com为例）
-.com是顶级域名；
-xiedaimala.com是二级域名（俗称一级域名）
-www.xiedaimala.com是三级域名（俗称二级域名）
-他们是父子关系。
-&amp;ldquo;xiedaimala.com&amp;quot;和&amp;quot;www.xiedaimala.com&amp;quot;可以不是同一个公司，也可以是。
-比如github.io把子域名xxx.github.io免费给用户使用。
-负载均衡与共享主机
- 负载均衡，一个域名可以对应不同的IP，防止服务器扛不住。 共享主机，一个IP可以对应不同的域名。  通过nslookup命令和ping查询域名对应的IP</description>
+如何查看 IP？
+通过 ipconfig 命令/通过 ip138.com 查询/ping 命令（下面说）</description>
     </item>
     
   </channel>

@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://chow1027.xyz/2020/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/" />
-  
+  <link rel="next" href="https://chow1027.xyz/2020/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" />
   <link rel="canonical" href="https://chow1027.xyz/2020/%E9%97%AD%E5%8C%85/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           闭包 | 呆尬猴的博客
+           尝试理解闭包 | 呆尬猴的博客
        
   </title>
-  <meta name="title" content="闭包 | 呆尬猴的博客">
+  <meta name="title" content="尝试理解闭包 | 呆尬猴的博客">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/chow1027.xyz"
     },
     "articleSection" : "posts",
-    "name" : "闭包",
-    "headline" : "闭包",
-    "description" : "我从来不理解 JavaScript 闭包，直到有人这样向我解释它\x26hellip;\n理解 JavaScript 中的闭包\n什么是闭包？闭包的优缺点？\njs 中闭包的理解、用途场景、优缺点及解决办法\n一些概念 执行上下文\n调用上下文\n定义时上下文，运行时上下文\n什么是闭包？闭包的用途是什么？闭包的缺点是什么？ 理解闭包是什么， 我们先理解 JavaScript 的链式作用域： 在函数定义的时候就创建了链式作用域 它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回 undefined 由于链式作用域的机制，会导致： 一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。 而当一个函数访问了函数外部的变量时，我们称 这个函数和变量构成了闭包。\nfunction father(){ let a = 100; function children(){ console.log(a); } return children; } let child = father(); child(); \/\/ 100 执行上述代码，首先会调用 father 函数，调用的结果是返回一个 children 函数 的定义 给变量 child。 执行变量 child 中的 children 函数的定义（也就是 children 函数{}包裹的代码块），执行过程中要打印 a，children 函数中没有 a 的定义，因此会沿着链式作用域向上级寻找，打印了 father 函数下的 a。\n换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给 child 的除了 children 的函数定义以外，还携带了 children 在被创建时的环境（也就是 let a = 100）。",
+    "name" : "尝试理解闭包",
+    "headline" : "尝试理解闭包",
+    "description" : "一些文章 我从来不理解 JavaScript 闭包，直到有人这样向我解释它\x26hellip;\n理解 JavaScript 中的闭包\n什么是闭包？闭包的优缺点？\njs 中闭包的理解、用途场景、优缺点及解决办法\n一些概念 执行上下文\n调用上下文\n定义时上下文，运行时上下文\n什么是闭包？闭包的用途是什么？闭包的缺点是什么？ 理解闭包是什么，我们先理解 JavaScript 的链式作用域：\n在函数定义的时候就创建了链式作用域。\n它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。\n当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回 undefined。\n由于链式作用域的机制，会导致： 一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。\n而当一个函数访问了函数外部的变量时，我们称这个函数和变量构成了闭包。\nfunction father() { let a = 100; function children() { console.log(a); } return children; } let child = father(); child(); \/\/ 100 执行上述代码，首先会调用 father 函数，调用的结果是返回一个 children 函数的定义给变量 child。\n执行变量 child 中的 children 函数的定义（也就是 children 函数{}包裹的代码块），执行过程中要打印 a，children。\n函数中没有 a 的定义，因此会沿着链式作用域向上级寻找，打印了 father 函数下的 a。\n换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。\n上述代码中，传递给 child 的除了 children 的函数定义以外，还携带了 children 在被创建时的环境（也就是 let a = 100）。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2020-04-04 22:04:18 \x2b0800 CST",
     "dateModified" : "2020-04-04 22:04:18 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2020\/%E9%97%AD%E5%8C%85\/",
-    "wordCount" : "139",
+    "wordCount" : "142",
     "keywords" : [  "呆尬猴的博客"]
 }
 </script>
@@ -116,14 +116,18 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">闭包</h1>
+        <h1 class="post-title" itemprop="name headline">尝试理解闭包</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
                 <span class="post-time">
                 on <time datetime=2020-04-04 itemprop="datePublished">April 4, 2020</time>
                 </span>
                 in
-                
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chow1027.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
         </div>
     </header>
     <div class="post-content">
@@ -142,7 +146,8 @@
           
           
 
-          <p><a href="https://blog.fundebug.com/2019/02/12/understand-javascript-closure/">我从来不理解 JavaScript 闭包，直到有人这样向我解释它&hellip;</a><br>
+          <h2 id="一些文章">一些文章</h2>
+<p><a href="https://blog.fundebug.com/2019/02/12/understand-javascript-closure/">我从来不理解 JavaScript 闭包，直到有人这样向我解释它&hellip;</a><br>
 <a href="https://juejin.im/post/5c3893bc6fb9a049d37f530f">理解 JavaScript 中的闭包</a><br>
 <a href="https://www.cnblogs.com/cxying93/p/6103375.html">什么是闭包？闭包的优缺点？</a><br>
 <a href="https://www.jianshu.com/p/8376170fb228">js 中闭包的理解、用途场景、优缺点及解决办法</a></p>
@@ -151,49 +156,62 @@
 调用上下文<br>
 定义时上下文，运行时上下文</p>
 <h2 id="什么是闭包闭包的用途是什么闭包的缺点是什么">什么是闭包？闭包的用途是什么？闭包的缺点是什么？</h2>
-<p>理解闭包是什么，
-我们先理解 JavaScript 的链式作用域：
-在函数定义的时候就创建了链式作用域
-它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回 undefined
-由于链式作用域的机制，会导致：
-一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。
-而当一个函数访问了函数外部的变量时，我们称
-这个函数和变量构成了闭包。</p>
-<pre><code>function father(){
-	let a = 100;
-	function children(){
-		console.log(a);
-	}
-	return children;
+<p>理解闭包是什么，我们先理解 JavaScript 的链式作用域：</p>
+<p>在函数定义的时候就创建了链式作用域。</p>
+<p>它的规则是：把函数本身的变量优先级放在最前面，把自身的父级函数中的变量放在其次，在把高一级函数中的变量放在更后面，依次类推直到全局变量为止。</p>
+<p>当这个函数需要某个变量的时候，会沿着链式作用域逐级寻找，并在找到的里函数最近的一级停下，如果找不到就会返回 undefined。</p>
+<p>由于链式作用域的机制，会导致：
+一个函数可以读取函数外部的变量，但在函数外部无法读取函数内部的变量。</p>
+<p>而当一个函数访问了函数外部的变量时，我们称这个函数和变量构成了闭包。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">father</span>() {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">children</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">children</span>;
 }
 
-let child = father();
-child();  // 100
-</code></pre><p>执行上述代码，首先会调用 father 函数，调用的结果是返回一个 children 函数 的定义 给变量 child。
-执行变量 child 中的 children 函数的定义（也就是 children 函数{}包裹的代码块），执行过程中要打印 a，children 函数中没有 a 的定义，因此会沿着链式作用域向上级寻找，打印了 father 函数下的 a。</p>
-<p>换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。上述代码中，传递给 child 的除了 children 的函数定义以外，还携带了 children 在被创建时的环境（也就是 let a = 100）。</p>
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">father</span>();
+<span style="color:#a6e22e">child</span>(); <span style="color:#75715e">// 100
+</span></code></pre></div><p>执行上述代码，首先会调用 father 函数，调用的结果是返回一个 children 函数的定义给变量 child。</p>
+<p>执行变量 child 中的 children 函数的定义（也就是 children 函数{}包裹的代码块），执行过程中要打印 a，children。</p>
+<p>函数中没有 a 的定义，因此会沿着链式作用域向上级寻找，打印了 father 函数下的 a。</p>
+<p>换种方式理解，闭包包含了函数本身以及函数被创建时所处的环境（这里的环境是指函数创建时所在作用域的所有变量）。</p>
+<p>上述代码中，传递给 child 的除了 children 的函数定义以外，还携带了 children 在被创建时的环境（也就是 let a = 100）。</p>
 <h2 id="闭包的用途">闭包的用途：</h2>
 <ol>
-<li>避免了全局变量的污染</li>
-</ol>
+<li>
+<p>避免了全局变量的污染</p>
 <p>同样是上述代码，我们在函数外面声明一个同名的全局变量 a。</p>
-<pre><code>let a = 200;
-function father(){
-	let a = 100;
-	function children(){
-		console.log(a);
-	}
-	return children;
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">father</span>() {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">children</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">children</span>;
 }
 
-let child = father();
-child();  // 100
-</code></pre><p>执行 child()的结果依然是 100，也就是 father 函数内的变量 a 不会受到外部的影响。</p>
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">father</span>();
+<span style="color:#a6e22e">child</span>(); <span style="color:#75715e">// 100
+</span></code></pre></div><p>执行 child()的结果依然是 100，也就是 father 函数内的变量 a 不会受到外部的影响。</p>
 <ol start="2">
-<li>使局部变量始终保存在内存中，不会被垃圾回收机制所删除。</li>
-</ol>
+<li>
+<p>使局部变量始终保存在内存中，不会被垃圾回收机制所删除。</p>
 <p>以上述代码为例，father 中的 a 会一直存在。原因是 father 是 children 的父函数，而 children 被赋给了一个全局变量 child，这会导致 children 函数的定义会一直存储在内存中，而 children 的存在依赖于 father 函数中的 a，因此 a 必须一直存在。</p>
-<p>闭包的缺点： 1.由于闭包中的变量常驻内存，增加了内存的使用量，因此如果滥用闭包，对内存消耗很大，可能会造成网页的性能问题，在 IE 中可能会导致内存泄露。解决办法是，在退出函数之前把不使用的局部变量全部删除。 2.闭包会在父元素的外部，改变父元素内部变量的值；如果把父元素当作对象使用，把闭包当作它的公用方法，把内部变量当作它的私有属性，那么不要随意改变父元素内部变量的值。</p>
+</li>
+</ol>
+<h2 id="闭包的缺点">闭包的缺点：</h2>
+<ol>
+<li>
+<p>由于闭包中的变量常驻内存，增加了内存的使用量，因此如果滥用闭包，对内存消耗很大，可能会造成网页的性能问题。在 IE 中可能会导致内存泄露。解决办法是，在退出函数之前把不使用的局部变量全部删除。</p>
+</li>
+<li>
+<p>闭包会在父元素的外部，改变父元素内部变量的值；如果把父元素当作对象使用，把闭包当作它的公用方法，把内部变量当作它的私有属性，那么不要随意改变父元素内部变量的值。</p>
+</li>
+</ol>
 
     </div>
 
@@ -231,6 +249,8 @@ child();  // 100
         
         <a href="https://chow1027.xyz/2020/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/" class="prev" rel="prev" title="代码可读性与代码优化"><i class="iconfont icon-left"></i>&nbsp;代码可读性与代码优化</a>
          
+        
+        <a href="https://chow1027.xyz/2020/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="next" rel="next" title="关于跨域的两种解决方案">关于跨域的两种解决方案&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

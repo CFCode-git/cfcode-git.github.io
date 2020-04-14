@@ -49,11 +49,11 @@ class = &amp;ldquo;container&amp;rdquo; 样式
       
       <guid>https://chow1027.xyz/2019/css%E5%9F%BA%E7%A1%80/</guid>
       <description>CSS &amp;ndash;层叠样式表 CSS(Cascading Style Sheets)是层叠样式表，所谓层叠有三层含义：
- 样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1是IE支持的现在使用最广泛的版本，CSS3是现代版本，分模块进行升级，目前IE8只是部分支持。由于CSS版本众多，因此要确认我们所使用的CSS特性在某个浏览器是否支持，我们可以查询caniuse网站。网页地址
-CSS语法 CSS语法主要有两种：
+ 样式层叠：可多次对同一选择器进行声明。 选择层叠：可用不同选择器对同一元素进行声明。 文件层叠：可用多个文件层叠。  CSS2.1 是 IE 支持的现在使用最广泛的版本，CSS3 是现代版本，分模块进行升级，目前 IE8 只是部分支持。由于 CSS 版本众多，因此要确认我们所使用的 CSS 特性在某个浏览器是否支持，我们可以查询 caniuse 网站。网页地址
+CSS 语法 CSS 语法主要有两种：
 /*第一种*/ 选择器 { 属性名:属性值; /*注释*/ } 注：
  要使用英文符号； 要区分大小写； 没有&amp;rdquo;//&amp;ldquo;注释； 最后的&amp;rdquo;;&amp;ldquo;虽然可以省略，但不要省略； 浏览器会忽略错误，但不会报错。  /*第二种*/ /*声明字符编码*/ @charset = &amp;#34;UTF-8&amp;#34;; /*导入CSS文件*/ @import url(2.css); /*媒体查询*/ @media(min-width:100px)and(max-width:200px){ 语法一 } 注:
- charset必须放在第一行。 前两个的@语法必须加&amp;rdquo;;&amp;quot;。 charset是字符集的意思，但语句本身声明的是字符编码。  CSS查资料  Google搜索:MDN + 技术名词； Google搜索:CSS tricks + 技术名词； Google搜索:张鑫旭 + 技术名词；   最权威资料：Google搜索:CSS spec(可以查看css2.1中文版)  CSS的调试  使用W3C验证器。在线验证器 使用VScode/Webstorm看字体颜色。 使用开发者工具看警告。(有黄色的警告标志证明肯定是语法错误；被划掉说明语法错误或者是样式被覆盖/忽略。) border调试法  border调试法 当怀疑某个元素出现问题：</description>
+ charset 必须放在第一行。 前两个的@语法必须加&amp;rdquo;;&amp;quot;。 charset 是字符集的意思，但语句本身声明的是字符编码。  CSS 查资料  Google 搜索:MDN + 技术名词； Google 搜索:CSS tricks + 技术名词； Google 搜索:张鑫旭 + 技术名词；   最权威资料：Google 搜索:CSS spec(可以查看 css2.</description>
     </item>
     
     <item>

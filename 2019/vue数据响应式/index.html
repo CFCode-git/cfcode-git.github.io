@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Vue:数据响应式",
     "headline" : "Vue:数据响应式",
-    "description" : "前言 先说两个基本的认识 响应式：若某个东西能对外界的变化(刺激)做出反应，那么他就是响应式的。\n比如响应式页面，就是当我们改变窗口的大小时，网页内容会根据窗口的大小做出反应(调整)的页面。 数据响应式： Vue的data是响应式的。比如const vm = new Vue({data:{n:0}})，\n如果修改vm.n(或data.n)，那么页面中的n就会作出响应，渲染为对应的n或者经过一些数据处理后的n。这就是响应式\nVue2 通过 Object.defineProperty 实现数据响应式。 接下来，理解下面两个ES6语法，有助于本文的阅读。\n1. getter\/setter\n现有如下对象\nlet obj = { firstName:\x26#39;张\x26#39;, lastName:\x26#39;三\x26#39;, name(){ return this.firstName \x2b this.lastName } } console.log(obj.name()) \/\/ 张三 通过调用obj的name函数就可以得到这个对象的姓名。\n getter\/setter  let obj = { firstName:\x26#39;张\x26#39;, lastName:\x26#39;三\x26#39;, get name(){ return this.firstName \x2b this.lastName }, set name(arr){ this.firstName = arr[0] this.lastName = arr.substring(1) } } console.log(obj.name) obj.name = \x26#39;李四\x26#39; console.log(obj.name) \/\/ 张三 \/\/ 李四 使用get方法和set方法，name不再是一个函数，它是一个计算属性，它的值是以函数的形式定义的。 当我们调用name的时候，就可以通过get得到name这个属性计算的值。比如本例中计算的值就是姓名：\x26ldquo;张三\x26rdquo; 当我们给name赋值的时候，就可以通过set进行赋值，比如本例中的\x26quot;李四\x26quot;就是重新赋值的结果。",
+    "description" : "前言 先说两个基本的认识\n响应式：若某个东西能对外界的变化(刺激)做出反应，那么他就是响应式的。\n比如响应式页面，就是当我们改变窗口的大小时，网页内容会根据窗口的大小做出反应(调整)的页面。\n数据响应式：\nVue 的 data 是响应式的。比如const vm = new Vue({data:{n:0}})，\n如果修改 vm.n(或 data.n)，那么页面中的 n 就会作出响应，渲染为对应的 n 或者经过一些数据处理后的 n。\n这就是响应式\nVue2 通过 Object.defineProperty 实现数据响应式。\n接下来，先理解下面两个 ES6 语法，有助于本文的阅读。\n1. getter\/setter\n现有如下对象\nlet obj = { firstName: \x26#34;张\x26#34;, lastName: \x26#34;三\x26#34;, name() { return this.firstName \x2b this.lastName; }, }; console.log(obj.name()); \/\/ 张三 通过调用obj 的 name 函数就可以得到这个对象的姓名。\n getter\/setter  let obj = { firstName:\x26#39;张\x26#39;, lastName:\x26#39;三\x26#39;, get name(){ return this.firstName \x2b this.lastName }, set name(arr){ this.",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-12-20 20:56:13 \x2b0800 CST",
     "dateModified" : "2019-12-20 20:56:13 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F\/",
-    "wordCount" : "380",
+    "wordCount" : "601",
     "keywords" : [ "Vue", "呆尬猴的博客"]
 }
 </script>
@@ -149,33 +149,28 @@
           
 
           <h2 id="前言">前言</h2>
-<p>先说两个基本的认识
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-响应式：若某个东西能对外界的变化(刺激)做出反应，那么他就是响应式的。<br>
-比如响应式页面，就是当我们改变窗口的大小时，网页内容会根据窗口的大小做出反应(调整)的页面。
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-数据响应式：
-Vue的data是响应式的。比如<code>const vm = new Vue({data:{n:0}})</code>，<br>
-如果修改vm.n(或data.n)，那么页面中的n就会作出响应，渲染为对应的n或者经过一些数据处理后的n。<strong>这就是响应式</strong><br>
-Vue2 通过 Object.defineProperty 实现数据响应式。
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-接下来，理解下面两个ES6语法，有助于本文的阅读。</p>
+<p>先说两个基本的认识</p>
+<p>响应式：若某个东西能对外界的变化(刺激)做出反应，那么他就是响应式的。</p>
+<p>比如响应式页面，就是当我们改变窗口的大小时，网页内容会根据窗口的大小做出反应(调整)的页面。</p>
+<p>数据响应式：</p>
+<p>Vue 的 data 是响应式的。比如<code>const vm = new Vue({data:{n:0}})</code>，</p>
+<p>如果修改 vm.n(或 data.n)，那么页面中的 n 就会作出响应，渲染为对应的 n 或者经过一些数据处理后的 n。</p>
+<p><strong>这就是响应式</strong></p>
+<p>Vue2 通过 Object.defineProperty 实现数据响应式。</p>
+<p>接下来，先理解下面两个 ES6 语法，有助于本文的阅读。</p>
 <p><strong>1. getter/setter</strong></p>
 <p>现有如下对象</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;张&#39;</span>,
-    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;三&#39;</span>,
-    <span style="color:#a6e22e">name</span>(){
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>
-    }
-}
+  <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;张&#34;</span>,
+  <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;三&#34;</span>,
+  <span style="color:#a6e22e">name</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>;
+  },
+};
 
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span>());
 <span style="color:#75715e">// 张三
-</span></code></pre></div><p>通过<strong>调用</strong>obj的name函数就可以得到这个对象的姓名。</p>
+</span></code></pre></div><p>通过<strong>调用</strong>obj 的 name 函数就可以得到这个对象的姓名。</p>
 <ul>
 <li>getter/setter</li>
 </ul>
@@ -196,52 +191,56 @@ Vue2 通过 Object.defineProperty 实现数据响应式。
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span>)
 <span style="color:#75715e">// 张三
 </span><span style="color:#75715e">// 李四
-</span></code></pre></div><p>使用get方法和set方法，name不再是一个函数，它是一个<strong>计算属性</strong>，它的值是以函数的形式定义的。 <br>
-当我们调用name的时候，就可以通过get得到name这个属性计算的值。比如本例中计算的值就是姓名：&ldquo;张三&rdquo; <br>
-当我们给name赋值的时候，就可以通过set进行赋值，比如本例中的&quot;李四&quot;就是重新赋值的结果。</p>
-<p>打印出obj对象，结果是这样：</p>
-<pre><code># {firstName: &quot;李&quot;, lastName: &quot;四&quot;}
-# firstName: &quot;李&quot;
-# lastName: &quot;四&quot;
-# name: (...)
-#  get name: ƒ name()
-#  set name: ƒ name(arr)
-#  __proto__: Object
-</code></pre><p>可以看到name显示结果为(&hellip;)   <br>
-<strong>结论是：我们确实可以对name进行读和写，但是并不存在一个叫name的属性，这个读和写是通过 get 和 set 实现的。 <br>
+</span></code></pre></div><p>使用 get 方法和 set 方法，name 不再是一个函数，它是一个<strong>计算属性</strong>，它的值是以函数的形式定义的。</p>
+<p>当我们调用 name 的时候，就可以通过 get 得到 name 这个属性计算的值。比如本例中计算的值就是姓名：&ldquo;张三&rdquo;</p>
+<p>当我们给 name 赋值的时候，就可以通过 set 进行赋值，比如本例中的&quot;李四&quot;就是重新赋值的结果。</p>
+<p>打印出 obj 对象，结果是这样：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash"><span style="color:#75715e"># {firstName: &#34;李&#34;, lastName: &#34;四&#34;}</span>
+<span style="color:#75715e"># firstName: &#34;李&#34;</span>
+<span style="color:#75715e"># lastName: &#34;四&#34;</span>
+<span style="color:#75715e"># name: (...)</span>
+<span style="color:#75715e">#  get name: ƒ name()</span>
+<span style="color:#75715e">#  set name: ƒ name(arr)</span>
+<span style="color:#75715e">#  __proto__: Object</span>
+</code></pre></div><p>可以看到 name 显示结果为(&hellip;)</p>
+<p><strong>结论是：我们确实可以对 name 进行读和写，但是并不存在一个叫 name 的属性，这个读和写是通过 get 和 set 实现的。<br>
 记住这个结论。</strong></p>
 <p><strong>2. Object.defineProperty</strong></p>
-<p>接上面的例子，get和set是在对象声明的时候使用的，无法在一个对象声明结束后添加getter/setter；<br>
-Object.defineProperty 就是解决这个问题的方案。</p>
-<p>在上面的代码中加入age属性，对age进行getter/setter。</p>
+<p>接上面的例子，get 和 set 是在对象声明的时候使用的，无法在一个对象声明结束后添加 getter/setter；</p>
+<p>Object.defineProperty 就是解决这个问题的方案。</p>
+<p>在上面的代码中加入 age 属性，对 age 进行 getter/setter。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;张&#39;</span>,
-    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;三&#39;</span>,
-    <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">name</span>(){
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>
-    },
-    <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">name</span>(<span style="color:#a6e22e">arr</span>){
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">1</span>)
-    },
-    <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span><span style="color:#ae81ff">18</span>
-}
+  <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;张&#34;</span>,
+  <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;三&#34;</span>,
+  <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">name</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>;
+  },
+  <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">name</span>(<span style="color:#a6e22e">arr</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>];
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">1</span>);
+  },
+  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span>,
+};
 
-Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">obj</span>,<span style="color:#e6db74">&#39;num&#39;</span>,{
-    <span style="color:#a6e22e">get</span>(){
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">age</span>
-    },
-    <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">value</span>){
-        <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>
-    }
-})
+Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#e6db74">&#34;num&#34;</span>, {
+  <span style="color:#a6e22e">get</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">age</span>;
+  },
+  <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">value</span>) {
+    <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>;
+  },
+});
 </code></pre></div><ol>
-<li>obj 是需要添加getter/setter的对象；</li>
-<li>&lsquo;num'是操作的属性名，但需要注意的是，它不存在于obj对象中，本例中获取的是age的值，这个getter/setter的属性名也不能与age重名，否则会造成死循环。</li>
+<li>
+<p>obj 是需要添加 getter/setter 的对象；</p>
+</li>
+<li>
+<p>&lsquo;num'是操作的属性名，但需要注意的是，它不存在于 obj 对象中，本例中获取的是 age 的值，这个 getter/setter 的属性名也不能与 age 重名，否则会造成死循环。</p>
+</li>
 </ol>
-<h2 id="vue如何监控数据的变化">Vue如何监控数据的变化？</h2>
-<h3 id="1经过vue处理后的数据会发生什么变化">1.经过Vue处理后的数据会发生什么变化？</h3>
-<p>（假设下面的代码运行在完整版的Vue）</p>
+<h2 id="vue-如何监控数据的变化">Vue 如何监控数据的变化？</h2>
+<h3 id="1经过-vue-处理后的数据会发生什么变化">1.经过 Vue 处理后的数据会发生什么变化？</h3>
+<p>（假设下面的代码运行在完整版的 Vue）</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myData</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
 };
@@ -258,40 +257,36 @@ Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e
 </span><span style="color:#75715e">// }, 3000);
 </span><span style="color:#75715e"></span>
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">myData</span>);
-</code></pre></div><p>运行两遍，第二遍取消注释再运行，观察两次运行结果的myData <br>
-<img src="/images/Vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/1.png" alt="第一遍"> <br>
-<img src="/images/Vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/2.png" alt="第二遍"> <br>
-通过上面的代码可以发现两个事实：   <br>
-<strong>1. myData数据经过Vue处理后，不再是一个<code>{n:0}</code>对象，它显示为n:(&hellip;)，回忆一下一开始getter/setter中的name</strong> <br>
-<strong>2. 通过外面的setTimeout也可以改myData里面的值，并且改变后的结果也会渲染到页面上</strong></p>
-<h3 id="2-vue是如何做到让data无法逃脱vue的监控的">2. Vue是如何做到让data无法逃脱Vue的监控的？</h3>
-<p>根据上面的事实，Vue对数据进行了处理，myData对象传入Vue之后，经过处理就得到了n:(&hellip;)这么个东西。<br>
-Vue知道myData的值发生了改变，数据响应式，改变后的结果也被渲染到页面上。</p>
+</code></pre></div><p>运行两遍，第二遍取消注释再运行，观察两次运行结果的 myData<br>
+<img src="/images/Vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/1.png" alt="第一遍"><br>
+<img src="/images/Vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/2.png" alt="第二遍"><br>
+通过上面的代码可以发现两个事实：</p>
+<p><strong>1. myData 数据经过 Vue 处理后，不再是一个<code>{n:0}</code>对象，它显示为 n:(&hellip;)，回忆一下一开始 getter/setter 中的 name</strong></p>
+<p><strong>2. 通过外面的 setTimeout 也可以改 myData 里面的值，并且改变后的结果也会渲染到页面上</strong></p>
+<h3 id="2-vue-是如何做到让-data-无法逃脱-vue-的监控的">2. Vue 是如何做到让 data 无法逃脱 Vue 的监控的？</h3>
+<p>根据上面的事实，Vue 对数据进行了处理，myData 对象传入 Vue 之后，经过处理就得到了 n:(&hellip;)这么个东西。</p>
+<p>Vue 知道 myData 的值发生了改变，数据响应式，改变后的结果也被渲染到页面上。</p>
 <p>接下来我们通过一个案例理解</p>
-<p>我们假设有一个对象data，我们规定data.n不能小于0， <br>
-可以用getter/setter解决这个需求。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> {}
+<p>我们假设有一个对象 data，我们规定 data.n 不能小于 0，</p>
+<p>可以用 getter/setter 解决这个需求。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> {};
 
-<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">_n</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  <span style="color:#75715e">// 用来存储 n 的值
+<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">_n</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// 用来存储 n 的值
 </span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">data</span>,<span style="color:#e6db74">&#39;n&#39;</span>,{
-    <span style="color:#a6e22e">get</span>(){
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_n</span>
-    },
-    <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">value</span>){
-        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">value</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span>
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_n</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>
-    }
-})
-</code></pre></div><p>data是一个空对象，里面没有n，我们用data._n保存n的值。<br>
-当设置的值小于0，就会被set忽略。 <br>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-问题是，我们虽然无法给data.n设置一个小于0的值，但我们可以直接给存储n的data._n设置负值，那么getter/setter机制就被绕过了。 <br>
-解决办法：使用代理。
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-代理是一种设计模式，先上代码</p>
+Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e22e">data</span>, <span style="color:#e6db74">&#34;n&#34;</span>, {
+  <span style="color:#a6e22e">get</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_n</span>;
+  },
+  <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">value</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">value</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_n</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>;
+  },
+});
+</code></pre></div><p>data 是一个空对象，里面没有 n，我们用 data._n 保存 n 的值。</p>
+<p>当设置的值小于 0，就会被 set 忽略。</p>
+<p>问题是，我们虽然无法给 data.n 设置一个小于 0 的值，但我们可以直接给存储 n 的 data._n 设置负值，那么 getter/setter 机制就被绕过了。</p>
+<p>解决办法：使用代理。</p>
+<p>代理是一种设计模式，先上代码</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">proxy</span>({<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">0</span>}})
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">proxy</span>({<span style="color:#a6e22e">data</span>}){
@@ -307,12 +302,10 @@ Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e
     })
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>
 }
-</code></pre></div><p>上面代码中，我们将数据作为参数传递给proxy函数，由proxy函数创建一个空对象obj，这个obj就是代理，返回这个代理给data。 <br>
-这样就可以不暴露数据，同时通过代理实现了data的getter/setter。 <br>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-问题是，这个方法并不完美，如果传入的数据有名字，我们一样可以从外部更改数据，绕过代理。</p>
-<p>解决办法：监听data</p>
+</code></pre></div><p>上面代码中，我们将数据作为参数传递给 proxy 函数，由 proxy 函数创建一个空对象 obj，这个 obj 就是代理，返回这个代理给 data。</p>
+<p>这样就可以不暴露数据，同时通过代理实现了 data 的 getter/setter。</p>
+<p>问题是，这个方法并不完美，如果传入的数据有名字，我们一样可以从外部更改数据，绕过代理。</p>
+<p>解决办法：监听 data</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myData</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">0</span>}
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data5</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">proxy</span>({ <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span><span style="color:#a6e22e">myData</span> })
 
@@ -339,30 +332,34 @@ Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e
   })
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>
 }
-</code></pre></div><p>上面代码中，给数据取了名字为myData，然后就可以通过myData设置负值，绕过代理中的setter。 <br>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-注释内容是给data设置的监听。</p>
-<p>具体思路就是：  <br>
-当myData传给proxy函数时，拿到myData中的数据，并给myData添加getter/setter。 <br>
-当要通过外部篡改myData中的n，实际上此时的myData已经被proxy篡改，传入的值会经过myData中的set检验，如果不符合要求则无法修改。<br>
-也就是说data无法逃脱proxy的监控了，data做的任何修改都会被proxy捕获到。<br>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-上面例子中的proxy函数就相当于是Vue做的处理。 <br>
-当我们<code>vm = new Vue({data:myData})</code>时，Vue会做两件事情。</p>
+</code></pre></div><p>上面代码中，给数据取了名字为 myData，然后就可以通过 myData 设置负值，绕过代理中的 setter。</p>
+<p>注释内容是给 data 设置的监听。</p>
+<p>具体思路就是：<br>
+当 myData 传给 proxy 函数时，拿到 myData 中的数据，并给 myData 添加 getter/setter。</p>
+<p>当要通过外部篡改 myData 中的 n，实际上此时的 myData 已经被 proxy 篡改，传入的值会经过 myData 中的 set 检验，如果不符合要求则无法修改。</p>
+<p>也就是说 data 无法逃脱 proxy 的监控了，data 做的任何修改都会被 proxy 捕获到。</p>
+<p>上面例子中的 proxy 函数就相当于是 Vue 做的处理。</p>
+<p>当我们<code>vm = new Vue({data:myData})</code>时，Vue 会做两件事情。</p>
 <ol>
-<li>让vm成为myData的代理；</li>
-<li>对myData的所有属性实施监控，以便属性改变时，可以及时render</li>
+<li>
+<p>让 vm 成为 myData 的代理；</p>
+</li>
+<li>
+<p>对 myData 的所有属性实施监控，以便属性改变时，可以及时 render</p>
+</li>
 </ol>
-<h2 id="vue的data有bug">Vue的data有bug？</h2>
-<p>Vue可以对data中的对象进行监听和代理，但是Vue无法进行事先的监听和代理。</p>
-<p>就是说，没有出现在data中的对象，Vue是无法操作的。</p>
+<h2 id="vue-的-data-有-bug">Vue 的 data 有 bug？</h2>
+<p>Vue 可以对 data 中的对象进行监听和代理，但是 Vue 无法进行事先的监听和代理。</p>
+<p>就是说，没有出现在 data 中的对象，Vue 是无法操作的。</p>
 <p>如果我们在初始化后发现要添加数据属性怎么办？</p>
 <p>解决方案有两种：</p>
 <ol>
-<li>事先在data中加上新的属性。</li>
-<li>使用Vue的两个API <code>Vue.set(object,key,value)</code> 和 <code>this.$set(object,key,value)</code>(效果一样，避免重名用后者,this指的就是Vue实例)</li>
+<li>
+<p>事先在 data 中加上新的属性。</p>
+</li>
+<li>
+<p>使用 Vue 的两个 API <code>Vue.set(object,key,value)</code> 和 <code>this.$set(object,key,value)</code>(效果一样，避免重名用后者,this 指的就是 Vue 实例)</p>
+</li>
 </ol>
 <p>用法：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
@@ -381,13 +378,13 @@ Object.<span style="color:#a6e22e">defineProperty</span>(<span style="color:#a6e
     }
 })
 </code></pre></div><blockquote>
-<p>如果data中有数组？</p>
-<p>我们知道JavaScript中数组的本质是对象，数组的特征就是他的长度是随时可变的，我们很难确定一个数组的长度是多少。</p>
-<p>每一次更改数组，都要使用Vue.set()?</p>
+<p>如果 data 中有数组？</p>
+<p>我们知道 JavaScript 中数组的本质是对象，数组的特征就是他的长度是随时可变的，我们很难确定一个数组的长度是多少。</p>
+<p>每一次更改数组，都要使用 Vue.set()?</p>
 <p>当然，有更便捷的方法：</p>
-<p>可以直接使用push，Vue中的push已经被改了，当调用push的时候，会自动对push的内容添加监听和代理。</p>
-<p>除了push，还有</p>
-<p>pop reverse shift unshift splice sort 7个方法</p>
+<p>可以直接使用 push，Vue 中的 push 已经被改了，当调用 push 的时候，会自动对 push 的内容添加监听和代理。</p>
+<p>除了 push，还有</p>
+<p>pop reverse shift unshift splice sort 7 个方法</p>
 </blockquote>
 <h2 id="写在最后">写在最后</h2>
 <p>研究思路和方法比知识更重要。</p>

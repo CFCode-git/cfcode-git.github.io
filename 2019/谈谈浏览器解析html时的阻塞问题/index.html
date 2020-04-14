@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "谈谈浏览器解析html时的阻塞问题",
     "headline" : "谈谈浏览器解析html时的阻塞问题",
-    "description" : "参考文章：\nDOM阻塞总结\n深入浅出浏览器渲染原理\n浏览器是如何解析html的？\n浏览器阻塞\n浏览器是如何工作的? 当我们在地址栏输入一个合法的URL后，浏览器首先进行域名解析，得到服务器的IP地址，然后浏览器会给服务器发送GET请求，等到服务器响应200后开始下载并解析html。\n页面主要由DOM、CSS、JavaScript等部分构成，其中CSS和JavaScript既能内联也能以脚本的形式引入，此外还有img、iframe等其他资源，所有的这些资源都是通过dom标签的形式嵌入在html页面中，接下来我们分析一下dom的构建过程。\n浏览器的工作流程  构建DOM =\x26gt; 构建CSSOM =\x26gt; 构建渲染树(Rendering Tree) =\x26gt; 布局(也叫回流) =\x26gt; 绘制\n 大体来讲：\n 浏览器会解析三个东西：  HTML\/SVG\/XHTML，产生DOM Tree。 CSS，产生CSS Rule Tree。 JavaScript，脚本，通过DOM API 和CSSOM API操作DOM和CSSOM。   解析完成后，结合DOM Tree和CSSOM Tree构造Rendering Tree。  Rendering Tree和DOM Tree并不是完全相等的，比如Header和display：none就不会出现在Rendering Tree中。 将CSS Rule添加到Rendering Tree上的节点，然后计算每个元素的位置，这就是布局。   调用操作系统Native GUI的API绘制。  DOM的构建过程 DOM的构建过程是顺序的，渐进式的。从第一行开始，逐行依次解析，并且会将已解析完成的部分显示出来。\n如何判定DOM构建完成？\n我们使用JavaScript操作DOM或者给DOM绑定事件的前提就是DOM树已经构建完成。当DOM树构建完成时，document对象会派发事件DOMContentLoaded来通知DOM树已经构建完成。\nhtml从第一行开始解析，遇到外联资源(外联CSS、外联JS、image、iframe等)则会请求下载对应的资源。而其中有一部分会影响（阻塞）DOM的构建。\n正常情况下CSSOM和DOM的构建是互不干扰的\n浏览器下载HTML文件，解析HTML从而构建DOM。\n遇到link[rel=stylesheet]时，将其加入下载队列，继续构建DOM。（CSS不会阻塞DOM的构建）\n而JS的加载、解析和执行都会阻塞DOM的构建\n当HTML解析器遇到了JavaScript，那么它会暂停构建DOM，将控制权移交给JavaScript引擎，等JavaScript引擎运行完毕，浏览器再从中断的地方恢复DOM构建。\n接下来具体分析。\nCSSOM和DOM CSSOM和DOM的构建互不干扰，那么所有的CSS都不影响DOM的构建吗？\n不是，这是有前提的。\n前提是这些CSS样式不被JavaScript需要。\n我们知道，JavaScript不只是可以改DOM，它还可以更改样式，也就是它可以更改CSSOM。而不完整的CSSOM是无法使用的，因此如果JavaScript想访问CSSOM并更改它，必须要拿到完整的CSSOM，而JavaScript的加载、解析和执行都会阻塞DOM的构建，这样一来就导致了：\n某一时刻CSSOM和DOM并行下载（解析）着，突然遇到了JavaScript想要运行脚本，那么浏览器只能让JavaScript先等一等，然后优先下载和完成目前为止的CSSOM的构建，再执行JavaScript脚本，然后才继续进行DOM的解析。",
+    "description" : "一些文章 DOM 阻塞总结\n深入浅出浏览器渲染原理\n浏览器是如何解析 html 的？\n浏览器阻塞\n浏览器是如何工作的? 当我们在地址栏输入一个合法的 URL 后，浏览器首先进行域名解析，得到服务器的 IP 地址，然后浏览器会给服务器发送 GET 请求，等到服务器响应 200 后开始下载并解析 html。\n页面主要由 DOM、CSS、JavaScript 等部分构成，其中 CSS 和 JavaScript 既能内联也能以脚本的形式引入，此外还有 img、iframe 等其他资源，所有的这些资源都是通过 dom 标签的形式嵌入在 html 页面中，接下来我们分析一下 dom 的构建过程。\n浏览器的工作流程  构建 DOM =\x26gt; 构建 CSSOM =\x26gt; 构建渲染树(Rendering Tree) =\x26gt; 布局(也叫回流) =\x26gt; 绘制\n 大体来讲：\n 浏览器会解析三个东西：  HTML\/SVG\/XHTML，产生 DOM Tree。 CSS，产生 CSS Rule Tree。 JavaScript，脚本，通过 DOM API 和 CSSOM API 操作 DOM 和 CSSOM。   解析完成后，结合 DOM Tree 和 CSSOM Tree 构造 Rendering Tree。  Rendering Tree 和 DOM Tree 并不是完全相等的，比如 Header 和 display：none 就不会出现在 Rendering Tree 中。 将 CSS Rule 添加到 Rendering Tree 上的节点，然后计算每个元素的位置，这就是布局。   调用操作系统 Native GUI 的 API 绘制。  DOM 的构建过程 DOM 的构建过程是顺序的，渐进式的。从第一行开始，逐行依次解析，并且会将已解析完成的部分显示出来。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-25 13:33:43 \x2b0800 CST",
     "dateModified" : "2019-11-25 13:33:43 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90html%E6%97%B6%E7%9A%84%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98\/",
-    "wordCount" : "154",
+    "wordCount" : "481",
     "keywords" : [ "", "呆尬猴的博客"]
 }
 </script>
@@ -148,108 +148,108 @@
           
           
 
-          <p>参考文章：</p>
-<p><a href="https://www.jianshu.com/p/8fd296377539">DOM阻塞总结</a></p>
+          <h2 id="一些文章">一些文章</h2>
+<p><a href="https://www.jianshu.com/p/8fd296377539">DOM 阻塞总结</a></p>
 <p><a href="https://blog.fundebug.com/2019/01/03/understand-browser-rendering/">深入浅出浏览器渲染原理</a></p>
-<p><a href="https://juejin.im/post/5c1dde33f265da61776bf49a">浏览器是如何解析html的？</a></p>
+<p><a href="https://juejin.im/post/5c1dde33f265da61776bf49a">浏览器是如何解析 html 的？</a></p>
 <p><a href="https://juejin.im/entry/5c6b629be51d457fa31e6a1d">浏览器阻塞</a></p>
-<h1 id="浏览器是如何工作的">浏览器是如何工作的?</h1>
-<p>当我们在地址栏输入一个合法的URL后，浏览器首先进行域名解析，得到服务器的IP地址，然后浏览器会给服务器发送GET请求，等到服务器响应200后开始下载并解析html。</p>
-<p>页面主要由DOM、CSS、JavaScript等部分构成，其中CSS和JavaScript既能内联也能以脚本的形式引入，此外还有img、iframe等其他资源，所有的这些资源都是通过dom标签的形式嵌入在html页面中，接下来我们分析一下dom的构建过程。</p>
-<h1 id="浏览器的工作流程">浏览器的工作流程</h1>
+<h2 id="浏览器是如何工作的">浏览器是如何工作的?</h2>
+<p>当我们在地址栏输入一个合法的 URL 后，浏览器首先进行域名解析，得到服务器的 IP 地址，然后浏览器会给服务器发送 GET 请求，等到服务器响应 200 后开始下载并解析 html。</p>
+<p>页面主要由 DOM、CSS、JavaScript 等部分构成，其中 CSS 和 JavaScript 既能内联也能以脚本的形式引入，此外还有 img、iframe 等其他资源，所有的这些资源都是通过 dom 标签的形式嵌入在 html 页面中，接下来我们分析一下 dom 的构建过程。</p>
+<h2 id="浏览器的工作流程">浏览器的工作流程</h2>
 <blockquote>
-<p>构建DOM =&gt; 构建CSSOM =&gt; 构建渲染树(Rendering Tree) =&gt; 布局(也叫回流) =&gt; 绘制</p>
+<p>构建 DOM =&gt; 构建 CSSOM =&gt; 构建渲染树(Rendering Tree) =&gt; 布局(也叫回流) =&gt; 绘制</p>
 </blockquote>
 <p>大体来讲：</p>
 <ol>
 <li>浏览器会解析三个东西：
 <ul>
-<li>HTML/SVG/XHTML，产生DOM Tree。</li>
-<li>CSS，产生CSS Rule Tree。</li>
-<li>JavaScript，脚本，通过DOM API 和CSSOM API操作DOM和CSSOM。</li>
+<li>HTML/SVG/XHTML，产生 DOM Tree。</li>
+<li>CSS，产生 CSS Rule Tree。</li>
+<li>JavaScript，脚本，通过 DOM API 和 CSSOM API 操作 DOM 和 CSSOM。</li>
 </ul>
 </li>
-<li>解析完成后，结合DOM Tree和CSSOM Tree构造Rendering Tree。
+<li>解析完成后，结合 DOM Tree 和 CSSOM Tree 构造 Rendering Tree。
 <ul>
-<li>Rendering Tree和DOM Tree并不是完全相等的，比如Header和display：none就不会出现在Rendering Tree中。</li>
-<li>将CSS Rule添加到Rendering Tree上的节点，然后计算每个元素的位置，这就是布局。</li>
+<li>Rendering Tree 和 DOM Tree 并不是完全相等的，比如 Header 和 display：none 就不会出现在 Rendering Tree 中。</li>
+<li>将 CSS Rule 添加到 Rendering Tree 上的节点，然后计算每个元素的位置，这就是布局。</li>
 </ul>
 </li>
-<li>调用操作系统Native GUI的API绘制。</li>
+<li>调用操作系统 Native GUI 的 API 绘制。</li>
 </ol>
-<h1 id="dom的构建过程">DOM的构建过程</h1>
-<p>DOM的构建过程是顺序的，渐进式的。从第一行开始，逐行依次解析，并且会将已解析完成的部分显示出来。</p>
-<p><strong>如何判定DOM构建完成？</strong></p>
-<p>我们使用JavaScript操作DOM或者给DOM绑定事件的前提就是DOM树已经构建完成。当DOM树构建完成时，document对象会派发事件DOMContentLoaded来通知DOM树已经构建完成。</p>
-<p>html从第一行开始解析，遇到外联资源(外联CSS、外联JS、image、iframe等)则会请求下载对应的资源。而其中有一部分会影响（阻塞）DOM的构建。</p>
-<p><strong>正常情况下CSSOM和DOM的构建是互不干扰的</strong></p>
-<p>浏览器下载HTML文件，解析HTML从而构建DOM。</p>
-<p>遇到link[rel=stylesheet]时，将其加入下载队列，继续构建DOM。（CSS不会阻塞DOM的构建）</p>
-<p><strong>而JS的加载、解析和执行都会阻塞DOM的构建</strong></p>
-<p>当HTML解析器遇到了JavaScript，那么它会暂停构建DOM，将控制权移交给JavaScript引擎，等JavaScript引擎运行完毕，浏览器再从中断的地方恢复DOM构建。</p>
+<h2 id="dom-的构建过程">DOM 的构建过程</h2>
+<p>DOM 的构建过程是顺序的，渐进式的。从第一行开始，逐行依次解析，并且会将已解析完成的部分显示出来。</p>
+<p><strong>如何判定 DOM 构建完成？</strong></p>
+<p>我们使用 JavaScript 操作 DOM 或者给 DOM 绑定事件的前提就是 DOM 树已经构建完成。当 DOM 树构建完成时，document 对象会派发事件 DOMContentLoaded 来通知 DOM 树已经构建完成。</p>
+<p>html 从第一行开始解析，遇到外联资源(外联 CSS、外联 JS、image、iframe 等)则会请求下载对应的资源。而其中有一部分会影响（阻塞）DOM 的构建。</p>
+<p><strong>正常情况下 CSSOM 和 DOM 的构建是互不干扰的</strong></p>
+<p>浏览器下载 HTML 文件，解析 HTML 从而构建 DOM。</p>
+<p>遇到 link[rel=stylesheet]时，将其加入下载队列，继续构建 DOM。（CSS 不会阻塞 DOM 的构建）</p>
+<p><strong>而 JS 的加载、解析和执行都会阻塞 DOM 的构建</strong></p>
+<p>当 HTML 解析器遇到了 JavaScript，那么它会暂停构建 DOM，将控制权移交给 JavaScript 引擎，等 JavaScript 引擎运行完毕，浏览器再从中断的地方恢复 DOM 构建。</p>
 <p><strong>接下来具体分析。</strong></p>
-<h2 id="cssom和dom">CSSOM和DOM</h2>
-<p>CSSOM和DOM的构建互不干扰，那么所有的CSS都不影响DOM的构建吗？</p>
+<h2 id="cssom-和-dom">CSSOM 和 DOM</h2>
+<p>CSSOM 和 DOM 的构建互不干扰，那么所有的 CSS 都不影响 DOM 的构建吗？</p>
 <p>不是，这是有前提的。</p>
-<p>前提是这些CSS样式不被JavaScript需要。</p>
-<p>我们知道，JavaScript不只是可以改DOM，它还可以更改样式，也就是它可以更改CSSOM。而不完整的CSSOM是无法使用的，因此如果JavaScript想访问CSSOM并更改它，必须要拿到完整的CSSOM，而JavaScript的加载、解析和执行都会阻塞DOM的构建，这样一来就导致了：</p>
-<p>某一时刻CSSOM和DOM并行下载（解析）着，突然遇到了JavaScript想要运行脚本，那么浏览器只能让JavaScript先等一等，然后优先下载和完成目前为止的CSSOM的构建，再执行JavaScript脚本，然后才继续进行DOM的解析。</p>
-<p><strong>也就是说在JavaScript之前的CSS样式，准确的说，是被JavaScript依赖执行的CSS（内联CSS、以及JavaScript标签之前的外联CSS）,有可能会因为JavaScript的影响，间接阻塞了DOM的构建。</strong></p>
-<p>JavaScript之后的CSS则不受影响。</p>
+<p>前提是这些 CSS 样式不被 JavaScript 需要。</p>
+<p>我们知道，JavaScript 不只是可以改 DOM，它还可以更改样式，也就是它可以更改 CSSOM。而不完整的 CSSOM 是无法使用的，因此如果 JavaScript 想访问 CSSOM 并更改它，必须要拿到完整的 CSSOM，而 JavaScript 的加载、解析和执行都会阻塞 DOM 的构建，这样一来就导致了：</p>
+<p>某一时刻 CSSOM 和 DOM 并行下载（解析）着，突然遇到了 JavaScript 想要运行脚本，那么浏览器只能让 JavaScript 先等一等，然后优先下载和完成目前为止的 CSSOM 的构建，再执行 JavaScript 脚本，然后才继续进行 DOM 的解析。</p>
+<p><strong>也就是说在 JavaScript 之前的 CSS 样式，准确的说，是被 JavaScript 依赖执行的 CSS（内联 CSS、以及 JavaScript 标签之前的外联 CSS）,有可能会因为 JavaScript 的影响，间接阻塞了 DOM 的构建。</strong></p>
+<p>JavaScript 之后的 CSS 则不受影响。</p>
 <blockquote>
-<p>所以，如果想首屏渲染更快，就不应该在首屏就加载JS文件，所以这也是一般建议把script标签放在body标签的底部。</p>
+<p>所以，如果想首屏渲染更快，就不应该在首屏就加载 JS 文件，所以这也是一般建议把 script 标签放在 body 标签的底部。</p>
 </blockquote>
-<h2 id="javascript和dom">JavaScript和DOM</h2>
-<p>同样，JavaScript一定会阻塞DOM的构建吗？</p>
+<h2 id="javascript-和-dom">JavaScript 和 DOM</h2>
+<p>同样，JavaScript 一定会阻塞 DOM 的构建吗？</p>
 <p>不一定。</p>
-<p>我们可以通过async属性和defer属性，降低JavaScript对DOM的阻塞。</p>
-<p>对于普通的script标签<code>&lt;script src = &quot;script.js&quot;&gt;&lt;/script&gt;</code>，浏览器会立即加载并执行指定的脚本。读到就加载并执行，不等待后续载入的文档元素。</p>
+<p>我们可以通过 async 属性和 defer 属性，降低 JavaScript 对 DOM 的阻塞。</p>
+<p>对于普通的 script 标签<code>&lt;script src = &quot;script.js&quot;&gt;&lt;/script&gt;</code>，浏览器会立即加载并执行指定的脚本。读到就加载并执行，不等待后续载入的文档元素。</p>
 <p><strong>异步下载：<code>&lt;script async src = &quot;script.js&quot;&gt;&lt;/script&gt;</code></strong></p>
-<p>async 属性表示异步下载引入的JavaScript，此时JavaScript的下载不会影响DOM的构建，但一旦下载完成，不论D是在DOM的解析阶段还是在DOMContentLoaded事件触发之后，**但一定是在load事件触发之前，**JavaScript就会执行。</p>
-<p>如果是在DOM解析阶段，JavaScript的执行会阻塞DOM的解析。如果是在DOMContentLoaded触发之后，JavaScript会阻塞load事件。</p>
+<p>async 属性表示异步下载引入的 JavaScript，此时 JavaScript 的下载不会影响 DOM 的构建，但一旦下载完成，不论 D 是在 DOM 的解析阶段还是在 DOMContentLoaded 事件触发之后，**但一定是在 load 事件触发之前，**JavaScript 就会执行。</p>
+<p>如果是在 DOM 解析阶段，JavaScript 的执行会阻塞 DOM 的解析。如果是在 DOMContentLoaded 触发之后，JavaScript 会阻塞 load 事件。</p>
 <p><strong>延迟执行：<code>&lt;script defer src = &quot;script.js&quot;&gt;&lt;/script&gt;</code></strong></p>
-<p>defer 属性表示延迟执行引入的JavaScript。该属性的JavaScript加载时，并未阻塞HTML的解析，这两个过程是并行的。</p>
-<p>直到整个document解析完毕且该JavaScript也加载完成后，才会执行所有由defer-script加载的JavaScript代码。<strong>然后再触发DOMContentLoaded事件</strong></p>
-<p>与普通的script相比，延迟执行区别在于：载入JavaScript文件时不会阻塞html的解析，JavaScript的执行被放到了html标签解析完成之后，DOMContentLoaded事件触发之前。</p>
-<p>当加载多个JS脚本时，async是无序的加载，而defer是有序的加载。</p>
+<p>defer 属性表示延迟执行引入的 JavaScript。该属性的 JavaScript 加载时，并未阻塞 HTML 的解析，这两个过程是并行的。</p>
+<p>直到整个 document 解析完毕且该 JavaScript 也加载完成后，才会执行所有由 defer-script 加载的 JavaScript 代码。<strong>然后再触发 DOMContentLoaded 事件</strong></p>
+<p>与普通的 script 相比，延迟执行区别在于：载入 JavaScript 文件时不会阻塞 html 的解析，JavaScript 的执行被放到了 html 标签解析完成之后，DOMContentLoaded 事件触发之前。</p>
+<p>当加载多个 JS 脚本时，async 是无序的加载，而 defer 是有序的加载。</p>
 <p>用下图更直观地说明问题</p>
-<p>蓝色部分表示JavaScript的加载（下载） <br>
-灰色部分表示JavaScript的执行  <br>
-绿色部分表示html的解析  <br>
+<p>蓝色部分表示 JavaScript 的加载（下载）<br>
+灰色部分表示 JavaScript 的执行<br>
+绿色部分表示 html 的解析<br>
 <img src="/images/DOM%E9%98%BB%E5%A1%9E/dom%E9%98%BB%E5%A1%9E4.png" alt="script"></p>
-<h1 id="总结">总结</h1>
+<h2 id="总结">总结</h2>
 <ul>
 <li>
-<p>浏览器的工作流程：构建DOM =&gt; 构建CSSOM =&gt; 构建渲染树(Rendering Tree) =&gt; 布局(也叫回流) =&gt; 绘制</p>
+<p>浏览器的工作流程：构建 DOM =&gt; 构建 CSSOM =&gt; 构建渲染树(Rendering Tree) =&gt; 布局(也叫回流) =&gt; 绘制</p>
 </li>
 <li>
-<p>CSSOM会阻塞渲染，只有CSSOM构建完毕后才会进入构建渲染树的阶段。</p>
+<p>CSSOM 会阻塞渲染，只有 CSSOM 构建完毕后才会进入构建渲染树的阶段。</p>
 </li>
 <li>
-<p>通常情况下，CSSOM和DOM是并行构建的，但是当浏览器遇到script标签时，DOM构建将停止，直到脚本完成执行。   <br>
-同时由于JavaScript可以修改CSSOM，所以也必须等到CSSOM构建完成后才能执行JS。   <br>
-我们可以设置延迟执行和异步下载减少JavaScript对DOM构建的影响。</p>
+<p>通常情况下，CSSOM 和 DOM 是并行构建的，但是当浏览器遇到 script 标签时，DOM 构建将停止，直到脚本完成执行。<br>
+同时由于 JavaScript 可以修改 CSSOM，所以也必须等到 CSSOM 构建完成后才能执行 JS。<br>
+我们可以设置延迟执行和异步下载减少 JavaScript 对 DOM 构建的影响。</p>
 </li>
 <li>
-<p>如果想首屏渲染更快，那么不应该在首屏就加载JS文件，建议将script标签放到body标签底部。</p>
+<p>如果想首屏渲染更快，那么不应该在首屏就加载 JS 文件，建议将 script 标签放到 body 标签底部。</p>
 </li>
 </ul>
-<p>阻塞DOM构建的有：</p>
+<p>阻塞 DOM 构建的有：</p>
 <ul>
-<li>JavaScript标签之前的CSS</li>
-<li>外联普通JavaScript</li>
-<li>外联defer-JavaScript的执行过程</li>
-<li>内联JavaScript</li>
+<li>JavaScript 标签之前的 CSS</li>
+<li>外联普通 JavaScript</li>
+<li>外联 defer-JavaScript 的执行过程</li>
+<li>内联 JavaScript</li>
 </ul>
-<p>不会阻塞DOM构建的有：</p>
+<p>不会阻塞 DOM 构建的有：</p>
 <ul>
-<li>JavaScript标签之后的CSS</li>
-<li>外联async-JavaScript</li>
-<li>外联defer-JavaScript的加载过程</li>
+<li>JavaScript 标签之后的 CSS</li>
+<li>外联 async-JavaScript</li>
+<li>外联 defer-JavaScript 的加载过程</li>
 <li>image</li>
 <li>iframe</li>
 </ul>
-<h1 id="关于回流和重绘">关于回流和重绘</h1>
+<h2 id="关于回流和重绘">关于回流和重绘</h2>
 <p>当页面生成时，至少会渲染一次。而在用户访问的过程中，还会不断地重新渲染。</p>
 <p>重新渲染可能是回流和重绘，也可能只有重绘。</p>
 <ul>
@@ -260,7 +260,7 @@
 <p>回流：当渲染树中的元素大小尺寸、布局等发生改变时，需要触发回流。</p>
 </li>
 </ul>
-<p><strong>回流必定会触发重绘，重绘不一定引发回流。</strong> <br>
+<p><strong>回流必定会触发重绘，重绘不一定引发回流。</strong><br>
 回流和重绘在我们进行节点样式设置时会频繁触发，这在很大程度上影响性能。</p>
 <p><strong>如何减少重绘和回流？</strong></p>
 <ul>
@@ -268,22 +268,23 @@
 <li>使用 visibility 代替 display:none ,因为前者只会引起重绘，后者会引发回流。（改变了布局）</li>
 <li>不要把节点的属性值放在一个循环里当成循环的变量（这样会频繁引发回流或重绘）</li>
 <li>不要使用 table 布局，因为一个很小的改动可能会造成整个 table 的重新布局。</li>
-<li>动画实现的速度选择，动画速度越快，回流次数越多。也可以使用requestAnimationFrame</li>
-<li>CSS选择符从右往左匹配寻找，避免节点层级过多。</li>
-<li>将频繁重绘或回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点，比如对于video节点来说，浏览器会自动将该节点变为图层。</li>
+<li>动画实现的速度选择，动画速度越快，回流次数越多。也可以使用 requestAnimationFrame</li>
+<li>CSS 选择符从右往左匹配寻找，避免节点层级过多。</li>
+<li>将频繁重绘或回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点，比如对于 video 节点来说，浏览器会自动将该节点变为图层。</li>
 </ul>
-<h1 id="为什么dom操作慢">为什么DOM操作慢？</h1>
-<p>因为浏览器是单线程的。DOM是属于渲染引擎负责的，而JS是JS引擎负责的，两者分属于不同的线程。我们通过JS操作DOM的时候，实际上涉及到了两个线程之间的通信，DOM操作所耗费的时间实际上就是两个线程通信所需要的时间。</p>
+<h1 id="为什么-dom-操作慢">为什么 DOM 操作慢？</h1>
+<p>因为浏览器是单线程的。DOM 是属于渲染引擎负责的，而 JS 是 JS 引擎负责的，两者分属于不同的线程。</p>
+<p>我们通过 JS 操作 DOM 的时候，实际上涉及到了两个线程之间的通信，DOM 操作所耗费的时间实际上就是两个线程通信所需要的时间。</p>
 <h1 id="渲染页面时常见的不良现象">渲染页面时常见的不良现象</h1>
 <ul>
 <li>FOUS(无样式内容闪烁)：</li>
 </ul>
-<p>由于浏览器渲染机制，在CSS加载前，先呈现了HTML，因此会展示出无样式的内容，然后样式突然呈现的现象。</p>
+<p>由于浏览器渲染机制，在 CSS 加载前，先呈现了 HTML，因此会展示出无样式的内容，然后样式突然呈现的现象。</p>
 <ul>
 <li>白屏</li>
 </ul>
-<p>有些浏览器的渲染机制（比如chrome）要先构建DOM树和CSSOM树，构建完成再进行渲染。如果CSS部分放在HTML尾部，由于CSS未加载完成，浏览器迟迟未渲染，就会导致白屏。
-也有可能是JS文件放在了头部，阻塞了后续DOM的构建和组件的下载，导致了白屏的产生。</p>
+<p>有些浏览器的渲染机制（比如 chrome）要先构建 DOM 树和 CSSOM 树，构建完成再进行渲染。如果 CSS 部分放在 HTML 尾部，由于 CSS 未加载完成，浏览器迟迟未渲染，就会导致白屏。
+也有可能是 JS 文件放在了头部，阻塞了后续 DOM 的构建和组件的下载，导致了白屏的产生。</p>
 
     </div>
 

@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Vue:完整版和非完整版",
     "headline" : "Vue:完整版和非完整版",
-    "description" : "Vue有两个版本，完整版和非完整版，非完整版也称为运行时版本。 完整版的文件名为：vue.js；非完整版的文件名为vue.runtime.js；这两个文件里面包含了注释。 如果是在生产环境，我们可以使用vue.min.js和vue.runtime.min.js，这是完整版和非完整版去除了注释以及压缩后的版本，相对于原来体积会变小。\n完整版 VS 非完整版 完整版 = 运行时 \x2b 编译器compiler\n由于编译器的存在，完整版比运行时版本体积大40%左右。\n编译器干嘛的？？\n完整版Vue内置了编译器，它可以直接从HTML获取元素，得到视图。\n比如\nnew Vue({ el:\x26#39;#app\x26#39; }) 就可以得到这个HTML中id为app的节点，\n或者通过template\nnew Vue({ el:\x26#39;#app\x26#39;, template:` \x26lt;div\x26gt;{{n}}\x26lt;\/div\x26gt; `, data:{ n:0 } }) 如果使用非完整版，我们要使用JS构建视图，在render函数里面用h创建标签。\n比如：\nnew Vue({ el:\x26#39;#app\x26#39;, render(h){ return h(\x26#39;div\x26#39;,this.n) }, data:{ n:0 } }) h相当于createElement，render函数返回了一个div节点，里面的内容是n。\n如果再复杂一点，比如加一个可以\x26quot;\x2b1\x26quot;的按钮？\nnew Vue({ el:\x26#39;#app\x26#39;, render(h){ return h(\x26#39;div\x26#39;,[this.n,h(\x26#39;button\x26#39;,{on:{click:this.add}},\x26#39;1\x26#39;)]) }, data:{ n:0 }, methods:{ add(){ this.n \x2b= 1 } } }) 这看上去就不是很友善了，那我们每次都要用这么麻烦的render吗？\n还好，vue提供了vue-loader，我们可以创建一个.vue文件，它的格式如下：\n\x26lt;template\x26gt; \x26lt;div class=\x26#34;red\x26#34;\x26gt; {{n}} \x26lt;button @click=\x26#34;add\x26#34;\x26gt;\x2b1\x26lt;\/button\x26gt; \x26lt;\/div\x26gt; \x26lt;\/template\x26gt; \x26lt;script\x26gt; export default { data() { return { n: 0 }; }, methods: { add() { this.",
+    "description" : "Vue 有两个版本，完整版和非完整版，非完整版也称为运行时版本。\n完整版的文件名为：vue.js；非完整版的文件名为 vue.runtime.js；这两个文件里面包含了注释。\n如果是在生产环境，我们可以使用 vue.min.js 和 vue.runtime.min.js，这是完整版和非完整版去除了注释以及压缩后的版本，相对于原来体积会变小。\n完整版 VS 非完整版 完整版 = 运行时 \x2b 编译器 compiler\n由于编译器的存在，完整版比运行时版本体积大 40%左右。\n编译器干嘛的？？\n完整版 Vue 内置了编译器，它可以直接从 HTML 获取元素，得到视图。\n比如\nnew Vue({ el: \x26#34;#app\x26#34;, }); 就可以得到这个 HTML 中 id 为 app 的节点，\n或者通过 template\nnew Vue({ el: \x26#34;#app\x26#34;, template: ` \x26lt;div\x26gt;{{n}}\x26lt;\/div\x26gt; `, data: { n: 0, }, }); 如果使用非完整版，我们要使用 JS 构建视图，在 render 函数里面用 h 创建标签。\n比如：\nnew Vue({ el:\x26#39;#app\x26#39;, render(h){ return h(\x26#39;div\x26#39;,this.n) }, data:{ n:0 } }) h 相当于 createElement，render 函数返回了一个 div 节点，里面的内容是 n。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-12-19 20:51:28 \x2b0800 CST",
     "dateModified" : "2019-12-19 20:51:28 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88\/",
-    "wordCount" : "157",
+    "wordCount" : "250",
     "keywords" : [ "Vue", "呆尬猴的博客"]
 }
 </script>
@@ -148,30 +148,30 @@
           
           
 
-          <p>Vue有两个版本，完整版和非完整版，非完整版也称为运行时版本。
-完整版的文件名为：vue.js；非完整版的文件名为vue.runtime.js；这两个文件里面包含了注释。
-如果是在生产环境，我们可以使用vue.min.js和vue.runtime.min.js，这是完整版和非完整版去除了注释以及压缩后的版本，相对于原来体积会变小。</p>
+          <p>Vue 有两个版本，完整版和非完整版，非完整版也称为运行时版本。</p>
+<p>完整版的文件名为：vue.js；非完整版的文件名为 vue.runtime.js；这两个文件里面包含了注释。</p>
+<p>如果是在生产环境，我们可以使用 vue.min.js 和 vue.runtime.min.js，这是完整版和非完整版去除了注释以及压缩后的版本，相对于原来体积会变小。</p>
 <h2 id="完整版-vs-非完整版">完整版 VS 非完整版</h2>
-<p>完整版 = 运行时 + 编译器compiler</p>
-<p>由于编译器的存在，完整版比运行时版本体积大40%左右。</p>
+<p>完整版 = 运行时 + 编译器 compiler</p>
+<p>由于编译器的存在，完整版比运行时版本体积大 40%左右。</p>
 <p><strong>编译器干嘛的？？</strong></p>
-<p>完整版Vue内置了编译器，它可以直接从HTML获取元素，得到视图。</p>
+<p>完整版 Vue 内置了编译器，它可以直接从 HTML 获取元素，得到视图。</p>
 <p>比如</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
-    <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;#app&#39;</span>
-})
-</code></pre></div><p>就可以得到这个HTML中id为app的节点，</p>
-<p>或者通过template</p>
+  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+});
+</code></pre></div><p>就可以得到这个 HTML 中 id 为 app 的节点，</p>
+<p>或者通过 template</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
-    <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;#app&#39;</span>,
-    <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span><span style="color:#e6db74">`
+  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
 </span><span style="color:#e6db74">        &lt;div&gt;{{n}}&lt;/div&gt;
 </span><span style="color:#e6db74">    `</span>,
-    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
-        <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">0</span>
-    }
-})
-</code></pre></div><p>如果使用非完整版，我们要使用JS构建视图，在render函数里面用h创建标签。</p>
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+  },
+});
+</code></pre></div><p>如果使用非完整版，我们要使用 JS 构建视图，在 render 函数里面用 h 创建标签。</p>
 <p>比如：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
     <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;#app&#39;</span>,
@@ -182,24 +182,24 @@
         <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">0</span>
     }
 })
-</code></pre></div><p>h相当于createElement，render函数返回了一个div节点，里面的内容是n。</p>
+</code></pre></div><p>h 相当于 createElement，render 函数返回了一个 div 节点，里面的内容是 n。</p>
 <p>如果再复杂一点，比如加一个可以&quot;+1&quot;的按钮？</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
-    <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;#app&#39;</span>,
-    <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">h</span>){
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;div&#39;</span>,[<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">n</span>,<span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;button&#39;</span>,{<span style="color:#a6e22e">on</span><span style="color:#f92672">:</span>{<span style="color:#a6e22e">click</span><span style="color:#f92672">:</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">add</span>}},<span style="color:#e6db74">&#39;1&#39;</span>)])
+  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+  <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">h</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;div&#34;</span>, [<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;button&#34;</span>, { <span style="color:#a6e22e">on</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">add</span> } }, <span style="color:#e6db74">&#34;1&#34;</span>)]);
+  },
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+  },
+  <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">add</span>() {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">n</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
     },
-    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
-        <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span><span style="color:#ae81ff">0</span>
-    },
-    <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span>{
-        <span style="color:#a6e22e">add</span>(){
-            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">n</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-        }
-    }
-})
-</code></pre></div><p>这看上去就不是很友善了，那我们每次都要用这么麻烦的render吗？</p>
-<p>还好，vue提供了vue-loader，我们可以创建一个.vue文件，它的格式如下：</p>
+  },
+});
+</code></pre></div><p>这看上去就不是很友善了，那我们每次都要用这么麻烦的 render 吗？</p>
+<p>还好，vue 提供了 vue-loader，我们可以创建一个.vue 文件，它的格式如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">template</span><span style="color:#f92672">&gt;</span>
   <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span><span style="color:#f92672">&gt;</span>
     {{<span style="color:#a6e22e">n</span>}}
@@ -227,8 +227,8 @@
   <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">red</span>;
 }
 <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/style&gt;</span>
-</code></pre></div><p>然后在js文件中引入这个.vue文件</p>
-<p>vue-loader就会帮我们将这个.vue文件翻译成带有h函数的对象。我们只需要</p>
+</code></pre></div><p>然后在 js 文件中引入这个.vue 文件</p>
+<p>vue-loader 就会帮我们将这个.vue 文件翻译成带有 h 函数的对象。我们只需要</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">demo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./demo.vue&#39;</span>
 
 <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
@@ -237,28 +237,28 @@
         <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">demo</span>)
     }
 })
-</code></pre></div><h2 id="vue最佳使用姿势">Vue最佳使用姿势</h2>
-<p>使用非完整版，配合vue-loader和vue文件使用；</p>
-<p>保证用户体验，用户下载的js文件体积更小，但只支持h函数；</p>
-<p>保证开发体验，开发者可以直接在vue文件中写HTML标签，而不用写h函数；</p>
-<p>让vue-loader帮我们翻译vue文件，转化为h函数。</p>
+</code></pre></div><h2 id="vue-最佳使用姿势">Vue 最佳使用姿势</h2>
+<p>使用非完整版，配合 vue-loader 和 vue 文件使用；</p>
+<p>保证用户体验，用户下载的 js 文件体积更小，但只支持 h 函数；</p>
+<p>保证开发体验，开发者可以直接在 vue 文件中写 HTML 标签，而不用写 h 函数；</p>
+<p>让 vue-loader 帮我们翻译 vue 文件，转化为 h 函数。</p>
 <h2 id="如何引入">如何引入</h2>
 <ul>
 <li>
-<p><strong>cdn引入</strong></p>
+<p><strong>cdn 引入</strong></p>
 <p>推荐<a href="https://www.bootcdn.cn/">bootcdn</a>
-搜索关键词&quot;vue&rdquo;，复制链接到script标签的src即可。</p>
+搜索关键词&quot;vue&rdquo;，复制链接到 script 标签的 src 即可。</p>
 </li>
 <li>
-<p><strong>@vue/cli引入</strong></p>
-<p>安装 @vue/cli <code>yarn global add @vue/cli</code>  <br>
-创建项目 <code>vue create 项目路径</code> <br>
-<strong>注意默认引入的是非完整版</strong></p>
-<p><a href="https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create">步骤详情</a></p>
+<p><strong>@vue/cli 引入</strong>
+安装 @vue/cli <code>yarn global add @vue/cli</code><br>
+创建项目 <code>vue create 项目路径</code><br>
+<strong>注意默认引入的是非完整版</strong>
+<a href="https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create">步骤详情</a></p>
 </li>
 </ul>
 <h2 id="用-codesandboxio-快速创建-vue-项目">用 codesandbox.io 快速创建 vue 项目</h2>
-<p><a href="https://codesandbox.io/s/busy-hertz-vhg4k">Vue实例预览</a></p>
+<p><a href="https://codesandbox.io/s/busy-hertz-vhg4k">Vue 实例预览</a></p>
 <ul>
 <li>第一步</li>
 </ul>
@@ -267,14 +267,14 @@
 <ul>
 <li>第二步</li>
 </ul>
-<p>选择Vue
+<p>选择 Vue
 <img src="/images/Vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/%E7%AC%AC%E4%BA%8C%E6%AD%A5.png" alt="选择Vue"></p>
 <ul>
 <li>第三步</li>
 </ul>
 <p>开始编辑
 <img src="/images/Vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/%E7%AC%AC%E4%BA%8C%E6%AD%A5.png" alt="开始你的表演"></p>
-<p>你还可以导出为zip
+<p>你还可以导出为 zip
 <img src="/images/Vue%E5%AE%8C%E6%95%B4%E7%89%88%E5%92%8C%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88/%E7%AC%AC%E5%9B%9B%E6%AD%A5.png" alt="导出"></p>
 
     </div>

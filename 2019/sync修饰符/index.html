@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "如何理解Vue的.Sync修饰符",
     "headline" : "如何理解Vue的.Sync修饰符",
-    "description" : "有时候我们可能需要对一个prop进行双向绑定，但真正的双向绑定会带来维护上的问题。\n因为子组件可以修改父组件，且在子组件和父组件都没有明显的改动来源。\n因此Vue推荐以update:myPropName的模式触发事件取代双向绑定。\n具体做法就是：首先在子组件中用$emit传递参数。 \x26quot;update:title\x26quot;是事件名，newTitle是传递给父组件的参数。\/\/ 子组件 this.$emit(\x26#39;update:title\x26#39;,newTitle) 然后在父组件监听\x26quot;update:title\x26quot;事件，根据需要更新父组件上的数据属性。\n\/\/ 父组件 \x26lt;text-document v-bind:title=\x26#34;doc.title\x26#34; v-on:update:title=\x26#34;doc.title=$event\x26#34;\x26gt; \x26lt;\/text-document\x26gt; 上面的模式很常见，于是Vue给这种模式提供给了缩写，就是.sync修饰符。\n\/\/ 父组件 \x26lt;text-document :title.sync=\x26#34;doc.title\x26#34;\x26gt;\x26lt;\/text-document\x26gt; \/\/ 相当于 \/\/\x26lt;text-document \/\/ v-bind:title=\x26#34;doc.title\x26#34; \/\/ v-on:update:title=\x26#34;doc.title=$event\x26#34;\x26gt; \/\/\x26lt;\/text-document\x26gt; 当我们需要在子组件上修改props传递的数据时，不能直接修改，而是要通过.sync修饰符，通知父组件修改。\n案例 比如设想一个这样的场景：爸爸给儿子钱，儿子要花钱。\n父亲组件\n首先，爸爸要告诉儿子自己有多少钱（用v-bind:），同时爸爸要儿子在花完钱之后(v-on:\x26lsquo;儿子花钱事件\x26rsquo;)，把余额还给自己(用$event)\n\x26lt;template\x26gt; \x26lt;div class=\x26#34;father\x26#34;\x26gt; 我现在有 {{fatherMoney}} \x26lt;\/div\x26gt; \x26lt;hr \/\x26gt; \x26lt;Child :money=\x26#34;fatherMoney\x26#34; v-on:update:money=\x26#34;fatherMoney = $event\x26#34; \/\x26gt; \x26lt;\/template\x26gt; \x26lt;script\x26gt; import Child from \x26#34;.\/Child.vue\x26#34;; export default{ data(){ return {fatherMoney:10000}; }, components:{Child:Child} }; \x26lt;\/script\x26gt; \x26lt;style\x26gt; .father { border:3px solid red; padding:10px; } \x26lt;\/style\x26gt;  \x26lt;Child :money=\x26quot;fatherMoney\x26quot; v-on:update:money=\x26quot;fatherMoney = $event\x26quot; \/\x26gt;",
+    "description" : "有时候我们可能需要对一个 prop 进行双向绑定，但真正的双向绑定会带来维护上的问题。\n因为子组件可以修改父组件，且在子组件和父组件都没有明显的改动来源。\n因此 Vue 推荐以update:myPropName的模式触发事件取代双向绑定。\n具体做法就是：首先在子组件中用$emit 传递参数。\n\x26quot;update:title\x26quot;是事件名，newTitle 是传递给父组件的参数。\/\/ 子组件 this.$emit(\x26#39;update:title\x26#39;,newTitle) 然后在父组件监听\x26quot;update:title\x26quot;事件，根据需要更新父组件上的数据属性。\n\/\/ 父组件 \x26lt;text-document v-bind:title=\x26#34;doc.title\x26#34; v-on:update:title=\x26#34;doc.title=$event\x26#34;\x26gt; \x26lt;\/text-document\x26gt; 上面的模式很常见，于是 Vue 给这种模式提供给了缩写，就是.sync 修饰符。\n\/\/ 父组件 \x26lt;text-document :title.sync=\x26#34;doc.title\x26#34;\x26gt;\x26lt;\/text-document\x26gt; \/\/ 相当于 \/\/\x26lt;text-document \/\/ v-bind:title=\x26#34;doc.title\x26#34; \/\/ v-on:update:title=\x26#34;doc.title=$event\x26#34;\x26gt; \/\/\x26lt;\/text-document\x26gt; 当我们需要在子组件上修改 props 传递的数据时，不能直接修改，而是要通过.sync 修饰符，通知父组件修改。\n案例 比如设想一个这样的场景：爸爸给儿子钱，儿子要花钱。\n父亲组件\n首先，爸爸要告诉儿子自己有多少钱（用 v-bind:），同时爸爸要儿子在花完钱之后(v-on:\x26lsquo;儿子花钱事件\x26rsquo;)，把余额还给自己(用$event)\n\x26lt;template\x26gt; \x26lt;div class=\x26#34;father\x26#34;\x26gt; 我现在有 {{fatherMoney}} \x26lt;\/div\x26gt; \x26lt;hr \/\x26gt; \x26lt;Child :money=\x26#34;fatherMoney\x26#34; v-on:update:money=\x26#34;fatherMoney = $event\x26#34; \/\x26gt; \x26lt;\/template\x26gt; \x26lt;script\x26gt; import Child from \x26#34;.\/Child.vue\x26#34;; export default{ data(){ return {fatherMoney:10000}; }, components:{Child:Child} }; \x26lt;\/script\x26gt; \x26lt;style\x26gt; .",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-12-20 20:56:13 \x2b0800 CST",
     "dateModified" : "2019-12-20 20:56:13 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/sync%E4%BF%AE%E9%A5%B0%E7%AC%A6\/",
-    "wordCount" : "135",
+    "wordCount" : "177",
     "keywords" : [ "Vue", "呆尬猴的博客"]
 }
 </script>
@@ -146,20 +146,20 @@
           
           
 
-          <p>有时候我们可能需要对一个prop进行双向绑定，但真正的双向绑定会带来维护上的问题。</p>
+          <p>有时候我们可能需要对一个 prop 进行双向绑定，但真正的双向绑定会带来维护上的问题。</p>
 <p>因为子组件可以修改父组件，且在子组件和父组件都没有明显的改动来源。</p>
-<p>因此Vue推荐以<code>update:myPropName</code>的模式触发事件取代双向绑定。</p>
-<p>具体做法就是：首先在子组件中用$emit传递参数。 <br>
-<!-- raw HTML omitted -->&quot;update:title&quot;是事件名，newTitle是传递给父组件的参数。<!-- raw HTML omitted --></p>
+<p>因此 Vue 推荐以<code>update:myPropName</code>的模式触发事件取代双向绑定。</p>
+<p>具体做法就是：首先在子组件中用$emit 传递参数。</p>
+<p><!-- raw HTML omitted -->&quot;update:title&quot;是事件名，newTitle 是传递给父组件的参数。<!-- raw HTML omitted --></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// 子组件
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$emit</span>(<span style="color:#e6db74">&#39;update:title&#39;</span>,<span style="color:#a6e22e">newTitle</span>)
 </code></pre></div><p>然后在父组件监听&quot;update:title&quot;事件，根据需要更新父组件上的数据属性。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// 父组件
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 父组件
 </span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">text</span><span style="color:#f92672">-</span>document
     <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">:</span><span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doc.title&#34;</span>
     <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">on</span><span style="color:#f92672">:</span><span style="color:#a6e22e">update</span><span style="color:#f92672">:</span><span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doc.title=$event&#34;</span><span style="color:#f92672">&gt;</span>
 <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/text-document&gt;</span>
-</code></pre></div><p>上面的模式很常见，于是Vue给这种模式提供给了缩写，就是.sync修饰符。</p>
+</code></pre></div><p>上面的模式很常见，于是 Vue 给这种模式提供给了缩写，就是.sync 修饰符。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#75715e">// 父组件
 </span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">text</span><span style="color:#f92672">-</span>document <span style="color:#f92672">:</span><span style="color:#a6e22e">title</span>.<span style="color:#a6e22e">sync</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doc.title&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/text-document&gt;</span>
 
@@ -168,11 +168,11 @@
 </span><span style="color:#75715e">//    v-bind:title=&#34;doc.title&#34;
 </span><span style="color:#75715e">//    v-on:update:title=&#34;doc.title=$event&#34;&gt;
 </span><span style="color:#75715e">//&lt;/text-document&gt;
-</span></code></pre></div><p>当我们需要在子组件上修改props传递的数据时，不能直接修改，而是要通过.sync修饰符，通知父组件修改。</p>
+</span></code></pre></div><p>当我们需要在子组件上修改 props 传递的数据时，不能直接修改，而是要通过.sync 修饰符，通知父组件修改。</p>
 <h2 id="案例">案例</h2>
 <p>比如设想一个这样的场景：爸爸给儿子钱，儿子要花钱。</p>
 <p><strong>父亲组件</strong><br>
-首先，爸爸要告诉儿子自己有多少钱（用v-bind:），同时爸爸要儿子在花完钱之后(v-on:&lsquo;儿子花钱事件&rsquo;)，把余额还给自己(用$event)</p>
+首先，爸爸要告诉儿子自己有多少钱（用 v-bind:），同时爸爸要儿子在花完钱之后(v-on:&lsquo;儿子花钱事件&rsquo;)，把余额还给自己(用$event)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Vue" data-lang="Vue">&lt;<span style="color:#f92672">template</span>&gt;
     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;father&#34;</span>&gt;
         <span style="color:#a6e22e">我现在有</span> {{<span style="color:#a6e22e">fatherMoney</span>}}
@@ -197,12 +197,11 @@
     <span style="color:#a6e22e">padding</span><span style="color:#f92672">:</span><span style="color:#ae81ff">10</span><span style="color:#a6e22e">px</span>;
 }
 &lt;/<span style="color:#f92672">style</span>&gt;
-</code></pre></div><ul>
-<li><code>&lt;Child :money=&quot;fatherMoney&quot; v-on:update:money=&quot;fatherMoney = $event&quot; /&gt;</code><br>
-意思是，给Child组件传递一个money，这个money的值就是fatherMoney，然后我要监听Child组件的&rsquo;update:money'事件，如果事件触发，我就将Child传回来的<!-- raw HTML omitted -->值<!-- raw HTML omitted -->数用'$event'拿到，更新给我的fatherMoney。</li>
-</ul>
-<p><strong>儿子组件</strong>  <br>
-儿子要拿到爸爸的钱(用props)，并在花完钱之后还给爸爸(用$emit)</p>
+</code></pre></div><p><code>&lt;Child :money=&quot;fatherMoney&quot; v-on:update:money=&quot;fatherMoney = $event&quot; /&gt;</code></p>
+<p>意思是，给 Child 组件传递一个 money，这个 money 的值就是 fatherMoney.</p>
+<p>然后我要监听 Child 组件的&rsquo;update:money'事件，如果事件触发，我就将 Child 传回来的<!-- raw HTML omitted -->值<!-- raw HTML omitted -->数用&rsquo;$event'拿到，更新给我的 fatherMoney。</p>
+<p><strong>儿子组件</strong><br>
+儿子要拿到爸爸的钱(用 props)，并在花完钱之后还给爸爸(用$emit)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Vue" data-lang="Vue">&lt;<span style="color:#f92672">template</span>&gt;
     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;child&#34;</span>&gt;
         {{<span style="color:#a6e22e">money</span>}}
@@ -222,13 +221,11 @@
     <span style="color:#a6e22e">border</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3</span><span style="color:#a6e22e">px</span> <span style="color:#a6e22e">solid</span> <span style="color:#a6e22e">green</span>;
 }
 &lt;/<span style="color:#f92672">style</span>&gt;
-</code></pre></div><ul>
-<li><code> &lt;button @click=&quot;$emit('update:money',money-100&quot;&gt;</code><br>
-意思就是，儿子在花钱之后(点击花钱按钮)，会触发一个叫&quot;update:money&quot;的事件（告诉爸爸我花钱了），并且把余额还给爸爸（money-100）</li>
-</ul>
-<p>现在这个场景就实现了点击Child组件上的花钱按钮，然后father上面的钱就会同步减少，而Child也知道了father的钱减少。</p>
-<p><strong>简写爸爸组件</strong> <br>
-现在爸爸的代码的template部分可以用修饰符.sync简写:</p>
+</code></pre></div><p><code>&lt;button @click=&quot;$emit('update:money',money-100&quot;&gt;</code></p>
+<p>意思就是，儿子在花钱之后(点击花钱按钮)，会触发一个叫&quot;update:money&quot;的事件（告诉爸爸我花钱了），并且把余额还给爸爸（money-100）</p>
+<p>现在这个场景就实现了点击 Child 组件上的花钱按钮，然后 father 上面的钱就会同步减少，而 Child 也知道了 father 的钱减少。</p>
+<p><strong>简写爸爸组件</strong><br>
+现在爸爸的代码的 template 部分可以用修饰符.sync 简写:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Vue" data-lang="Vue">&lt;<span style="color:#f92672">template</span>&gt;
     &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;father&#34;</span>&gt;
         <span style="color:#a6e22e">我现在有</span> {{<span style="color:#a6e22e">fatherMoney</span>}}
@@ -240,11 +237,11 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Vue" data-lang="Vue">&lt;<span style="color:#f92672">Child</span> <span style="color:#f92672">:money.sync</span><span style="color:#e6db74">=&#34;fatherMoney&#34;</span> /&gt;
 <span style="color:#75715e">// 等于
 </span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">Child</span> <span style="color:#f92672">:money</span><span style="color:#e6db74">=&#34;fatherMoney&#34;</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-on</span><span style="color:#f92672">:</span><span style="color:#a6e22e">update</span><span style="color:#f92672">:</span><span style="color:#a6e22e">money</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fatherMoney = $event&#34;</span> /&gt;
-</code></pre></div><h2 id="其他vue的三条规则">其他：Vue的三条规则</h2>
+</code></pre></div><h2 id="其他vue-的三条规则">其他：Vue 的三条规则</h2>
 <ol>
-<li>组件不能修改props外部数据。</li>
-<li>$emit可以触发事件，并传参。</li>
-<li>$event可以获取$emit传递的参数。</li>
+<li>组件不能修改 props 外部数据。</li>
+<li>$emit 可以触发事件，并传参。</li>
+<li>$event可以获取$emit 传递的参数。</li>
 </ol>
 
     </div>

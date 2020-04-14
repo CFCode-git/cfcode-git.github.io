@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "DOM事件相关",
     "headline" : "DOM事件相关",
-    "description" : "什么是事件委托？ 事件委托的原理是事件冒泡。 js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。 捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。 目标阶段：在目标节点上触发。 冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）\n所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。 比如有这么个结构：div \x26gt; ul \x26gt; li \x26gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。\n举例说明：\n\x26lt;ul id = \x27list\x27\x26gt; \x26lt;li\x26gt;item 1\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 2\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 3\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 4\x26lt;\/li\x26gt; \x26lt;\/ul\x26gt; 实现一个功能：点击li，弹出\x26rsquo;1234\x26rsquo; 如果不用事件委托，我们需要把点击后弹出\x26rsquo;1234\x27这个事件委托给每一个li\nwindow.onload = () =\x26gt; { let ul1 = document.querySelector(\x27#list\x27) let lis = ul1.getElementsByTagName(\x27li\x27) for(let i=0; i\x26lt;lis.length; i\x2b\x2b){ lis[i].onclick = () =\x26gt; { alert(\x271234\x27) } } } 如果用事件委托，我们只需把事件委托给ul即可\nwindow.onload = () =\x26gt; { let ul1 = document.querySelector(\x27#list\x27) ul1.onclick = () =\x26gt; { alert(\x271234\x27) } } 当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。",
+    "description" : "什么是事件委托？\n事件委托的原理是事件冒泡。\njs 的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。\n捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。\n目标阶段：在目标节点上触发。\n冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）\n所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。\n比如有这么个结构：div \x26gt; ul \x26gt; li \x26gt; a，我们可以给 div 添加点击事件，那么当 div 中的 ul、li、a 做点击事件的时候，会冒泡到最外层的 div，触发 div 上的点击事件。\n举例说明：\n\x26lt;ul id=\x26#34;list\x26#34;\x26gt; \x26lt;li\x26gt;item 1\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 2\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 3\x26lt;\/li\x26gt; \x26lt;li\x26gt;item 4\x26lt;\/li\x26gt; \x26lt;\/ul\x26gt; 实现一个功能：点击 li，弹出\x26rsquo;1234\x26rsquo; 如果不用事件委托，我们需要把点击后弹出\x26rsquo;1234\x27这个事件委托给每一个 li\nwindow.onload = () =\x26gt; { let ul1 = document.querySelector(\x26#34;#list\x26#34;); let lis = ul1.getElementsByTagName(\x26#34;li\x26#34;); for (let i = 0; i \x26lt; lis.length; i\x2b\x2b) { lis[i].onclick = () =\x26gt; { alert(\x26#34;1234\x26#34;); }; } }; 如果用事件委托，我们只需把事件委托给 ul 即可",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-12-08 19:43:20 \x2b0800 CST",
     "dateModified" : "2019-12-08 19:43:20 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/dom%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3\/",
-    "wordCount" : "121",
+    "wordCount" : "159",
     "keywords" : [ "DOM", "呆尬猴的博客"]
 }
 </script>
@@ -146,62 +146,62 @@
           
           
 
-          <p>什么是事件委托？
-事件委托的原理是事件冒泡。
-js的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。
-捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。
-目标阶段：在目标节点上触发。
-冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）</p>
-<p>所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。
-比如有这么个结构：div &gt; ul &gt; li &gt; a，我们可以给div添加点击事件，那么当div中的ul、li、a做点击事件的时候，会冒泡到最外层的div，触发div上的点击事件。</p>
+          <p>什么是事件委托？</p>
+<p>事件委托的原理是事件冒泡。</p>
+<p>js 的事件流分为三个阶段：事件捕获、目标阶段、事件冒泡。</p>
+<p>捕获阶段：事件开始由不太具体的节点接收，然后逐级向下传播到最具体的节点。</p>
+<p>目标阶段：在目标节点上触发。</p>
+<p>冒泡阶段：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点（或文档）</p>
+<p>所谓事件委托就是把原本需要绑定在子元素的响应事件委托给它的父元素，让父元素承担监听事件的任务。</p>
+<p>比如有这么个结构：div &gt; ul &gt; li &gt; a，我们可以给 div 添加点击事件，那么当 div 中的 ul、li、a 做点击事件的时候，会冒泡到最外层的 div，触发 div 上的点击事件。</p>
 <p>举例说明：</p>
-<pre><code>&lt;ul id = 'list'&gt;
-    &lt;li&gt;item 1&lt;/li&gt;
-    &lt;li&gt;item 2&lt;/li&gt;
-    &lt;li&gt;item 3&lt;/li&gt;
-    &lt;li&gt;item 4&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><p>实现一个功能：点击li，弹出&rsquo;1234&rsquo;
-如果不用事件委托，我们需要把点击后弹出&rsquo;1234'这个事件委托给每一个li</p>
-<pre><code>window.onload = () =&gt; {
-    let ul1 = document.querySelector('#list')
-    let lis =  ul1.getElementsByTagName('li')
-    for(let i=0; i&lt;lis.length; i++){
-        lis[i].onclick = () =&gt; {
-            alert('1234')
-        }
-    }
-}
-</code></pre><p>如果用事件委托，我们只需把事件委托给ul即可</p>
-<pre><code>window.onload = () =&gt; {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;list&#34;</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;item 1&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;item 2&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;item 3&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;item 4&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>实现一个功能：点击 li，弹出&rsquo;1234&rsquo;
+如果不用事件委托，我们需要把点击后弹出&rsquo;1234'这个事件委托给每一个 li</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ul1</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#list&#34;</span>);
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">lis</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ul1</span>.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#34;li&#34;</span>);
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">lis</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#a6e22e">lis</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">onclick</span> <span style="color:#f92672">=</span> () =&gt; {
+      <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;1234&#34;</span>);
+    };
+  }
+};
+</code></pre></div><p>如果用事件委托，我们只需把事件委托给 ul 即可</p>
+<pre><code class="language-javasctipt" data-lang="javasctipt">window.onload = () =&gt; {
     let ul1 = document.querySelector('#list')
     ul1.onclick = () =&gt; {
         alert('1234')
     }
 }
-</code></pre><p>当li被点击时，由于事件冒泡原理，事件会传递给li的父元素ul，ul上挂着的事件就会触发。</p>
-<p>怎么阻止默认动作？
-用<code>e.preventDefault()</code>，兼容IE用<code>e.returnValue = false</code></p>
-<pre><code>function stopDefault(e){
-    let e = e || window.event;
-    if(e &amp;&amp; e.preventDefault){
-        e.preventDefault();
-    }else{
-        e.returnValue = false;
-    }
-    return false;
+</code></pre><p>当 li 被点击时，由于事件冒泡原理，事件会传递给 li 的父元素 ul，ul 上挂着的事件就会触发。</p>
+<p>怎么阻止默认动作？</p>
+<p>用<code>e.preventDefault()</code>，兼容 IE 用<code>e.returnValue = false</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">stopDefault</span>(<span style="color:#a6e22e">e</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">||</span> window.<span style="color:#a6e22e">event</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">e</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>) {
+    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>();
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">returnValue</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
 }
-</code></pre><p>怎么阻止事件冒泡？
-用<code>e.stopPropagation()</code>,兼容IE则需要使用<code>e.cancelBubble = true</code></p>
-<pre><code>function stopPropagation(e){
-    let e = e || window.event;
-    if(e &amp;&amp; e.stopPropagation){
-        e.stopPropagation();
-    }else{
-        e.cancelBubble = true;
-    }
+</code></pre></div><p>怎么阻止事件冒泡？</p>
+<p>用<code>e.stopPropagation()</code>,兼容 IE 则需要使用<code>e.cancelBubble = true</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">stopPropagation</span>(<span style="color:#a6e22e">e</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">||</span> window.<span style="color:#a6e22e">event</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">e</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">stopPropagation</span>) {
+    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">stopPropagation</span>();
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">cancelBubble</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+  }
 }
-</code></pre>
+</code></pre></div>
     </div>
 
     <div class="post-copyright">

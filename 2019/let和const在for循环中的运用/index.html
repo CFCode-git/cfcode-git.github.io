@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Let和const在for循环中的运用",
     "headline" : "Let和const在for循环中的运用",
-    "description" : "版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源\n参考资料来源：\n(let const缓存for循环的中间变量)[https:\/\/juejin.im\/post\/5c6bb8566fb9a049f154c363]\n(let 和 const 在for 循环中的使用)[https:\/\/www.cnblogs.com\/SamWeb\/p\/10659352.html]\n问题的根源起源于手写jQuery的过程中用到的代码：\nfind(selector) { let array = [] for (let i = 0; i \x26lt; elements.length; i\x2b\x2b) { const elements2 = Array.from(elements[i].querySelectorAll(selector)) array = array.concat(elements2) } array.oldApi = this return jQuery(array) } const关键字定义的变量不能被重新赋值，那它为什么可以出现在for循环中？\n let 当我们在for循环中使用let时，每一次的迭代都会重新声明一次变量。比如for(let i = 0; i \x26lt; 10; i\x2b\x2b)\ni变量被声明了10次，每一次赋的值为上一次迭代完成时的值，这样的话，循环体内获取到的i，每次也都是全新的变量i，而不是像使用var声明时得到的是全局变量，并且每一次迭代完成后，i变量就消失了。\n除了常规for循环，for-in和for-of同理。每一次迭代都是重新声明一个新的迭代对象，而不是给原来的迭代对象赋新值。\nlet arr = [1, 2, 3]; for (let key in arr) { console.log(key) } \/\/ 0 1 2  for(let key of arr){ console.",
+    "description" : "一些文章 let const 缓存 for 循环的中间变量\nlet 和 const 在 for 循环中的使用\n正文 问题的根源起源于手写 jQuery 的过程中用到的代码：\nfind(selector) { let array = [] for (let i = 0; i \x26lt; elements.length; i\x2b\x2b) { const elements2 = Array.from(elements[i].querySelectorAll(selector)) array = array.concat(elements2) } array.oldApi = this return jQuery(array) } const 关键字定义的变量不能被重新赋值，那它为什么可以出现在 for 循环中？\nlet 当我们在 for 循环中使用 let 时，每一次的迭代都会重新声明一次变量。比如for(let i = 0; i \x26lt; 10; i\x2b\x2b)\ni 变量被声明了 10 次，每一次赋的值为上一次迭代完成时的值，\n这样的话，循环体内获取到的 i，每次也都是全新的变量 i，而不是像使用 var 声明时得到的是全局变量，并且每一次迭代完成后，i 变量就消失了。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-27 06:12:07 \x2b0800 CST",
     "dateModified" : "2019-11-27 06:12:07 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/let%E5%92%8Cconst%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8\/",
-    "wordCount" : "123",
+    "wordCount" : "177",
     "keywords" : [ "", "呆尬猴的博客"]
 }
 </script>
@@ -146,11 +146,11 @@
           
           
 
-          <p><strong><em>版权声明：本文为周啟尧原创文章，著作权归本人所有，转载务必注明来源</em></strong></p>
-<p><strong><em>参考资料来源：</em></strong></p>
-<p>(let const缓存for循环的中间变量)[https://juejin.im/post/5c6bb8566fb9a049f154c363]</p>
-<p>(let 和 const 在for 循环中的使用)[https://www.cnblogs.com/SamWeb/p/10659352.html]</p>
-<p>问题的根源起源于手写jQuery的过程中用到的代码：</p>
+          <h2 id="一些文章">一些文章</h2>
+<p><a href="https://juejin.im/post/5c6bb8566fb9a049f154c363">let const 缓存 for 循环的中间变量</a></p>
+<p><a href="https://www.cnblogs.com/SamWeb/p/10659352.html">let 和 const 在 for 循环中的使用</a></p>
+<h2 id="正文">正文</h2>
+<p>问题的根源起源于手写 jQuery 的过程中用到的代码：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">selector</span>) {
         <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> []
         <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">elements</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
@@ -160,12 +160,13 @@
         <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">oldApi</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
         <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">jQuery</span>(<span style="color:#a6e22e">array</span>)
     }
-</code></pre></div><p>const关键字定义的变量不能被重新赋值，那它为什么可以出现在for循环中？</p>
-<hr>
-<h1 id="let">let</h1>
-<p>当我们在for循环中使用let时，每一次的迭代都会重新声明一次变量。比如<code>for(let i = 0; i &lt; 10; i++)</code></p>
-<p>i变量被声明了10次，<strong>每一次赋的值为上一次迭代完成时的值</strong>，这样的话，循环体内获取到的i，每次也都是全新的变量i，而不是像使用var声明时得到的是全局变量，并且每一次迭代完成后，i变量就消失了。</p>
-<p>除了常规for循环，for-in和for-of同理。每一次迭代都是重新声明一个新的迭代对象，而不是给原来的迭代对象赋新值。</p>
+</code></pre></div><p>const 关键字定义的变量不能被重新赋值，那它为什么可以出现在 for 循环中？</p>
+<h2 id="let">let</h2>
+<p>当我们在 for 循环中使用 let 时，每一次的迭代都会重新声明一次变量。比如<code>for(let i = 0; i &lt; 10; i++)</code></p>
+<p>i 变量被声明了 10 次，<strong>每一次赋的值为上一次迭代完成时的值</strong>，</p>
+<p>这样的话，循环体内获取到的 i，每次也都是全新的变量 i，而不是像使用 var 声明时得到的是全局变量，并且每一次迭代完成后，i 变量就消失了。</p>
+<p>除了常规 for 循环，for-in 和 for-of 同理。</p>
+<p>每一次迭代都是重新声明一个新的迭代对象，而不是给原来的迭代对象赋新值。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>];
 <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">arr</span>) {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>)
@@ -176,21 +177,21 @@
 } <span style="color:#75715e">// 1 2 3
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// for in 遍历数组的索引（键名）；for of 遍历数组元素值
-</span></code></pre></div><p>for of 与for in 的区别</p>
+</span></code></pre></div><p>for of 与 for in 的区别</p>
 <h1 id="const">const</h1>
-<p>如果把上述代码中的let改成const，即：</p>
+<p>如果把上述代码中的 let 改成 const，即：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>)
 
 <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">arr</span>)
 
 <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">arr</span>)
-</code></pre></div><p>可以发现，第一种常规for循环报错，而其他两种正常进行。</p>
+</code></pre></div><p>可以发现，第一种常规 for 循环报错，而其他两种正常进行。</p>
 <p>为什么？</p>
-<p>看常规for循环的第一次迭代，const声明了一个变量i,在第一次迭代的最后尝试进行i++，因此报错。</p>
-<p>而for-of和for-in没有问题，同let一样，每一次迭代都会声明一个全新的key，所有的赋值都是对一个全新的key <strong>(变量)</strong> 赋值，因此不会报错。</p>
-<p>那么回答第一个问题，为什么for循环中可以用</p>
-<p><code> const elements2 = Array.from(elements[i].querySelectorAll(selector))</code></p>
-<p>因为每一次循环都是重新声明一个elements2变量对他进行赋值，const elements2 的作用域在for循环内，只要在<strong>for循环内不进行二次赋值</strong>，那就是可以的。</p>
+<p>看常规 for 循环的第一次迭代，const 声明了一个变量 i,在第一次迭代的最后尝试进行 i++，因此报错。</p>
+<p>而 for-of 和 for-in 没有问题，同 let 一样，每一次迭代都会声明一个全新的 key，所有的赋值都是对一个全新的 key <strong>(变量)</strong> 赋值，因此不会报错。</p>
+<p>那么回答第一个问题，为什么 for 循环中可以用</p>
+<p><code>const elements2 = Array.from(elements[i].querySelectorAll(selector))</code></p>
+<p>因为每一次循环都是重新声明一个 elements2 变量对他进行赋值，const elements2 的作用域在 for 循环内，只要在<strong>for 循环内不进行二次赋值</strong>，那就是可以的。</p>
 
     </div>
 

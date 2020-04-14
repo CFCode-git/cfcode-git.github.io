@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "MVC:拒绝面条式代码",
     "headline" : "MVC:拒绝面条式代码",
-    "description" : "设计模式概述 设计模式是我们在进行程序设计的过程中，对普遍存在的问题（或反复出现的情况）提出的一种统一的解决方案。 比如适配器模式、Promise、重载、别名、getter\/setter、观察者模式等。\n代码模块化 如果代码中存在一些可以具体实现某些功能的代码块，而这些代码块的功能在其他的地方也可以适用。那么我们可以将这部分代码可以封装成一个函数、一个类，这就是代码的模块化；\n根据操作对象的不同，比如将专门操作DOM对象的代码放在一类，将专门负责页面渲染更新的代码当在一类，这也是代码的模块化。\n就是说，总是会有\x26quot;万金油\x26quot;的代码，是所有项目或块的通用代码，我们将这些具有相同\x26quot;目的\x26quot;的代码整合成一个模块，就可以使代码的整体结构更加清晰；模块之间虽然有联系，但每个模块只需关注自身的执行情况以及传进来的参数即可，不会牵一发而动全身，这也是一种解耦的思想。\nMVC 设计模式 MVC 是设计模式的一种，是我们优化代码结构的一种方案。同时，他也是代码模块化的一种体现。\n它不直接指导具体代码的实现，而是从全局的、宏观的角度，指导各个部分的代码应该怎么“摆”，从而使代码整体结构更加规律、直观。 当需求越是复杂，要实现的功能越复杂的时候，MVC 所带来的好处就越明显。\nMVC 把代码的结构分成三个部分：Model-数据、View-视图、Control-控制器。\nModel 数据 Model 负责代码中的所有与数据相关的部分，比如数据的更新、数据的读取、数据的存储等。 它不依赖于 View 和 Control，也就是说，它并不关心数据会被如何显示，或是被如何处理，它只需要管理好它的数据即可。 以下面的 Model 举例:\nclass Model{ constructor(options){ \/\/ 接受数据  const keys = [\x26#39;data\x26#39;,\x26#39;update\x26#39;,\x26#39;create\x26#39;,\x26#39;delete\x26#39;,\x26#39;get\x26#39;] keys.forEach((key)=\x26gt;{ if(key in options){ this[key]=options[key] } }) } \/\/ 各种数据相关的方法  create(){} delete(){} update(){} get(){} } View 视图 View 负责处理用户界面相关的代码，比如页面的重新渲染。 同样，View 并不关心它渲染的内容，它只要做好它的工作就可以了。 以下面的 代码 举例:\nconst view = { init(){} \/\/ 页面初始化  template:`\x26lt;section\x26gt;\x26lt;p\x26gt;hello\x26lt;\/p\x26gt;\x26lt;\/section\x26gt;` \/\/ 页面要渲染的内容  render(){} \/\/ 渲染函数 } Controller 控制器 Controller负责统筹整个程序的运作，类似中央处理器。 比如对Model的数据进行处理，将处理后的数据通知给 View 更新；处理 View 传达的事件，更新数据后传达给 Model。 以下面的 Controller 举例:",
+    "description" : "设计模式概述 设计模式是我们在进行程序设计的过程中，对普遍存在的问题（或反复出现的情况）提出的一种统一的解决方案。\n比如适配器模式、Promise、重载、别名、getter\/setter、观察者模式等。\n代码模块化 如果代码中存在一些可以具体实现某些功能的代码块，而这些代码块的功能在其他的地方也可以适用。\n那么我们可以将这部分代码可以封装成一个函数、一个类，这就是代码的模块化；\n根据操作对象的不同，比如将专门操作 DOM 对象的代码放在一类，将专门负责页面渲染更新的代码当在一类，这也是代码的模块化。\n就是说，总是会有\x26quot;万金油\x26quot;的代码，是所有项目或块的通用代码，我们将这些具有相同\x26quot;目的\x26quot;的代码整合成一个模块，就可以使代码的整体结构更加清晰\n模块之间虽然有联系，但每个模块只需关注自身的执行情况以及传进来的参数即可，不会牵一发而动全身，这也是一种解耦的思想。\nMVC 设计模式 MVC 是设计模式的一种，是我们优化代码结构的一种方案。同时，他也是代码模块化的一种体现。\n它不直接指导具体代码的实现，而是从全局的、宏观的角度，指导各个部分的代码应该怎么“摆”，从而使代码整体结构更加规律、直观。\n当需求越是复杂，要实现的功能越复杂的时候，MVC 所带来的好处就越明显。\nMVC 把代码的结构分成三个部分：Model-数据、View-视图、Control-控制器。\nModel 数据 Model 负责代码中的所有与数据相关的部分，比如数据的更新、数据的读取、数据的存储等。\n它不依赖于 View 和 Control，也就是说，它并不关心数据会被如何显示，或是被如何处理，它只需要管理好它的数据即可。\n以下面的 Model 举例:\nclass Model { constructor(options) { \/\/ 接受数据  const keys = [\x26#34;data\x26#34;, \x26#34;update\x26#34;, \x26#34;create\x26#34;, \x26#34;delete\x26#34;, \x26#34;get\x26#34;]; keys.forEach((key) =\x26gt; { if (key in options) { this[key] = options[key]; } }); } \/\/ 各种数据相关的方法  create() {} delete() {} update() {} get() {} } View 视图 View 负责处理用户界面相关的代码，比如页面的重新渲染。",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2019-12-14 19:08:42 \x2b0800 CST",
     "dateModified" : "2019-12-14 19:08:42 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2019\/mvc\/",
-    "wordCount" : "342",
+    "wordCount" : "409",
     "keywords" : [ "MVC", "呆尬猴的博客"]
 }
 </script>
@@ -147,64 +147,68 @@
           
 
           <h1 id="设计模式概述">设计模式概述</h1>
-<p>设计模式是我们在进行程序设计的过程中，对普遍存在的问题（或反复出现的情况）提出的一种统一的解决方案。
-比如适配器模式、Promise、重载、别名、getter/setter、观察者模式等。</p>
+<p>设计模式是我们在进行程序设计的过程中，对普遍存在的问题（或反复出现的情况）提出的一种统一的解决方案。</p>
+<p>比如适配器模式、Promise、重载、别名、getter/setter、观察者模式等。</p>
 <h1 id="代码模块化">代码模块化</h1>
-<p>如果代码中存在一些可以具体实现某些功能的代码块，而这些代码块的功能在其他的地方也可以适用。那么我们可以将这部分代码可以封装成一个函数、一个类，这就是代码的模块化；</p>
-<p>根据操作对象的不同，比如将专门操作DOM对象的代码放在一类，将专门负责页面渲染更新的代码当在一类，这也是代码的模块化。</p>
-<p><strong>就是说，总是会有&quot;万金油&quot;的代码，是所有项目或块的通用代码，我们将这些具有相同&quot;目的&quot;的代码整合成一个模块，就可以使代码的整体结构更加清晰；模块之间虽然有联系，但每个模块只需关注自身的执行情况以及传进来的参数即可，不会牵一发而动全身，这也是一种解耦的思想。</strong></p>
+<p>如果代码中存在一些可以具体实现某些功能的代码块，而这些代码块的功能在其他的地方也可以适用。</p>
+<p>那么我们可以将这部分代码可以封装成一个函数、一个类，这就是代码的模块化；</p>
+<p>根据操作对象的不同，比如将专门操作 DOM 对象的代码放在一类，将专门负责页面渲染更新的代码当在一类，这也是代码的模块化。</p>
+<p><strong>就是说，总是会有&quot;万金油&quot;的代码，是所有项目或块的通用代码，我们将这些具有相同&quot;目的&quot;的代码整合成一个模块，就可以使代码的整体结构更加清晰</strong></p>
+<p><strong>模块之间虽然有联系，但每个模块只需关注自身的执行情况以及传进来的参数即可，不会牵一发而动全身，这也是一种解耦的思想。</strong></p>
 <h1 id="mvc-设计模式">MVC 设计模式</h1>
 <p>MVC 是设计模式的一种，是我们优化代码结构的一种方案。同时，他也是代码模块化的一种体现。</p>
-<p>它不直接指导具体代码的实现，而是从全局的、宏观的角度，指导各个部分的代码应该怎么“摆”，从而使代码整体结构更加规律、直观。
-当需求越是复杂，要实现的功能越复杂的时候，MVC 所带来的好处就越明显。</p>
+<p>它不直接指导具体代码的实现，而是从全局的、宏观的角度，指导各个部分的代码应该怎么“摆”，从而使代码整体结构更加规律、直观。</p>
+<p>当需求越是复杂，要实现的功能越复杂的时候，MVC 所带来的好处就越明显。</p>
 <p>MVC 把代码的结构分成三个部分：Model-数据、View-视图、Control-控制器。</p>
 <h2 id="model-数据">Model 数据</h2>
-<p>Model 负责代码中的所有与数据相关的部分，比如数据的更新、数据的读取、数据的存储等。
-它不依赖于 View 和 Control，也就是说，它并不关心数据会被如何显示，或是被如何处理，它只需要管理好它的数据即可。
-以下面的 Model 举例:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Model</span>{
-    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">options</span>){ <span style="color:#75715e">// 接受数据
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;data&#39;</span>,<span style="color:#e6db74">&#39;update&#39;</span>,<span style="color:#e6db74">&#39;create&#39;</span>,<span style="color:#e6db74">&#39;delete&#39;</span>,<span style="color:#e6db74">&#39;get&#39;</span>]
-        <span style="color:#a6e22e">keys</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">key</span>)=&gt;{
-            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">options</span>){
-                <span style="color:#66d9ef">this</span>[<span style="color:#a6e22e">key</span>]<span style="color:#f92672">=</span><span style="color:#a6e22e">options</span>[<span style="color:#a6e22e">key</span>]
-            }
-        })
-    }
-    <span style="color:#75715e">// 各种数据相关的方法
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">create</span>(){}
-    <span style="color:#66d9ef">delete</span>(){}
-    <span style="color:#a6e22e">update</span>(){}
-    <span style="color:#a6e22e">get</span>(){}
+<p>Model 负责代码中的所有与数据相关的部分，比如数据的更新、数据的读取、数据的存储等。</p>
+<p>它不依赖于 View 和 Control，也就是说，它并不关心数据会被如何显示，或是被如何处理，它只需要管理好它的数据即可。</p>
+<p>以下面的 Model 举例:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Model</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">options</span>) {
+    <span style="color:#75715e">// 接受数据
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;data&#34;</span>, <span style="color:#e6db74">&#34;update&#34;</span>, <span style="color:#e6db74">&#34;create&#34;</span>, <span style="color:#e6db74">&#34;delete&#34;</span>, <span style="color:#e6db74">&#34;get&#34;</span>];
+    <span style="color:#a6e22e">keys</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">key</span>) =&gt; {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">options</span>) {
+        <span style="color:#66d9ef">this</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>[<span style="color:#a6e22e">key</span>];
+      }
+    });
+  }
+  <span style="color:#75715e">// 各种数据相关的方法
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">create</span>() {}
+  <span style="color:#66d9ef">delete</span>() {}
+  <span style="color:#a6e22e">update</span>() {}
+  <span style="color:#a6e22e">get</span>() {}
 }
 </code></pre></div><h2 id="view-视图">View 视图</h2>
-<p>View 负责处理用户界面相关的代码，比如页面的重新渲染。
-同样，View 并不关心它渲染的内容，它只要做好它的工作就可以了。
-以下面的 代码 举例:</p>
+<p>View 负责处理用户界面相关的代码，比如页面的重新渲染。</p>
+<p>同样，View 并不关心它渲染的内容，它只要做好它的工作就可以了。</p>
+<p>以下面的 代码 举例:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">init</span>(){} <span style="color:#75715e">// 页面初始化
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span><span style="color:#e6db74">`&lt;section&gt;&lt;p&gt;hello&lt;/p&gt;&lt;/section&gt;`</span> <span style="color:#75715e">// 页面要渲染的内容
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">render</span>(){} <span style="color:#75715e">// 渲染函数
 </span><span style="color:#75715e"></span>}
 </code></pre></div><h2 id="controller-控制器">Controller 控制器</h2>
-<p>Controller负责统筹整个程序的运作，类似中央处理器。
-比如对Model的数据进行处理，将处理后的数据通知给 View 更新；处理 View 传达的事件，更新数据后传达给 Model。
-以下面的 Controller 举例:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Controller</span>{
-    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">options</span>) {
-        Object.<span style="color:#a6e22e">assign</span>(<span style="color:#66d9ef">this</span>,<span style="color:#a6e22e">options</span>)
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">el</span>)
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">autoBindEvents</span>()  
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;m:updated&#39;</span>, () =&gt; {}) <span style="color:#75715e">// 监听model中数据的变化，对页面进行重新渲染
-</span><span style="color:#75715e"></span>    }
-    <span style="color:#a6e22e">autoBindEvents</span>() {} <span style="color:#75715e">// 自动绑定事件函数
+<p>Controller 负责统筹整个程序的运作，类似中央处理器。</p>
+<p>比如对 Model 的数据进行处理，将处理后的数据通知给 View 更新；处理 View 传达的事件，更新数据后传达给 Model。</p>
+<p>以下面的 Controller 举例:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Controller</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">options</span>) {
+    Object.<span style="color:#a6e22e">assign</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">options</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">el</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">autoBindEvents</span>();
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;m:updated&#34;</span>, () =&gt; {}); <span style="color:#75715e">// 监听model中数据的变化，对页面进行重新渲染
+</span><span style="color:#75715e"></span>  }
+  <span style="color:#a6e22e">autoBindEvents</span>() {} <span style="color:#75715e">// 自动绑定事件函数
 </span><span style="color:#75715e"></span>}
 </code></pre></div><p>通过 MVC 模式，可以将庞大的代码一个个分块，实现了一种动态的程序设计，使得后续对程序的修改和扩展简化。</p>
 <p>什么是动态的程序设计呢？</p>
-<p>比方说我们在一个只有加减乘除的页面计算器中增加一个求余的功能，我们只需要在 Controller 里面更改即可，因为我们根本不要需要知道数据是怎么得到的以及数据是怎么渲染到页面上，这些都会由 Model 和 View 处理。</p>
+<p>比方说我们在一个只有加减乘除的页面计算器中增加一个求余的功能，我们只需要在 Controller 里面更改即可.</p>
+<p>因为我们根本不要需要知道数据是怎么得到的以及数据是怎么渲染到页面上，这些都会由 Model 和 View 处理。</p>
 <h1 id="表驱动编程">表驱动编程</h1>
-<p>表驱动编程是可以对代码进行简化的一种编程模式。数据量少的时候我们可以采用逻辑语句，而数据量大的时候表驱动编程的优势就显现出来了。
-遍历表中的元素，找到相对应的值提取出来，再插入到代码语句中使用即可。比如下面的自动绑定事件函数：</p>
+<p>表驱动编程是可以对代码进行简化的一种编程模式。数据量少的时候我们可以采用逻辑语句，而数据量大的时候表驱动编程的优势就显现出来了。</p>
+<p>遍历表中的元素，找到相对应的值提取出来，再插入到代码语句中使用即可。比如下面的自动绑定事件函数：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript">  <span style="color:#a6e22e">bindEvents</span>() {
     <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#e6db74">&#39;#add1&#39;</span>, () =&gt; {
         <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">n</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
@@ -280,19 +284,19 @@
 }
 </code></pre></div><p>总而言之，当面对结构类似的代码，我们只写一遍，抽离其中的精髓，放到一个表中，然后再遍历这个表，将表中的关键词再插入到代码中。</p>
 <h1 id="eventbus">EventBus</h1>
-<p>EventBus也是一种设计模式，主要用于对象/组件之间的通信，我们以MVC模式举例。</p>
-<p>比如当我们点击button时，页面中的数字+1。这样的功能在MVC模式中要如何实现呢？</p>
-<p>我们需要实现m模块与v模块之间的通信，有两种方法可以实现：</p>
+<p>EventBus 也是一种设计模式，主要用于对象/组件之间的通信，我们以 MVC 模式举例。</p>
+<p>比如当我们点击 button 时，页面中的数字+1。这样的功能在 MVC 模式中要如何实现呢？</p>
+<p>我们需要实现 m 模块与 v 模块之间的通信，有两种方法可以实现：</p>
 <ol>
-<li>使用vue2的api: Object.defineProperty</li>
-<li>使用eventBus。</li>
+<li>使用 vue2 的 api: Object.defineProperty</li>
+<li>使用 eventBus。</li>
 </ol>
-<p>下面简单阐述一下eventBus的使用。 <br>
-我们可以通过jquery模拟一个EventBus。</p>
+<p>下面简单阐述一下 eventBus 的使用。</p>
+<p>我们可以通过 jquery 模拟一个 EventBus。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">$</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;jquery&#39;</span>
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eventBus</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(window)
-</code></pre></div><p>这里创建的eventBus包含了on方法用于监听事件，trigger方法用于触发事件。</p>
+</code></pre></div><p>这里创建的 eventBus 包含了 on 方法用于监听事件，trigger 方法用于触发事件。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Model</span>({
         <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
             <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> parseInt(<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#34;n&#34;</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">100</span>)
@@ -316,12 +320,12 @@
     .....
     .....
 }
-</code></pre></div><p>当Model中的数据发生变化，通过eventBus.trigger()触发一个&quot;已更新&quot;事件，然后用eventBus.on()监听这个事件，当&quot;已更新&quot;事件触发，重新渲染页面这样就实现了模块间的通信。</p>
+</code></pre></div><p>当 Model 中的数据发生变化，通过 eventBus.trigger()触发一个&quot;已更新&quot;事件，然后用 eventBus.on()监听这个事件，当&quot;已更新&quot;事件触发，重新渲染页面这样就实现了模块间的通信。</p>
 <h3 id="eventbus-的-api">eventBus 的 API</h3>
-<p>除了on方法、trigger()方法，eventBus还有click()、off()、pretend()等API。我们用on监听事件，用trigger触发事件。</p>
+<p>除了 on 方法、trigger()方法，eventBus 还有 click()、off()、pretend()等 API。我们用 on 监听事件，用 trigger 触发事件。</p>
 <h3 id="写在最后">写在最后</h3>
-<p>本文希望用通俗易懂的方式阐述模块化、MVC、eventBus和表驱动编程等的一些方法和概念。   <br>
-初步接触MVC思想可能存在误解，如果文章中有阐述不合理的地方，欢迎批评指正。</p>
+<p>本文希望用通俗易懂的方式阐述模块化、MVC、eventBus 和表驱动编程等的一些方法和概念。<br>
+初步接触 MVC 思想可能存在误解，如果文章中有阐述不合理的地方，欢迎批评指正。</p>
 
     </div>
 

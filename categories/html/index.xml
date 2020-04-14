@@ -17,22 +17,20 @@
       <pubDate>Sun, 03 Nov 2019 13:42:58 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2019/html%E5%AE%9E%E8%B7%B5/</guid>
-      <description>选题 &amp;ndash;我最喜欢的动漫《某科学的超电磁炮》 以动漫《某科学的超电磁炮》为主题制作一个简易介绍网页，html裸奔。
+      <description>选题 &amp;ndash;我最喜欢的动漫《某科学的超电磁炮》 以动漫《某科学的超电磁炮》为主题制作一个简易介绍网页，html 裸奔。
 收集内容 资料来源：
 维基百科
 萌娘百科
 ToC &amp;ndash;Table of Content 为网页添加页内导航（锚点）
-实现手段：为每一个标题添加id，通过a标签的href指向这个id。
-&amp;lt;nav&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href =&amp;#34;#introduce&amp;#34;&amp;gt;作品介绍&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;h2 id =&amp;#34;introduce&amp;#34;&amp;gt;作品介绍&amp;lt;/h2&amp;gt; 添加外部资源 添加图片，注意：
+实现手段：为每一个标题添加 id，通过 a 标签的 href 指向这个 id。
+&amp;lt;nav&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;#introduce&amp;#34;&amp;gt;作品介绍&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/nav&amp;gt; &amp;lt;h2 id=&amp;#34;introduce&amp;#34;&amp;gt;作品介绍&amp;lt;/h2&amp;gt; 添加外部资源 添加图片，注意：
   设置图片大小统一，不要让图片变形
-width/height二选一设置相同的值。
+width/height 二选一设置相同的值。
   图片比例不对的要进行裁剪
-  图片体积过大要进行压缩，一般不超过300kb
+  图片体积过大要进行压缩，一般不超过 300kb
   添加图片预览
-通过a标签超链接到原图，target设置为&amp;rdquo;_blank&amp;rdquo;。
-  兼容手机  meta:vp  &amp;lt;!--meta:vp--&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&amp;#34;&amp;gt;  设置图片最大宽度为100%  img { max-width:100%; } 手机调试   通过chrome控制台
-  wifi调试
-  让手机和电脑处于同一wifi，手机直接用ip和端口访问页面。 注：</description>
+通过 a 标签超链接到原图，target 设置为&amp;rdquo;_blank&amp;rdquo;。
+  兼容手机  meta:vp  &amp;lt;!--meta:vp--&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&amp;#34; /&amp;gt;  设置图片最大宽度为 100%  img { max-width: 100%; } 手机调试   通过 chrome 控制台</description>
     </item>
     
     <item>

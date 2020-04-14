@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>跨域 on 呆尬猴的博客</title>
+    <link>https://chow1027.xyz/tags/%E8%B7%A8%E5%9F%9F/</link>
+    <description>Recent content in 跨域 on 呆尬猴的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 14 Apr 2020 17:33:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://chow1027.xyz/tags/%E8%B7%A8%E5%9F%9F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于跨域的两种解决方案</title>
+      <link>https://chow1027.xyz/2020/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Tue, 14 Apr 2020 17:33:54 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>浏览器为了保护用户隐私，设计了同源策略。即：不同源的页面之间不能互相访问数据。
+什么是同源？即相同的协议、域名和端口号。
+有时候我们需要获取别的网站的数据，这时候就需要用到跨域。这里主要说两种解决方案。
+一、CORS 跨域资源共享 如果浏览器支持 CORS 就很简单。只需要后台在响应头里面设置一下即可：
+response.setHeader(&amp;#34;Access-Control-Allow-Orogin&amp;#34;, &amp;#34;http:example.com:9999&amp;#34;); 不过 CORS 并不支持 IE6 7 8 9。。
+如果需要兼容 IE，我们可以用 JSONP。
+二、JSONP 虽说数据不能跨域，但 JS 文件是没有同源的限制的。我们大可把数据放到 JS 文件中。
+具体怎么做呢？
+首先，提供数据的一方需要做的是：
+  将数据写到 JS 文件里。比如【data.js】
+// 可以是赋值，也可以是函数  window[&amp;#39;{{xxx}}&amp;#39;]({{data}})   在收到这个 data.js 的请求的时候，获取 data.json 的数据，替换{{data}}；
+  用 query 获取请求的参数【一般放在 callback 里面，是回调函数名。】用来替换{{xxx}}。
+  然后将替换后的结果返回出去即可。
+  else if(path=&amp;#34;/data.js&amp;#34;){ response.statusCode = 200; response.setHeader(&amp;#39;Content-Type&amp;#39;,&amp;#39;text/javascript;charset=utf-8&amp;#39;) const string = fs.readFileSync(&amp;#39;./public/friends.js&amp;#39;).toString() const data = fs.readFileSync(&amp;#39;./public/friends.json&amp;#39;).toString() /* 真正的数据 */ const string2 = string.</description>
+    </item>
+    
+  </channel>
+</rss>
