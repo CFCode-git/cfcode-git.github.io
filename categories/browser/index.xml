@@ -6,10 +6,37 @@
     <description>Recent content in Browser on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 Dec 2019 23:48:07 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2020 22:02:00 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/categories/browser/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP缓存</title>
+      <link>https://chow1027.xyz/2020/http%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Thu, 16 Apr 2020 22:02:00 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/http%E7%BC%93%E5%AD%98/</guid>
+      <description>HTTP 缓存首部字段  Cache-Control Pragma If-Match If-None-Match If-Modified-Since If-Unmodified-Since Etag Expires Last-Modified  1. Pragma 通用首部字段，可以在请求报文和响应报文中使用。
+当该字段为 no-cache 时，表示不要对该资源读取缓存，每次都要向服务器发送请求。
+2. Expires 定义缓存过期的时间，由于是相对于服务器的时间而言，因此如果客户端的时间发生错乱就会出现问题（比如用户更改了系统时间）
+3. Cache-Control 控制缓存行为。
+与 Expires 不同，Cache-Control 定义的是过期时长，比如 max-age=3600 表示一小时后过期。
+Cache-Control 具有多个选项，同时也是一个通用首部字段，可以在请求报文和响应报文中使用。
+当作为请求首部时： no-cache 不直接使用缓存，向原服务器发起请求
+no-store 所有内容都不会保存到缓存或 Internet 临时文件中
+max-age 告知服务器客户端希望接受一个有效时间为 max-age 的资源
+max-stale 告知服务器客户端愿意接受一个超过缓存时间为 max-scale 的资源
+min-fresh 告知服务器表示客户端希望接受一个在 min-fresh 秒内被更新过的资源。
+no-transform 表示客户端希望获取实体数据没有被转换（压缩）过的资源
+only-if-cached 表示客户端希望获取缓存的内容而不用请求原服务器
+当作为响应首部时： public 表示任何情况下都要缓存该资源
+Private 表明返回报文中的部分或全部仅开放给某些用户做缓存使用，其他用户不能缓存这些数据
+no-cache 不直接使用缓存，要求向服务器发起新鲜度校验请求
+no-store 所有内容都不会保存到缓存或 Internet 临时文件中
+only-if-cached 表示客户端希望获取缓存的内容而不用请求原服务器
+must-revalidate 表示当前资源一定是向原服务器发去验证请求的，如果请求失败会返回 504</description>
+    </item>
     
     <item>
       <title>常用http状态码</title>
