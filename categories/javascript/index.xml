@@ -6,10 +6,21 @@
     <description>Recent content in JavaScript on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 14 Apr 2020 17:33:54 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2020 10:04:56 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数组扁平化的方法</title>
+      <link>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 16 Apr 2020 10:04:56 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>数组扁平化 将数组[1,[2,3,[4,[5]]]]变成[1,2,3,4,5]就是数组扁平化。
+方法一 es6 的新 api flat(depth) depth 默认是 1。
+let a = [1, [2, 3, [4, [5]]]]; a.flat(); // [1, 2, 3, Array(2)] a.flat(4 - 1); // [1, 2, 3, 4, 5] 方法二 for 循环+concat let a = [1, [2, 3, [4, [5]]]]; function flatten(array) { let result = []; for (let i = 0; i &amp;lt; array.length; i++) { if (Array.isArray(array[i])) { result = result.concat(flatten(array[i])); } else { result.</description>
+    </item>
     
     <item>
       <title>关于跨域的两种解决方案</title>
