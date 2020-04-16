@@ -201,6 +201,22 @@ DOM 二级事件 DOM 二级事件规定：事件流分为三个阶段：事件�
     </item>
     
     <item>
+      <title>Promise</title>
+      <link>https://chow1027.xyz/2019/promise/</link>
+      <pubDate>Sun, 08 Dec 2019 12:26:39 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2019/promise/</guid>
+      <description>Promise Promise 是目前前端异步编程的一个解决方案。
+它解决了回调地狱的问题，规范了回调的名字和顺序，同时也方便了捕获错误。
+一个 Promise 有三种状态：
+pending：表示初始状态，既没有成功，也没有失败
+fulfilled 表示操作成功完成
+rejected 表示操作失败。
+创建一个 Promise // 直接用Promise构造函数创建一个Promise对象 let promiseFn = new Promise((resolve,reject)=&amp;gt;{}) // 也可以在回调的异步函数的第一行加上下面这句代码 function promiseFn(){ return new Promise((resolve,reject)=&amp;gt;{...}) } Promise.then() Promise.then()接受两个回调函数，第一个为成功回调，第二个为失败回调。
+var p1 = new Promise((resolve, reject) =&amp;gt; { resolve(&amp;#34;成功！&amp;#34;); // or  // reject(new Error(&amp;#34;出错了！&amp;#34;)); }); p1.then( (value) =&amp;gt; { console.log(value); // 成功！  }, (reason) =&amp;gt; { console.error(reason); // 出错了！  } ); Promise.all() 接受多个 Promise 组成的可迭代对象，比如数组。返回结果是一个新的 Promise 对象。</description>
+    </item>
+    
+    <item>
       <title>常用http状态码</title>
       <link>https://chow1027.xyz/2019/%E5%B8%B8%E7%94%A8http%E7%8A%B6%E6%80%81%E7%A0%81/</link>
       <pubDate>Thu, 05 Dec 2019 23:48:07 +0800</pubDate>
