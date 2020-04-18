@@ -95,14 +95,25 @@ function father() { let a = 100; function children() { console.log(a); } return 
     </item>
     
     <item>
+      <title>四种排序算法</title>
+      <link>https://chow1027.xyz/2020/%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Wed, 26 Feb 2020 15:14:02 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E6%8E%92%E5%BA%8F/</guid>
+      <description>给出正整数数组 array = [2,1,5,3,8,4,9,5] 请写出一个函数 sort，使得 sort(array) 得到从小到大排好序的数组 [1,2,3,4,5,5,8,9] 新的数组可以是在 array 自身上改的，也可以是完全新开辟的内存。
+不得使用 JS 内置的 sort API
+快速排序 let quicksort = (numbers) =&amp;gt; { if (numbers.length &amp;lt; 2) { return numbers; } let pivotindex = Math.floor(numbers.length / 2); let pivotnum = numbers.splice(pivotindex, 1)[0]; let left = []; let right = []; for (i = 0; i &amp;lt; numbers.length; i++) { if (numbers[i] &amp;lt;= pivotnum) { left.push(numbers[i]); } else { right.push(numbers[i]); } } return quicksort(left).</description>
+    </item>
+    
+    <item>
       <title>四种数组去重的方法</title>
       <link>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</link>
       <pubDate>Wed, 05 Feb 2020 23:53:58 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</guid>
       <description>如何实现数组去重？ 假设有数组 array = [1,5,2,3,4,2,3,1,3,4] 写一个 unique 函数去重
- ES6 set 去重（ES6 中最常用）  function unique (arr) { return Array.from(new Set(arr)) } let array = [1,5,2,3,4,2,3,1,3,4] console.log(unique(array)) // [1, 5, 2, 3, 4] 缺点：这个方法不能去掉重复的空数组{}。
-var arr = [1,1,&#39;true&#39;,&#39;true&#39;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#39;NaN&#39;, 0, 0, &#39;a&#39;, &#39;a&#39;,{},{}]; console.log(unique(arr)) // [1, &amp;quot;true&amp;quot;, true, 15, false, undefined, null, NaN, &amp;quot;NaN&amp;quot;, 0, &amp;quot;a&amp;quot;, {}, {}]  利用 Map 数据结构  function unique(array){ let hashMap = new Map() // 用于判别是否重复 let result = new Array() // 用于返回结果 for (let i=0; i&amp;lt;array.</description>
+ES6 set 去重（ES6 中最常用） function unique(arr) { return Array.from(new Set(arr)); } let array = [1, 5, 2, 3, 4, 2, 3, 1, 3, 4]; console.log(unique(array)); // [1, 5, 2, 3, 4] 缺点：这个方法不能去掉重复的空数组{}。
+var arr = [1,1,&#39;true&#39;,&#39;true&#39;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#39;NaN&#39;, 0, 0, &#39;a&#39;, &#39;a&#39;,{},{}]; console.log(unique(arr)) // [1, &amp;quot;true&amp;quot;, true, 15, false, undefined, null, NaN, &amp;quot;NaN&amp;quot;, 0, &amp;quot;a&amp;quot;, {}, {}] 利用 Map 数据结构 function unique(array) { let hashMap = new Map(); // 用于判别是否重复  let result = new Array(); // 用于返回结果  for (let i = 0; i &amp;lt; array.</description>
     </item>
     
     <item>

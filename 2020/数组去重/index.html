@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://chow1027.xyz/2020/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/" />
-  <link rel="next" href="https://chow1027.xyz/2020/%E9%97%AD%E5%8C%85/" />
+  <link rel="next" href="https://chow1027.xyz/2020/%E6%8E%92%E5%BA%8F/" />
   <link rel="canonical" href="https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "四种数组去重的方法",
     "headline" : "四种数组去重的方法",
-    "description" : "如何实现数组去重？ 假设有数组 array = [1,5,2,3,4,2,3,1,3,4] 写一个 unique 函数去重\n ES6 set 去重（ES6 中最常用）  function unique (arr) { return Array.from(new Set(arr)) } let array = [1,5,2,3,4,2,3,1,3,4] console.log(unique(array)) \/\/ [1, 5, 2, 3, 4] 缺点：这个方法不能去掉重复的空数组{}。\nvar arr = [1,1,\x27true\x27,\x27true\x27,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,\x27NaN\x27, 0, 0, \x27a\x27, \x27a\x27,{},{}]; console.log(unique(arr)) \/\/ [1, \x26quot;true\x26quot;, true, 15, false, undefined, null, NaN, \x26quot;NaN\x26quot;, 0, \x26quot;a\x26quot;, {}, {}]  利用 Map 数据结构  function unique(array){ let hashMap = new Map() \/\/ 用于判别是否重复 let result = new Array() \/\/ 用于返回结果 for (let i=0; i\x26lt;array.",
+    "description" : "如何实现数组去重？ 假设有数组 array = [1,5,2,3,4,2,3,1,3,4] 写一个 unique 函数去重\nES6 set 去重（ES6 中最常用） function unique(arr) { return Array.from(new Set(arr)); } let array = [1, 5, 2, 3, 4, 2, 3, 1, 3, 4]; console.log(unique(array)); \/\/ [1, 5, 2, 3, 4] 缺点：这个方法不能去掉重复的空数组{}。\nvar arr = [1,1,\x27true\x27,\x27true\x27,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,\x27NaN\x27, 0, 0, \x27a\x27, \x27a\x27,{},{}]; console.log(unique(arr)) \/\/ [1, \x26quot;true\x26quot;, true, 15, false, undefined, null, NaN, \x26quot;NaN\x26quot;, 0, \x26quot;a\x26quot;, {}, {}] 利用 Map 数据结构 function unique(array) { let hashMap = new Map(); \/\/ 用于判别是否重复  let result = new Array(); \/\/ 用于返回结果  for (let i = 0; i \x26lt; array.",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2020-02-05 23:53:58 \x2b0800 CST",
     "dateModified" : "2020-02-05 23:53:58 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2020\/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D\/",
-    "wordCount" : "170",
+    "wordCount" : "221",
     "keywords" : [ "Array", "呆尬猴的博客"]
 }
 </script>
@@ -149,69 +149,63 @@
           <p>如何实现数组去重？
 假设有数组 array = [1,5,2,3,4,2,3,1,3,4]
 写一个 unique 函数去重</p>
-<ol>
-<li>ES6 set 去重（ES6 中最常用）</li>
-</ol>
-<pre><code>function unique (arr) {
-  return Array.from(new Set(arr))
+<h2 id="es6-set-去重es6-中最常用">ES6 set 去重（ES6 中最常用）</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">arr</span>) {
+  <span style="color:#66d9ef">return</span> Array.<span style="color:#a6e22e">from</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Set</span>(<span style="color:#a6e22e">arr</span>));
 }
 
-let array = [1,5,2,3,4,2,3,1,3,4]
-console.log(unique(array))
-// [1, 5, 2, 3, 4]
-</code></pre><p>缺点：这个方法不能去掉重复的空数组{}。</p>
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">array</span>));
+<span style="color:#75715e">// [1, 5, 2, 3, 4]
+</span></code></pre></div><p>缺点：这个方法不能去掉重复的空数组{}。</p>
 <pre><code>var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
 console.log(unique(arr))
 
 // [1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, {}, {}]
-</code></pre><ol>
-<li>利用 Map 数据结构</li>
-</ol>
-<pre><code>function unique(array){
-    let hashMap = new Map() // 用于判别是否重复
-    let result = new Array() // 用于返回结果
-    for (let i=0; i&lt;array.length; i++){
-        if(hashMap.has(array[i])){
-            hashMap.set(array[i],true) // Map中已经有这个key值，标记为true
-        }else{
-            hashMap.set(array[i],false) // Map中没有这个key，将这个值push到结果，并在hashMap中标记为false
-            result.push(array[i])
-        }
+</code></pre><h2 id="利用-map-数据结构">利用 Map 数据结构</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">array</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">hashMap</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>(); <span style="color:#75715e">// 用于判别是否重复
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Array(); <span style="color:#75715e">// 用于返回结果
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">hashMap</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>])) {
+      <span style="color:#a6e22e">hashMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>], <span style="color:#66d9ef">true</span>); <span style="color:#75715e">// Map中已经有这个key值，标记为true
+</span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">hashMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>], <span style="color:#66d9ef">false</span>); <span style="color:#75715e">// Map中没有这个key，将这个值push到结果，并在hashMap中标记为false
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>]);
     }
-    return result
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
 }
-</code></pre><p>优点：可以找到重复的值，hashMap 中值为 true 的值为重复的值。</p>
-<ol start="3">
-<li>使用双层循环 &ndash;splice 去重</li>
-</ol>
-<pre><code>function unique(array){
-    for (let i=0; i&lt;array.length; i++){
-        for(let j=i+1; j&lt;array.length; j++){ // 从 i 的下一项开始找有没有跟 i 一样的
-            if(array[i]===array[j]){
-                array.splice(j,1); // 找到一样的 删掉当前的 j
-                j -=1; // j 后面的元素往前移动，j 不要加1，再次从当前的 j 继续往后遍历。
-            }
-        }
+</code></pre></div><p>优点：可以找到重复的值，hashMap 中值为 true 的值为重复的值。</p>
+<h2 id="使用双层循环---splice-去重">使用双层循环 &ndash;splice 去重</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">array</span>) {
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>) {
+      <span style="color:#75715e">// 从 i 的下一项开始找有没有跟 i 一样的
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">===</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">j</span>]) {
+        <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">j</span>, <span style="color:#ae81ff">1</span>); <span style="color:#75715e">// 找到一样的 删掉当前的 j
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">j</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">// j 后面的元素往前移动，j 不要加1，再次从当前的 j 继续往后遍历。
+</span><span style="color:#75715e"></span>      }
     }
-    return array
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>;
 }
-</code></pre><ol start="4">
-<li>利用 indexOf 去重</li>
-</ol>
-<pre><code>function unique(array){
-    if(!Array.isArray(array)){
-        console.log('type error')
-        return
+</code></pre></div><h2 id="利用-indexof-去重">利用 indexOf 去重</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unique</span>(<span style="color:#a6e22e">array</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">array</span>)) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;type error&#34;</span>);
+    <span style="color:#66d9ef">return</span>;
+  }
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#f92672">===</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+      <span style="color:#75715e">// 如果空数组里面没有这个值，就push
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>]);
     }
-    let arr = []
-    for(let i=0; i&lt;array.length; i++){
-        if(arr.indexOf(array[i]) === -1){ // 如果空数组里面没有这个值，就push
-            arr.push(array[i])
-        }
-    }
-    return arr
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
 }
-</code></pre>
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -257,7 +251,7 @@ console.log(unique(arr))
         <a href="https://chow1027.xyz/2020/%E4%BB%A3%E7%A0%81%E5%8F%AF%E8%AF%BB%E6%80%A7/" class="prev" rel="prev" title="代码可读性与代码优化"><i class="iconfont icon-left"></i>&nbsp;代码可读性与代码优化</a>
          
         
-        <a href="https://chow1027.xyz/2020/%E9%97%AD%E5%8C%85/" class="next" rel="next" title="尝试理解闭包">尝试理解闭包&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://chow1027.xyz/2020/%E6%8E%92%E5%BA%8F/" class="next" rel="next" title="四种排序算法">四种排序算法&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
