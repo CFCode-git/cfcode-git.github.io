@@ -71,6 +71,17 @@ function father() { let a = 100; function children() { console.log(a); } return 
     </item>
     
     <item>
+      <title>四种数组去重的方法</title>
+      <link>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</link>
+      <pubDate>Wed, 05 Feb 2020 23:53:58 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</guid>
+      <description>如何实现数组去重？ 假设有数组 array = [1,5,2,3,4,2,3,1,3,4] 写一个 unique 函数去重
+ ES6 set 去重（ES6 中最常用）  function unique (arr) { return Array.from(new Set(arr)) } let array = [1,5,2,3,4,2,3,1,3,4] console.log(unique(array)) // [1, 5, 2, 3, 4] 缺点：这个方法不能去掉重复的空数组{}。
+var arr = [1,1,&#39;true&#39;,&#39;true&#39;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#39;NaN&#39;, 0, 0, &#39;a&#39;, &#39;a&#39;,{},{}]; console.log(unique(arr)) // [1, &amp;quot;true&amp;quot;, true, 15, false, undefined, null, NaN, &amp;quot;NaN&amp;quot;, 0, &amp;quot;a&amp;quot;, {}, {}]  利用 Map 数据结构  function unique(array){ let hashMap = new Map() // 用于判别是否重复 let result = new Array() // 用于返回结果 for (let i=0; i&amp;lt;array.</description>
+    </item>
+    
+    <item>
       <title>变量声明：let、const、var</title>
       <link>https://chow1027.xyz/2019/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/</link>
       <pubDate>Sat, 28 Dec 2019 16:08:31 +0800</pubDate>
