@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2020/http%E7%BC%93%E5%AD%98/" />
+  
+  <link rel="canonical" href="https://chow1027.xyz/2020/eventloop/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           EventLoop | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="EventLoop | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "EventLoop",
+    "headline" : "EventLoop",
+    "description" : "EventLoop 首先，EventLoop 是事件循环。浏览器的事件循环和 Node.js 的事件循环会稍有不同。下面会先介绍 Node.js 中的事件循环。\n我们在 Node.js 官网里面可以看到：\n其中，与前端密切相关的三个阶段 timers、poll、check。\n当我们执行一段代码的时候，有时候会涉及到异步的代码，这时候就不得不提两个概念：宏任务和微任务。\n一部分的异步代码会作为宏任务 push 到宏任务队列中，他们是：\n setTimeout setInterval setImmediate  而另一部分的代码则会作为微任务 push 到微任务队列，在 Node.js 中，主要就是指：\n process.nextTick  事件循环的过程 事件循环的过程可以简化为： timers \x26gt; poll【等待阶段】 \x26gt; check \x26gt; timers\n在 Node.js 中执行的代码，当遇到 setTimeout 的时候，setTimeout 的代码会被 push 到 timers 队列；当遇到 setImmediate 的时候，setImmediate 的代码则会 push 到 check 队列。\ntimers 阶段负责执行 timers 队列里面的代码；check 阶段也主要负责执行 check 队列的代码。\n刚开始进入事件循环的时候，绝大部分的情况可能处于 poll 阶段【也有可能在 timers 阶段】。\n在 poll 阶段的时候，他会等待 setTimeout 的执行时间，只要时间一到，就回去 timers 阶段执行代码。",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-21 22:11:50 \x2b0800 CST",
+    "dateModified" : "2020-04-21 22:11:50 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2020\/eventloop\/",
+    "wordCount" : "269",
+    "keywords" : [ "EventLoop", "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">EventLoop</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-21 itemprop="datePublished">April 21, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chow1027.xyz/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="eventloop">EventLoop</h2>
+<p>首先，EventLoop 是事件循环。浏览器的事件循环和 Node.js 的事件循环会稍有不同。下面会先介绍 Node.js 中的事件循环。</p>
+<p>我们在 <a href="https://nodejs.org/uk/docs/guides/event-loop-timers-and-nexttick/">Node.js</a> 官网里面可以看到：</p>
+<p><img src="/images/EventLoop.png" alt="EventLoop"></p>
+<p>其中，与前端密切相关的三个阶段 timers、poll、check。</p>
+<p>当我们执行一段代码的时候，有时候会涉及到异步的代码，这时候就不得不提两个概念：宏任务和微任务。</p>
+<p>一部分的异步代码会作为宏任务 push 到宏任务队列中，他们是：</p>
+<ul>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate</li>
+</ul>
+<p>而另一部分的代码则会作为微任务 push 到微任务队列，在 Node.js 中，主要就是指：</p>
+<ul>
+<li>process.nextTick</li>
+</ul>
+<h2 id="事件循环的过程">事件循环的过程</h2>
+<p>事件循环的过程可以简化为： timers &gt; poll【等待阶段】 &gt; check &gt; timers</p>
+<p>在 Node.js 中执行的代码，当遇到 setTimeout 的时候，setTimeout 的代码会被 push 到 timers 队列；当遇到 setImmediate 的时候，setImmediate 的代码则会 push 到 check 队列。</p>
+<p>timers 阶段负责执行 timers 队列里面的代码；check 阶段也主要负责执行 check 队列的代码。</p>
+<p>刚开始进入事件循环的时候，绝大部分的情况可能处于 poll 阶段【也有可能在 timers 阶段】。</p>
+<p>在 poll 阶段的时候，他会等待 setTimeout 的执行时间，只要时间一到，就回去 timers 阶段执行代码。</p>
+<p>在去的过程中会经过 check 阶段，如果 check 队列中有任务就会执行任务，然后再到 timers 阶段执行，最后又会回到 poll 阶段等待。</p>
+<p>timers 阶段和 check 阶段中的代码都属于宏任务，而微任务在什么时候执行呢？</p>
+<p>process.nextTick 是微任务，它是指在当前阶段结束后马上执行。【注意：nextTick 不属于 EventLoop 中的一部分，他不会进入 timers / check 的任务队列，他会排在当前阶段的后面，在当前阶段结束后马上执行。】</p>
+<h3 id="练练手">练练手</h3>
+<p>来一个题目感受一下（手动狗头</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">setImmediate</span>(() =&gt; {
+  <span style="color:#75715e">// f1
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;setImmediate1&#34;</span>);
+  <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+    <span style="color:#75715e">// f2
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;setTimeout1&#34;</span>);
+  }, <span style="color:#ae81ff">0</span>);
+});
+
+<span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+  <span style="color:#75715e">// f3
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;setTimeout2&#34;</span>);
+  <span style="color:#a6e22e">setImmediate</span>(() =&gt; {
+    <span style="color:#75715e">//f4
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;setImmediate2&#34;</span>);
+  }, <span style="color:#ae81ff">0</span>);
+});
+</code></pre></div><ol>
+<li>
+<p>执行同步代码，看到了 setImmediate 函数，放到 check 阶段；看到 setTimeout 放到 Timers 阶段，标记事件为 0 秒。
+此时 timers[f3]，check[f1]。</p>
+</li>
+<li>
+<p>开始事件循环，在 poll 阶段，首先看到 check 里面有 f1，赶紧去 check 阶段执行一下，输出 &ldquo;setImmediate1&rdquo;，然后看到了 setTimeout，放到 timers 里面，标记时间为 0 秒。
+此时 timers[f3，f2]，check[]。</p>
+</li>
+<li>
+<p>check 阶段执行完毕，循环至 timers 阶段，看到了 f3 可以执行了，执行一下，输出 &ldquo;setTimeout2&rdquo;，然后看到 setImmediate，放到 check 队列中。
+此时 timers[f2]，check[f4]。</p>
+</li>
+<li>
+<p>然后看到 timers 阶段中还有个 f2，0 秒后执行，时间早就够了，也执行一下，输出&quot;setTimeout1&rdquo;。此时 timers 里面没有要执行的了，ok 回到 poll 阶段。
+此时 timers[]，check[f4]。</p>
+</li>
+<li>
+<p>在 poll 阶段，又看到了 check 队列里面有事做，还等啥，赶紧去搞，执行 f4，输出&quot;setImmediate2&rdquo;，然后经过 timers 再次回到 poll 阶段等待。</p>
+</li>
+<li>
+<p>最后输出：setImmediate1 setTimeout2 setTimeout1 setImmediate2</p>
+</li>
+</ol>
+<h2 id="eventloop-在浏览器上的体现">EventLoop 在浏览器上的体现</h2>
+<p>在浏览器上异步代码分为两个队列：宏任务队列和微任务队列。</p>
+<p>首先顺序执行同步的代码，当遇到了 setTimeout 的时候，会将相应的代码放到宏任务队列中。</p>
+<p>宏任务队列表示一会儿再去执行；当遇到 Promise.then()的时候，.then()里面的代码就会放到微任务队列中，微任务队列就是表示马上执行。</p>
+<p>同步的代码执行完以后，会检查微任务队列，按顺序执行，执行完毕后，再检查宏任务队列，执行宏任务。</p>
+<h3 id="练练手-1">练练手</h3>
+<p>来个题看看吧兄弟 :)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">async1</span>() {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">1</span>);
+  <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">async</span>(<span style="color:#ae81ff">2</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">2</span>);
+}
+<span style="color:#a6e22e">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">async2</span>() {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">3</span>);
+}
+<span style="color:#a6e22e">async1</span>();
+
+<span style="color:#66d9ef">new</span> Promise(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">resolve</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">4</span>);
+  <span style="color:#a6e22e">resolve</span>();
+}).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> () {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">5</span>);
+});
+</code></pre></div><ol>
+<li>
+<p>执行同步代码，看到了 async1，好的执行一下。</p>
+<ol>
+<li>async1 第一句，输出 1。</li>
+<li>第二句是一个异步的语句，可以转化成 Promise。
+async2().then(/_ await async2 后面的所有语句 _/)</li>
+<li>先执行 async2 的内容，输出了 3，然后 await async2 后面的内容被放到了微任务队列。【.then 是微任务，也就是 console.log(2)放到了微任务队列。】</li>
+</ol>
+</li>
+<li>
+<p>async1 目前执行完了，往下看，是个 promise，promise()里面的内容是同步的，执行，输出 4，resolve 是等一下外面 then 传过来的成功回调，我们看到了 then 后面的确是传了成功回调，好吧将这个成功回到放到微任务队列。</p>
+</li>
+<li>
+<p>至此，同步的代码执行完毕，检查微任务队列，输出 2 5.</p>
+</li>
+<li>
+<p>检查宏任务队列空的，代码执行完了</p>
+</li>
+<li>
+<p>输出结果： 1 3 4 2 5</p>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2020/eventloop/>https://chow1027.xyz/2020/eventloop/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chow1027.xyz/tags/eventloop/">
+                    #EventLoop</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2020/http%E7%BC%93%E5%AD%98/" class="prev" rel="prev" title="HTTP缓存"><i class="iconfont icon-left"></i>&nbsp;HTTP缓存</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

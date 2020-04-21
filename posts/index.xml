@@ -6,10 +6,29 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Apr 2020 22:02:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 22:11:50 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>EventLoop</title>
+      <link>https://chow1027.xyz/2020/eventloop/</link>
+      <pubDate>Tue, 21 Apr 2020 22:11:50 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/eventloop/</guid>
+      <description>EventLoop 首先，EventLoop 是事件循环。浏览器的事件循环和 Node.js 的事件循环会稍有不同。下面会先介绍 Node.js 中的事件循环。
+我们在 Node.js 官网里面可以看到：
+其中，与前端密切相关的三个阶段 timers、poll、check。
+当我们执行一段代码的时候，有时候会涉及到异步的代码，这时候就不得不提两个概念：宏任务和微任务。
+一部分的异步代码会作为宏任务 push 到宏任务队列中，他们是：
+ setTimeout setInterval setImmediate  而另一部分的代码则会作为微任务 push 到微任务队列，在 Node.js 中，主要就是指：
+ process.nextTick  事件循环的过程 事件循环的过程可以简化为： timers &amp;gt; poll【等待阶段】 &amp;gt; check &amp;gt; timers
+在 Node.js 中执行的代码，当遇到 setTimeout 的时候，setTimeout 的代码会被 push 到 timers 队列；当遇到 setImmediate 的时候，setImmediate 的代码则会 push 到 check 队列。
+timers 阶段负责执行 timers 队列里面的代码；check 阶段也主要负责执行 check 队列的代码。
+刚开始进入事件循环的时候，绝大部分的情况可能处于 poll 阶段【也有可能在 timers 阶段】。
+在 poll 阶段的时候，他会等待 setTimeout 的执行时间，只要时间一到，就回去 timers 阶段执行代码。</description>
+    </item>
     
     <item>
       <title>HTTP缓存</title>
