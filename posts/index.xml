@@ -6,10 +6,32 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Apr 2020 22:11:50 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 10:07:46 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>实现typeof</title>
+      <link>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/</link>
+      <pubDate>Wed, 22 Apr 2020 10:07:46 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/</guid>
+      <description>typeof 用来判断 JavaScript 中得基本数据类型，instanceof 用来判断 JavaScript 中的对象类型。
+typeof 可以用 Object.prototype.toString() 实现。
+Object.prototype.toString.call(1); // &amp;#34;[object Number]&amp;#34;  Object.prototype.toString.call(&amp;#34;hi&amp;#34;); // &amp;#34;[object String]&amp;#34;  Object.prototype.toString.call({ a: &amp;#34;hi&amp;#34; }); // &amp;#34;[object Object]&amp;#34;  Object.prototype.toString.call([1, &amp;#34;a&amp;#34;]); // &amp;#34;[object Array]&amp;#34;  Object.prototype.toString.call(true); // &amp;#34;[object Boolean]&amp;#34;  Object.prototype.toString.call(() =&amp;gt; {}); // &amp;#34;[object Function]&amp;#34;  Object.prototype.toString.call(null); // &amp;#34;[object Null]&amp;#34;  Object.prototype.toString.call(undefined); // &amp;#34;[object Undefined]&amp;#34;  Object.prototype.toString.call(Symbol(1)); // &amp;#34;[object Symbol]&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>实现new</title>
+      <link>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0new/</link>
+      <pubDate>Wed, 22 Apr 2020 00:37:08 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0new/</guid>
+      <description>new 做了什么 其实 MDN 里面有写 当我们 new 一个构造函数的时候，new 实际上帮我们做了这么几件事情:
+ 自动创建空对象 自动为空对象关联原型，地址指定为【后面的】构造函数.prototype 自动将空对象作为 this 执行构造函数 自动 return this  new 实现 显然，如果我们不用 this，要构造一个对象实例会相当麻烦，我们可以尝试实现一下 new。
+function myNew() { args = [...arguments]; let fn = args[0]; let arg = args.slice(1); if (typeof fn !== &amp;#34;function&amp;#34;) { console.log(&amp;#34;我接受一个函数！&amp;#34;); return; } // myNew.target = fn  let newObj = Object.create(fn.prototype); let result = fn.apply(newObj, arg); let isObject = typeof result === &amp;#34;object&amp;#34; &amp;amp;&amp;amp; result !</description>
+    </item>
     
     <item>
       <title>EventLoop</title>

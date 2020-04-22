@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="周啟尧">
+  
+  
+  
+  <link rel="prev" href="https://chow1027.xyz/2020/eventloop/" />
+  <link rel="next" href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/" />
+  <link rel="canonical" href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0new/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           实现new | 呆尬猴的博客
+       
+  </title>
+  <meta name="title" content="实现new | 呆尬猴的博客">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/chow1027.xyz"
+    },
+    "articleSection" : "posts",
+    "name" : "实现new",
+    "headline" : "实现new",
+    "description" : "new 做了什么 其实 MDN 里面有写 当我们 new 一个构造函数的时候，new 实际上帮我们做了这么几件事情:\n 自动创建空对象 自动为空对象关联原型，地址指定为【后面的】构造函数.prototype 自动将空对象作为 this 执行构造函数 自动 return this  new 实现 显然，如果我们不用 this，要构造一个对象实例会相当麻烦，我们可以尝试实现一下 new。\nfunction myNew() { args = [...arguments]; let fn = args[0]; let arg = args.slice(1); if (typeof fn !== \x26#34;function\x26#34;) { console.log(\x26#34;我接受一个函数！\x26#34;); return; } \/\/ myNew.target = fn  let newObj = Object.create(fn.prototype); let result = fn.apply(newObj, arg); let isObject = typeof result === \x26#34;object\x26#34; \x26amp;\x26amp; result !",
+    "inLanguage" : "zh-cn",
+    "author" : "周啟尧",
+    "creator" : "周啟尧",
+    "publisher": "周啟尧",
+    "accountablePerson" : "周啟尧",
+    "copyrightHolder" : "周啟尧",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-22 00:37:08 \x2b0800 CST",
+    "dateModified" : "2020-04-22 00:37:08 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2020\/%E5%AE%9E%E7%8E%B0new\/",
+    "wordCount" : "151",
+    "keywords" : [ "", "呆尬猴的博客"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://chow1027.xyz">呆尬猴的博客</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">目录</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">实现new</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-22 itemprop="datePublished">April 22, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://chow1027.xyz/categories/javascript/"> JavaScript </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="new-做了什么">new 做了什么</h2>
+<p>其实 MDN 里面有写 <img src="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" alt="new 运算符"></p>
+<p>当我们 new 一个构造函数的时候，new 实际上帮我们做了这么几件事情:</p>
+<ol>
+<li>自动创建空对象</li>
+<li>自动为空对象关联原型，地址指定为【后面的】构造函数.prototype</li>
+<li>自动将空对象作为 this 执行构造函数</li>
+<li>自动 return this</li>
+</ol>
+<h2 id="new-实现">new 实现</h2>
+<p>显然，如果我们不用 this，要构造一个对象实例会相当麻烦，我们可以尝试实现一下 new。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">myNew</span>() {
+  <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">arguments</span>];
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fn</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">0</span>];
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">fn</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;function&#34;</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;我接受一个函数！&#34;</span>);
+    <span style="color:#66d9ef">return</span>;
+  }
+  <span style="color:#75715e">// myNew.target =  fn
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">newObj</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">prototype</span>);
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#a6e22e">newObj</span>, <span style="color:#a6e22e">arg</span>);
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">isObject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;object&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">isFunction</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;function&#34;</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isObject</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">isFunction</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">newObj</span>;
+  }
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Student</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>) {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">age</span>;
+}
+<span style="color:#a6e22e">Student</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">doSth</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span>);
+};
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ss</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">myNew</span>(<span style="color:#a6e22e">Student</span>, <span style="color:#e6db74">&#34;你好&#34;</span>, <span style="color:#ae81ff">18</span>);
+
+<span style="color:#a6e22e">ss</span>; <span style="color:#75715e">//Student {name: &#34;你好&#34;, age: 18}
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Student {name: &#34;你好&#34;, age: 18}
+</span><span style="color:#75715e">//     name: &#34;你好&#34;
+</span><span style="color:#75715e">//     age: 18
+</span><span style="color:#75715e">//     __proto__:
+</span><span style="color:#75715e">//        doSth: ƒ ()
+</span><span style="color:#75715e">//        constructor: ƒ Student(name, age)
+</span><span style="color:#75715e">//        __proto__: Object
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">ss</span>.<span style="color:#a6e22e">__proto__</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">Student</span>.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">// true
+</span></code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>周啟尧 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0new/>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0new/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://chow1027.xyz/tags//">
+                    #</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://chow1027.xyz">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://chow1027.xyz/2020/eventloop/" class="prev" rel="prev" title="EventLoop"><i class="iconfont icon-left"></i>&nbsp;EventLoop</a>
+         
+        
+        <a href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/" class="next" rel="next" title="实现typeof">实现typeof&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://chow1027.xyz">周啟尧</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
