@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0new/" />
-  <link rel="next" href="https://chow1027.xyz/2020/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97/" />
-  <link rel="canonical" href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/" />
+  <link rel="prev" href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/" />
+  
+  <link rel="canonical" href="https://chow1027.xyz/2020/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           实现typeof | 呆尬猴的博客
+           Vue单向数据流与双向绑定 | 呆尬猴的博客
        
   </title>
-  <meta name="title" content="实现typeof | 呆尬猴的博客">
+  <meta name="title" content="Vue单向数据流与双向绑定 | 呆尬猴的博客">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/chow1027.xyz"
     },
     "articleSection" : "posts",
-    "name" : "实现typeof",
-    "headline" : "实现typeof",
-    "description" : "typeof 用来判断 JavaScript 中得基本数据类型，instanceof 用来判断 JavaScript 中的对象类型。\ntypeof 可以用 Object.prototype.toString() 实现。\nObject.prototype.toString.call(1); \/\/ \x26#34;[object Number]\x26#34;  Object.prototype.toString.call(\x26#34;hi\x26#34;); \/\/ \x26#34;[object String]\x26#34;  Object.prototype.toString.call({ a: \x26#34;hi\x26#34; }); \/\/ \x26#34;[object Object]\x26#34;  Object.prototype.toString.call([1, \x26#34;a\x26#34;]); \/\/ \x26#34;[object Array]\x26#34;  Object.prototype.toString.call(true); \/\/ \x26#34;[object Boolean]\x26#34;  Object.prototype.toString.call(() =\x26gt; {}); \/\/ \x26#34;[object Function]\x26#34;  Object.prototype.toString.call(null); \/\/ \x26#34;[object Null]\x26#34;  Object.prototype.toString.call(undefined); \/\/ \x26#34;[object Undefined]\x26#34;  Object.prototype.toString.call(Symbol(1)); \/\/ \x26#34;[object Symbol]\x26#34; ",
+    "name" : "Vue单向数据流与双向绑定",
+    "headline" : "Vue单向数据流与双向绑定",
+    "description" : "单向绑定 \x26amp; 双向绑定 单双向绑定，指的是 View 层与 Model 层之间的映射关系。\nReact React 采用单向绑定：用户访问 view，通过 dispatch 一个 action 对 state 进行更改，state 更新后触发 View 更新反馈给用户。\n这就是单向绑定，View =\x26gt; Action =\x26gt; State =\x26gt; View，View 不能直接修改 State。\nVue Vue 支持单向绑定：比如插值{{data}}，比如 v-bind\n那你说 v-model 呢?\nVue 用 v-model 实现了双向绑定。\n\x26lt;input v-model=\x26#34;something\x26#34; \/\x26gt; 数据的流动方向： data 中的 something =\x26gt; input 的 value =\x26gt; 用户输入 =\x26gt; 触发 input 事件 =\x26gt; 被 Vue 实例监听到 =\x26gt; 更新 data 中的 something。\nv-model 是语法糖，上面可以写成\n\x26lt;input v-bind:value=\x26#34;something\x26#34; @input=\x26#34;something = $event.",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -54,11 +54,11 @@
     "accountablePerson" : "周啟尧",
     "copyrightHolder" : "周啟尧",
     "copyrightYear" : "2020",
-    "datePublished": "2020-04-22 10:07:46 \x2b0800 CST",
-    "dateModified" : "2020-04-22 10:07:46 \x2b0800 CST",
-    "url" : "https:\/\/chow1027.xyz\/2020\/%E5%AE%9E%E7%8E%B0typeof\/",
-    "wordCount" : "53",
-    "keywords" : [ "", "呆尬猴的博客"]
+    "datePublished": "2020-04-24 00:20:52 \x2b0800 CST",
+    "dateModified" : "2020-04-24 00:20:52 \x2b0800 CST",
+    "url" : "https:\/\/chow1027.xyz\/2020\/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97\/",
+    "wordCount" : "102",
+    "keywords" : [ "Vue", "呆尬猴的博客"]
 }
 </script>
 
@@ -116,16 +116,16 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">实现typeof</h1>
+        <h1 class="post-title" itemprop="name headline">Vue单向数据流与双向绑定</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-04-22 itemprop="datePublished">April 22, 2020</time>
+                on <time datetime=2020-04-24 itemprop="datePublished">April 24, 2020</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://chow1027.xyz/categories/javascript/"> JavaScript </a>
+                        <a href="https://chow1027.xyz/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
                         
                 </span>
         </div>
@@ -146,26 +146,24 @@
           
           
 
-          <p>typeof 用来判断 JavaScript 中得基本数据类型，instanceof 用来判断 JavaScript 中的对象类型。</p>
-<p>typeof 可以用 Object.prototype.toString() 实现。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">// &#34;[object Number]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#e6db74">&#34;hi&#34;</span>); <span style="color:#75715e">// &#34;[object String]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>({ <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hi&#34;</span> }); <span style="color:#75715e">// &#34;[object Object]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>([<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;a&#34;</span>]); <span style="color:#75715e">// &#34;[object Array]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">true</span>); <span style="color:#75715e">// &#34;[object Boolean]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(() =&gt; {}); <span style="color:#75715e">// &#34;[object Function]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">null</span>); <span style="color:#75715e">// &#34;[object Null]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">undefined</span>); <span style="color:#75715e">// &#34;[object Undefined]&#34;
-</span><span style="color:#75715e"></span>
-Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">Symbol</span>(<span style="color:#ae81ff">1</span>)); <span style="color:#75715e">// &#34;[object Symbol]&#34;
-</span></code></pre></div>
+          <h2 id="单向绑定--双向绑定">单向绑定 &amp; 双向绑定</h2>
+<p>单双向绑定，指的是 View 层与 Model 层之间的映射关系。</p>
+<h3 id="react">React</h3>
+<p>React 采用单向绑定：用户访问 view，通过 dispatch 一个 action 对 state 进行更改，state 更新后触发 View 更新反馈给用户。</p>
+<p>这就是单向绑定，View =&gt; Action =&gt; State =&gt; View，View 不能直接修改 State。</p>
+<h3 id="vue">Vue</h3>
+<p>Vue 支持单向绑定：比如插值{{data}}，比如 v-bind</p>
+<p>那你说 v-model 呢?</p>
+<p>Vue 用 v-model 实现了双向绑定。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;something&#34;</span> <span style="color:#f92672">/&gt;</span>
+</code></pre></div><p>数据的流动方向：
+data 中的 something =&gt; input 的 value =&gt; 用户输入 =&gt; 触发 input 事件 =&gt; 被 Vue 实例监听到 =&gt; 更新 data 中的 something。</p>
+<p>v-model 是语法糖，上面可以写成</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">:</span><span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;something&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;something = $event.target.value&#34;</span> <span style="color:#f92672">/&gt;</span>
+</code></pre></div><p>Vue 双向绑定的实现就是在单向绑定的基础上给可输入元素(input，textarea&hellip;)添加了 input(change)事件，当我们修改 View 的时候，触发 input(change)事件修改 data，从而达到了 MVVM 的效果。</p>
+<h2 id="单项数据流-与-双向数据流">单项数据流 与 双向数据流</h2>
+<p>尽管 Vue 使用 v-model 实现了双向绑定，但是 Vue 和 React 的父子组件之间的数据传递，仍遵循单向数据流，即：父组件可以向子组件传递 props，但子组件不能修改父组件传来的 props，在 Vue 中子组件通过$emit 通知父组件修改，React 中则是父组件传递给子组件一个函数让子组件在合适的时机回调。</p>
+
     </div>
 
     <div class="post-copyright">
@@ -179,7 +177,7 @@ Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/</span>
+                    <a href=https://chow1027.xyz/2020/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97/>https://chow1027.xyz/2020/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97/</span>
             </p>
             
              
@@ -195,8 +193,8 @@ Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://chow1027.xyz/tags//">
-                    #</a></span>
+            <span class="tag"><a href="https://chow1027.xyz/tags/vue/">
+                    #Vue</a></span>
             
             </section>
         
@@ -208,10 +206,8 @@ Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">
 
     <div class="post-nav">
         
-        <a href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0new/" class="prev" rel="prev" title="实现new"><i class="iconfont icon-left"></i>&nbsp;实现new</a>
+        <a href="https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/" class="prev" rel="prev" title="实现typeof"><i class="iconfont icon-left"></i>&nbsp;实现typeof</a>
          
-        
-        <a href="https://chow1027.xyz/2020/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97/" class="next" rel="next" title="Vue单向数据流与双向绑定">Vue单向数据流与双向绑定&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -6,10 +6,27 @@
     <description>Recent content in 技术 on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Apr 2020 22:11:50 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2020 00:20:52 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue单向数据流与双向绑定</title>
+      <link>https://chow1027.xyz/2020/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97/</link>
+      <pubDate>Fri, 24 Apr 2020 00:20:52 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%90%97/</guid>
+      <description>单向绑定 &amp;amp; 双向绑定 单双向绑定，指的是 View 层与 Model 层之间的映射关系。
+React React 采用单向绑定：用户访问 view，通过 dispatch 一个 action 对 state 进行更改，state 更新后触发 View 更新反馈给用户。
+这就是单向绑定，View =&amp;gt; Action =&amp;gt; State =&amp;gt; View，View 不能直接修改 State。
+Vue Vue 支持单向绑定：比如插值{{data}}，比如 v-bind
+那你说 v-model 呢?
+Vue 用 v-model 实现了双向绑定。
+&amp;lt;input v-model=&amp;#34;something&amp;#34; /&amp;gt; 数据的流动方向： data 中的 something =&amp;gt; input 的 value =&amp;gt; 用户输入 =&amp;gt; 触发 input 事件 =&amp;gt; 被 Vue 实例监听到 =&amp;gt; 更新 data 中的 something。
+v-model 是语法糖，上面可以写成
+&amp;lt;input v-bind:value=&amp;#34;something&amp;#34; @input=&amp;#34;something = $event.</description>
+    </item>
     
     <item>
       <title>EventLoop</title>
