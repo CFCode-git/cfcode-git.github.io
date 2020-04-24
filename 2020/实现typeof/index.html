@@ -22,10 +22,10 @@
   <title>
        
        
-           实现typeof | 呆尬猴的博客
+           typeof实现与instanceof原理 | 呆尬猴的博客
        
   </title>
-  <meta name="title" content="实现typeof | 呆尬猴的博客">
+  <meta name="title" content="typeof实现与instanceof原理 | 呆尬猴的博客">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/chow1027.xyz"
     },
     "articleSection" : "posts",
-    "name" : "实现typeof",
-    "headline" : "实现typeof",
-    "description" : "typeof 用来判断 JavaScript 中得基本数据类型，instanceof 用来判断 JavaScript 中的对象类型。\ntypeof 可以用 Object.prototype.toString() 实现。\nObject.prototype.toString.call(1); \/\/ \x26#34;[object Number]\x26#34;  Object.prototype.toString.call(\x26#34;hi\x26#34;); \/\/ \x26#34;[object String]\x26#34;  Object.prototype.toString.call({ a: \x26#34;hi\x26#34; }); \/\/ \x26#34;[object Object]\x26#34;  Object.prototype.toString.call([1, \x26#34;a\x26#34;]); \/\/ \x26#34;[object Array]\x26#34;  Object.prototype.toString.call(true); \/\/ \x26#34;[object Boolean]\x26#34;  Object.prototype.toString.call(() =\x26gt; {}); \/\/ \x26#34;[object Function]\x26#34;  Object.prototype.toString.call(null); \/\/ \x26#34;[object Null]\x26#34;  Object.prototype.toString.call(undefined); \/\/ \x26#34;[object Undefined]\x26#34;  Object.prototype.toString.call(Symbol(1)); \/\/ \x26#34;[object Symbol]\x26#34; ",
+    "name" : "typeof实现与instanceof原理",
+    "headline" : "typeof实现与instanceof原理",
+    "description" : "typeof typeof 用来判断 JavaScript 中得基本数据类型。\ntypeof 可以用 Object.prototype.toString() 实现。\nObject.prototype.toString.call(1); \/\/ \x26#34;[object Number]\x26#34;  Object.prototype.toString.call(\x26#34;hi\x26#34;); \/\/ \x26#34;[object String]\x26#34;  Object.prototype.toString.call({ a: \x26#34;hi\x26#34; }); \/\/ \x26#34;[object Object]\x26#34;  Object.prototype.toString.call([1, \x26#34;a\x26#34;]); \/\/ \x26#34;[object Array]\x26#34;  Object.prototype.toString.call(true); \/\/ \x26#34;[object Boolean]\x26#34;  Object.prototype.toString.call(() =\x26gt; {}); \/\/ \x26#34;[object Function]\x26#34;  Object.prototype.toString.call(null); \/\/ \x26#34;[object Null]\x26#34;  Object.prototype.toString.call(undefined); \/\/ \x26#34;[object Undefined]\x26#34;  Object.prototype.toString.call(Symbol(1)); \/\/ \x26#34;[object Symbol]\x26#34; instanceof instanceof 用来判断 JavaScript 中的对象类型。\n其主要的实现原理就是判断右边变量的 prototype 是否在左边变量的原型链上。比如\nlet person = function () {}; let man = function () {}; man.",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2020-04-22 10:07:46 \x2b0800 CST",
     "dateModified" : "2020-04-22 10:07:46 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2020\/%E5%AE%9E%E7%8E%B0typeof\/",
-    "wordCount" : "53",
+    "wordCount" : "130",
     "keywords" : [ "", "呆尬猴的博客"]
 }
 </script>
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">实现typeof</h1>
+        <h1 class="post-title" itemprop="name headline">typeof实现与instanceof原理</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://chow1027.xyz" rel="author">周啟尧</a> with ♥ 
                 <span class="post-time">
@@ -146,7 +146,8 @@
           
           
 
-          <p>typeof 用来判断 JavaScript 中得基本数据类型，instanceof 用来判断 JavaScript 中的对象类型。</p>
+          <h2 id="typeof">typeof</h2>
+<p>typeof 用来判断 JavaScript 中得基本数据类型。</p>
 <p>typeof 可以用 Object.prototype.toString() 实现。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">// &#34;[object Number]&#34;
 </span><span style="color:#75715e"></span>
@@ -165,7 +166,30 @@ Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">
 Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#66d9ef">undefined</span>); <span style="color:#75715e">// &#34;[object Undefined]&#34;
 </span><span style="color:#75715e"></span>
 Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">Symbol</span>(<span style="color:#ae81ff">1</span>)); <span style="color:#75715e">// &#34;[object Symbol]&#34;
-</span></code></pre></div>
+</span></code></pre></div><h2 id="instanceof">instanceof</h2>
+<p>instanceof 用来判断 JavaScript 中的对象类型。</p>
+<p>其主要的实现原理就是判断右边变量的 prototype 是否在左边变量的原型链上。比如</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">person</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {};
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">man</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {};
+<span style="color:#a6e22e">man</span>.<span style="color:#a6e22e">prototype</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">person</span>();
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nicole</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">man</span>();
+<span style="color:#a6e22e">nicole</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">person</span>; <span style="color:#75715e">// true
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">nicole</span> <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">man</span>; <span style="color:#75715e">// true
+</span></code></pre></div><p>根据 instanceof 的原理，我们可以粗略实现一下 instanceof</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#66d9ef">instanceof</span>(<span style="color:#a6e22e">leftValue</span>, <span style="color:#a6e22e">rightValue</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">rightPrototype</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">rightValue</span>.<span style="color:#a6e22e">Prototype</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">leftProto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">leftValue</span>.<span style="color:#a6e22e">__proto__</span>;
+  <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">leftProto</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>) {
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">leftProto</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">rightPrototype</span>) {
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+    }
+    <span style="color:#a6e22e">leftProto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">leftProto</span>.<span style="color:#a6e22e">__proto__</span>;
+  }
+}
+</code></pre></div>
     </div>
 
     <div class="post-copyright">

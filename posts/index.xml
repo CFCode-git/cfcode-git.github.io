@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 24 Apr 2020 00:20:52 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 00:12:17 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>setTimeout 与 倒计时</title>
+      <link>https://chow1027.xyz/2020/%E5%80%92%E8%AE%A1%E6%97%B6/</link>
+      <pubDate>Sat, 25 Apr 2020 00:12:17 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E5%80%92%E8%AE%A1%E6%97%B6/</guid>
+      <description>setInterval function fn(countDown) { let time = countDown; let timeId = setInterval(() =&amp;gt; { console.log(time); time = time - 1; if (time &amp;lt;= 0) { clearInterval(timeId); } }, 1000); } requestAnimationFrame let a = 10; let date = new Date(); let countDown = () =&amp;gt; { if (new Date() - date &amp;lt; 1000) { requestAnimationFrame(countDown); } else { if (a &amp;gt; 0) { console.log(a--); date = new Date(); requestAnimationFrame(countDown); } } }; requestAnimationFrame(countDown); setTimeout 实现 setInterval const mySetInterval = (cb,time)=&amp;gt;{ const fn = ()=&amp;gt;{ cb() setTimeout(()=&amp;gt;{fn()},time) } setTimeout(fn,time) } </description>
+    </item>
     
     <item>
       <title>Vue单向数据流与双向绑定</title>
@@ -29,14 +38,16 @@ v-model 是语法糖，上面可以写成
     </item>
     
     <item>
-      <title>实现typeof</title>
+      <title>typeof实现与instanceof原理</title>
       <link>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/</link>
       <pubDate>Wed, 22 Apr 2020 10:07:46 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2020/%E5%AE%9E%E7%8E%B0typeof/</guid>
-      <description>typeof 用来判断 JavaScript 中得基本数据类型，instanceof 用来判断 JavaScript 中的对象类型。
+      <description>typeof typeof 用来判断 JavaScript 中得基本数据类型。
 typeof 可以用 Object.prototype.toString() 实现。
-Object.prototype.toString.call(1); // &amp;#34;[object Number]&amp;#34;  Object.prototype.toString.call(&amp;#34;hi&amp;#34;); // &amp;#34;[object String]&amp;#34;  Object.prototype.toString.call({ a: &amp;#34;hi&amp;#34; }); // &amp;#34;[object Object]&amp;#34;  Object.prototype.toString.call([1, &amp;#34;a&amp;#34;]); // &amp;#34;[object Array]&amp;#34;  Object.prototype.toString.call(true); // &amp;#34;[object Boolean]&amp;#34;  Object.prototype.toString.call(() =&amp;gt; {}); // &amp;#34;[object Function]&amp;#34;  Object.prototype.toString.call(null); // &amp;#34;[object Null]&amp;#34;  Object.prototype.toString.call(undefined); // &amp;#34;[object Undefined]&amp;#34;  Object.prototype.toString.call(Symbol(1)); // &amp;#34;[object Symbol]&amp;#34; </description>
+Object.prototype.toString.call(1); // &amp;#34;[object Number]&amp;#34;  Object.prototype.toString.call(&amp;#34;hi&amp;#34;); // &amp;#34;[object String]&amp;#34;  Object.prototype.toString.call({ a: &amp;#34;hi&amp;#34; }); // &amp;#34;[object Object]&amp;#34;  Object.prototype.toString.call([1, &amp;#34;a&amp;#34;]); // &amp;#34;[object Array]&amp;#34;  Object.prototype.toString.call(true); // &amp;#34;[object Boolean]&amp;#34;  Object.prototype.toString.call(() =&amp;gt; {}); // &amp;#34;[object Function]&amp;#34;  Object.prototype.toString.call(null); // &amp;#34;[object Null]&amp;#34;  Object.prototype.toString.call(undefined); // &amp;#34;[object Undefined]&amp;#34;  Object.prototype.toString.call(Symbol(1)); // &amp;#34;[object Symbol]&amp;#34; instanceof instanceof 用来判断 JavaScript 中的对象类型。
+其主要的实现原理就是判断右边变量的 prototype 是否在左边变量的原型链上。比如
+let person = function () {}; let man = function () {}; man.</description>
     </item>
     
     <item>
