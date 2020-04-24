@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Apr 2020 00:12:17 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 00:29:31 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>列举数组遍历的方法</title>
+      <link>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 25 Apr 2020 00:29:31 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/%E6%95%B0%E7%BB%84%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/</guid>
+      <description>for let array = [1, 2, 3, 4, 5]; for (let i = 0; i &amp;lt; array.length; i++) { console.log(array[i]); } forEach 无返回值(返回 undefined)，会为数组的每一个元素执行一个 callback 函数。
+let array = [1, 2, 3, 4, 5]; array.forEach((item) =&amp;gt; { console.log(item); }); for in 一般用来遍历对象的属性。
+只遍历可枚举属性(enumerable)【包括非整数类型的名称和原型链上面的属性】
+var obj = { name: &amp;#34;chow&amp;#34;, color: &amp;#34;yellow&amp;#34;, day: &amp;#34;Sunday&amp;#34;, number: 233, }; for (var key in obj) { console.log(obj[key]); } for of 遍历可迭代（iterable）对象
+var arr = [{ name: &amp;#34;hello&amp;#34; }, 666, &amp;#34;test&amp;#34;]; for (item of arr) { console.</description>
+    </item>
     
     <item>
       <title>setTimeout 与 倒计时</title>
