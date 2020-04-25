@@ -6,10 +6,29 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Apr 2020 16:43:54 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 18:32:28 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>就地复用，key与DOM DIFF</title>
+      <link>https://chow1027.xyz/2020/vue%E5%92%8Creact%E5%9C%A8%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86%E6%97%B6%E7%9A%84key/</link>
+      <pubDate>Sat, 25 Apr 2020 18:32:28 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/vue%E5%92%8Creact%E5%9C%A8%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86%E6%97%B6%E7%9A%84key/</guid>
+      <description>就地复用 与 key 关于就地复用，Vue 有一段官方解释：
+ 如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是简单复用此处的每个元素。
+ 以如下代码为例
+&amp;lt;div v-for=&amp;#34;item in list&amp;#34;&amp;gt; {{文本}}&amp;lt;input/&amp;gt;&amp;lt;button @click=&amp;#34;删除元素&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; 由于 input 元素没有与数据进行绑定，在 Vue 眼中，这些 input 元素都是一样的，因此是可以复用的。
+当我们对中间的某一项进行删除的时候，Vue 看到{{文本}}变了，于是更新{{文本}}，但 input 元素没有变，就会复用之前的 input 元素。
+如何告诉 Vue 我的每一个 input 是不一样的呢？
+答案就是通过 key 作为每一个 input 的唯一标识。
+DOM DIFF 与 key DOM DIFF 算法有三个策略：
+ Tree Diff（层级比较） Component Diff（组件比较） Element Diff（元素、节点的比较）  相同的组件会产生类似的 DOM 结构，不同的组件产生的 DOM 结构也不同。
+对于同一层级的子节点，可以通过唯一的 id 区分（与 key 相关）
+Tree Diff Tree Diff 就是对新旧 DOM 树进行同层级的比较，如果有一个节点不匹配，删除该节点及其所有子节点；相反，如果发现了新的节点，那么就构建该节点及其所有的子节点。</description>
+    </item>
     
     <item>
       <title>React内的性能优化方案</title>
