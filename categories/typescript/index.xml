@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TypeScript on 呆尬猴的博客</title>
+    <link>https://chow1027.xyz/categories/typescript/</link>
+    <description>Recent content in TypeScript on 呆尬猴的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 25 Apr 2020 15:52:53 +0800</lastBuildDate>
+    
+	<atom:link href="https://chow1027.xyz/categories/typescript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TypeScript中的type和interface</title>
+      <link>https://chow1027.xyz/2020/interface%E4%B8%8Etype/</link>
+      <pubDate>Sat, 25 Apr 2020 15:52:53 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/interface%E4%B8%8Etype/</guid>
+      <description>type 和 interface 有什么区别？
+1. type 可以而 interface 不行 type 可以声明基本类型别名，联合类型，元组等类型 // 基本类型别名 type Name = string // 联合类型 interface Dog{wang()} interface Cat{miao()} type Pet = Dog | Cat // 具体定义数组每个位置的类型 type PetList = [Dog,Pet] type 语句中可以使用 typeof 获取实例的类型进行赋值 let div = document.createElement(&amp;#34;div&amp;#34;); type B = typeof div; 2. interface 可以而 type 不行 interface 可以声明合并
+interface User{ name:string age:number } interface User{ sex:string } /* User接口为 { name:string age:number sex:string } */ 相同点 都可以描述一个对象或者函数 interface User{ name:string age:number } interface SetUser{ (name:string,age:number):void } type User = { name: string age: number }; type SetUser = (name: string, age: number)=&amp;gt; void; 允许拓展 type Name = { name: string, }; interface User extends Name { age: number; } //---------------------------- interface Name { name: string; } type User = Name &amp;amp; { age: number, }; 参考 https://juejin.</description>
+    </item>
+    
+  </channel>
+</rss>
