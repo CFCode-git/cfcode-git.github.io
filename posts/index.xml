@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 呆尬猴的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Apr 2020 16:05:31 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 16:43:54 +0800</lastBuildDate>
     
 	<atom:link href="https://chow1027.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React内的性能优化方案</title>
+      <link>https://chow1027.xyz/2020/react%E5%86%85%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Sat, 25 Apr 2020 16:43:54 +0800</pubDate>
+      
+      <guid>https://chow1027.xyz/2020/react%E5%86%85%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/</guid>
+      <description>1. React.PureComponent 和 shouldComponentUpdate export default function ParentComponent(props){ return ( &amp;lt;div&amp;gt; &amp;lt;Child1 Child1Prop={props.Child1Value}&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;Child2 Child2Prop={props.Child2Value}&amp;gt; &amp;lt;/div&amp;gt; ) } export default function Child1(props){ return( &amp;lt;div&amp;gt;{props.Child1Prop}&amp;lt;/div&amp;gt; ) } export default function Child2(props){ return( &amp;lt;div&amp;gt;{props.Child2Prop} ) } 上面代码，只要 props.Child1Value 发生变化，无论 Child2Value 是否变化 Child2 都会变化。
+用 React.PureComponent 和 shouldComponentUpdate 优化
+class Child2 extends React.PureComponent{ render(){ return( &amp;lt;div&amp;gt;{this.props.Child2Value}&amp;lt;/div&amp;gt; ) } } class Child2 extends React.Component{ shouldComponentUpdate(nextProps){ return this.props !== nextProps } return ( &amp;lt;div&amp;gt;{this.</description>
+    </item>
     
     <item>
       <title>HTTP与HTTPS的区别</title>
@@ -57,7 +68,7 @@ var arr = [{ name: &amp;#34;hello&amp;#34; }, 666, &amp;#34;test&amp;#34;]; for 
       <pubDate>Sat, 25 Apr 2020 00:12:17 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2020/%E5%80%92%E8%AE%A1%E6%97%B6/</guid>
-      <description>setInterval function fn(countDown) { let time = countDown; let timeId = setInterval(() =&amp;gt; { console.log(time); time = time - 1; if (time &amp;lt;= 0) { clearInterval(timeId); } }, 1000); } requestAnimationFrame let a = 10; let date = new Date(); let countDown = () =&amp;gt; { if (new Date() - date &amp;lt; 1000) { requestAnimationFrame(countDown); } else { if (a &amp;gt; 0) { console.log(a--); date = new Date(); requestAnimationFrame(countDown); } } }; requestAnimationFrame(countDown); setTimeout 实现 setInterval const mySetInterval = (cb,time)=&amp;gt;{ const fn = ()=&amp;gt;{ cb() setTimeout(()=&amp;gt;{fn()},time) } setTimeout(fn,time) } </description>
+      <description>setInterval function fn(countDown) { let time = countDown; let timeId = setInterval(() =&amp;gt; { console.log(time); time = time - 1; if (time &amp;lt;= 0) { clearInterval(timeId); } }, 1000); } requestAnimationFrame let a = 10; let date = new Date(); let countDown = () =&amp;gt; { if (new Date() - date &amp;lt; 1000) { requestAnimationFrame(countDown); } else { if (a &amp;gt; 0) { console.log(a--); date = new Date(); requestAnimationFrame(countDown); } } }; requestAnimationFrame(countDown); setTimeout 实现 setInterval const mySetInterval = (cb,time)=&amp;gt;{ const fn = ()=&amp;gt;{ cb() setTimeout(()=&amp;gt;{fn()},time) } setTimeout(fn,time) } 参考 https://juejin.</description>
     </item>
     
     <item>

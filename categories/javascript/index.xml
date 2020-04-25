@@ -30,7 +30,7 @@ var arr = [{ name: &amp;#34;hello&amp;#34; }, 666, &amp;#34;test&amp;#34;]; for 
       <pubDate>Sat, 25 Apr 2020 00:12:17 +0800</pubDate>
       
       <guid>https://chow1027.xyz/2020/%E5%80%92%E8%AE%A1%E6%97%B6/</guid>
-      <description>setInterval function fn(countDown) { let time = countDown; let timeId = setInterval(() =&amp;gt; { console.log(time); time = time - 1; if (time &amp;lt;= 0) { clearInterval(timeId); } }, 1000); } requestAnimationFrame let a = 10; let date = new Date(); let countDown = () =&amp;gt; { if (new Date() - date &amp;lt; 1000) { requestAnimationFrame(countDown); } else { if (a &amp;gt; 0) { console.log(a--); date = new Date(); requestAnimationFrame(countDown); } } }; requestAnimationFrame(countDown); setTimeout 实现 setInterval const mySetInterval = (cb,time)=&amp;gt;{ const fn = ()=&amp;gt;{ cb() setTimeout(()=&amp;gt;{fn()},time) } setTimeout(fn,time) } </description>
+      <description>setInterval function fn(countDown) { let time = countDown; let timeId = setInterval(() =&amp;gt; { console.log(time); time = time - 1; if (time &amp;lt;= 0) { clearInterval(timeId); } }, 1000); } requestAnimationFrame let a = 10; let date = new Date(); let countDown = () =&amp;gt; { if (new Date() - date &amp;lt; 1000) { requestAnimationFrame(countDown); } else { if (a &amp;gt; 0) { console.log(a--); date = new Date(); requestAnimationFrame(countDown); } } }; requestAnimationFrame(countDown); setTimeout 实现 setInterval const mySetInterval = (cb,time)=&amp;gt;{ const fn = ()=&amp;gt;{ cb() setTimeout(()=&amp;gt;{fn()},time) } setTimeout(fn,time) } 参考 https://juejin.</description>
     </item>
     
     <item>

@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "setTimeout 与 倒计时",
     "headline" : "setTimeout 与 倒计时",
-    "description" : "setInterval function fn(countDown) { let time = countDown; let timeId = setInterval(() =\x26gt; { console.log(time); time = time - 1; if (time \x26lt;= 0) { clearInterval(timeId); } }, 1000); } requestAnimationFrame let a = 10; let date = new Date(); let countDown = () =\x26gt; { if (new Date() - date \x26lt; 1000) { requestAnimationFrame(countDown); } else { if (a \x26gt; 0) { console.log(a--); date = new Date(); requestAnimationFrame(countDown); } } }; requestAnimationFrame(countDown); setTimeout 实现 setInterval const mySetInterval = (cb,time)=\x26gt;{ const fn = ()=\x26gt;{ cb() setTimeout(()=\x26gt;{fn()},time) } setTimeout(fn,time) } ",
+    "description" : "setInterval function fn(countDown) { let time = countDown; let timeId = setInterval(() =\x26gt; { console.log(time); time = time - 1; if (time \x26lt;= 0) { clearInterval(timeId); } }, 1000); } requestAnimationFrame let a = 10; let date = new Date(); let countDown = () =\x26gt; { if (new Date() - date \x26lt; 1000) { requestAnimationFrame(countDown); } else { if (a \x26gt; 0) { console.log(a--); date = new Date(); requestAnimationFrame(countDown); } } }; requestAnimationFrame(countDown); setTimeout 实现 setInterval const mySetInterval = (cb,time)=\x26gt;{ const fn = ()=\x26gt;{ cb() setTimeout(()=\x26gt;{fn()},time) } setTimeout(fn,time) } 参考 https:\/\/juejin.",
     "inLanguage" : "zh-cn",
     "author" : "周啟尧",
     "creator" : "周啟尧",
@@ -57,7 +57,7 @@
     "datePublished": "2020-04-25 00:12:17 \x2b0800 CST",
     "dateModified" : "2020-04-25 00:12:17 \x2b0800 CST",
     "url" : "https:\/\/chow1027.xyz\/2020\/%E5%80%92%E8%AE%A1%E6%97%B6\/",
-    "wordCount" : "89",
+    "wordCount" : "92",
     "keywords" : [ "", "呆尬猴的博客"]
 }
 </script>
@@ -182,7 +182,10 @@
   }
   <span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">fn</span>,<span style="color:#a6e22e">time</span>)
 }
-</code></pre></div>
+</code></pre></div><h2 id="参考">参考</h2>
+<p><a href="https://juejin.im/post/5bcd89d5e51d4579bb1c5e22">https://juejin.im/post/5bcd89d5e51d4579bb1c5e22</a></p>
+<p><a href="https://juejin.im/post/5cd273d3e51d453ae03507ee">https://juejin.im/post/5cd273d3e51d453ae03507ee</a></p>
+
     </div>
 
     <div class="post-copyright">
